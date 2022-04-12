@@ -1,0 +1,52 @@
+\documentclass[fontsize=11pt,paper=a4,pagesize=auto]{report}
+
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{microtype}
+\usepackage{xcolor,comment, subfiles, graphicx, caption, longtable, subfig, fancyhdr}
+\usepackage{float} %Used to force image to appear in the section in which it's declared
+\usepackage[hidelinks]{hyperref}
+\usepackage[parfill]{parskip}
+
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\includegraphics[scale = 0.20]{images/polimi.jpg}\par
+	{\Large
+		Politecnico di Milano\par
+		Scuola di Ingegneria Civile,Ambientale e Territoriale\
+		Master in Geoinformatics\par}
+			\vspace{0.5cm}
+	{\huge\bfseries
+		My Thesis\\\par}
+	\vspace{1cm}
+	{\Large
+		{\scshape Bresciani} Matteo\par}
+	\vfill
+	Referent professor: {\scshape Brovelli} Maria Antonia\par
+	\vfill
+% Bottom of the page
+	{\large\today\par}
+\end{titlepage}
+
+
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/introduction.tex}
+
+
+
+\chapter{References}
+\input{chapters/references.tex}
+
+
+
+\end{document}
