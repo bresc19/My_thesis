@@ -6,3 +6,5 @@ src/thesis.toc
 src/thesis.out
 src/thesis.log
 src/thesis.aux
+*.out
+*.log
