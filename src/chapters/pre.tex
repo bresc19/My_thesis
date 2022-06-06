@@ -1,40 +1,4 @@
-Data is in most cases incomplete and noisy.
-Nowadays, dealing with big amount of informations, the probability of incorrect data is higher without a proper data preparation. 
-But only high-quality data can generate accurate models and predictions. Hence, it’s crucial to process data with the best possible quality. This step is called data preprocessing, and it’s one of the essential steps in data science, artificial intelligence, and machine learning.
+\section{Data preparation}
+\section{Data cleaning}
 \section{Feature Selection}
-Feature Selection is an important step in data pre-processing. It consists in selecting the best subset of input variable as the most pertinent. Discarding irrelevant data is essential before applying Machine Learning algorithm in order to:
-\begin{itemize}
-\item \textbf{Reduce Overfitting}: less opportunity to make decisions based on noise;
-\item \textbf{Improve Accuracy}: less misleading data means modelling accuracy improves. Predictions can be greatly distorted by redundant attributes;
-\item \textbf{Reduce Training Time}: With less data the algorithms will train faster;
-\end{itemize}
-Due to the fact that there isn’t a best feature selection technique, many different methods are performed. The aim of this part is to discover by experimentation which one/ones work better for this specific problem. 
-In this part, are shown the supervised methods used, which are classified into 3 groups, based on their  different approach.
-\subsection{Filter Methods}
-Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.
-These select features from the without machine learning algorithm. In terms of computation, they are very fast and are very suitable in order to remove duplicated, correlated, redundant variables. On the contrary,  these methods do not remove multicollinearity.
-The filter-based feature selection methods used are the following:
-\begin{itemize}
-\item \textbf{Correlation coeffcients}: Correlation is a statistics measure that shows the strength of association between an independent variable and its target variable. The values range between -1.0 and 1.0. A coefficient of -1.0 shows a perfect negative correlation, while a correlation of 1.0 shows a perfect positive correlation. A correlation of 0.0 shows no relationship between the movement of the two variables. In this study, I selected three types of correlation:
-\begin{itemize}
-\item \textbf{Pearson correlation}: It's one of the most coefficients used in statistics. This measures the strength and direction of a linear relationship between two variables. 
-\item \textbf{Spearmanr correlation coefficient}: It's a non-parametric coeffcient which, instead of Pearson, measures the monotonic relationship between two variables. In a monotonic relationship, the variables tend to change together, but not necessarily at a constant rate. Hence, since monotonic relation is less restrictive than linear relation, Spearmanr coefficent can provide further informations;
-\item \textbf{Kendall Correlation}: The Kendall correlation is similar to the Spearman correlation because is non-parametric too but it measures the dependence between two variables instead their correlations;
-\end{itemize}
-\item \textbf{Fisher Score}: F-score is one of the most used supervised feature selection methods. In my study this is implemented using \textit{SelectKBest method}, which compute the score for each variable using the \textit{f\_regression()} function to evaluate them.
-\end{itemize}
-
-
-\subsection{Wrapper and Embedded Methods}
-Wrapper methods, as the name suggests, wrap a machine learning model, with different subsets of input features: In this way the subsets are  evaluated following the best model performance.
-Embedded methods instead are characterised by the benefits of both the wrapper and filter methods, by including interactions of features but also having a reasonable computational cost.
-\begin{itemize}
-\item \textbf{Exhaustive Feature Selection}:
-\item \textbf{Recursive Feature Selection}:
-\item \textbf{Random Forest Importance}:
-\end{itemize}
-\subsection{Multiscale Geographically Weighted Regression(MGWR)}
-Due to the fact that this study is related to geographic and spatial data, each pieces of data is very sensitive to the geographic distance between them. So the use of mgwr methods could be innovative, since multivariate models are increasingly encountered in geographical research to estimate spatially varying relationships between a targets and its predictive variables.
-
-
-
+\section{Results}
