@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.11)  27 JUN 2022 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.11)  27 JUN 2022 17:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -25,7 +25,14 @@ File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/lm/lmodern.sty
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -638,7 +645,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<images/polimi.jpg, id=52, 1303.87125pt x 1013.7875pt>
+<images/polimi.jpg, id=48, 1303.87125pt x 1013.7875pt>
 File: images/polimi.jpg Graphic file (type jpg)
 <use images/polimi.jpg>
 Package pdftex.def Info: images/polimi.jpg  used on input line 22.
@@ -652,8 +659,12 @@ Package microtype Info: Character `029' is missing
  [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
-s/polimi.jpg>]
-(./thesis.toc)
+s/polimi.jpg>]pdfTeX warning (ext4): destination with the same identifier (name
+{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.47 \end{abstract}
+                    [1] (./thesis.toc)
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -661,53 +672,40 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 \begin{abstract}
-                      [1
+l.50 \chapter
+             {Introduction} [1
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.46 \end{abstract}
-                    [1]
+]
 Chapter 1.
-(./chapters/introduction.texpdfTeX warning (ext4): destination with the same id
-entifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.13 \section
-             {D-Dust} [1
+(./chapters/introduction.tex [2
 
-] [2]
+] [3]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
 4.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [3]) [4]
+) [4]) [5]
 Chapter 2.
-(./chapters/background.tex Excluding 'comment' comment.) [5
+(./chapters/background.tex Excluding 'comment' comment.) [6
 
 ]
 Chapter 3.
-(./chapters/pre.tex Excluding 'comment' comment.) [6
+(./chapters/pre.tex Excluding 'comment' comment.) [7
 
 ]
 Chapter 4.
-(./chapters/caseofstudy.tex Excluding 'comment' comment.) [7
+(./chapters/caseofstudy.tex Excluding 'comment' comment.) [8
 
 ]
 Chapter 5.
-(./chapters/conclusion.tex) [8
+(./chapters/conclusion.tex) (./thesis.bbl [9
 
 ]
 Chapter 6.
-(./chapters/references.tex Excluding 'comment' comment.) (./thesis.bbl [9
-
-])
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
-
-[10
+ [10
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
@@ -715,17 +713,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 17B4ACF82D0FD10CBE9E3129D2DD33CC;698.
+(rerunfilecheck)             Checksum: 1B8B7F15D8F0FBF599E2224D7B61E7FB;625.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
  ) 
 Here is how much of TeX's memory you used:
- 13270 strings out of 480608
- 246494 string characters out of 5903629
- 548267 words of memory out of 5000000
- 28788 multiletter control sequences out of 15000+600000
+ 13342 strings out of 480608
+ 247527 string characters out of 5903629
+ 549253 words of memory out of 5000000
+ 28862 multiletter control sequences out of 15000+600000
  595749 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,46p,1002b,778s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,5n,46p,1002b,787s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
 /texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/
 texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist
@@ -733,10 +731,10 @@ texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist
 e1/public/lm/lmcsc10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public
 /lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.p
 fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on thesis.pdf (13 pages, 1014315 bytes).
+Output written on thesis.pdf (12 pages, 1013354 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 21094 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 21086 words of extra memory for PDF output out of 24883 (max. 10000000)
 

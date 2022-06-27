@@ -1,5 +1,5 @@
 \documentclass[fontsize=11pt,paper=a4,pagesize=auto]{report}
-
+\usepackage[nottoc,numbib]{tocbibind}
 \usepackage{lmodern}
 \usepackage[english]{babel}
 \usepackage{blindtext}
@@ -38,12 +38,14 @@
 \end{titlepage}
 
 
-\tableofcontents
 
 
 \begin{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
 qq
 \end{abstract}
+\tableofcontents
 
 \chapter{Introduction}
 \input{chapters/introduction.tex} 
@@ -60,8 +62,6 @@ qq
 \chapter{Conclusion}
 \input{chapters/conclusion.tex}
 
-\chapter{References}
-\input{chapters/references.tex}
 
 \bibliographystyle{plain}
 \bibliography{mybib.bib}       
