@@ -1,48 +1,42 @@
-\begin{comment}
-\section{Data collection}
-\section{Feature selection}
-Data is in most cases incomplete and noisy.
-Nowadays, dealing with big amount of informations, the probability of incorrect data is higher without a proper data preparation. 
-But only high-quality data can generate accurate models and predictions. Hence, it’s crucial to process data with the best possible quality. This step is called data preprocessing, and it’s one of the essential steps in data science, artificial intelligence, and machine learning.
-\section{Feature Selection}
-Feature Selection is an important step in data pre-processing. It consists in selecting the best subset of input variable as the most pertinent. Discarding irrelevant data is essential before applying Machine Learning algorithm in order to:
-\begin{itemize}
-\item \textbf{Reduce Overfitting}: less opportunity to make decisions based on noise;
-\item \textbf{Improve Accuracy}: less misleading data means modelling accuracy improves. Predictions can be greatly distorted by redundant attributes;
-\item \textbf{Reduce Training Time}: With less data the algorithms will train faster;
-\end{itemize}
-Due to the fact that there isn’t a best feature selection technique, many different methods are performed. The aim of this part is to discover by experimentation which one/ones work better for this specific problem. 
-In this part, are shown the supervised methods used, which are classified into 3 groups, based on their  different approach.
-\subsection{Filter Methods}
+In this chapter I'm going to contextualize the state of the art of my research work. 
+Besides, I'll give explanation about the target to reach and the solution applied.\par
+The goal of my research is to implement a Machine Learning model capable of predicting pollutant locally with better precision than global scale. 
+Data must be preprocessed before training, in order to reduce overfitting and improve accuracy of the final model.
+Another aspect to take in consideration is that a ML model trained with so many features it would be a black box, in which a lack of interpretability couldn't be able to explain the decisions taken by the AI.
+So it's needed to care about interpretability in order to discard eventually confoundant variables  which can suggest there is a correlation when in fact there is not, even if the model's accuracy is extremely high. 
+For instance, a new paper by Alex DeGrave et al.\cite{degrave2021ai} shows that Deep Learning model trained with improper data was taking shortcuts in COVID-19 detection on radiographs because of position of certain markers rather than on the actual radiograph.
+Therefore, the key to increase interpretability of a given model is to wonder if given factor should drive the final decision.\par
+In this context, in which the black-box nature of ML algorithms raises ethical and judicial concerns inducing lack of trust, Explainable Artificial Intelligence aims to create a model fully interpretable.
+Explainable Artificial Intelligence (or Explainable Machine Learning) helps to understand how ML algorithms make prediction, with the usage of Feature Selection methods for determining how well each feature can predict the target variable.
+Indeed, before developing a predictive model, feature selection is essential for reducing the number of input variable. 
+It is desirable to both reduce the computational cost of modeling and, in some cases, to improve the performance of the model.
+Nowadays, with the large amount of volume and variety in Big Data, FS is becoming increasingly an essential preprocessing step in machine learning algorithms \cite{kamolov2021feature}.
+\par
+In litherature we can find various feature selection methods which are classified in three main categories\cite{stanczyk2015feature}:
+\subsubsection{Filter Methods}
 Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.
-These select features from the without machine learning algorithm. In terms of computation, they are very fast and are very suitable in order to remove duplicated, correlated, redundant variables. On the contrary,  these methods do not remove multicollinearity.
-The filter-based feature selection methods used are the following:
+These select features from the without machine learning algorithm. In terms of computation, they are very fast and are very suitable in order to remove duplicated, correlated, redundant variables. On the contrary, these methods do not remove multicollinearity
+\subsubsection{Wrapper Methods}
+Wrapper methods, as the name suggests, wrap a machine learning model, with different subsets of input features. In this way the subsets are evaluated following the best model performance.
+One disadvantage of this approach is the computational costs.
+Their exection for many subsets of variables can become unfeasible. 
+\subsubsection{Embedded Methods}
+Embedded methods instead are characterised by the benefits of both the wrapper and filter methods, by including interactions of features but also having a reasonable computational cost.\par
+\bigskip
+Due to the fact there isn’t a best feature selection technique, I performed and combined different supervised methods. 
+According to the above, my work comes on this scenario, having the aim to preprocessed geospatial data in order to highlight the most weighted input variable that affect the pollutants as target variable.
+In the next chapter of my report details I'll show the tools developed and the strategy choosen to reach the target. 
+This is the content of the next chapters:
+
 \begin{itemize}
-\item \textbf{Correlation coeffcients}: Correlation is a statistics measure that shows the strength of association between an independent variable and its target variable. The values range between -1.0 and 1.0. A coefficient of -1.0 shows a perfect negative correlation, while a correlation of 1.0 shows a perfect positive correlation. A correlation of 0.0 shows no relationship between the movement of the two variables. In this study, I selected three types of correlation:
-\begin{itemize}
-\item \textbf{Pearson correlation}: It's one of the most coefficients used in statistics. This measures the strength and direction of a linear relationship between two variables. 
-\item \textbf{Spearmanr correlation coefficient}: It's a non-parametric coeffcient which, instead of Pearson, measures the monotonic relationship between two variables. In a monotonic relationship, the variables tend to change together, but not necessarily at a constant rate. Hence, since monotonic relation is less restrictive than linear relation, Spearmanr coefficent can provide further informations;
-\item \textbf{Kendall Correlation}: The Kendall correlation is similar to the Spearman correlation because is non-parametric too but it measures the dependence between two variables instead their correlations;
+  \item \autoref{chap:Overview} (\textbf{Overview}): It shows the main steps I take in my work;
+  \item \autoref{chap:pre} (\textbf{Data Collection and Pre-Processing}): It outlines in detail how data are collected and preprocessed, with particular attention to the feature selection;
+  \item \autoref{chap:case} (\textbf{Case of Study and Data Modelling}): It's focused on the results achieved in the case of study (both feature selection and models built);
 \end{itemize}
-\item \textbf{Fisher Score}: F-score is one of the most used supervised feature selection methods. In my study this is implemented using \textit{SelectKBest method}, which compute the score for each variable using the \textit{f\_regression()} function to evaluate them.
-\item \textbf{Variance Threshold}: It aims to remove all features with variance which doesn’t meet a threshold value. Usually it removes all zero-variance features, so variables that contains useless information.
-\end{itemize}
-
-
-\subsection{Wrapper and Embedded Methods}
-Wrapper methods, as the name suggests, wrap a machine learning model, with different subsets of input features: In this way the subsets are  evaluated following the best model performance.
-Embedded methods instead are characterised by the benefits of both the wrapper and filter methods, by including interactions of features but also having a reasonable computational cost.
-\begin{itemize}
-\item \textbf{Exhaustive Feature Selection}: This algorithm follow the exhaustive feature selection approach with brute-force evaluation of feature subsets; the best subset with its accuracy is selected by optimizing a specified metric given an arbitrary regressor or classifier;
-\item \textbf{Recursive Feature Selection}: The goal of RFE is to select features by recursively considering smaller and smaller sets of features. The algorithm will return the optimal subset with its accuracy. The dimension of the subet is selected as input by the user; 
-\item \textbf{Random Forest Importance}:
-\end{itemize}
-\subsection{Multiscale Geographically Weighted Regression (MGWR)}
-Due to the fact that this study is related to geographic and spatial data, each pieces of information is very sensitive to the geographic distance (for the Tobler’s first law of geography: \textit{“everything is related to everything else, but near things are more related than distant things”}). MGWR is a geographic weighted regression tecnique which is an extension of another regression method which is GWR (Geographic Weighted Regression). GWR explores the potential spatial relationships and provides a measure of the spatial scale through the determination of an optimal bandwidth. MGWR instead provide an optimal bandwidth for each covariate involed in the regression. So it's therefore known as multiscale (M)GWR. So the use of MGWR method could be innovative, since multivariate models are increasingly encountered in geographical research to estimate spatially varying behaviour between a target and its predictive variables.
-
-
-
-
-\section{Data modelling using Machine Learning}
+\begin{comment}
+Indeed, in recent years ensemble feature selection are being implemented by researchers  
+approaches are being developed by researchers. They follow a similar recipe with the well-established ensemble on classification algorithms, which provides better results and robustness than employing single algorithms
 \end{comment}
+
+
 

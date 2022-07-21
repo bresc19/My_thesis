@@ -1,14 +1,16 @@
 \section{Pre-processing}
-Mainly my work (~\ref{fig:overview}) is focused on the first phase of a data analysis procedure which is the pre-processing.
+My work is focused on the first phase of a data analysis procedure which is the pre-processing.
 Data pre-processing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
 Indeed, raw data is in most cases incomplete and noisy.\par
 Nowadays, dealing with big amount of information, the probability of incorrect data is higher without a proper data pre-processing.
 Only high-quality data can generate accurate models and predictions. \par
-Hence, it’s crucial to process data with the best possible quality before training them with artificial intelligence, and machine learning predictive models.
-Its essential steps are these.
+Hence, it’s crucial to process data with the best possible quality before training them with artificial intelligence, and machine learning predictive models.\par
+For doing this I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
+(\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
+Its essential steps (shown in figure \ref{fig:overview}) are these.
 
 \subsection{Data Collection}
-Relevant data is gathered from their sources and merged in data structures (such as Dataframes). In our work, data come from \textit{fixed ground-sensor} and \textit{satellite-based platform} and are entirely numerical.
+Relevant data is gathered from their sources and merged in data structures (such as Dataframes). In our work, data come from fixed ground-sensor, satellite-based platform, models and map layers. In this phase are processed (mostly) numerical and categorical data. 
 \subsection{Data Cleaning}
 It involves fixing problems or errors in messy or incomplete data. There are general data cleaning operation, such as identifying:
 \begin{itemize}
@@ -53,14 +55,15 @@ For doing prediction, I employ 2 supervised AI models:
 \item \textbf{Neural Network regression with Keras}: It's one of the deep learning algorithms that simulate the workings of neurons in the human brain. In a neural network neurons are linked between them forming layers; 
 \item \textbf{Machine Learning with Random Forest regressor}: It operates by constructing several decision trees during training time and outputting the mean of the classes as the prediction of all the trees;
 \end{itemize}
-After this step an evaluation of the performance of predictions is performed in terms of error and accuracy with a validation procedure.\newline
-This is done following  a k-fold cross validation procedure.
-Finally, a comparison with CAMS data is performed with the aim to demonstrate that the models produced are better estimated in this local scale.
-In the next chapters each step will be described in depth about procedures adapted and results obtained.
+After this step an evaluation of the performance of predictions is performed in terms of error and accuracy with a procedure called k-fold cross validation.\newline
+Finally, a comparison with CAMS data is performed with the aim to demonstrate that the models produced are better estimated in this local scale.\par
 
-\begin{figure}[b]
-      \centering
-    \includegraphics[scale=0.4]{images/overview.png}
-    \caption{Overview of steps made.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{images/overview.png}
+    \caption{Overview of the steps made.}
     \label{fig:overview}
 \end{figure}
+
+In the next chapters each step will be described in depth about procedures adapted and results obtained.

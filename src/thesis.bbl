@@ -11,4 +11,25 @@ MR~Burkart.
   challenges, and opportunities.
 \newblock {\em Water science and technology}, 55(3):17--23, 2007.
 
+\bibitem{degrave2021ai}
+Alex~J DeGrave, Joseph~D Janizek, and Su-In Lee.
+\newblock Ai for radiographic covid-19 detection selects shortcuts over signal.
+\newblock {\em Nature Machine Intelligence}, 3(7):610--619, 2021.
+
+\bibitem{kamolov2021feature}
+Saidjon Kamolov.
+\newblock Feature selection: state-of-the-art survey.
+\newblock {\em Annals of Mathematics and Computer Science}, 4:48--54, 2021.
+
+\bibitem{stanczyk2015feature}
+Urszula Sta{\'n}czyk.
+\newblock Feature evaluation by filter, wrapper, and embedded approaches.
+\newblock In {\em Feature Selection for Data and Pattern Recognition}, pages
+  29--44. Springer, 2015.
+
+\bibitem{usali2010use}
+Norsaliza Usali and Mohd~Hasmadi Ismail.
+\newblock Use of remote sensing and gis in monitoring water quality.
+\newblock {\em Journal of sustainable development}, 3(3):228, 2010.
+
 \end{thebibliography}
