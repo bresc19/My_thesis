@@ -228,18 +228,34 @@ In the following table is explained the semantic of the values assumed.
 \end{center}
 
 \section{Data Cleaning}
+Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. 
 This could be done by removing a rows or columns. Alternately, it might involve replacing observations with new values. 
+Firstly data covariates are splitted between independent (X) and target variable (y). X represents all of variables collected in the previous part, exceting for the pollutant to be analyzed and modelled (such as PM25 or Ammonia) which consists in the y variable.
+
 In this section are underlined the issues mitigated by the Data Cleaning.
 \subsection{Nan Values}
+In my work I consider as pollutant variables coming from ground sensor measurament.
+Air quality monitoring is usually carried out through ground sensors networks, which represents the primary air quality data source by governance. 
 In the grids processed there's the problem that a given value provided by measurament tools (such as ground and satellite sensor) could be NaN. 
 It's feasible since:
 \begin{itemize}
 \item A sensor could have no measurament for a given time epoch;
 \item The set of sensor, because of its limited supply, cannot cover each cell of a grid;
 \end{itemize}
-In our case variable provided by ARPA and ESA ground sensor (with the label that ends with '\_st' and '\_lcs' respectevively) has many NaN cells. 
-Ground sensors, even if are very restricted, are very singificant for our case of study because provide truthfull in situ measurament\cite{usali2010use}.
+In our case variable provided by ARPA and ESA ground sensor (with the label that ends with '\_st' and '\_lcs' respectevively) has many NaN cells.
+
+However, no country in the world has yet established a monitoring network with a full satisfying coverage\cite{liu2018improve}. Even in the United States (US), which is characterized by a relatively developed PM2.5 ground monitoring network with 2500 stations has many areas unmonitored\cite{liu2018improve}. 
+
+In order to mitigate this, I present this solution in sequence:
+\begin{itemize}
+\item Drop of samples having target variable with NaN value;
+\item Drop of columns having at least a NaN value;
+\end{itemize}
+Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbor classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurament.
+In this way the size of the final sample, as the performance of the feature selection would increase.
+
+
 
 \section{Data Transormation}
 \section{Feature Selection}

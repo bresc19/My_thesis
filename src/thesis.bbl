@@ -21,15 +21,29 @@ Saidjon Kamolov.
 \newblock Feature selection: state-of-the-art survey.
 \newblock {\em Annals of Mathematics and Computer Science}, 4:48--54, 2021.
 
+\bibitem{liu2018improve}
+Ying Liu, Guofeng Cao, Naizhuo Zhao, Kevin Mulligan, and Xinyue Ye.
+\newblock Improve ground-level pm2. 5 concentration mapping using a random
+  forests-based geostatistical approach.
+\newblock {\em Environmental Pollution}, 235:272--282, 2018.
+
 \bibitem{stanczyk2015feature}
 Urszula Sta{\'n}czyk.
 \newblock Feature evaluation by filter, wrapper, and embedded approaches.
 \newblock In {\em Feature Selection for Data and Pattern Recognition}, pages
   29--44. Springer, 2015.
 
-\bibitem{usali2010use}
-Norsaliza Usali and Mohd~Hasmadi Ismail.
-\newblock Use of remote sensing and gis in monitoring water quality.
-\newblock {\em Journal of sustainable development}, 3(3):228, 2010.
+\bibitem{taunk2019brief}
+Kashvi Taunk, Sanjukta De, Srishti Verma, and Aleena Swetapadma.
+\newblock A brief review of nearest neighbor algorithm for learning and
+  classification.
+\newblock In {\em 2019 International Conference on Intelligent Computing and
+  Control Systems (ICCS)}, pages 1255--1260. IEEE, 2019.
+
+\bibitem{zhang2018strategy}
+Ying Zhang and Chen Ling.
+\newblock A strategy to apply machine learning to small datasets in materials
+  science.
+\newblock {\em Npj Computational Materials}, 4(1):1--8, 2018.
 
 \end{thebibliography}
