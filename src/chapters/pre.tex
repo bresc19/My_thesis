@@ -61,8 +61,11 @@ In the next lines each variable is provided in tables, by showing its type, name
 \multirow{1}{4em}{Solar Radiation} & Ground \newline Sensor  & \underline{press} & Global radiation measurement - ARPA monitoring station. & W/m\textsuperscript{2} & ARPA \newline Lombardia.\\ \hline
 
 \hline
+\caption{Table of Methorogical variables.}
+
 \end{longtable}
 \end{center}
+
 \subsubsection{Pollutants}
 
 
@@ -71,9 +74,6 @@ In the next lines each variable is provided in tables, by showing its type, name
 \begin{longtable}{ |p{2cm}|p{1.5cm}|p{2.3cm}|p{4cm}|p{1cm}|p{2cm}| } 
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
-\hline
-
- \multicolumn{6}{|c|}{\textit{Pollutants}} \\
 \hline
 \multirow{1}{4em}{Dust} & Model  & \underline{dust} & Mean dust concentration at 0m level provided by CAMS (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ \hline
 
@@ -122,7 +122,7 @@ In the next lines each variable is provided in tables, by showing its type, name
 \multirow{3}{4em}{NH\textsubscript{3}} & Model  & \underline{nh3\_cams} & Mean NH\textsubscript{3} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
 & Satellite \newline Sensor  & \underline{nh3\_lcs} &  Mean NH\textsubscript{3} concentration ground measurement - Low Cost Sensor ESA monitoring stations  & ? & ESA Air Quality Platform.\\ 
 & Ground \newline Sensor & \underline{nh3\_st} &  Mean NH\textsubscript{3} concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
-
+\caption{Table of Pollutant variables.}
 \end{longtable}
 \end{center}
 
@@ -135,9 +135,6 @@ In the next lines each variable is provided in tables, by showing its type, name
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
 
- \multicolumn{6}{|c|}{\textit{Pollutants}} \\
-\hline
-
 \multirow{3}{4em}{Vegetation} & Satellite \newline Sensor  & \underline{siarlX} & Fraction of area in each cell for each agricultural use provided by SIARL Catalog for Lombardy Region. & \% & SIARL Lombardia 2019.\\ 
 & Satellite \newline Sensor  & \underline{ndvi} &  Mean NDVI cell value over 16 days period & - & USGS Earth Data.\\ 
 & Satellite \newline Sensor  & \underline{siarl} &  Majority class for agricultural use provided by SIARL Catalog for Lombardy Region. & cat & SIARL Lombardia 2019.\\
@@ -148,7 +145,9 @@ In the next lines each variable is provided in tables, by showing its type, name
 & Map Layer  & \underline{soil\_textX} &  Mean NDVI cell value over 16 days period & \% & Basi informative dei suoli - Geoportale Lombardia.\\ 
 & Map Layer  & \underline{soil} &  Majority soil type for each pixel from OpenLandMap soil texture classification . & cat & OpenLandMap Soil Texture Class (USDA System) .\\ 
 & Map Layer  & \underline{soil\_text} &  Majority soil type for each pixel from Carta pedologica 250K (Lombardy Region). & cat & Basi informative dei suoli - Geoportale Lombardia.\\ 
+
 \hline
+\caption{Table of variables referred to Vegatation and Soil.}
 
 \end{longtable}
 \end{center}
@@ -161,10 +160,6 @@ In the next lines each variable is provided in tables, by showing its type, name
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
-
- \multicolumn{6}{|c|}{\textit{Pollutants}} \\
-\hline
-
 \multirow{1}{4em}{Geometry} & Map Layer  & \underline{area} & Area of Lombardy Region vector layer in each cell. & km\textsuperscript{2} & SIARL Lombardia 2019.\\ 
 & Satellite \newline Sensor  & \underline{ndvi} &  Mean NDVI cell value over 16 days period & - & - \\ \hline
 
@@ -194,6 +189,8 @@ Map Layer  & \underline{dusaf} & Cover & Land Use majority class for each cell p
 
 
 \hline
+\caption{Table of Static GIS variables.}
+
 \end{longtable}
 \end{center}
 \subsubsection{Categorical Variable}
@@ -206,14 +203,14 @@ In the following table is explained the semantic of the values assumed.
 \textbf{Variable name} & \textbf{Note}\\ 
 \hline
 
- \multicolumn{2}{|c|}{\textit{Meteo}} \\
+ \multicolumn{2}{|c|}{\textbf{Meteo}} \\
 \hline
  \underline{wind\_dir\_st}  & 1 = North: 0° - 22.5° / 337.5° - 360°, \newline2 = North-East: 22.5° - 67.5°, \newline3 = East: 67.5° - 112.5°,  \newline4 = South-East: 112.5° - 157.5°, \newline5 = South: 157.5° - 202.5°, \newline6 = South-West: 202.5° - 247.5°, \newline7 = West: 247.5° - 292.5°, 8 = North-West: 292.5° - 337.5°\\ \hline
- \multicolumn{2}{|c|}{\textit{Soil and Vegetation}} \\ \hline
+ \multicolumn{2}{|c|}{\textbf{Soil and Vegetation}} \\ \hline
  \underline{siarl} & 2 = Cereal \newline9 = Mais \newline12 = Rice\\  \hline
  \underline{soil} &  2=Cereal\newline9=Mais\newline12=Rice\\ \hline 
 \underline{soil\_text} &  1 = Clay\newline2 = Silty Clay \newline3 = Sandy Clay\newline4 = Clay Loeam \newline5 = Silty Clay Loam\newline6 = Sandy Clay Loam \newline7 = Loam \newline8 = Silt Loam \newline9 = Sandy Loam \newline10 = Silt \newline 11 = Loamy Sand \newline12 = Sand.\\ \hline
- \multicolumn{2}{|c|}{\textit{GIS (Static layers)}} \\ \hline
+ \multicolumn{2}{|c|}{\textbf{GIS (Static layers)}} \\ \hline
  \underline{dusaf} & 2 = Agricultural areas \newline3 = Wooded territories and semi-natural environments \newline4 = Wetlands \newline5 = Water bodies \newline11 = Urbanised areas \newline12 = Production facilities, large plants and communication networks \newline13 = Mining areas, landfills, construction sites, waste and abandoned land \newline14 = Non-agricultural green areas \\
 \hline
  \underline{aq\_zone} & 1 = Highly urbanized plains \newline 2 = Plains \newline 3 = Prealpi, Appennino and mountains \newline 4 = Valley floor Agg. 
@@ -222,6 +219,8 @@ In the following table is explained the semantic of the values assumed.
  \underline{clim\_zone} & 1= Alpi\newline 2 = Prealpi Occidentali \newline 3 = Prealpi Orientali\newline 4 = Pianura Occidentale\newline 5 =  Pianura Centrale\newline 6 = Pianura Orientale. 
  \\
 \hline
+\caption{Table of categorical variables with their values legend.}
+
 
 
 \end{longtable}
@@ -231,11 +230,11 @@ In the following table is explained the semantic of the values assumed.
 Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. 
 This could be done by removing a rows or columns. Alternately, it might involve replacing observations with new values. 
-Firstly data covariates are splitted between independent (X) and target variable (y). X represents all of variables collected in the previous part, exceting for the pollutant to be analyzed and modelled (such as PM25 or Ammonia) which consists in the y variable.
+Firstly data covariates are splitted between independent (X) and target variable (Y). X represents all of variables collected in the previous part, excepting for the pollutant to be analyzed and modelled (such as PM25 or Ammonia) which consists in the Y variable.
 
-In this section are underlined the issues mitigated by the Data Cleaning.
+In this section are underlined the main steps performed in the Data Cleaning phase.
 \subsection{Nan Values}
-In my work I consider as pollutant variables coming from ground sensor measurament.
+In my work I consider as target variable PM25 and Ammonia coming from ground sensor measurament.
 Air quality monitoring is usually carried out through ground sensors networks, which represents the primary air quality data source by governance. 
 In the grids processed there's the problem that a given value provided by measurament tools (such as ground and satellite sensor) could be NaN. 
 It's feasible since:
@@ -250,14 +249,21 @@ However, no country in the world has yet established a monitoring network with a
 In order to mitigate this, I present this solution in sequence:
 \begin{itemize}
 \item Drop of samples having target variable with NaN value;
-\item Drop of columns having at least a NaN value;
+\item Drop of columns (values assumed by each covariates) having at least a NaN value;
 \end{itemize}
-Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbor classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurament.
+Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbor classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurament. Values added are computed using a Radial Basis function interpolation\cite{wright2003radial}.
 In this way the size of the final sample, as the performance of the feature selection would increase.
 
+\subsection{Remove of variables with low variance}
+An approach for removing columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean of a given variable X $\mu$. 
+\begin{equation}
+  Var(X) = E[(X-\mu)^2]
+\end{equation}
+The variance can be used as a filter for identifying columns to be removed from a given dataset. 
+Using a feature with low-variance only adds complexity and noisy to the feature selection and the predictive.
+In order to do that, I perfomed VarianceThreshold method from the scikit-learn library. In this way, features under a certain variance threshold value should be meaningless and consequentely discarded by its dataset. 
+\section{Data Transformation}
 
-
-\section{Data Transormation}
 \section{Feature Selection}
 
 

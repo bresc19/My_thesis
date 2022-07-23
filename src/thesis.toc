@@ -23,8 +23,9 @@
 \contentsline {subsubsection}{Categorical Variable}{15}{section*.10}%
 \contentsline {section}{\numberline {4.2}Data Cleaning}{17}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Nan Values}{17}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Data Transormation}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Feature Selection}{17}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Case of Study and Data Modelling }{18}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{19}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Bibliography}{20}{chapter.7}%
+\contentsline {subsection}{\numberline {4.2.2}Remove of variables with low variance}{17}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Data Transformation}{18}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Feature Selection}{18}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Case of Study and Data Modelling }{19}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion}{20}{chapter.6}%
+\contentsline {chapter}{Bibliography}{21}{chapter*.11}%
