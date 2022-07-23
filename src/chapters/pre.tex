@@ -103,7 +103,7 @@ In the next lines each variable is provided in tables, by showing its type, name
 
 \multirow{1}{4em}{NO\textsubscript{x}} & Ground \newline Sensor & \underline{nox\_st} &  Mean NO\textsubscript{x} (field: "Ossidi di Azoto") concentration ground measurement - ARPA monitoring stations  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
 
-\multirow{1}{4em}{CO\textsubscript{2}} & Ground \newline Sensor & \underline{c02\_lcs} &  Mean CO2 concentration ground measurement - Low Cost Sensor ESA monitoring stations & ? & ESA Air Quality Platform.\\ \hline
+\multirow{1}{4em}{CO\textsubscript{2}} & Ground \newline Sensor & \underline{co2\_lcs} &  Mean CO2 concentration ground measurement - Low Cost Sensor ESA monitoring stations & ? & ESA Air Quality Platform.\\ \hline
 
 \multirow{4}{4em}{CO} & Model  & \underline{co\_cams} & Mean CO concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
 & Satellite \newline Sensor  & \underline{co\_s5p} &  Mean CO vertically integrated column density. & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
@@ -230,7 +230,7 @@ In the following table is explained the semantic of the values assumed.
 Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. 
 This could be done by removing a rows or columns. Alternately, it might involve replacing observations with new values. 
-Firstly data covariates are splitted between independent (X) and target variable (Y). X represents all of variables collected in the previous part, excepting for the pollutant to be analyzed and modelled (such as PM25 or Ammonia) which consists in the Y variable.
+Firstly data covariates are splitted between input (X) and output variable (Y). X represents all of variables collected in the previous part, excepting for the pollutant to be analyzed and modelled (such as PM25 or Ammonia) which is assigned to the Y variable.
 
 In this section are underlined the main steps performed in the Data Cleaning phase.
 \subsection{Nan Values}
@@ -263,6 +263,15 @@ The variance can be used as a filter for identifying columns to be removed from 
 Using a feature with low-variance only adds complexity and noisy to the feature selection and the predictive.
 In order to do that, I perfomed VarianceThreshold method from the scikit-learn library. In this way, features under a certain variance threshold value should be meaningless and consequentely discarded by its dataset. 
 \section{Data Transformation}
+Having input variables with different units (e.g. ug/m\textsuperscript{3}, °C, hours or mol/m\textsuperscript{2}) implies data at different scales. This could raise the difficulty of the problem being modeled. 
+Hence, a common scale through Normalization or Standardization is needed in order to improve the data quality.
+Many ML and regression algorithms perform better when numerical input and output variables are scaled to a common standard range. 
+For instance, it's proved that neural networks trained with scaled data performs better in terms of MSE \cite{shanker1996effect}.
+In this step, two type of transformation have been done:
+\begin{itemize}
+\item Normalization
+\item Standardization: it consists in rescaling data following a gaussian distribution of values with mean equals to 0 and and standard deviation equals to 1. In this way 
+\end{itemize}
 
 \section{Feature Selection}
 

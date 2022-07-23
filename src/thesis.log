@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.11)  23 JUL 2022 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.11)  23 JUL 2022 18:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1700,12 +1700,7 @@ Underfull \vbox (badness 10000) detected at line 194
 Underfull \vbox (badness 10000) detected at line 226
  []
 
-[16]
-
-LaTeX Warning: Citation `wright2003radial' on page 17 undefined on input line 2
-54.
-
-[17]) [18]
+[16] [17]) [18]
 Chapter 5.
 (./chapters/caseofstudy.tex Excluding 'comment' comment.) [19
 
@@ -1724,18 +1719,14 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D5DDBE4924B0E7C420D76309F493EDCE;1374.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 14616 strings out of 480608
- 264143 string characters out of 5903629
- 617127 words of memory out of 5000000
- 30034 multiletter control sequences out of 15000+600000
- 600399 words of font info for 106 fonts, out of 8000000 for 9000
+ 14622 strings out of 480608
+ 264247 string characters out of 5903629
+ 617205 words of memory out of 5000000
+ 30036 multiletter control sequences out of 15000+600000
+ 600529 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,51p,929b,918s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
@@ -1751,10 +1742,10 @@ al/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive
 /type1/public/lm/lmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
 c/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy1
 0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (23 pages, 1139350 bytes).
+Output written on thesis.pdf (23 pages, 1141041 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 282 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 327 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
  22203 words of extra memory for PDF output out of 24883 (max. 10000000)
 

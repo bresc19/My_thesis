@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{european2018air}
 European~Environment Agency.
@@ -27,6 +27,11 @@ Ying Liu, Guofeng Cao, Naizhuo Zhao, Kevin Mulligan, and Xinyue Ye.
   forests-based geostatistical approach.
 \newblock {\em Environmental Pollution}, 235:272--282, 2018.
 
+\bibitem{shanker1996effect}
+Murali Shanker, Michael~Y Hu, and Ming~S Hung.
+\newblock Effect of data standardization on neural network training.
+\newblock {\em Omega}, 24(4):385--397, 1996.
+
 \bibitem{stanczyk2015feature}
 Urszula Sta{\'n}czyk.
 \newblock Feature evaluation by filter, wrapper, and embedded approaches.
@@ -39,6 +44,12 @@ Kashvi Taunk, Sanjukta De, Srishti Verma, and Aleena Swetapadma.
   classification.
 \newblock In {\em 2019 International Conference on Intelligent Computing and
   Control Systems (ICCS)}, pages 1255--1260. IEEE, 2019.
+
+\bibitem{wright2003radial}
+Grady~Barrett Wright.
+\newblock {\em Radial basis function interpolation: numerical and analytical
+  developments}.
+\newblock University of Colorado at Boulder, 2003.
 
 \bibitem{zhang2018strategy}
 Ying Zhang and Chen Ling.
