@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: mybib.bib
-You've used 10 entries,
+Warning--can't use both volume and number fields in daoud2017multicollinearity
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            561 strings with 5686 characters,
-and the built_in function-call counts, 3401 in all, are:
-= -- 350
-> -- 135
-< -- 2
-+ -- 56
-- -- 44
-* -- 230
-:= -- 563
-add.period$ -- 32
-call.type$ -- 10
-change.case$ -- 51
+            595 strings with 6426 characters,
+and the built_in function-call counts, 5049 in all, are:
+= -- 516
+> -- 203
+< -- 5
++ -- 84
+- -- 66
+* -- 340
+:= -- 829
+add.period$ -- 48
+call.type$ -- 15
+change.case$ -- 75
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 135
-empty$ -- 274
-format.name$ -- 44
-if$ -- 714
+cite$ -- 16
+duplicate$ -- 206
+empty$ -- 404
+format.name$ -- 66
+if$ -- 1066
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 11
-newline$ -- 53
-num.names$ -- 20
-pop$ -- 50
+int.to.str$ -- 15
+missing$ -- 17
+newline$ -- 78
+num.names$ -- 30
+pop$ -- 76
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 62
 quote$ -- 0
-skip$ -- 91
+skip$ -- 144
 stack$ -- 0
-substring$ -- 242
-swap$ -- 29
-text.length$ -- 2
+substring$ -- 336
+swap$ -- 51
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 38
-warning$ -- 0
-while$ -- 38
-width$ -- 12
-write$ -- 112
+type$ -- 56
+warning$ -- 1
+while$ -- 53
+width$ -- 17
+write$ -- 168
+(There was 1 warning)

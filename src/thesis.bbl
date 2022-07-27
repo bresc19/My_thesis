@@ -5,11 +5,23 @@ European~Environment Agency.
 \newblock Air quality in europe 2018.
 \newblock {\em Report No. 12/2018}, 2018.
 
+\bibitem{borda1784memoire}
+JC~de Borda.
+\newblock M{\'e}moire sur les {\'e}lections au scrutin.
+\newblock {\em Histoire de l'Academie Royale des Sciences pour 1781 (Paris,
+  1784)}, 1784.
+
 \bibitem{burkart2007diffuse}
 MR~Burkart.
 \newblock Diffuse pollution from intensive agriculture: sustainability,
   challenges, and opportunities.
 \newblock {\em Water science and technology}, 55(3):17--23, 2007.
+
+\bibitem{daoud2017multicollinearity}
+Jamal~I Daoud.
+\newblock Multicollinearity and regression analysis.
+\newblock In {\em Journal of Physics: Conference Series}, volume 949, page
+  012009. IOP Publishing, 2017.
 
 \bibitem{degrave2021ai}
 Alex~J DeGrave, Joseph~D Janizek, and Su-In Lee.
@@ -21,11 +33,26 @@ Saidjon Kamolov.
 \newblock Feature selection: state-of-the-art survey.
 \newblock {\em Annals of Mathematics and Computer Science}, 4:48--54, 2021.
 
+\bibitem{kuhn2013applied}
+Max Kuhn, Kjell Johnson, et~al.
+\newblock {\em Applied predictive modeling}, volume~26.
+\newblock Springer, 2013.
+
 \bibitem{liu2018improve}
 Ying Liu, Guofeng Cao, Naizhuo Zhao, Kevin Mulligan, and Xinyue Ye.
 \newblock Improve ground-level pm2. 5 concentration mapping using a random
   forests-based geostatistical approach.
 \newblock {\em Environmental Pollution}, 235:272--282, 2018.
+
+\bibitem{saeys2007review}
+Yvan Saeys, Inaki Inza, and Pedro Larranaga.
+\newblock A review of feature selection techniques in bioinformatics.
+\newblock {\em bioinformatics}, 23(19):2507--2517, 2007.
+
+\bibitem{sarkar2014robust}
+Chandrima Sarkar, Sarah Cooley, and Jaideep Srivastava.
+\newblock Robust feature selection technique using rank aggregation.
+\newblock {\em Applied Artificial Intelligence}, 28(3):243--257, 2014.
 
 \bibitem{shanker1996effect}
 Murali Shanker, Michael~Y Hu, and Ming~S Hung.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.11)  23 JUL 2022 18:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.11)  27 JUL 2022 16:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,43 +591,47 @@ LaTeX Info: Redefining \] on input line 2860.
 LaTeX Warning: Unused global option(s):
     [fontsize=12pt,paper=a4,pagesize=auto].
 
-(./thesis.aux)
+(./thesis.aux
+
+LaTeX Warning: Label `fig:notebook' multiply defined.
+
+)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: a4paper
+* paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 483.69684pt, 56.90553pt)
-* v-part:(T,H,B)=(56.9055pt, 645.87755pt, 142.2638pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=483.69684pt
-* \textheight=645.87755pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
-* \topmargin=-52.36449pt
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -645,14 +649,14 @@ LaTeX Font Info:    ... okay on input line 30.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 30.
+LaTeX Info: Redefining \microtypecontext on input line 25.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 30.
+LaTeX Info: Redefining \showhyphens on input line 25.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -696,7 +700,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box64
-Package hyperref Info: Link coloring OFF on input line 30.
+Package hyperref Info: Link coloring OFF on input line 25.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -710,9 +714,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count338
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -725,37 +729,37 @@ Dictionary: translator-basic-dictionary, Language: English
 (/usr/local/texlive/2020/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-0.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+5.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-0.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+5.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-30.
+25.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-30.
+25.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 30.
+(Font)              <10> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 30.
+(Font)              <7> on input line 25.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 30.
+(Font)              <5> on input line 25.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-30.
+25.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -765,7 +769,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-30.
+25.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -774,10 +778,10 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<images/polimi.jpg, id=92, 1303.87125pt x 1013.7875pt>
+<images/polimi.jpg, id=188, 1303.87125pt x 1013.7875pt>
 File: images/polimi.jpg Graphic file (type jpg)
 <use images/polimi.jpg>
-Package pdftex.def Info: images/polimi.jpg  used on input line 34.
+Package pdftex.def Info: images/polimi.jpg  used on input line 29.
 (pdftex.def)             Requested size: 260.76962pt x 202.7539pt.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/14.4'.
@@ -792,34 +796,34 @@ s/polimi.jpg>]pdfTeX warning (ext4): destination with the same identifier (name
 {page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \end{abstract}
-                    [1] (./thesis.toc)
+l.53 \end{abstract}
+                    [1] (./thesis.tocpdfTeX warning (ext4): destination with th
+e same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.33 ...4.2}Wrapper Methods}{27}{subsection.4.4.2}
+                                                  % [1
+
+])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.61 \chapter
-             {Introduction} [1
-
-]
+ [2]
 Chapter 1.
-(./chapters/introduction.tex) [2
+(./chapters/introduction.tex [3
 
-] [3]
+]) [4]
 Chapter 2.
-(./chapters/background.tex [4
+(./chapters/background.tex [5
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
 3.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Excluding 'comment' comment.) [5]
+Excluding 'comment' comment.) [6]
 Chapter 3.
 (./chapters/overview.tex
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
@@ -832,117 +836,97 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [6
+ [7
 
 ]
-Excluding 'comment' comment.
-<images/overview.png, id=174, 581.17125pt x 1242.6425pt>
+Excluding 'comment' comment. [8]
+<images/overview.png, id=297, 581.17125pt x 1242.6425pt>
 File: images/overview.png Graphic file (type png)
 <use images/overview.png>
 Package pdftex.def Info: images/overview.png  used on input line 64.
 (pdftex.def)             Requested size: 203.41298pt x 434.9314pt.
- [7]) [8 <./images/overview.png>]
+ [9]) [10 <./images/overview.png>]
 Chapter 4.
-(./chapters/pre.tex [9
+(./chapters/pre.tex [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
 []|\T1/lmr/bx/n/10 Physical
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
 []|\T1/lmr/bx/n/10 Source
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
 []|\T1/lmr/bx/n/10 Variable
  []
 
 
-Overfull \hbox (15.03186pt too wide) in paragraph at lines 44--44
+Overfull \hbox (15.03186pt too wide) in paragraph at lines 46--46
 []|\T1/lmr/m/n/10 (-20) Temperature|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 []|\T1/lmr/m/n/10 (+20) ERA5-Land
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 47--47
 []|\T1/lmr/m/n/10 (+20) Mean air tem-per-a-ture
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 47--47
 \T1/lmr/m/n/10 (+20) ground mea-sure-ment -
  []
 
 
-Underfull \hbox (badness 3229) in paragraph at lines 45--45
+Underfull \hbox (badness 3229) in paragraph at lines 47--47
 \T1/lmr/m/n/10 (+20) Low Cost Sen-sor ESA
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 []|\T1/lmr/m/n/10 (+20) ESA Air
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 \T1/lmr/m/n/10 (+20) Qual-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 []|\T1/lmr/m/n/10 (+20) ERA5-Land
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 []|\T1/lmr/m/n/10 (+20) Wind di-rec-tion from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 \T1/lmr/m/n/10 (+20) ground sen-sor di-vided
  []
 
 
-Underfull \hbox (badness 3701) in paragraph at lines 49--49
+Underfull \hbox (badness 3701) in paragraph at lines 52--52
 \T1/lmr/m/n/10 (+20) as spec-i-fied in "Notes"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
 []|\T1/lmr/m/n/10 (+20) Mean north-ward wind
  []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 50--50
+Underfull \hbox (badness 1024) in paragraph at lines 53--53
 \T1/lmr/m/n/10 (+20) com-po-nent 10 m above
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-[]|\T1/lmr/m/n/10 (+20) ERA5-Land
- []
-
-
-Overfull \hbox (2.7251pt too wide) in paragraph at lines 51--51
-[]|$[]$| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-[]|\T1/lmr/m/n/10 (+20) Mean wind speed on
- []
-
-
-Overfull \hbox (15.69678pt too wide) in paragraph at lines 53--53
-[]|\T1/lmr/m/n/10 (-20) Precipitation|  
  []
 
 
@@ -951,249 +935,244 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
  []
 
 
-Overfull \hbox (0.55537pt too wide) in paragraph at lines 56--56
-\T1/lmr/m/n/10 (-20) Humidity|  
+Overfull \hbox (2.7251pt too wide) in paragraph at lines 54--54
+[]|$[]$| 
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 57--57
-\T1/lmr/m/n/10 (+20) Sen-sor ESA mon-i-tor-ing
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]|\T1/lmr/m/n/10 (+20) Mean wind speed on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
-[]|\T1/lmr/m/n/10 (+20) ESA Air
+Overfull \hbox (15.69678pt too wide) in paragraph at lines 56--56
+[]|\T1/lmr/m/n/10 (-20) Precipitation|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
-\T1/lmr/m/n/10 (+20) Qual-ity
- []
-
-
-Overfull \vbox (12.0pt too high) detected at line 59
- []
-
-
-Underfull \hbox (badness 2894) in paragraph at lines 59--59
-\T1/lmr/m/n/10 (+20) air in a col-umn ver-ti-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 []|\T1/lmr/m/n/10 (+20) ERA5-Land
  []
 
 
-Overfull \hbox (2.05815pt too wide) in paragraph at lines 61--61
+Overfull \hbox (0.55537pt too wide) in paragraph at lines 59--59
+\T1/lmr/m/n/10 (-20) Humidity|  
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 60--60
+\T1/lmr/m/n/10 (+20) Sen-sor ESA mon-i-tor-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+[]|\T1/lmr/m/n/10 (+20) ESA Air
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+\T1/lmr/m/n/10 (+20) Qual-ity
+ []
+
+
+Overfull \vbox (12.0pt too high) detected at line 62
+ []
+
+
+Underfull \hbox (badness 2894) in paragraph at lines 62--62
+\T1/lmr/m/n/10 (+20) air in a col-umn ver-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--62
+[]|\T1/lmr/m/n/10 (+20) ERA5-Land
+ []
+
+
+Overfull \hbox (2.05815pt too wide) in paragraph at lines 64--64
 \T1/lmr/m/n/10 (-20) Radiation|  
  []
 
 
-Overfull \vbox (12.0pt too high) detected at line 61
+Overfull \vbox (12.0pt too high) detected at line 64
  []
 
 
-Underfull \vbox (badness 10000) detected at line 66
+Overfull \hbox (16.69069pt too wide) in alignment at lines 42--69
+ [] [] [] [] [] [] 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+
+Underfull \vbox (badness 10000) detected at line 69
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 []|\T1/lmr/bx/n/10 Physical
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 []|\T1/lmr/bx/n/10 Source
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 []|\T1/lmr/bx/n/10 Variable
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
 []|\T1/lmr/m/n/10 (+20) CAMS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
 []|\T1/lmr/m/n/10 (+20) Mean Aerosol Op-ti-cal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 []|\T1/lmr/m/n/10 (+20) MODIS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
 []|\T1/lmr/m/n/10 (+20) Mean Aerosol Op-ti-cal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-[]|\T1/lmr/m/n/10 (+20) MODIS
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 84--85
+[]|\T1/lmr/m/n/10 (+20) MODIS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 []|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-[]|\T1/lmr/m/n/10 (+20) ESA Air
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-\T1/lmr/m/n/10 (+20) Qual-ity
- []
-
-
-Underfull \hbox (badness 4048) in paragraph at lines 86--86
-[]|\T1/lmr/m/n/10 (+20) Mean PM10 con-cen-tra-
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 88--88
-[]|\T1/lmr/m/n/10 (+20) Mean PM2.5 con-cen-tra-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 88--89
-[]|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 89--89
-[]|\T1/lmr/m/n/10 (+20) Mean PM2.5 con-cen-tra-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
 []|\T1/lmr/m/n/10 (+20) ESA Air
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 \T1/lmr/m/n/10 (+20) Qual-ity
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 90--90
+Underfull \hbox (badness 4048) in paragraph at lines 89--89
+[]|\T1/lmr/m/n/10 (+20) Mean PM10 con-cen-tra-
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 91--91
+[]|\T1/lmr/m/n/10 (+20) Mean PM2.5 con-cen-tra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
+[]|\T1/lmr/m/n/10 (+20) CAMS
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 92--92
 []|\T1/lmr/m/n/10 (+20) Mean PM2.5 con-cen-tra-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 92--93
-[]|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Overfull \hbox (4.8881pt too wide) in paragraph at lines 93--93
-[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\T1/lmr/m/n/10 (+20) ground mea-sure-ment
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
-[]|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Overfull \hbox (4.8881pt too wide) in paragraph at lines 98--98
-[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-\T1/lmr/m/n/10 (+20) ground mea-sure-ment
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-\T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--100
 []|\T1/lmr/m/n/10 (+20) ESA Air
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--100
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 \T1/lmr/m/n/10 (+20) Qual-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--102
+Underfull \hbox (badness 1728) in paragraph at lines 93--93
+[]|\T1/lmr/m/n/10 (+20) Mean PM2.5 con-cen-tra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 []|\T1/lmr/m/n/10 (+20) CAMS
  []
 
 
-Underfull \hbox (badness 1082) in paragraph at lines 104--104
+Overfull \hbox (4.8881pt too wide) in paragraph at lines 97--97
+[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+\T1/lmr/m/n/10 (+20) ground mea-sure-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+\T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+[]|\T1/lmr/m/n/10 (+20) CAMS
+ []
+
+
+Overfull \hbox (4.8881pt too wide) in paragraph at lines 102--102
+[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+\T1/lmr/m/n/10 (+20) ground mea-sure-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+\T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
+[]|\T1/lmr/m/n/10 (+20) ESA Air
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
+\T1/lmr/m/n/10 (+20) Qual-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+[]|\T1/lmr/m/n/10 (+20) CAMS
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 108--108
 []|\T1/lmr/m/n/10 (+20) Mean NO$[]$ (field: "Os-
  []
 
 
-Underfull \vbox (badness 10000) detected at line 104
+Overfull \hbox (16.69069pt too wide) in alignment at lines 77--108
+ [] [] [] [] [] [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
-[]|\T1/lmr/m/n/10 (+20) ESA Air
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
-\T1/lmr/m/n/10 (+20) Qual-ity
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
-[]|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Overfull \hbox (4.8881pt too wide) in paragraph at lines 109--109
-[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
+[13]
+Underfull \vbox (badness 10000) detected at line 108
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 110--110
-\T1/lmr/m/n/10 (+20) ground mea-sure-ment
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--110
-\T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
 []|\T1/lmr/m/n/10 (+20) ESA Air
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 \T1/lmr/m/n/10 (+20) Qual-ity
- []
-
-
-Underfull \hbox (badness 2452) in paragraph at lines 113--113
-[]|\T1/lmr/m/n/10 (+20) Mean O$[]$ con-cen-tra-tion
  []
 
 
@@ -1202,21 +1181,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--114
  []
 
 
-Underfull \hbox (badness 7796) in paragraph at lines 114--114
-[]|\T1/lmr/m/n/10 (+20) Mean O$[]$ to-tal at-mo-
- []
-
-
 Overfull \hbox (4.8881pt too wide) in paragraph at lines 114--114
 []|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
  []
 
 
-Underfull \hbox (badness 2452) in paragraph at lines 115--115
-[]|\T1/lmr/m/n/10 (+20) Mean O$[]$ con-cen-tra-tion
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 115--115
 \T1/lmr/m/n/10 (+20) ground mea-sure-ment
  []
@@ -1227,271 +1196,276 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--115
  []
 
 
-Overfull \hbox (4.8881pt too wide) in paragraph at lines 118--118
-[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
- []
-
-
-Overfull \hbox (9.3161pt too wide) in paragraph at lines 120--120
-[]|\T1/lmr/m/n/10 (-20) NMOVOCs|  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
-[]|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
-[]|\T1/lmr/m/n/10 (+20) CAMS
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 []|\T1/lmr/m/n/10 (+20) ESA Air
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
 \T1/lmr/m/n/10 (+20) Qual-ity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 2452) in paragraph at lines 118--118
+[]|\T1/lmr/m/n/10 (+20) Mean O$[]$ con-cen-tra-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+[]|\T1/lmr/m/n/10 (+20) CAMS
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 119--119
+[]|\T1/lmr/m/n/10 (+20) Mean O$[]$ to-tal at-mo-
+ []
+
+
+Overfull \hbox (4.8881pt too wide) in paragraph at lines 119--119
+[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
+ []
+
+
+Underfull \hbox (badness 2452) in paragraph at lines 120--120
+[]|\T1/lmr/m/n/10 (+20) Mean O$[]$ con-cen-tra-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
 \T1/lmr/m/n/10 (+20) ground mea-sure-ment
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
 \T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
  []
 
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+
+Overfull \hbox (4.8881pt too wide) in paragraph at lines 123--123
+[]|\T1/lmr/m/n/10 (-20) mol/m$[]$| 
+ []
+
+
+Overfull \hbox (9.3161pt too wide) in paragraph at lines 125--125
+[]|\T1/lmr/m/n/10 (-20) NMOVOCs|  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--125
+[]|\T1/lmr/m/n/10 (+20) CAMS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+[]|\T1/lmr/m/n/10 (+20) CAMS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+[]|\T1/lmr/m/n/10 (+20) ESA Air
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+\T1/lmr/m/n/10 (+20) Qual-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+\T1/lmr/m/n/10 (+20) ground mea-sure-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+\T1/lmr/m/n/10 (+20) - ARPA mon-i-tor-ing
+ []
+
+
+Overfull \hbox (16.69069pt too wide) in alignment at lines 108--131
+ [] [] [] [] [] [] 
+ []
+
+[14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []|\T1/lmr/bx/n/10 Physical
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []|\T1/lmr/bx/n/10 Source
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []|\T1/lmr/bx/n/10 Variable
  []
 
 
-Overfull \hbox (5.71693pt too wide) in paragraph at lines 138--138
+Overfull \hbox (5.71693pt too wide) in paragraph at lines 143--143
 []|\T1/lmr/m/n/10 (-20) Vegetation|  
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 140--140
+Underfull \hbox (badness 1953) in paragraph at lines 145--145
 []|\T1/lmr/m/n/10 (+20) Majority class for agri-
  []
 
 
-Overfull \hbox (1.7519pt too wide) in paragraph at lines 143--143
+Overfull \hbox (1.7519pt too wide) in paragraph at lines 148--148
 []|\T1/lmr/m/n/10 (-20) m$[]$/m$[]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
-\T1/lmr/m/n/10 (+20) cell con-taing the soil
+Underfull \hbox (badness 2158) in paragraph at lines 149--149
+\T1/lmr/m/n/10 (+20) cell con-tain-ing the soil
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
-\T1/lmr/m/n/10 (+20) LandMap soil tex-ture
- []
-
-
-Overfull \hbox (7.48088pt too wide) in paragraph at lines 144--145
+Overfull \hbox (7.48088pt too wide) in paragraph at lines 149--150
 []|\T1/lmr/m/n/10 (-20) OpenLandMap
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 150--150
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Overfull \hbox (7.48088pt too wide) in paragraph at lines 146--147
+Overfull \hbox (7.48088pt too wide) in paragraph at lines 151--152
 []|\T1/lmr/m/n/10 (-20) OpenLandMap
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 152--152
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Underfull \vbox (badness 10000) detected at line 152
+Overfull \hbox (16.69069pt too wide) in alignment at lines 138--157
+ [] [] [] [] [] [] 
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+
+Underfull \vbox (badness 10000) detected at line 157
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 []|\T1/lmr/bx/n/10 Physical
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 []|\T1/lmr/bx/n/10 Source
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 []|\T1/lmr/bx/n/10 Variable
  []
 
 
-Overfull \hbox (2.28963pt too wide) in paragraph at lines 163--163
+Overfull \hbox (2.28963pt too wide) in paragraph at lines 168--168
 []|\T1/lmr/m/n/10 (-20) Geometry|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--163
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Overfull \hbox (6.68036pt too wide) in paragraph at lines 166--166
+Overfull \hbox (6.68036pt too wide) in paragraph at lines 171--171
 []|\T1/lmr/m/n/10 (-20) Population|  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 []|\T1/lmr/m/n/10 (+20) n\TS1/lmr/m/n/10 ° \T1/lmr/m/n/10 (+20) of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 \T1/lmr/m/n/10 (+20) in-hab-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 []|\T1/lmr/m/n/10 (+20) Gridded
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
 \T1/lmr/m/n/10 (+20) Pop-u-la-tion
  []
 
 
-Overfull \vbox (12.0pt too high) detected at line 168
+Overfull \vbox (12.0pt too high) detected at line 173
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--168
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--168
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
 \T1/lmr/m/n/10 (+20) each
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 []|\T1/lmr/m/n/10 (+20) DUSAF
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 \T1/lmr/m/n/10 (+20) Lom-bar-dia
  []
 
 
-Underfull \hbox (badness 4096) in paragraph at lines 169--169
+Underfull \hbox (badness 4096) in paragraph at lines 174--174
 \T1/lmr/m/n/10 (+20) DUSAF Cat-a-log (Lom-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 []|\T1/lmr/m/n/10 (+20) DUSAF
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
-\T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
-[]|\T1/lmr/m/n/10 (+20) Map
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-[]|\T1/lmr/m/n/10 (+20) Geoportale
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-\T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
-[]|\T1/lmr/m/n/10 (+20) Map
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
-[]|\T1/lmr/m/n/10 (+20) Degree
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
-[]|\T1/lmr/m/n/10 (+20) Geoportale
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
-\T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-[]|\T1/lmr/m/n/10 (+20) Map
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-[]|\T1/lmr/m/n/10 (+20) Degree
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-[]|\T1/lmr/m/n/10 (+20) Geoportale
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 174--175
 \T1/lmr/m/n/10 (+20) Lom-bar-dia
  []
 
 
-Overfull \hbox (23.3462pt too wide) in paragraph at lines 178--178
-\T1/lmr/m/n/10 (-20) Infrastructures|  
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
+[]|\T1/lmr/m/n/10 (+20) Map
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+[]|\T1/lmr/m/n/10 (+20) Geoportale
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
+\T1/lmr/m/n/10 (+20) Lom-bar-dia
  []
 
 
@@ -1500,18 +1474,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 178--178
  []
 
 
-Underfull \hbox (badness 6825) in paragraph at lines 178--178
-[]|\T1/lmr/m/n/10 (+20) Density of in-ter-sec-tion
- []
-
-
-Underfull \hbox (badness 3375) in paragraph at lines 178--178
-\T1/lmr/m/n/10 (+20) nodes be-tween pri-mary
- []
-
-
-Overfull \hbox (3.94954pt too wide) in paragraph at lines 178--178
-[]|\T1/lmr/m/n/10 (-20) int$[]$/km$[]$| 
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
+[]|\T1/lmr/m/n/10 (+20) Degree
  []
 
 
@@ -1530,112 +1494,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--179
  []
 
 
-Underfull \hbox (badness 6825) in paragraph at lines 179--179
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]|\T1/lmr/m/n/10 (+20) Degree
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+[]|\T1/lmr/m/n/10 (+20) Geoportale
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+\T1/lmr/m/n/10 (+20) Lom-bar-dia
+ []
+
+
+Overfull \hbox (23.3462pt too wide) in paragraph at lines 184--184
+\T1/lmr/m/n/10 (-20) Infrastructures|  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]|\T1/lmr/m/n/10 (+20) Map
+ []
+
+
+Underfull \hbox (badness 6825) in paragraph at lines 184--184
 []|\T1/lmr/m/n/10 (+20) Density of in-ter-sec-tion
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 179--179
+Underfull \hbox (badness 3375) in paragraph at lines 184--184
 \T1/lmr/m/n/10 (+20) nodes be-tween pri-mary
  []
 
 
-Overfull \hbox (3.94954pt too wide) in paragraph at lines 179--179
+Overfull \hbox (3.94954pt too wide) in paragraph at lines 184--184
 []|\T1/lmr/m/n/10 (-20) int$[]$/km$[]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 []|\T1/lmr/m/n/10 (+20) Geoportale
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 \T1/lmr/m/n/10 (+20) Lom-bar-dia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
 []|\T1/lmr/m/n/10 (+20) Map
  []
 
 
-Underfull \hbox (badness 6825) in paragraph at lines 180--180
+Underfull \hbox (badness 6825) in paragraph at lines 185--185
 []|\T1/lmr/m/n/10 (+20) Density of in-ter-sec-tion
  []
 
 
-Overfull \hbox (3.94954pt too wide) in paragraph at lines 180--180
+Underfull \hbox (badness 3375) in paragraph at lines 185--185
+\T1/lmr/m/n/10 (+20) nodes be-tween pri-mary
+ []
+
+
+Overfull \hbox (3.94954pt too wide) in paragraph at lines 185--185
 []|\T1/lmr/m/n/10 (-20) int$[]$/km$[]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 []|\T1/lmr/m/n/10 (+20) Geoportale
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
-\T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
-[]|\T1/lmr/m/n/10 (+20) Map
- []
-
-
-Overfull \hbox (1.92029pt too wide) in paragraph at lines 181--181
-[]|\T1/lmr/m/n/10 (-20) km/km$[]$| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-[]|\T1/lmr/m/n/10 (+20) Geoportale
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
-\T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--182
-[]|\T1/lmr/m/n/10 (+20) Map
- []
-
-
-Overfull \hbox (1.92029pt too wide) in paragraph at lines 182--182
-[]|\T1/lmr/m/n/10 (-20) km/km$[]$| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
-[]|\T1/lmr/m/n/10 (+20) Geoportale
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
-\T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--183
-[]|\T1/lmr/m/n/10 (+20) Map
- []
-
-
-Overfull \hbox (1.92029pt too wide) in paragraph at lines 183--183
-[]|\T1/lmr/m/n/10 (-20) km/km$[]$| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-[]|\T1/lmr/m/n/10 (+20) Geoportale
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 \T1/lmr/m/n/10 (+20) Lom-bar-dia
  []
 
@@ -1645,32 +1579,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--186
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 186--186
-[]|\T1/lmr/m/n/10 (+20) Fration of area cov-ered
+Underfull \hbox (badness 6825) in paragraph at lines 186--186
+[]|\T1/lmr/m/n/10 (+20) Density of in-ter-sec-tion
  []
 
 
-Underfull \hbox (badness 2680) in paragraph at lines 186--186
-\T1/lmr/m/n/10 (+20) Ob-tained from DUSAF
+Overfull \hbox (3.94954pt too wide) in paragraph at lines 186--186
+[]|\T1/lmr/m/n/10 (-20) int$[]$/km$[]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--186
-\T1/lmr/m/n/10 (+20) each
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+[]|\T1/lmr/m/n/10 (+20) Geoportale
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--186
-[]|\T1/lmr/m/n/10 (+20) DUSAF
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 186--186
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 \T1/lmr/m/n/10 (+20) Lom-bar-dia
- []
-
-
-Overfull \vbox (24.0pt too high) detected at line 187
  []
 
 
@@ -1679,12 +1604,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--187
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--187
+Overfull \hbox (1.92029pt too wide) in paragraph at lines 187--187
+[]|\T1/lmr/m/n/10 (-20) km/km$[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 []|\T1/lmr/m/n/10 (+20) Geoportale
  []
 
 
-Overfull \vbox (12.0pt too high) detected at line 188
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+\T1/lmr/m/n/10 (+20) Lom-bar-dia
  []
 
 
@@ -1693,59 +1624,193 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--188
  []
 
 
-Underfull \vbox (badness 10000) detected at line 194
+Overfull \hbox (1.92029pt too wide) in paragraph at lines 188--188
+[]|\T1/lmr/m/n/10 (-20) km/km$[]$| 
  []
 
-[14] [15]
-Underfull \vbox (badness 10000) detected at line 226
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+[]|\T1/lmr/m/n/10 (+20) Geoportale
  []
 
-[16] [17]) [18]
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+\T1/lmr/m/n/10 (+20) Lom-bar-dia
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+[]|\T1/lmr/m/n/10 (+20) Map
+ []
+
+
+Overfull \hbox (1.92029pt too wide) in paragraph at lines 189--189
+[]|\T1/lmr/m/n/10 (-20) km/km$[]$| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+[]|\T1/lmr/m/n/10 (+20) Geoportale
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+\T1/lmr/m/n/10 (+20) Lom-bar-dia
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+[]|\T1/lmr/m/n/10 (+20) Map
+ []
+
+
+Underfull \hbox (badness 1117) in paragraph at lines 192--192
+[]|\T1/lmr/m/n/10 (+20) Fration of area cov-ered
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 192--192
+\T1/lmr/m/n/10 (+20) Ob-tained from DUSAF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+\T1/lmr/m/n/10 (+20) each
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+[]|\T1/lmr/m/n/10 (+20) DUSAF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+\T1/lmr/m/n/10 (+20) Lom-bar-dia
+ []
+
+
+Overfull \vbox (24.0pt too high) detected at line 193
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+[]|\T1/lmr/m/n/10 (+20) Map
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+[]|\T1/lmr/m/n/10 (+20) Geoportale
+ []
+
+
+Overfull \vbox (12.0pt too high) detected at line 194
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
+[]|\T1/lmr/m/n/10 (+20) Map
+ []
+
+
+Overfull \hbox (25.22661pt too wide) in alignment at lines 164--200
+ [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 200
+ []
+
+[18] [19]
+Underfull \vbox (badness 10000) detected at line 237
+ []
+
+[20] [21] [22]
+<images/buffer.png, id=373, 497.86pt x 461.725pt>
+File: images/buffer.png Graphic file (type png)
+<use images/buffer.png>
+Package pdftex.def Info: images/buffer.png  used on input line 269.
+(pdftex.def)             Requested size: 174.2536pt x 161.60617pt.
+ [23 <./images/buffer.png>] [24]
+Overfull \hbox (8.0112pt too wide) in paragraph at lines 319--322
+\T1/lmr/m/n/10 (-20) Filter-based fea-ture se-lec-tion meth-ods adopt sta-tis-t
+i-cal mea-sures to eval-u-ate the cor-re-la-tion/dependence
+ []
+
+[25]
+Overfull \hbox (51.66881pt too wide) in paragraph at lines 371--374
+\T1/lmr/m/n/10 (-20) Its al-go-rithm is im-ple-mented by us-ing Se-lec-tKBest m
+ethod from the scikit-learn li-brary (sklearn.feature_selection).
+ []
+
+[26] [27]
+Overfull \hbox (0.49413pt too wide) in paragraph at lines 407--407
+[]\T1/lmtt/m/n/10 knn_value = 10 //Number of buffer values added close to each 
+target variable value[] 
+ []
+
+<images/notebook.png, id=425, 1194.4625pt x 585.18625pt>
+File: images/notebook.png Graphic file (type png)
+<use images/notebook.png>
+Package pdftex.def Info: images/notebook.png  used on input line 428.
+(pdftex.def)             Requested size: 477.77654pt x 234.07034pt.
+
+Overfull \hbox (47.77191pt too wide) in paragraph at lines 428--429
+ [][] 
+ []
+
+[28]) [29 <./images/notebook.png>]
 Chapter 5.
-(./chapters/caseofstudy.tex Excluding 'comment' comment.) [19
+(./chapters/caseofstudy.tex) [30
 
 ]
 Chapter 6.
-(./chapters/conclusion.tex) (./thesis.bbl [20
+(./chapters/conclusion.tex) (./thesis.bbl [31
+
+] [32
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
- [21
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
+ [33]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D5DDBE4924B0E7C420D76309F493EDCE;1374.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
+(rerunfilecheck)             Checksum: 8ED7B0CC4436B1F8E94CEB62683DEF9A;3105.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
  ) 
 Here is how much of TeX's memory you used:
- 14622 strings out of 480608
- 264247 string characters out of 5903629
- 617205 words of memory out of 5000000
- 30036 multiletter control sequences out of 15000+600000
- 600529 words of font info for 107 fonts, out of 8000000 for 9000
+ 14710 strings out of 480608
+ 265556 string characters out of 5903629
+ 612444 words of memory out of 5000000
+ 30076 multiletter control sequences out of 15000+600000
+ 600789 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,51p,929b,918s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/t
-exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/
-fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/
-dvips/lm/lm-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/l
-mbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts
-/type1/public/lm/lmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
-c/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy1
-0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (23 pages, 1141041 bytes).
+texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
+20/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2020/texmf-d
+ist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/
+dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/l
+m-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pu
+blic/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr
+12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr
+/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/tex
+live/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on thesis.pdf (35 pages, 1592791 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
- 69 named destinations out of 1000 (max. 500000)
- 22203 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 532 PDF objects out of 1000 (max. 8388607)
+ 471 compressed objects within 5 object streams
+ 110 named destinations out of 1000 (max. 500000)
+ 22405 words of extra memory for PDF output out of 24883 (max. 10000000)
 
