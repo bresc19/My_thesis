@@ -17,7 +17,7 @@
 \contentsline {subsubsection}{Pollutants (Table)}{14}{section*.4}%
 \contentsline {subsubsection}{Soil and Vegetation (Table)}{17}{section*.5}%
 \contentsline {subsubsection}{GIS (static layers) (Table)}{18}{section*.6}%
-\contentsline {subsubsection}{Categorical Variable}{20}{section*.7}%
+\contentsline {subsubsection}{Categorical Variables}{20}{section*.7}%
 \contentsline {section}{\numberline {4.2}Data Cleaning}{22}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Nan Values}{22}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Remove of variables with low variance}{23}{subsection.4.2.2}%

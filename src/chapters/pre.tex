@@ -201,7 +201,7 @@ Map Layer  & \underline{dusaf} & Cover & Land Use majority class for each cell p
 \end{center}
 \pagebreak
 
-\subsubsection{Categorical Variable}
+\subsubsection{Categorical Variables}
 Categorical data are identified with names or labels given to them as value. Even if are represented by numbers, they don't have the same mathematical meaning as a numerical value. This type of data is discarded during the pre-processing phase, since feature selection is done exclusively on numerical input and output values. 
 In the following table is explained the semantic of the values assumed.
 \bigbreak
@@ -264,12 +264,12 @@ In order to mitigate this, I present this solution in sequence, using methods pr
 \pagebreak
 Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbour classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurement. Values added are computed using a Radial Basis function interpolation\cite{wright2003radial}.\newline
 In this way the size of the final sample, as the performance of the feature selection, would increase.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{images/buffer.png}
-    \caption{Graphical representation of how buffer values interpolated are added through k-nearest neighbour.}
-    \label{fig:notebook}
+\begin{figure}[H] \centering
+\ffigbox[1.25\FBwidth]%
+{\includegraphics[scale=0.45]{images/buffer.png}}
+ { \caption{Graphical representation of how buffer values interpolated from PM2.5 sensors provided by ARPA are added through k-nearest neighbour.}}
 \end{figure}
+
 \bigbreak
 \subsection{Remove of variables with low variance}
 An approach for removing columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean of a given variable X $\mu$. 
