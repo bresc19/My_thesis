@@ -161,7 +161,7 @@ In the next lines each variable is provided in tables, by showing its type, name
 
 \begin{center}
 \setlength{\arrayrulewidth}{1.5pt}
-\begin{longtable}{ |p{2.1cm}|p{1.5cm}|p{2.3cm}|p{4cm}|p{1.2cm}|p{2cm}| } 
+\begin{longtable}{ |p{2.1cm}|p{1.5cm}|p{2.3cm}|p{4cm}|p{1.5cm}|p{2cm}| } 
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
@@ -189,7 +189,8 @@ Map Layer  & \underline{dusaf} & Cover & Land Use majority class for each cell p
 & Map Layer  & \underline{highway} & Density of highways for Lombardy Region inside for cell divided. & km/km\textsuperscript{2} & Geoportale Lombardia 2019.\\ 
 \hline
 
-\multirow{1}{4em}{Farms} & Map Layer  & \underline{farms} & Fration of area covered by farms inside the cell. Obtained from DUSAF dataset. & \% (fraction for each cell) & DUSAF Lombardia 2018.\\ \hline
+\multirow{1}{4em}{Farms building} & Map Layer  & \underline{farms} & Fraction of area covered by farms inside the cell. Obtained from DUSAF dataset. & \% (fraction for each cell) & DUSAF Lombardia 2018.\\ \hline
+\multirow{1}{4em}{Breeding Farms} & Map Layer  & \underline{farm\_type} & Density of farms classified by breed type for each cell: poultry, pigs, sheeps. & farms/km\textsuperscript{2} & DUSAF Lombardia 2018.\\ \hline
 \multirow{1}{4em}{Air quality zones} & Map Layer  & \underline{aq\_zone} & Majority class of a given air quality zone in each cell. & cat  & Geoportale Lombardia.\\ \hline
 \multirow{1}{4em}{Climate zones} & Map Layer  & \underline{clim\_zone} & Majority class of a given air quality zone in each cell. & cat  & - \\ \hline
 
@@ -214,20 +215,18 @@ In the following table is explained the semantic of the values assumed.
 
  \multicolumn{2}{|c|}{\textbf{Meteo}} \\
 \hline
- \underline{wind\_dir\_st}  & 1 = North: 0° - 22.5° / 337.5° - 360°, \newline2 = North-East: 22.5° - 67.5°, \newline3 = East: 67.5° - 112.5°,  \newline4 = South-East: 112.5° - 157.5°, \newline5 = South: 157.5° - 202.5°, \newline6 = South-West: 202.5° - 247.5°, \newline7 = West: 247.5° - 292.5°, 8 = North-West: 292.5° - 337.5°\\ \hline
+ \underline{wind\_dir\_st}  \newline \newline (Wind direction from ground sensor divided in 8 sectors.) & 1 = North: 0° - 22.5° / 337.5° - 360°, \newline2 = North-East: 22.5° - 67.5°, \newline3 = East: 67.5° - 112.5°,  \newline4 = South-East: 112.5° - 157.5°, \newline5 = South: 157.5° - 202.5°, \newline6 = South-West: 202.5° - 247.5°, \newline7 = West: 247.5° - 292.5°, 8 = North-West: 292.5° - 337.5°\\ \hline
  \multicolumn{2}{|c|}{\textbf{Soil and Vegetation}} \\ \hline
- \underline{siarl} & 2 = Cereal \newline9 = Mais \newline12 = Rice\\  \hline
- \underline{soil} &  2=Cereal\newline9=Mais\newline12=Rice\\ \hline 
-\underline{soil\_text} &  1 = Clay\newline2 = Silty Clay \newline3 = Sandy Clay\newline4 = Clay Loeam \newline5 = Silty Clay Loam\newline6 = Sandy Clay Loam \newline7 = Loam \newline8 = Silt Loam \newline9 = Sandy Loam \newline10 = Silt \newline 11 = Loamy Sand \newline12 = Sand.\\ \hline
-\pagebreak
-\hline
+ \underline{siarl} \newline \newline (Majority class for agricultural use provided by SIARL Catalog for Lombardy Region.) & 2 = Cereal \newline9 = Mais \newline12 = Rice\\  \hline
+ \underline{soil} \newline \newline (Majority soil type for each pixel from OpenLandMap soil texture classification.) &  2=Cereal\newline9=Mais\newline12=Rice\\ \hline 
+\underline{soil\_text} \newline \newline (Majority soil type for each pixel from Carta pedologica 250K.) &  1 = Clay\newline2 = Silty Clay \newline3 = Sandy Clay\newline4 = Clay Loeam \newline5 = Silty Clay Loam\newline6 = Sandy Clay Loam \newline7 = Loam \newline8 = Silt Loam \newline9 = Sandy Loam \newline10 = Silt \newline 11 = Loamy Sand \newline12 = Sand.\\ \hline
  \multicolumn{2}{|c|}{\textbf{GIS (Static layers)}} \\ \hline
- \underline{dusaf} & 2 = Agricultural areas \newline3 = Wooded territories and semi-natural environments \newline4 = Wetlands \newline5 = Water bodies \newline11 = Urbanised areas \newline12 = Production facilities, large plants and communication networks \newline13 = Mining areas, landfills, construction sites, waste and abandoned land \newline14 = Non-agricultural green areas \\
+ \underline{dusaf} \newline \newline (Land use and cover) & 2 = Agricultural areas \newline3 = Wooded territories and semi-natural environments \newline4 = Wetlands \newline5 = Water bodies \newline11 = Urbanised areas \newline12 = Production facilities, large plants and communication networks \newline13 = Mining areas, landfills, construction sites, waste and abandoned land \newline14 = Non-agricultural green areas \\
 \hline
- \underline{aq\_zone} & 1 = Highly urbanized plains \newline 2 = Plains \newline 3 = Prealpi, Appennino and mountains \newline 4 = Valley floor Agg. 
+ \underline{aq\_zone}\newline \newline (Air quality zones) & 1 = Highly urbanized plains \newline 2 = Plains \newline 3 = Prealpi, Appennino and mountains \newline 4 = Valley floor Agg. 
 \newline5 = Urban agglomarated area (Milano, Bergamo, Brescia).\\
 \hline
- \underline{clim\_zone} & 1= Alpi\newline 2 = Prealpi Occidentali \newline 3 = Prealpi Orientali\newline 4 = Pianura Occidentale\newline 5 =  Pianura Centrale\newline 6 = Pianura Orientale. 
+ \underline{clim\_zone}\newline \newline (Climate zones) & 1 = Alpi\newline 2 = Prealpi Occidentali \newline 3 = Prealpi Orientali\newline 4 = Pianura Occidentale\newline 5 =  Pianura Centrale\newline 6 = Pianura Orientale. 
  \\
 \hline
 \caption{Table of categorical variables with their values legend.}
@@ -238,6 +237,7 @@ In the following table is explained the semantic of the values assumed.
 \end{center}
 \pagebreak
 \section{Data Cleaning}
+\label{sec:Data cleaning}
 Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
 This could be done by removing rows or columns. Alternately, it might involve replacing observations with new values. \newline
@@ -398,6 +398,8 @@ At this point variables that won are used as input in ML models and taken in con
 
 \section{Notebook implementation for Feature Selection}
 A notebook is implemented for processing and analysing data as I explain before.\newline
+\begin{comment}
+
 At the beginning the general parameter needed to configure the pre-processing phase are declared.
 \begin{verbatim}
 RESOLUTION= '0_1' //resolution of the data chosen
@@ -405,13 +407,14 @@ KNN = True    //If true a k-nearest neighbour is performed
 knn_value = 10 //Number of buffer values added close to each target variable value
 NO_MOUNTAINS = True 
 \end{verbatim}
+\end{comment}
 In order to manage its configuration and the results obtained, a simple User Interface using ipywidgets package is built.
 In this interface there are 2 sections:
 \begin{itemize}
 \item Feature Selection scores: they are graphically shown using multiple barplot, one for each dataset previously selected. Barplot are implemented with the use of Plotly library; 
 \item Options: in this s box is possible to configure the feature selection input:
 \begin{itemize}
-\item target variable;
+\item target variable. Variable usable are the ones coming from ARPA ground sensors;
 \item value of the Variance Threshold for discarding meaningless variable before FS (optional);
 \end{itemize}
 and the output:
