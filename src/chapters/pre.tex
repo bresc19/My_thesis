@@ -263,7 +263,7 @@ In order to mitigate this, I present this solution in sequence, using methods pr
 \item Drop of columns (values assumed by each covariates) having at least a NaN value;
 \end{itemize}
 \pagebreak
-Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbour classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurement. Values added are computed using a Radial Basis function interpolation\cite{wright2003radial} and stored in variables with name that ends with '\_int'\newline
+Due to the fact that it results a data set with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbour classifier\cite{taunk2019brief} for detecting the buffer of cells closed to the location of the ground stations measurement. Then, this cells are set with values computed using a Radial Basis function interpolation\cite{wright2003radial} which are separately stored in variables with name that ends with '\_int'\newline
 
 In this way the size of the final sample, as the performance of the feature selection, would increase.
 \begin{figure}[H] \centering

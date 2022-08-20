@@ -1,7 +1,7 @@
 In this chapter, results obtained by feature selection and modeling are shown with respect for each different period, resolution and target variable. 
 
 \section{Case of Study}
-This case of study aims to discover the main factors which affects mostly the target variable chosen. In order to examine the behavior of each variable in a data set over time, several grid data are collected, each one with different resolution, period and configuration:
+This case of study aims to discover the main factors which affects mostly the target variable chosen. In order to examine the behavior of each variable in a data set over time, several grid data are collected, each one with different resolution, period and configuration (\href{fig:test_params}):
 \subsection{Data sets description}
 \subsubsection{Period}  
 Data collected are dated 2021 because are the most recent and, with respect 2020, the ones not particularly affecting by emission reduction caused by lockdown for COVID-19 pandemic\cite{bontempi2022analysis}. In this case of study grid data are chosen by considering the effect of intensive agriculture, with these particular condition:
@@ -21,7 +21,9 @@ In this way, several grid data are chosen from 5 different weeks:
 0.1° ($\sim$ 10km) and 0.01° ($\sim$ 1km) resolutions are selected for the grid data. For increasing the number of observation provided by the limited ARPA stations in Lombardy a k-nearest neighbors algorithm is applied to adding the buffer of values (with k respectively equal to 10 and 30 for each resolution). Then, the value added are computed using the RBF interpolation (as already explained in the \hyperref[sec:Data cleaning]{Data Cleaning section}.
 
 \subsubsection{Target Variables}
-PM25 and ammonia (NH3) provided by ARPA sensors are the one chosen as target variables. I chose them because are strictly related between them and are the most related to intense farming pollution.
+PM25 and ammonia (NH3) provided by ARPA sensors are the one chosen as target variables('pm25\_st' and 'nh3\_st'). I chose them because are strictly related between them and are the most related to intense farming pollution.
+ARPA air quality monitoring stations, which, operating 24 h a day 365 days a year, are periodically checked and subject to maintenance, for ensuring the proper functioning and reliability.
+
 
 \subsubsection{Mountains}
 Another important parameter configuration used is to filter or not the cell covered by mountains or not (climate zone = 1/2/3 of Alpes and Prealpes). In this way the test run can take in consideration or not only urban and land areas, which are more affected by air pollution phenomena.
@@ -38,8 +40,8 @@ Before this phase, using the VarianceThreshold class, variables with variance le
 \begin{figure}
     \centering
     \includegraphics[width=.9\textwidth]{src/images/test_param.png}
-    \caption{Parameter taken in consideration for the test executed.}
-    \label{fig:my_label}
+    \caption{Parameter taken in consideration for tests execution.}
+    \label{fig:test_params}
 \end{figure}
 -data
 -motivazioni
@@ -123,17 +125,16 @@ Before this phase, using the VarianceThreshold class, variables with variance le
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_1007_1014_2021.png}
 \end{center}
-\subsection{Interpretation of FS results}
-\subsubsection{PM25 as target variable}
-During the 5 periods, it's shown that PM25, as the other pollutants, change over the time. 
-Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}.
-Air pollution change in relation to the type of climate and accordingly with different atmospheric conditions.
-
+\section{Interpretation of FS results}
+\subsection{PM25 as target variable}
+During the 5 periods, it's shown that PM25, as the other pollutants, change over the time. Air pollution change in relation to the type of climate and accordingly with different atmospheric conditions.
+Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone, which is, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds.
 By the bar plots attached in the first \hyperref[sec:pm25]{section}, the most correlated variables to PM25 belong mostly to pollutant. In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated ('pm10\_int' and 'pm10\_cams' have always a number votes between 150 and 240). Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
-Other pollutants with an high significant number of votes (greater than 100) are nitrogen oxides, nitrogen dioxide , nitrogen monoxide ('no\_int'), sulphur dioxide and aerosol optical depth. It's evident that this pollutants have a strong correlation with particulate matter, due to the fact that are emitted both by commercial, households, road transport and industrial processes\cite{maranzano2022air}.
-Lombardy is 
-
-\subsubsection{NH3 as target variable}
+Other pollutants with an high significant number of votes (greater than 100) are nitrogen oxides('nox\_int'), nitrogen dioxide ('no2\_int'), nitrogen monoxide ('no\_int'), sulphur dioxide('so2\_int' and 'so2\_cams') and aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that this pollutants have a strong correlation with particulate matter, due to the fact that are emitted both by commercial, households, road transport and industrial processes\cite{maranzano2022air}.
+The results show also how particulate matter is influenced by meteorological parameters such as global radiation ('rad\_glob\_int') and temperature ('temp\_2m'). 
+Indeed, as air temperature increase by global radiation, particulate matter significantly decreased\cite{li2015particulate}. 
+Also the pressure contribute (with remarkable number of votes) for the presence of particulate matter, since causes stable atmospheric condition that make PM harder to be disseminated. 
+\subsection{NH3 as target variable}
 
 
 
