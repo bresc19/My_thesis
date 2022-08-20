@@ -31,7 +31,7 @@ Vector grids that are used in the D-DUST project are three and they are generate
 \item Grids with 0.01° Grid defined with maximum one ARPA station for each cell;
 \end{itemize}
 
-Data are scaled and fit in each spatial resolution grid in order to better analyse the final output model by considering each of them.
+Data are scaled and fit in each spatial resolution grid in order to better analyse the final output model by considering each of them. 
 \par
 In the next lines each variable is provided in tables, by showing its type, name and description:
 
@@ -130,7 +130,7 @@ In the next lines each variable is provided in tables, by showing its type, name
 \caption{Table of Pollutant variables.}
 \end{longtable}
 \end{center}
-
+In addition to them, there's also pollutants variables ending with '\_int' (such as 'pm10\_int', 'pm25\_int', 'nh3\_int', etc.). These variables are obtained by interpolating ARPA variables which are not spatially continued. The explanation of how they are interpolated and how I mitigate the problem of having a limited number of observation from ground sensors along the surface is in one of the next \hyperref[subsec:nan]{subsection}.
 \subsubsection{Soil and Vegetation (Table)}
 
 \begin{center}
@@ -245,6 +245,7 @@ Firstly data covariates are divided between input (X) and output variable (Y). X
 
 In this section are underlined the main steps performed in the Data Cleaning phase.
 \subsection{Nan Values}
+\label{subsec:nan}
 In my work I consider as target variable PM25 and Ammonia coming from ground sensor measurement.
 Air quality monitoring is usually carried out through ground sensors networks, which represents the primary air quality data source by governance. \newline
 In the grids processed there's the problem that a given value provided by measurement tools (such as ground and satellite sensor) could be NaN. 
@@ -262,7 +263,8 @@ In order to mitigate this, I present this solution in sequence, using methods pr
 \item Drop of columns (values assumed by each covariates) having at least a NaN value;
 \end{itemize}
 \pagebreak
-Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbour classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurement. Values added are computed using a Radial Basis function interpolation\cite{wright2003radial}.\newline
+Due to the fact that it results a dataset with a very limited number of sample \cite{zhang2018strategy}, I perform additionally a k-nearest neighbour classifier\cite{taunk2019brief} for adding a buffer of values close to the location of the ground stations measurement. Values added are computed using a Radial Basis function interpolation\cite{wright2003radial} and stored in variables with name that ends with '\_int'\newline
+
 In this way the size of the final sample, as the performance of the feature selection, would increase.
 \begin{figure}[H] \centering
 \ffigbox[1.25\FBwidth]%
@@ -276,7 +278,7 @@ An approach for removing columns is to consider the variance of each column vari
 \begin{equation}
   Var(X) = E[(X-\mu)^2]
 \end{equation}
-The variance can be used as a filter for identifying columns to be removed from a given dataset. 
+The variance can be used as a filter for identifying columns to be removed from a given data set. 
 Using a feature with low-variance only adds complexity and noisy to the feature selection and the predictive.\newline
 In order to do that, I performed VarianceThreshold method from the scikit-learn library. In this way, features under a certain variance threshold value should be meaningless and consequently discarded by its dataset. 
 \pagebreak
@@ -288,7 +290,7 @@ For instance, it's proved that neural networks trained with scaled data performs
 In this step, two type of transformation have been done:
 \subsection{Standardization}
 The most common data transformation is to centre and scale the each variable values. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean.\cite{kuhn2013applied}
-Standardization consists in rescaling data following a gaussian distribution of values with mean equals to 0 and standard deviation equals to 1:
+Standardization consists in rescaling data following a Gaussian distribution of values with mean equals to 0 and standard deviation equals to 1:
 \begin{equation}
   Z = \frac{X-\mu}{\sigma}
 \end{equation}

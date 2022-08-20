@@ -33,93 +33,103 @@ After the preprocessing phase, I use 2 different configuration for training ML m
     \item Using the set of variables selected for each different period;
     \item Using a general set of variables. This was computed by averaging the feature selected for each different period with Borda Count another time;
 \end{itemize}
-
+Before this phase, using the VarianceThreshold class, variables with variance less than 0.2 were discarded. 
 
 -data
 -motivazioni
 -risoluzioni
 -parametri test
-\section{FS Results}
-\subsection{Target variable = 'pm25\_st' \& resolution = 0.01°}
-\centering
+\section{FS Results with target variable = 'pm25\_st'}
+\label{sec:pm25}
+\subsection{Resolution = 0.01°}
 \subsubsection{Including mountains}
+\begin{center}
 \includegraphics[width=0.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0324_0331_2021.png}
 \includegraphics[width=0.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_1007_1014_2021.png}
+\end{center}
 
 \subsubsection{Excluding mountains}
+\begin{center}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0324_0331_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_1007_1014_2021.png}
-\subsection{Target variable = 'pm25\_st' \& resolution = 0.1°}
+\end{center}
+\subsection{Resolution = 0.1°}
 \subsubsection{Including mountains}
+\begin{center}
 \includegraphics[width=0.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0324_0331_2021.png}
 \includegraphics[width=0.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_1007_1014_2021.png}
+\end{center}
 
 \subsubsection{Excluding mountains}
+\begin{center}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0324_0331_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_1007_1014_2021.png}
+\end{center}
 
-\begin{comment}
-\subsection{Target variable = 'nh3\_st' \& resolution = 0.01°}
-\centering
+\section{FS Results with target variable = 'nh3\_st'  }
+\subsection{Resolution = 0.1°}
 \subsubsection{Including mountains}
-\includegraphics[width=0.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0324_0331_2021.png}
-\includegraphics[width=0.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_1007_1014_2021.png}
-
-\subsubsection{Excluding mountains}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0324_0331_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_1007_1014_2021.png}
-\end{comment}
-
-\subsection{Target variable = 'nh3\_st' \& resolution = 0.1°}
-\subsubsection{Including mountains}
+\begin{center}
 \includegraphics[width=0.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0324_0331_2021.png}
 \includegraphics[width=0.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_1007_1014_2021.png}
+\end{center}
 
 \subsubsection{Excluding mountains}
+\begin{center}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0324_0331_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_1007_1014_2021.png}
+\end{center}
 
 
-\subsection{Target variable = 'nh3\_st' \& resolution = 0.01°}
+\subsection{Resolution = 0.01°}
 \subsubsection{Including mountains}
+\begin{center}
 \includegraphics[width=0.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0324_0331_2021.png}
 \includegraphics[width=0.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_1007_1014_2021.png}
+\end{center}
 
 \subsubsection{Excluding mountains}
+\begin{center}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0324_0331_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0418_0425_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0717_0724_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0903_0910_2021.png}
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_1007_1014_2021.png}
-
+\end{center}
 \subsection{Interpretation of FS results}
+\subsubsection{PM25 as target variable}
+During the 5 periods, it's shown as PM25, as other pollutants change over the time. 
+Air pollution analysis can confirm the presence of high values in winter and heating season and low in summer months\cite{cichowicz2017dispersion}.
+By the bar plots attached in the first \hyperref[sec:pm25]{section}, the most correlated variables to PM25 belong mostly to pollutant. In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated ('pm10\_int' and 'pm10\_cams' have always a number votes between 150 and 240). Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
+Other pollutants with an high significant number of votes (greater than 100) are nitrogen oxides, nitrogen dioxide , nitrogen monoxide ('no\_int'), sulphur dioxide and aerosol optical depth. It's evident that this pollutants have a strong correlation with particulate matter, due to the fact that are emitted both by commercial, households, road transport and industrial processes\cite{maranzano2022air}.
+Lombardy is 
+
+\subsubsection{NH3 as target variable}
+
+
+
+
 \section{Data Modelling}
 In this section, I illustrate the models used in order to estimate the target variable. For doing that 2 ML model were implemented:
 
