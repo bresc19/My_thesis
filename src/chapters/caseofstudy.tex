@@ -126,28 +126,35 @@ Before this phase, using the VarianceThreshold class, variables with variance le
 \includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_1007_1014_2021.png}
 \end{center}
 \section{Interpretation of FS results}
-In this section the results obtained are explained, in relation to the votes received and the positive or negative correlation assumed in the filter methods.
-\subsection{PM25 as target variable}
-During the 5 periods, it's shown that PM25, as the other pollutants, change over the time. Air pollution change in relation to the type of climate and accordingly to different atmospheric conditions.
+In this section the results obtained for each target variable selected are explained in relation to the votes received and the positive or negative correlation assumed in the filter methods.
+Similarity between the 2 test set are visible for many factors that influence both particulate matter and ammonia.
+During the 5 periods, it's shown that PM25, as the other pollutants, change over the time. Air pollution change in relation to the type of climate and accordingly to different atmospheric conditions.\\
 Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. But for the week between 17 and 24 July a negative correlation between them is found, on the contrary with respect to certain studies found in literature\cite{zhu2019correlations}\cite{biglari2017relationship}.
 In the tests is also visible the score obtained by ozone ('o3\_int') which tends to be positively correlated in the period between 18 and 25 April.
 This, as mentioned before, is possibly due to their common precursors, such as nitrogen oxides and volatile organic compounds and their simultaneous generation in photochemical reactions. Indeed, in the given period both ('nox\_int' and 'nmvocs\_int') have a positive correlation and an high number votes.
-By the bar plots attached in the first \hyperref[sec:pm25]{section}, the most correlated variables to PM25 belong mostly to pollutant. In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated ('pm10\_int' and 'pm10\_cams' have always a number votes between 150 and 240). Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
+Others features that received many votes are the DTM average elevation and slope('h\_mean' and 'slope\_mean respectively) which are negatively correlated to both ammonia and pm25, since air pollution affect more urban than mountain areas.
+
+
+\subsection{PM25 as target variable}
+By the bar plots attached in the first \hyperref[sec:pm25]{section}, the most correlated variables to PM25 belong mostly to pollutant. In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant('pm10\_int' and 'pm10\_cams' have always a number votes between 150 and 240). Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
 Other pollutants with an high significant number of votes (greater than 100) are nitrogen dioxide ('no2\_int'), nitrogen monoxide ('no\_int'), sulphur dioxide('so2\_int' and 'so2\_cams') and aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that this pollutants have a strong correlation with particulate matter, due to the fact that are emitted both by commercial, households, road transport and industrial processes\cite{maranzano2022air}.
 The results show also how particulate matter is influenced by meteorological parameters.
-Air temperature ('temp\_2m') increases with global radiation ('rad\_glob\_int'), while particulate matter significantly decreased\cite{li2015particulate}. 
+Air temperature ('temp\_2m') increases with global radiation ('rad\_glob\_int'), while particulate matter significantly decreased\cite{li2015particulate}. \\
 Also the pressure contribute ('press' with a remarkable number of votes between 50 and 100) for the presence of particulate matter, since causes stable atmospheric condition that make PM harder to be disseminated. 
 Instead, this condition are negatively correlated to wind speed ('e\_wind') since with higher value the particulate concentration tends to turn down. Wind is a marker for the horizontal transport of air pollutants.
 It can be observed also the negative correlation between particulate matter and air humidity ('air\_hum\_int').
-Under increased humidity conditions, PM may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction\cite{biglari2017relationship}.
+Under increased humidity conditions, PM may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction\cite{biglari2017relationship}.\\
 Observing the results regarding intense agriculture, it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received as PM10 most votes of all in spring period due to its strong positively correlation. 
-We can assume that the main emission source of ammonia is the intense agriculture, since in Lombardy is responsible for the 92\%  of the total\cite{maranzano2022air}.
+We can assume that the main emission source of ammonia is the intense agriculture, since in Lombardy is responsible for the 92\%  of the total\cite{maranzano2022air}.\\
 Indeed, during this periods, application of fertilizer contribute to ammonia and particulate matter composition.
 Significantly more fertilizer is applied in the spring than summer and winter season due to crop cycles.
-So we can assume that intense agriculture is one of the factor that influence the pm25 formation, but only in a certain period of the year.
-Finally, comparing tests with excluding / including mountain zones, there aren't significant variation in the results.
-\subsection{NH3 as target variable}
+So we can assume that intense agriculture is one of the factor that influence the pm25 formation, but only in a certain period of the year.\\
 
+[TODO: doubt farming\_sheep]
+\subsection{NH3 as target variable}
+In the results obtained along the 5 period, stands out the ammonia provided by CAMS model ('nh3\_cams') which, due to the fact that represents the same pollutant, is strongly correlated. Variables related to atmospheric condition are weighted with scores of the same order of magnitude of the previous test set, since ammonia is dispersed in the environment as particulate matter and other pollutants.\\
+We can figure out also variable related to pm10 and pm25('pm10\_int', pm10\_cams','pm25\_int' and pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter (pm25 in particular\cite{zhu2015sources} .\\
+Correlation of ammonia with respect to intensive agricultural is also feasible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable).
 
 
 
