@@ -30,6 +30,7 @@ Another important parameter configuration used is to filter or not the cell cove
 
 
 \subsubsection{Feature Selection}
+\label{subsub:fs}
 After the preprocessing phase, I use 2 different configuration for training ML models:
 \begin{itemize}
     \item Using the set of variables selected for each different period;
@@ -171,10 +172,12 @@ So we can suggest that ammonia in Lombardy should be very related to the use of 
 
 
 \section{Data Modelling}
-In this section, I illustrate the models used in order to estimate the target variable. For doing that 2 ML model were implemented:
+In this section, I illustrate the models used in order to estimate the target variable. For each test, the training phase was performed with the 2 set of feature configured in the \hyperref[subsub:fs]{previous subsection}
+For doing that 2 ML model were implemented:
 
 \subsubsection{Neural Network with Keras}
-The neural network was formed by 3 layers
+The neural network was formed by 3 layers (input, hidden and output). It was configured setting the batch size equal to one (Stochastic Gradient Descent) for better
+
 \subsubsection{Random Forest Regressor}
 
 \subsection{Results}
