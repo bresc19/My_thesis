@@ -1,30 +1,63 @@
-\section{Pre-processing}
+In this chapter I explain each step taken during the pre-processing phase, by illustrating in details each step taken and tool used. \newline
+\bigbreak
 My work is focused on the first phase of a data analysis procedure which is the pre-processing.
 Data pre-processing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
 Indeed, raw data is in most cases incomplete and noisy.\par
 Nowadays, dealing with big amount of information, the probability of incorrect data is higher without a proper data pre-processing.
 Only high-quality data can generate accurate models and predictions. \par
 Hence, it’s crucial to process data with the best possible quality before training them with artificial intelligence, and machine learning predictive models.\par
-For doing this I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
-(\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
-Its essential steps (shown in figure \ref{fig:overview}) are these.
 
-\subsection{Data Collection}
+
+\section{Data Collection}
+Data collection is the process of gathering information in variables of interest for answering relevant questions. \newline
 Relevant data is gathered from their sources and merged in data structures (such as Dataframes). In our work, data come from fixed ground-sensor, satellite-based platform, models and map layers. In this phase are processed (mostly) numerical and categorical data. 
-\subsection{Data Cleaning}
-It involves fixing problems or errors in messy or incomplete data. There are general data cleaning operation, such as identifying:
+\section{Data Cleaning}
+\label{sec:Data cleaning}
+Data has to be prepared in accordance with the supervised feature selection.
+Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
+This could be done by removing rows or columns. Alternately, it might involve replacing observations with new values. \newline
+
+\subsection{Remove of variables with low variance}
+An approach for removing columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean of a given variable X $\mu$. 
+\begin{equation}
+  Var(X) = E[(X-\mu)^2]
+\end{equation}
+The variance can be used as a filter for identifying columns to be removed from a given data set. 
+Using a feature with low-variance only adds complexity and noisy to the feature selection and the predictive.\newline
+In order to do that, I performed VarianceThreshold method from the scikit-learn library. In this way, features under a certain variance threshold value should be meaningless and consequently discarded by its dataset. 
+\section{Data Transformation}
+Data need to be scaled. As a matter of fact, each feature in our data has varying degrees of magnitude, range, and units. This is an issue for machine learning algorithms because of highly sensitive to these features. 
+Having input variables with different units (e.g. ug/m\textsuperscript{3}, °C, hours or mol/m\textsuperscript{2}) implies data at different scales. This could raise the difficulty of the problem being modelled. \newline
+Hence, a common scale through Normalization or Standardization is needed in order to improve the data quality.\newline
+Many ML and regression algorithms perform better when numerical input and output variables are scaled to a common standard range. \newline
+For instance, it's proved that neural networks trained with scaled data performs better in terms of MSE \cite{shanker1996effect}.
+In this step, two type of transformation have been done:
+\subsection{Standardization}
+The most common data transformation is to centre and scale the each variable values. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean.\cite{kuhn2013applied}
+Standardization consists in rescaling data following a Gaussian distribution of values with mean equals to 0 and standard deviation equals to 1:
+\begin{equation}
+  Z = \frac{X-\mu}{\sigma}
+\end{equation}
+\begin{equation}
+\mu = \frac{(\sum_{n=1}^{N} X_i)}{N}
+\end{equation}
+\begin{equation}
+\sigma = \sqrt{\frac{(\sum_{n=1}^{N} X_i-\mu)}{N-1}}
+\end{equation}
+Where:
 \begin{itemize}
-\item duplicate rows of data and remove them;
-\item rows with NaN values and remove them;
-\item columns that have low variance and drop them;
+\item Z is the numeric value standardized of a given covariate;
+\item X is the numeric value to be standardized of a given covariate;
+\item $\mu$ is the mean value for the set of values assumed by a given covariate;
+\item $\sigma$ is the standard deviation for the set of values assumed by a given covariate;
 \end{itemize}
-\subsection{Data Transformation}
-Data need to be scaled. As a matter of fact, each feature in our data has varying degrees of magnitude, range, and units. This is an issue for machine learning algorithms because of highly sensitive to these features. So in input or output data we performed:
-\begin{itemize}
-\item Standardization: Scale a feature to a standard Gaussian distribution;
-\item Normalization: Scale a feature to the range between 0 and 1;
-\end{itemize}
-\subsection{Feature Selection}
+Every terms was computed by using Scipy library (scipy.stats). 
+\bigbreak
+\subsection{Normalization}
+Data Normalization is a different methods process for adjusting data at different scales. Data a scaled in a range between 0 and 1 and was performed only for the feature selection methods output.
+Output normalization is an essential step for the comparison of different output, since data ranges vary for each method used.\newline
+This was performed in my Notebooks from the scikit-learn library (sklearn.preprocessing) through the MinMaxScaler method.
+\section{Feature Selection}
 Feature Selection is the core part of this study. It's the process of reducing the number of input variables when developing a predictive model by basing on a target (or output) variable. 
 Data collected, even if have been cleaned and transformed, are anyway characterized by big amount of variables which are redundant.
 Discarding irrelevant data is essential before applying Machine Learning model in order to:
@@ -34,16 +67,92 @@ Discarding irrelevant data is essential before applying Machine Learning model i
 \item \textbf{Reduce Training Time}: With less data an algorithm will train faster;
 \end{itemize}
 In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as output. \newline
-In this study target variables chosen represent the pollution phenomena such as the PM25 and Ammonia emissions. We choose these targets because are the most relevant sources of pollution produced by intensive agricultural.\newline
-One of the aim of this step is to detect main pollutant factors which contribute further on the training of PM25 or NH3 emissions.
-Due to the fact that there isn’t a best feature selection technique, many different methods are performed, each one that give different correlation results.\par
-After this step, for every method, a score evaluation is assigned to each variable representing its contribution on the output.\par
-Finally a voting algorithm is performed in order to average the scores obtained in each feature selection method. 
-The highest values are selected for model as input.
+In the following subsubsection each FS method implemented is described in detail, classified in three main categories\cite{stanczyk2015feature}, as we can find in literature:
+\subsection{Filter Methods}
+Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.\newline
+These select features from the without machine learning algorithm. In terms of computation, they are very fast and are very suitable in order to remove duplicated, correlated, redundant variables\cite{saeys2007review}. \newline
+These methods evaluate each feature individually without considering the interaction between them. Therefore, they don't fit well if data has high multicollinearity\cite{daoud2017multicollinearity}.
+
+\subsubsection{Pearson coefficient}
+Pearson coefficient is one of the most widely used indices for measuring linear correlation in statistics. It ranges between -1 and 1, where:
+\begin{itemize}
+\item 1 indicates a strictly positive correlation;
+\item -1 indicates a strictly negative correlation;
+\item0 indicates no correlation between the features;
+\end{itemize}
+
+Therefore, by taking only its absolute value, 1 implies that a linear equation describes the relationship between X and Y perfectly, for both positive and negative correlation. \newline
+The Pearson index between and independent variable X and a target variable Y is defined by the following formula:
+
+\begin{equation}
+  \rho_{x,y} = \frac{Cov(X,Y)}{\sigma_x\sigma_y}
+\end{equation}
+
+\subsubsection{Kendall Tau}
+Kendall Tau index is used to measure monotonic relationship as test statistic to determine whether two variables are statistically dependent. \newline
+While in the linear correlation two variables move together at a constant rate, monotonic or rank correlation measure how likely two variables move in the same direction, but not necessarily in a constant manner. \newline
+Like Pearson’s correlation, Kendall’s has a value between -1 and 1, where:
+
+\begin{itemize}
+\item -1 represent a strictly negative monotonic relationship;
+\item 1 represent a strictly positive monotonic relationship;
+\item 0 representing no relationship;
+\end{itemize}
+Given a sample X and Y with n as sample size, tau index is computed through the formula:
+\begin{equation}
+  \tau_{x,y} = \frac{n_c-n_d}{\frac{1}{2}n(n-1)}
+\end{equation}
+where:
+\begin{itemize}
+\item n\textsubscript{c} = \# of concordant value (concordant value: value are ordered in the same way);
+\item n\textsubscript{d} = \# of discordant value (discordant value: value are ordered differently);
+\end{itemize}
+\subsubsection{Spearman Rho}
+Spearman’s index is very similar to Kendall’s. As the previous filter methods, it ranges between -1 and 1, and it's considered less robust than Kendall's.
+It's computed in this way:
+\begin{equation}
+\rho_{x,y} = \frac{6\sum_{n=1}^{N} d_i^2}{n(n-1)^2}
+\end{equation}
+\begin{itemize}
+\item d\textsubscript{i}: difference between each corresponding X\textsubscript{i} and Y\textsubscript{i};
+\item n: size of the sample;
+\end{itemize}
+
+Finally, as I did for Pearson and Kendall coefficient, I take in consideration only its absolute value to weight the correlation for each variable in the Feature Selection.
+
+\subsubsection{Fisher Score}
+This method returns the score of the variables based on the fisher’s score in descending order. \newline
+Its algorithm is implemented by using SelectKBest method from the scikit-learn library (sklearn.feature\_selection).
+\pagebreak
+\subsection{Wrapper Methods}
+Wrapper methods, as the name suggests, wrap a machine learning model, with different subsets of input features. In this way the subsets are evaluated following the best model performance.
+One disadvantage of this approach is the computational costs.\newline
+Their execution for many subsets of variables can become unfeasible. 
+\bigbreak
+\subsubsection{Random Forest Importance}
+Feature importance is a built-in function of the Random Forest algorithm. It's also called as Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problem. The scores are evaluated as attribute through RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
+\bigbreak\bigbreak\bigbreak
+\subsection{Embedded Methods}
+Embedded methods instead are characterised by the benefits of both the wrapper and filter methods, by including interactions of features but also having a reasonable computational cost.\par
+\bigskip
+\subsubsection{Recursive Feature Elimination}
+RFE is a wrapper feature selection algorithm that also work with filter-based feature selection internally.\newline
+It consists in looking for the best subset of features by starting with all features and removing some of them until the desired number remains.\newline
+This is computed using RFE of scikit-learn library (sklearn.feature\_selection).
+In order to obtain a score for each variable I consider whether is selected or not value (with support\_ attribute).
+If the attribute is selected will be equal to 1, otherwise to 0.
+\pagebreak
+\subsection{Borda Count: averaging FS results}
+One of the most important challenges in this study is the lack of an universal feature selection method which produces an outcomes in common with all FS technique. Choosing a feature selection method from a vast range of choices can be challenging. \newline
+So it needs an ensemble technique aims to makes it more robust across various algorithms. In this work we adopt an ensemble approach described in this study\cite{sarkar2014robust}, using the Borda Count algorithm. Initially Borda Count was a voting system method, named for Jean-Charles de Borda\cite{borda1784memoire}.\newline
+In this context Borda Count is used as a rank-based combination technique used for evaluate an average score for each feature. In this method, assuming that each scores evaluated by each FS method are sorted in descending order, points are assigned to candidates (variables) based on their ranking; 1 point for last choice (the most meaningless by its score), 2 points for second-to-last, and so on. Finally the points for all ballots are summed up, and the candidates with the largest point total are the winners (the feature with the largest points are the most significant).
+\par
+At this point variables with the highest number of votes can be used as input in ML models and taken in consideration as the most meaningful factor affecting the target variable.
+
 \section{Model prediction}
 Prediction is a type of analysis that uses techniques and tools to build predictive models and forecast outcomes. In my work predictive analysis is performed for making prediction on pollutants with data processed in the first phase as input.\newline
 Model predictions are deployed through regression analysis, used for estimating the relationships between a dependent variable and one or more independent variables.\par
-In particular I use supervised techniques based on Machine Learning where the model built is fit with the training dataset and evaluated its performance with the testset. 
+In particular I use supervised techniques based on Machine Learning where the model built is fit with the training data set and evaluated its performance with the test set. 
 \begin{comment}
 \begin{itemize}
 \item Training data set: //todo  
