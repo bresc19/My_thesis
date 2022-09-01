@@ -40,7 +40,7 @@ Before this phase, using the VarianceThreshold class, variables with variance le
 
 \begin{figure}
     \centering
-    \includegraphics[width=.9\textwidth]{src/images/test_param.png}
+    \includegraphics[width=.9\textwidth]{images/test_param.png}
     \caption{Parameter taken in consideration for tests execution.}
     \label{fig:test_params}
 \end{figure}
@@ -172,11 +172,11 @@ So we can suggest that ammonia in Lombardy should be very related to the use of 
 
 
 \section{Data Modelling}
-In this section, I illustrate the models used in order to estimate the target variable. For each test, the training phase was performed with the 2 set of feature configured in the \hyperref[subsub:fs]{previous subsection}
+In this section, I illustrate the models used in order to estimate the target variable. For each test, the training phase was performed with the 2 set of feature configured in the previous subsection: one with the features selected for each specific data set period and one which is the
 For doing that 2 ML model were implemented:
 
 \subsubsection{Neural Network with Keras}
-The neural network was formed by 3 layers (input, hidden and output). It was configured setting the batch size equal to one (Stochastic Gradient Descent) for better
+The neural network was formed by 3 layers (input, hidden and output). It was configured setting the batch size equal to one (Stochastic Gradient Descent).
 
 \subsubsection{Random Forest Regressor}
 

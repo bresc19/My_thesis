@@ -43,25 +43,25 @@ In the next lines each variable is provided in tables, by showing its type, name
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
-\multirow{3}{4em}{Temperature} & Model  & \underline{temp\_2m} & Mean air temperature at 2 m above the land surface & K & ERA5-Land hourly data.\\ 
-& Ground \newline Sensor  & \underline{temp\_lcs} &  Mean air temperature ground measurement - Low Cost Sensor ESA monitoring stations. & °C & ESA Air Quality Platform.\\ 
-& Ground \newline Sensor  & \underline{temp\_st} &  Mean temperature - ARPA monitoring stations. & °C & ARPA \newline Lombardia.\\ \hline
+\multirow{3}{4em}{Temperature} & Model  & \underline{temp\_2m} & Mean air temperature at 2 m above the land surface.\par & K & ERA5-Land hourly data.\\ 
+& Ground \newline Sensor  & \underline{temp\_lcs} &  Mean air temperature ground measurement - Low Cost Sensor ESA monitoring stations.\par & °C & ESA Air Quality Platform.\\ 
+& Ground \newline Sensor  & \underline{temp\_st} &  Mean temperature - ARPA monitoring stations.\par & °C & ARPA \newline Lombardia.\\ \hline
 \pagebreak
 \hline
-\multirow{4}{4em}{Wind} & Model  & \underline{e\_wind} & Mean eastward wind component 10 m above the land surface & m/s & ERA5-Land hourly data.\\ 
-& Ground \newline Sensor  & \underline{wind\_dir\_st} &  Wind direction from ground sensor divided in 8 sectors. These are classified into 8 categories as specified in "Notes" column. & cat & ARPA \newline Lombardia.\\ 
-& Ground \newline Sensor  & \underline{n\_wind} &  Mean northward wind component 10 m above the land surface. & m/s & ERA5-Land hourly data.\\
-& Ground \newline Sensor  & \underline{wind\_speed\_st} &  Mean wind speed on ground  - ARPA monitoring stations. & m/s& ARPA \newline Lombardia.\\ \hline
+\multirow{4}{4em}{Wind} & Model  & \underline{e\_wind} & Mean eastward wind component 10 m above the land surface.\par & m/s & ERA5-Land hourly data.\\ 
+& Ground \newline Sensor  & \underline{wind\_dir\_st} &  Wind direction from ground sensor divided in 8 sectors. These are classified into 8 categories as specified in "Notes" column.\par & cat & ARPA \newline Lombardia.\\ 
+& Ground \newline Sensor  & \underline{n\_wind} &  Mean northward wind component 10 m above the land surface.\par & m/s & ERA5-Land hourly data.\\
+& Ground \newline Sensor  & \underline{wind\_speed\_st} &  Mean wind speed on ground  - ARPA monitoring stations. \par& m/s& ARPA \newline Lombardia.\\ \hline
 
-\multirow{2}{4em}{Precipitation} & Model  & \underline{prec} & Mean accumulated liquid and frozen water, including rain and snow, that falls to the Earth's surface. It is the sum of large-scale precipitation. & m & ERA5-Land hourly data.\\ 
-& Ground \newline Sensor  & \underline{prec\_st} &  Mean precipitation in each cell in the time range - ARPA monitor stations. & mm & ARPA \newline Lombardia.\\ \hline
+\multirow{2}{4em}{Precipitation} & Model  & \underline{prec} & Mean accumulated liquid and frozen water, including rain and snow, that falls to the Earth's surface. It is the sum of large-scale precipitation. \par & mm & ERA5-Land hourly data.\\ 
+& Ground \newline Sensor  & \underline{prec\_st} &  Mean precipitation in each cell in the time range - ARPA monitor stations. \par & mm & ARPA \newline Lombardia.\\ \hline
 
-\multirow{2}{4em}{Air Humidity} & Ground \newline Sensor  & \underline{air\_hum\_st} & Mean air moisture measurement in the time range - ARPA monitoring stations & \% & ARPA \newline Lombardia.\\ 
-& Ground \newline Sensor  & \underline{air\_hum\_lcs} &  Mean air moisture ground measurement - Low Cost Sensor ESA monitoring stations. & \% & ESA Air Quality Platform.\\ \hline
+\multirow{2}{4em}{Air Humidity} & Ground \newline Sensor  & \underline{air\_hum\_st} & Mean air moisture measurement in the time range - ARPA monitoring stations.\par & \% & ARPA \newline Lombardia.\\ 
+& Ground \newline Sensor  & \underline{air\_hum\_lcs} &  Mean air moisture ground measurement - Low Cost Sensor ESA monitoring stations.\par & \% & ESA Air Quality Platform.\\ \hline
 
-\multirow{1}{4em}{Air Pressure} & Model   & \underline{press} & Mean weight of all the air in a column vertically above the area of the Earth's surface represented at a fixed point. & Pa & ERA5-Land hourly data.\\ \hline
+\multirow{1}{4em}{Air Pressure} & Model   & \underline{press} & Mean weight of all the air in a column vertically above the area of the Earth's surface represented at a fixed point.\par & Pa & ERA5-Land hourly data.\\ \hline
 
-\multirow{1}{4em}{Solar Radiation} & Ground \newline Sensor  & \underline{press} & Global radiation measurement - ARPA monitoring station. & W/m\textsuperscript{2} & ARPA \newline Lombardia.\\ \hline
+\multirow{1}{4em}{Solar Radiation} & Ground \newline Sensor  & \underline{press} & Global radiation measurement - ARPA monitoring station.\par & W/m\textsuperscript{2} & ARPA \newline Lombardia.\\ \hline
 
 \hline
 \caption{Table of Meteorological variables.}
@@ -78,59 +78,59 @@ In the next lines each variable is provided in tables, by showing its type, name
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
-\multirow{1}{4em}{Dust} & Model  & \underline{dust} & Mean dust concentration at 0m level provided by CAMS (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ \hline
+\multirow{1}{4em}{Dust} & Model  & \underline{dust} & Mean dust concentration at 0m level provided by CAMS (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ \hline
 
-\multirow{3}{4em}{AOD} & Satellite \newline Sensor  & \underline{aod\_055} & Mean Aerosol Optical Depth at 550nm. & - & MODIS Terra+Aqua.\\ 
-& Satellite \newline Sensor  & \underline{aod\_047} &  Mean Aerosol Optical Depth at 470nm. & - & MODIS Terra+Aqua.\\ 
-& Satellite \newline Sensor & \underline{uvai} &  Mean UV Aerosol Index. A positive index highlights the presence of UV absorbing aerosol (such as smoke/dust).  & - & Sentinel-5P\\ \hline
+\multirow{3}{4em}{AOD} & Satellite \newline Sensor  & \underline{aod\_055} & Mean Aerosol Optical Depth at 550nm.\par & - & MODIS Terra+Aqua.\\ 
+& Satellite \newline Sensor  & \underline{aod\_047} &  Mean Aerosol Optical Depth at 470nm.\par & - & MODIS Terra+Aqua.\\ 
+& Satellite \newline Sensor & \underline{uvai} &  Mean UV Aerosol Index. A positive index highlights the presence of UV absorbing aerosol (such as smoke/dust). \par & - & Sentinel-5P\\ \hline
 
-\multirow{3}{4em}{PM10} & Model  & \underline{pm10\_cams} & Mean PM10 concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Ground \newline Sensor  & \underline{pm10\_lcs} &  Mean PM10 concentration ground measurement - Low Cost Sensor ESA monitoring stations. & ? & ESA Air Quality Platform.\\ 
-& Ground \newline Sensor & \underline{pm10\_st} &  Mean PM10 concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia\\ \hline
+\multirow{3}{4em}{PM10} & Model  & \underline{pm10\_cams} & Mean PM10 concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Ground \newline Sensor  & \underline{pm10\_lcs} &  Mean PM10 concentration ground measurement - Low Cost Sensor ESA monitoring stations.\par & ? & ESA Air Quality Platform.\\ 
+& Ground \newline Sensor & \underline{pm10\_st} &  Mean PM10 concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia\\ \hline
 
-\multirow{3}{4em}{PM2.5} & Model  & \underline{pm25\_cams} & Mean PM2.5 concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Ground \newline Sensor  & \underline{pm25\_lcs} &  Mean PM2.5 concentration ground measurement - Low Cost Sensor ESA monitoring stations. & ug/m\textsuperscript{3} & ESA Air Quality Platform.\\ 
-& Ground \newline Sensor & \underline{pm25\_st} &  Mean PM2.5 concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia\\ \hline
+\multirow{3}{4em}{PM2.5} & Model  & \underline{pm25\_cams} & Mean PM2.5 concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Ground \newline Sensor  & \underline{pm25\_lcs} &  Mean PM2.5 concentration ground measurement - Low Cost Sensor ESA monitoring stations.\par & ug/m\textsuperscript{3} & ESA Air Quality Platform.\\ 
+& Ground \newline Sensor & \underline{pm25\_st} &  Mean PM2.5 concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia\\ \hline
 \pagebreak
 \hline
-\multirow{3}{4em}{SO\textsubscript{2}} & Model  & \underline{so2\_cams} & Mean SO\textsubscript{2} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Satellite \newline Sensor  & \underline{so2\_s5p} &  Mean SO2  vertical column density at ground level. & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
-& Ground \newline Sensor & \underline{so2\_st} &  Mean SO\textsubscript{2} concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
+\multirow{3}{4em}{SO\textsubscript{2}} & Model  & \underline{so2\_cams} & Mean SO\textsubscript{2} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Satellite \newline Sensor  & \underline{so2\_s5p} &  Mean SO2  vertical column density at ground level. \par& mol/m\textsuperscript{2} & Sentinel-5P.\\ 
+& Ground \newline Sensor & \underline{so2\_st} &  Mean SO\textsubscript{2} concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
 
 
-\multirow{4}{4em}{NO\textsubscript{2}} & Model  & \underline{no2\_cams} & Mean NO\textsubscript{2} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Satellite \newline Sensor  & \underline{no2\_s5p} &  Mean NO2  vertical column density at ground level. & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
-& Ground \newline Sensor & \underline{no2\_st} &  Mean NO\textsubscript{2} concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
-& Ground \newline Sensor & \underline{no2\_lcs} &  Mean NO\textsubscript{2} concentration ground measurement - Low Cost Sensor ESA monitoring stations.  & ug/m\textsuperscript{3} & ESA Air Quality Platform.\\ \hline
+\multirow{4}{4em}{NO\textsubscript{2}} & Model  & \underline{no2\_cams} & Mean NO\textsubscript{2} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Satellite \newline Sensor  & \underline{no2\_s5p} &  Mean NO2  vertical column density at ground level.\par & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
+& Ground \newline Sensor & \underline{no2\_st} &  Mean NO\textsubscript{2} concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
+& Ground \newline Sensor & \underline{no2\_lcs} &  Mean NO\textsubscript{2} concentration ground measurement - Low Cost Sensor ESA monitoring stations. \par & ug/m\textsuperscript{3} & ESA Air Quality Platform.\\ \hline
 
-\multirow{1}{4em}{NO} & Model  & \underline{no2\_cams} & Mean NO concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\  \hline
+\multirow{1}{4em}{NO} & Model  & \underline{no2\_cams} & Mean NO concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). \par& ug/m\textsuperscript{3} & CAMS Model.\\  \hline
 
-\multirow{1}{4em}{CH\textsubscript{2}O} & Satellite \newline Sensor  & \underline{ch20\_s5p} & Mean Formaldehyde tropospheric column number density. & mol/m\textsuperscript{2} & Sentinel-5P.\\  \hline
+\multirow{1}{4em}{CH\textsubscript{2}O} & Satellite \newline Sensor  & \underline{ch20\_s5p} & Mean Formaldehyde tropospheric column number density. \par& mol/m\textsuperscript{2} & Sentinel-5P.\\  \hline
 
-\multirow{1}{4em}{CH\textsubscript{4}} & Satellite \newline Sensor  & \underline{ch20\_s5p} & Mean column averaged dry air mixing ratio of methane. & ppbV & Sentinel-5P.\\  \hline
+\multirow{1}{4em}{CH\textsubscript{4}} & Satellite \newline Sensor  & \underline{ch20\_s5p} & Mean column averaged dry air mixing ratio of methane. \par& ppbV & Sentinel-5P.\\  \hline
 
-\multirow{1}{4em}{NO\textsubscript{x}} & Ground \newline Sensor & \underline{nox\_st} &  Mean NO\textsubscript{x} (field: "Ossidi di Azoto") concentration ground measurement - ARPA monitoring stations  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
+\multirow{1}{4em}{NO\textsubscript{x}} & Ground \newline Sensor & \underline{nox\_st} &  Mean NO\textsubscript{x} (field: "Ossidi di Azoto") concentration ground measurement - ARPA monitoring stations.\par  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
 
-\multirow{1}{4em}{CO\textsubscript{2}} & Ground \newline Sensor & \underline{co2\_lcs} &  Mean CO2 concentration ground measurement - Low Cost Sensor ESA monitoring stations & ? & ESA Air Quality Platform.\\ \hline
+\multirow{1}{4em}{CO\textsubscript{2}} & Ground \newline Sensor & \underline{co2\_lcs} &  Mean CO2 concentration ground measurement - Low Cost Sensor ESA monitoring stations. \par & ? & ESA Air Quality Platform.\\ \hline
 \pagebreak
 \hline
-\multirow{4}{4em}{CO} & Model  & \underline{co\_cams} & Mean CO concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Satellite \newline Sensor  & \underline{co\_s5p} &  Mean CO vertically integrated column density. & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
-& Ground \newline Sensor & \underline{co\_st} &  Mean CO concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
-& Ground \newline Sensor & \underline{co\_lcs} &  Mean CO concentration ground measurement - Low Cost Sensor ESA monitoring stations.  & ug/m\textsuperscript{3} & ESA Air Quality Platform.\\ \hline
+\multirow{4}{4em}{CO} & Model  & \underline{co\_cams} & Mean CO concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Satellite \newline Sensor  & \underline{co\_s5p} &  Mean CO vertically integrated column density.\par & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
+& Ground \newline Sensor & \underline{co\_st} &  Mean CO concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
+& Ground \newline Sensor & \underline{co\_lcs} &  Mean CO concentration ground measurement - Low Cost Sensor ESA monitoring stations. \par & ug/m\textsuperscript{3} & ESA Air Quality Platform.\\ \hline
 
-\multirow{3}{4em}{O\textsubscript{3}} & Model  & \underline{o3\_cams} & Mean O\textsubscript{3} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Satellite \newline Sensor  & \underline{03\_s5p} &  Mean O\textsubscript{3} total atmospheric column  & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
-& Ground \newline Sensor & \underline{03\_st} &  Mean O\textsubscript{3} concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
+\multirow{3}{4em}{O\textsubscript{3}} & Model  & \underline{o3\_cams} & Mean O\textsubscript{3} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Satellite \newline Sensor  & \underline{03\_s5p} &  Mean O\textsubscript{3} total atmospheric column.\par  & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
+& Ground \newline Sensor & \underline{03\_st} &  Mean O\textsubscript{3} concentration ground measurement - ARPA monitoring stations.  \par& ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
  \hline
  
- \multirow{1}{4em}{CH\textsubscript{2}O}& Satellite \newline Sensor  & \underline{ch20\_s5p} &  Mean Formaldehyde tropospheric column number density & mol/m\textsuperscript{2} & Sentinel-5P.\\ \hline
+ \multirow{1}{4em}{CH\textsubscript{2}O}& Satellite \newline Sensor  & \underline{ch20\_s5p} &  Mean Formaldehyde tropospheric column number density. \par & mol/m\textsuperscript{2} & Sentinel-5P.\\ \hline
  
-\multirow{1}{4em}{NMOVOCs}& Model  & \underline{nmvocs\_cams} & Mean Non-Methane VOCs concentrations at 0m level provided by CAMS. & ug/m\textsuperscript{3} & CAMS Model.\\ \hline
+\multirow{1}{4em}{NMOVOCs}& Model  & \underline{nmvocs\_cams} & Mean Non-Methane VOCs concentrations at 0m level provided by CAMS.\par & ug/m\textsuperscript{3} & CAMS Model.\\ \hline
 
-\multirow{3}{4em}{NH\textsubscript{3}} & Model  & \underline{nh3\_cams} & Mean NH\textsubscript{3} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis). & ug/m\textsuperscript{3} & CAMS Model.\\ 
-& Satellite \newline Sensor  & \underline{nh3\_lcs} &  Mean NH\textsubscript{3} concentration ground measurement - Low Cost Sensor ESA monitoring stations  & ? & ESA Air Quality Platform.\\ 
-& Ground \newline Sensor & \underline{nh3\_st} &  Mean NH\textsubscript{3} concentration ground measurement - ARPA monitoring stations.  & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
+\multirow{3}{4em}{NH\textsubscript{3}} & Model  & \underline{nh3\_cams} & Mean NH\textsubscript{3} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
+& Satellite \newline Sensor  & \underline{nh3\_lcs} &  Mean NH\textsubscript{3} concentration ground measurement - Low Cost Sensor ESA monitoring stations. \par  & ? & ESA Air Quality Platform.\\ 
+& Ground \newline Sensor & \underline{nh3\_st} &  Mean NH\textsubscript{3} concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia.\\ \hline
 \caption{Table of Pollutant variables.}
 \end{longtable}
 \end{center}
@@ -144,16 +144,16 @@ In addition to them, there's also pollutants variables ending with '\_int' (such
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
 
-\multirow{3}{4em}{Vegetation} & Satellite \newline Sensor  & \underline{siarlX} & Fraction of area in each cell for each agricultural use provided by SIARL Catalog for Lombardy Region. & \% & SIARL Lombardia 2019.\\ 
-& Satellite \newline Sensor  & \underline{ndvi} &  Mean NDVI cell value over 16 days period & - & USGS Earth Data.\\ 
-& Satellite \newline Sensor  & \underline{siarl} &  Majority class for agricultural use provided by SIARL Catalog for Lombardy Region. & cat & SIARL Lombardia 2019.\\
+\multirow{3}{4em}{Vegetation} & Satellite \newline Sensor  & \underline{siarlX} & Fraction of area in each cell for each agricultural use provided by SIARL Catalog for Lombardy Region.\par & \% & SIARL Lombardia 2019.\\ 
+& Satellite \newline Sensor  & \underline{ndvi} &  Mean NDVI cell value over 16 days period.\par & - & USGS Earth Data.\\ 
+& Satellite \newline Sensor  & \underline{siarl} &  Majority class for agricultural use provided by SIARL Catalog for Lombardy Region. \par & cat & SIARL Lombardia 2019.\\
 \hline
 
-\multirow{5}{4em}{Soil} & Model  & \underline{soil\_moist} & Mean volume of water in soil layer 1 (0 - 7 cm) of the ECMWF Integrated Forecasting System. The surface is at 0 cm. The volumetric soil water is associated with the soil texture (or classification), soil depth, and the underlying groundwater level. & m\textsuperscript{3}/m\textsuperscript{3} & ERA5 Land Hourly Data.\\ 
-& Map Layer  & \underline{soilX} &  Fraction of area for each cell containing the soil type obtained from OpenLandMap soil texture classification. & \% & OpenLandMap Soil Texture Class (USDA System).\\ 
-& Map Layer  & \underline{soil\_textX} &  Mean NDVI cell value over 16 days period & \% & Basi informative dei suoli - Geoportale Lombardia.\\ 
-& Map Layer  & \underline{soil} &  Majority soil type for each pixel from OpenLandMap soil texture classification . & cat & OpenLandMap Soil Texture Class (USDA System) .\\ 
-& Map Layer  & \underline{soil\_text} &  Majority soil type for each pixel from Carta pedologica 250K (Lombardy Region). & cat & Basi informative dei suoli - Geoportale Lombardia.\\ 
+\multirow{5}{4em}{Soil} & Model  & \underline{soil\_moist} & Mean volume of water in soil layer 1 (0 - 7 cm) of the ECMWF Integrated Forecasting System. The surface is at 0 cm. The volumetric soil water is associated with the soil texture (or classification), soil depth, and the underlying groundwater level.\par & m\textsuperscript{3}/m\textsuperscript{3} & ERA5 Land Hourly Data.\\ 
+& Map Layer  & \underline{soilX} &  Fraction of area for each cell containing the soil type obtained from OpenLandMap soil texture classification.\par & \% & OpenLandMap Soil Texture Class (USDA System).\\ 
+& Map Layer  & \underline{soil\_textX} &  Mean NDVI cell value over 16 days period. \par & \% & Basi informative dei suoli - Geoportale Lombardia.\\ 
+& Map Layer  & \underline{soil} &  Majority soil type for each pixel from OpenLandMap soil texture classification .\par & cat & OpenLandMap Soil Texture Class (USDA System) .\\ 
+& Map Layer  & \underline{soil\_text} &  Majority soil type for each pixel from Carta pedologica 250K (Lombardy Region). \par& cat & Basi informative dei suoli - Geoportale Lombardia.\\ 
 
 \hline
 \caption{Table of variables referred to Vegetation and Soil.}
@@ -169,12 +169,14 @@ In addition to them, there's also pollutants variables ending with '\_int' (such
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
-\multirow{1}{4em}{Geometry} & Map Layer  & \underline{area} & Area of Lombardy Region vector layer in each cell. & km\textsuperscript{2} & SIARL Lombardia 2019.\\ 
-& Satellite \newline Sensor  & \underline{ndvi} &  Mean NDVI cell value over 16 days period & - & - \\ \hline
+\multirow{1}{4em}{Geometry} & Map Layer  & \underline{area} & Area of Lombardy Region vector layer in each cell. \par& km\textsuperscript{2} & SIARL Lombardia 2019.\\ 
+\hline
+\multirow{1}{4em}{Calendar} & Map Layer  & \underline{cal} & JSON file containing the time-ranges used for data processing. \par& day & -\\ 
+\hline
 
 \multirow{1}{4em}{Population} & Map Layer  & \underline{pop} & Population for each cell. & n° of inhabitants& Gridded Population of the World (GPW).\\ \hline
 
-\multirow{2}{4em}{Land use and cover} & Map Layer  & \underline{dsfX} & Land use fraction for each cell containing the classification the classification provided by DUSAF Catalog (Lombardy Region). & \% (fraction for each cell) & DUSAF Lombardia 2018.\\ 
+\multirow{2}{4em}{Land use and cover} & Map Layer  & \underline{dsfX} & Land use fraction for each cell containing the classification the classification provided by DUSAF Catalog (Lombardy Region). & \% (fraction for each cell) & DUSAF Lombardia 2018.\\ \hline
 Map Layer  & \underline{dusaf} & Cover & Land Use majority class for each cell provided by DUSAF Catalog (Lombardy Region). & cat  & DUSAF Lombardia 2018.\\
 \hline
 
@@ -219,18 +221,18 @@ In the following table is explained the semantic of the values assumed.
 
  \multicolumn{2}{|c|}{\textbf{Meteo}} \\
 \hline
- \underline{wind\_dir\_st}  \newline \newline (Wind direction from ground sensor divided in 8 sectors.) & 1 = North: 0° - 22.5° / 337.5° - 360°, \newline2 = North-East: 22.5° - 67.5°, \newline3 = East: 67.5° - 112.5°,  \newline4 = South-East: 112.5° - 157.5°, \newline5 = South: 157.5° - 202.5°, \newline6 = South-West: 202.5° - 247.5°, \newline7 = West: 247.5° - 292.5°, 8 = North-West: 292.5° - 337.5°\\ \hline
+ \underline{wind\_dir\_st}  \newline \newline (Wind direction from ground sensor divided in 8 sectors). & 1 = North: 0° - 22.5° / 337.5° - 360°; \newline2 = North-East: 22.5° - 67.5°; \newline3 = East: 67.5° - 112.5°;  \newline4 = South-East: 112.5° - 157.5°; \newline5 = South: 157.5° - 202.5°; \newline6 = South-West: 202.5° - 247.5°; \newline7 = West: 247.5° - 292.5°; 8 = North-West: 292.5° - 337.5°\\ \hline
  \multicolumn{2}{|c|}{\textbf{Soil and Vegetation}} \\ \hline
- \underline{siarl} \newline \newline (Majority class for agricultural use provided by SIARL Catalog for Lombardy Region.) & 2 = Cereal \newline9 = Mais \newline12 = Rice\\  \hline
- \underline{soil} \newline \newline (Majority soil type for each pixel from OpenLandMap soil texture classification.) &  2 = Cereal\newline9 = Mais\newline12 = Rice\\ \hline 
-\underline{soil\_text} \newline \newline (Majority soil type for each pixel from Carta pedologica 250K.) &  1 = Clay\newline2 = Silty Clay \newline3 = Sandy Clay\newline4 = Clay Loeam \newline5 = Silty Clay Loam\newline6 = Sandy Clay Loam \newline7 = Loam \newline8 = Silt Loam \newline9 = Sandy Loam \newline10 = Silt \newline 11 = Loamy Sand \newline12 = Sand.\\ \hline
+ \underline{siarl} \newline \newline (Majority class for agricultural use provided by SIARL Catalog for Lombardy Region). & 2 = Cereal; \newline9 = Mais; \newline12 = Rice;\\  \hline
+ \underline{soil} \newline \newline (Majority soil type for each pixel from OpenLandMap soil texture classification). &  1 = Clay; \newline2 = Silty Clay; \newline3 = Sandy Clay; \newline4 = Clay Loeam; \newline5 = Silty Clay Loam; \newline6 = Sandy Clay Loam; \newline7 = Loam;\newline8 = Silt Loam; \newline9 = Sandy Loam; \newline10 = Silt; \newline11 = Loamy Sand; \newline12 = Sand;  \\ \hline 
+\underline{soil\_text} \newline \newline (Majority soil type for each pixel from Carta pedologica 250K). & 1 = Fine clay;\newline 2 = Very fine clay;\newline  3 = Fine loose;\newline  4 = Coarse loose;\newline  5 = Fine silty;\newline  6 = Coarse silty;\newline  7 = Skeletal-clayey sand;\newline  9 = Skeletal-loose;\newline  10 = skeletal-sand; \\ \hline
  \multicolumn{2}{|c|}{\textbf{GIS (Static layers)}} \\ \hline
- \underline{dusaf} \newline \newline (Land use and cover) & 2 = Agricultural areas \newline3 = Wooded territories and semi-natural environments \newline4 = Wetlands \newline5 = Water bodies \newline11 = Urbanised areas \newline12 = Production facilities, large plants and communication networks \newline13 = Mining areas, landfills, construction sites, waste and abandoned land \newline14 = Non-agricultural green areas \\
+ \underline{dusaf} \newline \newline (Land use and cover). & 2 = Agricultural areas; \newline3 = Wooded territories and semi-natural environments; \newline4 = Wetlands; \newline5 = Water bodies; \newline11 = Urbanised areas; \newline12 = Production facilities, large plants and communication networks; \newline13 = Mining areas, landfills, construction sites, waste and abandoned land; \newline14 = Non-agricultural green areas; \\
 \hline
- \underline{aq\_zone}\newline \newline (Air quality zones) & 1 = Highly urbanized plains \newline 2 = Plains \newline 3 = Prealpi, Appennino and mountains \newline 4 = Valley floor Agg. 
-\newline5 = Urban agglomarated area (Milano, Bergamo, Brescia).\\
+ \underline{aq\_zone}\newline \newline (Air quality zones) & 1 = Highly urbanized plains; \newline 2 = Plains; \newline 3 = Prealpi, Appennino and mountains;\newline 4 = Valley floor Agg; 
+\newline5 = Urban agglomarated area (Milano, Bergamo, Brescia);\\
 \hline
- \underline{clim\_zone}\newline \newline (Climate zones) & 1 = Alpi\newline 2 = Prealpi Occidentali \newline 3 = Prealpi Orientali\newline 4 = Pianura Occidentale\newline 5 =  Pianura Centrale\newline 6 = Pianura Orientale. 
+ \underline{clim\_zone}\newline \newline (Climate zones) & 1 = Alpi;\newline 2 = Prealpi Occidentali; \newline 3 = Prealpi Orientali;\newline 4 = Pianura Occidentale;\newline 5 =  Pianura Centrale;\newline 6 = Pianura Orientale; 
  \\
 \hline
 \caption{Table of categorical variables with their values legend.}
