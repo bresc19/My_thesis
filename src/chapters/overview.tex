@@ -1,5 +1,5 @@
 In this chapter I explain each step taken during the pre-processing phase, by illustrating in details each step taken and tool used. \newline
-\bigbreak
+\par
 My work is focused on the first phase of a data analysis procedure which is the pre-processing.
 Data pre-processing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
 Indeed, raw data is in most cases incomplete and noisy.\par
@@ -18,7 +18,7 @@ Data cleaning aims to fix problems or errors in messy data. There are many reaso
 This could be done by removing rows or columns. Alternately, it might involve replacing observations with new values. \newline
 
 \subsection{Remove of variables with low variance}
-An approach for removing columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean of a given variable X $\mu$. 
+An approach for removing columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean $\mu$ of a given variable X. 
 \begin{equation}
   Var(X) = E[(X-\mu)^2]
 \end{equation}
@@ -148,25 +148,40 @@ So it needs an ensemble technique aims to makes it more robust across various al
 In this context Borda Count is used as a rank-based combination technique used for evaluate an average score for each feature. In this method, assuming that each scores evaluated by each FS method are sorted in descending order, points are assigned to candidates (variables) based on their ranking; 1 point for last choice (the most meaningless by its score), 2 points for second-to-last, and so on. Finally the points for all ballots are summed up, and the candidates with the largest point total are the winners (the feature with the largest points are the most significant).
 \par
 At this point variables with the highest number of votes can be used as input in ML models and taken in consideration as the most meaningful factor affecting the target variable.
+\par
+After the modelling step, an evaluation of the performance predictions is performed in terms of error and accuracy using k-fold cross validation.\newline
+K-Fold cross-validation consist in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation is averaged along the k different random sample.
+Metrics chosen for evaluation are MAE (Mean Absolute Error), MSE (Mean Squared Error) and R2 (Coefficient of determination).
 
 \section{Model prediction}
-Prediction is a type of analysis that uses techniques and tools to build predictive models and forecast outcomes. In my work predictive analysis is performed for making prediction on pollutants with data processed in the first phase as input.\newline
+Prediction is a type of analysis that uses techniques and tools to build predictive models and forecast outcomes. 
+In my work predictive analysis is performed for making prediction on the target with data processed in the first phase as input.\newline
 Model predictions are deployed through regression analysis, used for estimating the relationships between a dependent variable and one or more independent variables.\par
-In particular I use supervised techniques based on Machine Learning where the model built is fit with the training data set and evaluated its performance with the test set. 
-\begin{comment}
+In particular I used supervised techniques based on Machine Learning where the model built is fit with the training data set and its performance evaluated through the test set. 
+\par
+In my work I wasn't focus in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact on the models performance. Indeed, the point of interest is to create a model that performs better in a local scale with respect other global model.
+For doing that I implemented 2 different ML supervised model.
+\subsection{Neural Network with Keras}
+It's one of the deep learning algorithms which is based on the structure of biological neural network, where nodes represent neurons.
+Nodes are connected to each others through the layers. 
+In this way, every neuron of a layer is connected to neurons in the next layer.
+The structure of my Neural Network is formed by 3 layers:
 \begin{itemize}
-\item Training data set: //todo  
-\item Test data set are made of ground sensor data. In this way the validation is performed with measurement which are most accurate;
+    \item Input layer: Each node takes the initial data into the network and propagate information to the following layers;
+    \item Output layer: It contains the result of the problem. 
+    \item Hidden layer: It's actually responsible for performance and complexity of neural networks. It's placed between the output and input layers;
 \end{itemize}
-\end{comment}
-For doing prediction, I employ 2 supervised AI models:
-\begin{itemize}
-\item \textbf{Neural Network regression with Keras}: It's one of the deep learning algorithms that simulate the workings of neurons in the human brain. In a neural network neurons are linked between them forming layers; 
-\item \textbf{Machine Learning with Random Forest regressor}: It operates by constructing several decision trees during training time and outputting the mean of the classes as the prediction of all the trees;
-\end{itemize}
-After this step an evaluation of the performance of predictions is performed in terms of error and accuracy with a procedure called k-fold cross validation.\newline
-Finally, a comparison with CAMS data is performed with the aim to demonstrate that the models produced are better estimated in this local scale.\par
+During the training phase, in which the network "learns", independent variables are used as input and processed through a weighted associations in which at each step produce a results which are compared to the target output. The error computed between them is successively adjusted and update following learning rules. The achievement obtained is a results increasingly similar to the values assumed by the target variable. 
+For implementing it, I use Keras API from TensorFlow library.
 
+
+
+\subsection{Machine Learning with Random Forest}
+Random forests is used in regression problem, by using a structure of decision trees for making predictions. Decision trees answer to sequential questions through the routes tracked by trees.
+Algorithm consists in building a certain number of random decision trees from the a bootstrap sample of the original data set (this phase is called bootstrap sampling). Then, the prediction of a certain sample is performed by following each decision trees. In a regression problem the final decision will be an averaged value from the ones obtained by each tree (phase of aggregation).
+For implementing it, I use RandomForestRegressor class from sklearn library, configured with 300 random trees.
+\bigbreak
+In the next chapters each step will be described in depth about procedures adapted in the case of study and the results obtained.
 
 \begin{figure}[H]
     \centering
@@ -175,4 +190,35 @@ Finally, a comparison with CAMS data is performed with the aim to demonstrate th
     \label{fig:overview}
 \end{figure}
 
-In the next chapters each step will be described in depth about procedures adapted and results obtained.
+
+\section{Notebook implementation for Feature Selection}
+For processing and analysing data I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
+(\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
+Its essential steps are shown in figure \ref{fig:overview}..
+
+In order to manage its configuration and the results obtained, a simple User Interface using ipywidgets package is built.
+In this interface there are 2 sections:
+\begin{itemize}
+\item Feature Selection scores: they are graphically shown using multiple barplot, one for each data set previously selected. Barplot are implemented with the use of Plotly library; 
+\item Options: in this s box is possible to configure the feature selection input:
+\begin{itemize}
+\item target variable. Variable usable are the ones coming from ARPA ground sensors;
+\item value of the Variance Threshold for discarding meaningless variable before FS (optional);
+\end{itemize}
+and the output:
+\begin{itemize}
+\item choice of method for visualize its own scores;
+\item results normalization (optional);
+\item order of the scores by descending order or by labels;
+\item scale of Y-axis (regular or logarithmic);
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{images/notebook.png}
+    \caption{Overview of the notebook implemented for FS procedure.}
+    \label{fig:notebook}
+\end{figure}
+
+

@@ -306,9 +306,9 @@ Before the feature selection phase, VarianceThreshold was applied in order to di
 \end{figure}
 \section{Feature Selection}
 In this phase, I got the list of the most significant variables for each different configuration.
-For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. In this what is obtained is a general set of variables for each different configuration.
+For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.
 This was computed by averaging the feature selected for each different period with Borda Count another time;
-Since I assume 2 different resolution and with the possibility to include or not the mountain zones, I obtained 4 different configurations:
+Since I assume 2 different resolution and with the possibility to include or not the mountain zones, I obtained 4 different configurations: (TODO)
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|}
@@ -320,188 +320,21 @@ Since I assume 2 different resolution and with the possibility to include or not
  
     \end{tabular}
 \end{table}
-
-
-
-\section{Notebook implementation for Feature Selection}
-For processing and analysing data I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
-(\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
-Its essential steps (shown in figure \ref{fig:overview}) are these.
-\begin{comment}
-
-At the beginning the general parameter needed to configure the pre-processing phase are declared.
-\begin{verbatim}
-RESOLUTION= '0_1' //resolution of the data chosen
-KNN = True    //If true a k-nearest neighbour is performed
-knn_value = 10 //Number of buffer values added close to each target variable value
-NO_MOUNTAINS = True 
-\end{verbatim}
-\end{comment}
-In order to manage its configuration and the results obtained, a simple User Interface using ipywidgets package is built.
-In this interface there are 2 sections:
-\begin{itemize}
-\item Feature Selection scores: they are graphically shown using multiple barplot, one for each data set previously selected. Barplot are implemented with the use of Plotly library; 
-\item Options: in this s box is possible to configure the feature selection input:
-\begin{itemize}
-\item target variable. Variable usable are the ones coming from ARPA ground sensors;
-\item value of the Variance Threshold for discarding meaningless variable before FS (optional);
-\end{itemize}
-and the output:
-\begin{itemize}
-\item choice of method for visualize its own scores;
-\item results normalization (optional);
-\item order of the scores by descending order or by labels;
-\item scale of Y-axis (regular or logarithmic);
-\end{itemize}
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.40]{images/notebook.png}
-    \caption{Overview of the notebook implemented for FS procedure.}
-    \label{fig:notebook}
-\end{figure}
-
-
-
+In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
 \begin{figure}
     \centering
     \includegraphics[width=.9\textwidth]{images/test_param.png}
     \caption{Parameter taken in consideration for tests execution.}
     \label{fig:test_params}
 \end{figure}
--data
--motivazioni
--risoluzioni
--parametri test
-\section{FS Results with target variable = 'pm25\_st'}
-\label{sec:pm25}
-\subsection{Resolution = 0.01°}
-\subsubsection{Including mountains}
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0324_0331_2021.png}
-\includegraphics[width=0.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/montains/grid_0_01_1007_1014_2021.png}
-\end{center}
-
-\subsubsection{Excluding mountains}
-\begin{center}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0324_0331_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/001/no_montains/grid_0_01_1007_1014_2021.png}
-\end{center}
-\subsection{Resolution = 0.1°}
-\subsubsection{Including mountains}
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0324_0331_2021.png}
-\includegraphics[width=0.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/montains/grid_0_1_1007_1014_2021.png}
-\end{center}
-
-\subsubsection{Excluding mountains}
-\begin{center}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0324_0331_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/pm25/01/no_montains/grid_0_1_1007_1014_2021.png}
-\end{center}
-
-\section{FS Results with target variable = 'nh3\_st'  }
-\subsection{Resolution = 0.1°}
-\subsubsection{Including mountains}
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0324_0331_2021.png}
-\includegraphics[width=0.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/montains/grid_0_1_1007_1014_2021.png}
-\end{center}
-
-\subsubsection{Excluding mountains}
-\begin{center}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0324_0331_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/01/no_montains/grid_0_1_1007_1014_2021.png}
-\end{center}
 
 
-\subsection{Resolution = 0.01°}
-\subsubsection{Including mountains}
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0324_0331_2021.png}
-\includegraphics[width=0.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/montains/grid_0_01_1007_1014_2021.png}
-\end{center}
-
-\subsubsection{Excluding mountains}
-\begin{center}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0324_0331_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0418_0425_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0717_0724_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_0903_0910_2021.png}
-\includegraphics[width=.9\textwidth]{images/fs_results/nh3/001/no_montains/grid_0_01_1007_1014_2021.png}
-\end{center}
-\section{Interpretation of FS results}
-In this section the results obtained for each target variable selected are explained in relation to the votes received and the positive or negative correlation assumed in the filter methods.\\
-Similarity between the 2 test set are visible for many factors that influence both particulate matter and ammonia.
-For instance, DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) received many votes in both case, since air pollution affect more urban than mountain areas.
-
-\subsection{PM25 as target variable}
-Fine particulate matter (PM2.5) is one of the most common air pollutant in our environment. 
-It primarily comes from transport vehicle (such as car, truck and bus), industry, burning of fuels and household activities.\\ \par
-During the 5 periods, it's shown that PM25, as the other pollutants, change over the time. Air pollution change accordingly to the type of climate and atmospheric conditions.\\
-Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. But for the week between 17 and 24 July a negative correlation between them is found, on the contrary with respect to certain studies found in literature\cite{zhu2019correlations}\cite{biglari2017relationship}.\\
-In the tests is also visible the score obtained by ozone ('o3\_int') which tends to be positively correlated in the period between 18 and 25 April.\\
-This, as mentioned before, is possibly due to their common precursors, such as nitrogen oxides and volatile organic compounds and their simultaneous generation in photochemical reactions. Indeed, in the given period both ('nox\_int' and 'nmvocs\_int') have a positive correlation and an high number votes.\\
-By the bar plots attached in the first \hyperref[sec:pm25]{section}, the most correlated variables to PM25 belong mostly to pollutant. In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always a number votes between 150 and 240. Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
-Other pollutants with an high significant number of votes (greater than 100) are nitrogen dioxide ('no2\_int'), nitrogen monoxide ('no\_int'), sulphur dioxide('so2\_int' and 'so2\_cams') and aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that this pollutants have a strong correlation with particulate matter, due to the fact that are emitted both by commercial, households, road transport and industrial processes\cite{maranzano2022air}.
-The results show also how particulate matter is influenced by meteorological parameters.
-Air temperature ('temp\_2m') increases with global radiation ('rad\_glob\_int'), while particulate matter significantly decreased\cite{li2015particulate}. \\
-Also the pressure contribute ('press' with a remarkable number of votes between 50 and 100) for the presence of particulate matter, since causes stable atmospheric condition that make PM harder to be disseminated. 
-Instead, fine particulate is negatively correlated to wind speed ('e\_wind'), since the PM concentration tends to turn down with it. Wind is a marker for the horizontal transport of air pollutants.\\
-It can be observed also the negative correlation between particulate matter and air humidity ('air\_hum\_int').
-Under increased humidity conditions, PM may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction\cite{biglari2017relationship}.\\
-Observing the results regarding intense agriculture, it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received as PM10 most votes of all in spring period due to its strong positively correlation. 
-We can assume that the main emission source of ammonia is the intense agriculture, since was responsible for the 92\% of the total by EEA country members in 2017\cite{maranzano2022air}.\\
-Indeed, during this periods, application of fertilizer contribute to ammonia and particulate matter composition.
-Significantly more fertilizer is applied in the spring than summer and winter season due to crop cycles\cite{goebes2003ammonia}.
-So we can assume that intense agriculture is one of the factor that influence the pm25 formation, but only in a certain period of the year.\\
-\subsection{NH3 as target variable}
-Ammonia (NH3) is a reactive and soluble alkaline gas. It's one of the main sources of nitrogen pollution and come from from both natural and anthropogenic sources, such as agriculture.
-The process of ammonia evaporation commonly takes place when nitrogen is originated by urea of animal livestock, and fertilize. \\
-
-In the results obtained along the 5 period, stands out the ammonia provided by CAMS model ('nh3\_cams') which, due to the fact that represents the same pollutant, is strongly correlated. Variables related to atmospheric condition are weighted with scores of the same order of magnitude of the previous test set, since ammonia is dispersed in the environment as particulate matter and other pollutants.\\
-We can figure out also variable related to pm10 and pm25('pm10\_int', 'pm10\_cams','pm25\_int' and 'pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter (pm25 in particular\cite{zhu2015sources} .\\
-Correlation of ammonia with respect to intensive agricultural is also feasible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable) and the Normalized Difference Vegetation Index ('ndvi').\\
-Other important weighted features are the ones related to intense farming ('farm\_sheeps', 'farm\_pigs', 'farm\_poultry' and 'farms') which are responsible for ammonia and methane release ('ch4\_s5p' has a meaningful positive correlation with respect to NH3).\\
-Indeed, animal urine and faeces imply the release of respectively ammonia and methane in the atmosphere\cite{saggar2004review}.\\
-It can be viewed also how road infrastructure variables contribute to ammonia. In particular the correlation between them is negative, since ammonia emission from agriculture occurs usually far from urban and traffic areas.\\
-So we can suggest that ammonia in Lombardy should be very related to the use of fertilizer in agriculture areas and animal livestock in farms.
- 
-
-\section{Data Modelling}
-In this section, I illustrate the models used in order to estimate the target variable. For each test, the training phase was performed with the 2 set of feature configured in the previous subsection: one with the features selected for each specific data set period and one which is the
-For doing that 2 ML model were implemented:
-
-\subsubsection{Neural Network with Keras}
+The output of a neuron is mapped to a variety of values in neural network regression, thus ensuring non-linearity. You can choose a single parameter or a range of parameters for predicting output using neural network regression. The neurons (outputs of a neural network are well-connected with each other, along with a weight associated with each neuron. The well-connected neurons help in predicting future values along with mapping a relationship between dependent and independent variables. 
 The neural network was formed by 3 layers (input, hidden and output). It was configured setting the batch size equal to one (Stochastic Gradient Descent).
 
 \subsubsection{Random Forest Regressor}
 
-\subsection{Results}
-\subsection{Interpretation}
-
+Finally, a comparison with CAMS data is performed with the aim to demonstrate that the models produced are better estimated in this local scale.\par
 https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/agricultural-pollution 
 https://pure.iiasa.ac.at/id/eprint/14769/1/Reduction%20of%20NH3%20emissions%20from%20agriculture%20in%20the%20Hai%20River%20Basin%20in%20China.pdf
 
