@@ -67,7 +67,8 @@ Discarding irrelevant data is essential before applying Machine Learning model i
 \item \textbf{Reduce Training Time}: With less data an algorithm will train faster;
 \end{itemize}
 In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as output. \newline
-In the following subsubsection each FS method implemented is described in detail, classified in three main categories\cite{stanczyk2015feature}, as we can find in literature:
+Due to the fact that there isn’t a best feature selection technique, many different methods are performed, each one that gives different correlation results.\par
+In the following subsection each FS method implemented is described in detail, classified in three main categories\cite{stanczyk2015feature}, as we can find in literature:
 \subsection{Filter Methods}
 Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.\newline
 These select features from the without machine learning algorithm. In terms of computation, they are very fast and are very suitable in order to remove duplicated, correlated, redundant variables\cite{saeys2007review}. \newline
@@ -147,11 +148,7 @@ One of the most important challenges in this study is the lack of an universal f
 So it needs an ensemble technique aims to makes it more robust across various algorithms. In this work we adopt an ensemble approach described in this study\cite{sarkar2014robust}, using the Borda Count algorithm. Initially Borda Count was a voting system method, named for Jean-Charles de Borda\cite{borda1784memoire}.\newline
 In this context Borda Count is used as a rank-based combination technique used for evaluate an average score for each feature. In this method, assuming that each scores evaluated by each FS method are sorted in descending order, points are assigned to candidates (variables) based on their ranking; 1 point for last choice (the most meaningless by its score), 2 points for second-to-last, and so on. Finally the points for all ballots are summed up, and the candidates with the largest point total are the winners (the feature with the largest points are the most significant).
 \par
-At this point variables with the highest number of votes can be used as input in ML models and taken in consideration as the most meaningful factor affecting the target variable.
-\par
-After the modelling step, an evaluation of the performance predictions is performed in terms of error and accuracy using k-fold cross validation.\newline
-K-Fold cross-validation consist in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation is averaged along the k different random sample.
-Metrics chosen for evaluation are MAE (Mean Absolute Error), MSE (Mean Squared Error) and R2 (Coefficient of determination).
+
 
 \section{Model prediction}
 Prediction is a type of analysis that uses techniques and tools to build predictive models and forecast outcomes. 
@@ -159,6 +156,48 @@ In my work predictive analysis is performed for making prediction on the target 
 Model predictions are deployed through regression analysis, used for estimating the relationships between a dependent variable and one or more independent variables.\par
 In particular I used supervised techniques based on Machine Learning where the model built is fit with the training data set and its performance evaluated through the test set. 
 \par
+At this point variables with the highest number of votes can be used as input in ML models and taken in consideration as the most meaningful factor affecting the target variable.
+\par
+After the modelling step, an evaluation of the performance predictions is performed in terms of error and accuracy using k-fold cross validation.\newline
+K-Fold cross-validation consist in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random sample.
+Metrics chosen for evaluation are:
+\begin{itemize}
+    \item MAE (Mean Absolute Error): it's the mean absolute distance for the observations;
+    \item MSE (Mean Squared Error): it measure as MAE the distance of errors from the observations but with the difference of squaring the distance. In this way higher errors weigh more;
+    \item R2 (Coefficient of determination): it' s a statistical index that represents the percentage whereas the target variable is explained in a regression model;
+\end{itemize} 
+Their formula are these:
+\begin{equation}
+MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i-\hat{y}_i|
+\end{equation}
+Where:
+\begin{itemize}
+    \item N is the umber of the samples;
+    \item $\hat{y}$\textsubscript{i} is the i-th samples predicted;
+    \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
+\end{itemize}
+\begin{equation}
+MSE = \frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y}_i)^2
+\end{equation}
+Where:
+\begin{itemize}
+    \item N is the umber of the samples;
+    \item $\hat{y}$\textsubscript{i} is the i-th samples predicted;
+    \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
+\end{itemize}
+\begin{equation}
+R^2 = 1 - \frac{RSS}{TSS}    
+\end{equation}
+Where:
+\begin{equation}RSS = \sum_{i=1}^{N}(y_i-\hat{y}_i)^2 \end{equation}is the residual sum of squares;
+\begin{equation} TSS =  \sum_{i=1}^{N}(y_i-\bar{y})\end{equation} is the total sum of squares;
+\begin{itemize}
+    \item $\hat{y}$\textsubscript{i} is the i-th samples predicted;
+    \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
+    \item $\bar{y}$ it's mean value of the test set;
+\end{itemize}
+
+
 In my work I wasn't focus in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact on the models performance. Indeed, the point of interest is to create a model that performs better in a local scale with respect other global model.
 For doing that I implemented 2 different ML supervised model.
 \subsection{Neural Network with Keras}
@@ -191,16 +230,17 @@ In the next chapters each step will be described in depth about procedures adapt
 \end{figure}
 
 
-\section{Notebook implementation for Feature Selection}
+\section{Notebook implemented}
 For processing and analysing data I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
 (\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
 Its essential steps are shown in figure \ref{fig:overview}..
 
+\subsection{Computation and view of feature selection results}
 In order to manage its configuration and the results obtained, a simple User Interface using ipywidgets package is built.
 In this interface there are 2 sections:
 \begin{itemize}
 \item Feature Selection scores: they are graphically shown using multiple barplot, one for each data set previously selected. Barplot are implemented with the use of Plotly library; 
-\item Options: in this s box is possible to configure the feature selection input:
+\item Options: in this box is possible to configure the feature selection input:
 \begin{itemize}
 \item target variable. Variable usable are the ones coming from ARPA ground sensors;
 \item value of the Variance Threshold for discarding meaningless variable before FS (optional);
@@ -221,4 +261,15 @@ and the output:
     \label{fig:notebook}
 \end{figure}
 
+In the notebook are present also cells which aims to export FS results.
 
+\subsection{Computation and view of ML models results}
+For build I use 2 different notebook for the evaluation of the Neural Network (\href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/Keras_prediction_model.ipynb}{link}) and the Random Forest model (\href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/RandomForest_prediction_model.ipynb}{link}). 
+It possible to set these parameter before running the model:
+\begin{itemize}
+    \item NUMBER\_OF\_COVARIATES: It's number of the n features with the highest Borda Count score take as input for the model;
+    \item TARGET: It represents the target variable to be predicted by the model;
+\end{itemize}
+
+Each one of them imports the feature selected from the previous notebook and export the accuracy evaluation of the k-fold cross validation externally. \par
+The results are subsequently opened and shown with \href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}{this other notebook} through the use of widgets.

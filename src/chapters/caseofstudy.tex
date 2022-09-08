@@ -251,7 +251,7 @@ Data collected are dated 2021 because are the most recent and, with respect 2020
 In this case of study grid data are chosen by considering the effect of intensive agriculture, with these particular condition:
     \begin{itemize}
         \item In order to have right condition for farming, in the period chosen the terrain shouldn't be frozen (Temperature > 0°C). So I selected data coming from spring, summer and autumn period (discarding winter);
-        \item For better highlighting the effect of intense agriculture with the usage of fertilizer and pesticides, which are the main pollution emission factors, weeks preceding a rain period are selected;
+        \item For better highlighting the effect of intense agriculture with the usage of fertilizer and pesticides, which are the main pollution emission factors, weeks with no rains are selected;
 \end{itemize}
 In this way, several grid data are chosen from 5 different weeks:
 \begin{itemize}
@@ -263,9 +263,8 @@ In this way, several grid data are chosen from 5 different weeks:
 \end{itemize}
 
 \subsection{Target Variables}
-In this study target variables chosen represent the pollution phenomena correlated to agriculture intensive  such as the PM25 and Ammonia emissions. We choose these targets because are the most relevant sources of pollution produced by intensive agricultural.\newline
+In this study target variables chosen represent the pollution phenomena correlated to agriculture intensive  such as the PM25 and Ammonia emissions. We choose these targets because are the most relevant sources of pollution produced by them.\newline
 One of the aim of this step is to detect main pollutant factors which contribute further on the training of PM25 or NH3 emissions.
-Due to the fact that there isn’t a best feature selection technique, many different methods are performed, each one that gives different correlation results.\par
 PM25 and ammonia (NH3) provided by ARPA sensors are the one chosen as target variables('pm25\_st' and 'nh3\_st'). 
 ARPA air quality monitoring stations, which, operating 24 h a day 365 days a year, are periodically checked and subject to maintenance, for ensuring the proper functioning and reliability.
 
@@ -321,7 +320,7 @@ Since I assume 2 different resolution and with the possibility to include or not
     \end{tabular}
 \end{table}
 In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=.9\textwidth]{images/test_param.png}
     \caption{Parameter taken in consideration for tests execution.}
@@ -329,12 +328,11 @@ In the \ref{fig:test_params} is shown a summary of the parameter of each test ex
 \end{figure}
 
 
-The output of a neuron is mapped to a variety of values in neural network regression, thus ensuring non-linearity. You can choose a single parameter or a range of parameters for predicting output using neural network regression. The neurons (outputs of a neural network are well-connected with each other, along with a weight associated with each neuron. The well-connected neurons help in predicting future values along with mapping a relationship between dependent and independent variables. 
-The neural network was formed by 3 layers (input, hidden and output). It was configured setting the batch size equal to one (Stochastic Gradient Descent).
+\section{Data Modelling}
+After the evaluation of variable selected by each different configuration, models (already explained in the previous chapter) are built and a cross validation for error and accuracy is evaluated. The validation is taken using the test set from test set of the target variable. In addition, a validation with PM25 values assumed by the CAMS models is taken. The validation with CAMS results consists simply in a comparison between the results obtained and the values of the CAMS model.  
+\newline
+In this way, a comparison between results from these 2 different validations is performed, aiming to detect how much the models perform better in this local scale.\par
 
-\subsubsection{Random Forest Regressor}
-
-Finally, a comparison with CAMS data is performed with the aim to demonstrate that the models produced are better estimated in this local scale.\par
 https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/agricultural-pollution 
 https://pure.iiasa.ac.at/id/eprint/14769/1/Reduction%20of%20NH3%20emissions%20from%20agriculture%20in%20the%20Hai%20River%20Basin%20in%20China.pdf
 
