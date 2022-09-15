@@ -9,11 +9,19 @@ Therefore, the key to increase interpretability of a given model is to wonder if
 In this context, in which the black-box nature of ML algorithms raises ethical and judicial concerns inducing lack of trust\cite{9141213}, Explainable Artificial Intelligence aims to create a model fully interpretable.
 Before the advent of XAI, scientific community was focused on the predictive power of algorithms rather than the understanding behind these predictions.
 This need for trustworthy for high performing models led to  eXplainable Artificial Intelligence (XAI), a field focused on the interpretation of how AI systems take decision.
+This issue about explainability and clearness are being identified increasingly as critically significant nowadays. 
+This is consistent with what could be found by searching in Google Trends, where the trend of 'Explainable Artificial Intelligence' grew up in the last 3 years, while the curve of
 Explainable Artificial Intelligence (or Explainable Machine Learning) helps to understand how ML algorithms make prediction, with the usage of Feature Selection methods for clarify model’s decision.
 Feature selection can give relevant explanations by quantifying the influence of each independent variable with a score.
 In order to do that, before developing a predictive model, feature selection is a needed step for reducing the number of input variable. \newline
 Nowadays, with the large amount of volume and variety in Big Data, FS is becoming increasingly an essential pre-processing step in machine learning algorithms \cite{kamolov2021feature}.
 It is desirable to both reduce the computational cost of modelling and, in some cases, to improve the performance of the model.\newline
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{images/AI_XAI.png}
+    \caption{Plot provided by Google Trends in which are shown the 'Artificial Intelligence' and 'Explainable Artificial Intelligence' trends.}
+    \label{fig:AI_XAI}
+\end{figure}
 Inside the D-DUST project this step aims to provided a weighted score of each environmental variable with respect to the pollutants emitted by intense agricultural through regression predictive modeling.\newline
 \par
 Due to the fact there isn’t a best feature selection technique, I performed and combined different supervised methods. 
