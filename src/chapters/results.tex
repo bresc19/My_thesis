@@ -48,7 +48,9 @@ Other important weighted features are the ones related to intense farming ('farm
 Indeed, animal urine and faeces imply the release of respectively ammonia and methane in the atmosphere\cite{saggar2004review}.\\
 It can be viewed also how road infrastructure variables contribute to ammonia. In particular the correlation between them is negative, since ammonia emission from agriculture occurs usually far from urban and traffic areas.\\
 So we can suggest that ammonia in Lombardy should be very related to the use of fertilizer in agriculture areas and animal livestock in farms.
-
+\bigbreak
+So overall, the results obtained in the feature selection demonstrate two things.  
+First, fine particulate should be very correlated to ammonia in the planting period (spring) . Second, ammonia is stricly related to agriculture and farming activity, in line with previous studies.
 \section{Data Modelling Results}
 \subsection{Interpretation of validation results with ARPA sensor}
 Models assure a consistent accuracy.
@@ -63,9 +65,13 @@ We can observe that generally Random Forest model makes more accurate prediction
 R\textsuperscript{2} in each test assumes a positive value (around 50\% for Neural Network and around 80\% for RF), meaning that the pollutants take in consideration in this case of study can be explained by the regression models. 
 \subsection{Comparison with CAMS model}
 The comparison between models of my results and CAMS data shows how values are very far from them. MAE for pm25 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. Values assumed by MSE, since the distance between the results is squared, exceed 40 for PM25 and 170 for NH3 in each different configurations.
+Another proof of difference between the 2 models is the R\textsuperscript{2} value which is assumes a negative value in most of the cases. It proves the presence of a big difference between training and test values. 
 Obviously the model of Copernicus Atmosphere Monitoring Service provide different results by one obtained by me, since is build very differently. CAMS is built through ensemble median, averaged by eleven European air quality forecasting systems. Therefore, median model should perform better than the individual model products\cite{riccio2007seeking}; 
 Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure TODO in Italy there's only 1 observation in Sardinia for PM25 detection. Nothing was found for Ammonia.
 So, by the larger number of ground observation provided by ARPA in this data collection this model should perform better in this local scale.
+\bigbreak
+Based on these results, we can point that Random Forest is more precise than Neural Network model and that the performance are higher for particulate matter than ammonia estimation.
+Random Forest indeed is one the most preferred also in literature prediction model for its easy configuration. (CITE TODO)
 \subsection{Importance of the FS}
 Feature selection is meaningful for the pre processing phase, since aims to discard eventually useless variable and to take only the ones really relevant to the target variable. In the results obtained we can detected that selection of variable with FS assume a key role for sample of small size. 
 Indeed, in the tests with resolution 10 Km model there's a feasible difference between the data trained by variable from FS and the ones chosen randomly. 

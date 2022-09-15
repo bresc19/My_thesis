@@ -7,28 +7,19 @@ So it's needed to care about interpretability in order to discard eventually con
 For instance, a new paper by Alex DeGrave et al.\cite{degrave2021ai} shows that Deep Learning model trained with improper data was taking shortcuts in COVID-19 detection on radiographs because of position of certain markers rather than on the actual radiograph.
 Therefore, the key to increase interpretability of a given model is to wonder if given factor should drive the final decision.\par
 In this context, in which the black-box nature of ML algorithms raises ethical and judicial concerns inducing lack of trust\cite{9141213}, Explainable Artificial Intelligence aims to create a model fully interpretable.
-Explainable Artificial Intelligence (or Explainable Machine Learning) helps to understand how ML algorithms make prediction, with the usage of Feature Selection methods for determining how well each feature can predict the target variable.
-It is desirable to both reduce the computational cost of modelling and, in some cases, to improve the performance of the model.\newline
+Before the advent of XAI, scientific community was focused on the predictive power of algorithms rather than the understanding behind these predictions.
+This need for trustworthy for high performing models led to  eXplainable Artificial Intelligence (XAI), a field focused on the interpretation of how AI systems take decision.
+Explainable Artificial Intelligence (or Explainable Machine Learning) helps to understand how ML algorithms make prediction, with the usage of Feature Selection methods for clarify model’s decision.
+Feature selection can give relevant explanations by quantifying the influence of each independent variable with a score.
 In order to do that, before developing a predictive model, feature selection is a needed step for reducing the number of input variable. \newline
 Nowadays, with the large amount of volume and variety in Big Data, FS is becoming increasingly an essential pre-processing step in machine learning algorithms \cite{kamolov2021feature}.
+It is desirable to both reduce the computational cost of modelling and, in some cases, to improve the performance of the model.\newline
 Inside the D-DUST project this step aims to provided a weighted score of each environmental variable with respect to the pollutants emitted by intense agricultural through regression predictive modeling.\newline
 \par
-\bigskip
-Due to the fact there isn’t a best feature selection technique, I performed and combined different supervised methods. \newline
-According to the above, my work comes on this scenario, having the aim to pre-process geospatial data in order to highlight the most weighted input variable that affect the pollutants as target variable.\newline
-In the next chapter of my report details I'll show the tools developed and the strategy chosen to reach this goal. 
-This is the content of the next chapters:
+Due to the fact there isn’t a best feature selection technique, I performed and combined different supervised methods. 
+\bigbreak
+According to the above, my work comes on this scenario, having the aim to pre-process geospatial data in order to highlight the most weighted input variable that affect the pollutants related to intense agriculture and farming.\newline
 
-\begin{itemize}
-  \item \autoref{chap:Overview} (\textbf{Overview}): It shows the main steps I take in my work;
-  \item \autoref{chap:case} (\textbf{Case of Study and Data Modelling}): It's focused on the case of study by explaining each steps taken in detail, for both the feature selection and modelling part;
- \item (\textbf{Interpretation of the results}): It's focused on the results achieved in the case of study (both feature selection and models built);
-\end{itemize}
-
-\begin{comment}
-Indeed, in recent years ensemble feature selection are being implemented by researchers  
-approaches are being developed by researchers. They follow a similar recipe with the well-established ensemble on classification algorithms, which provides better results and robustness than employing single algorithms
-\end{comment}
 
 
 
