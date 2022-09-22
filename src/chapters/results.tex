@@ -117,19 +117,20 @@ With PM25 as target variable at 10 km resolution there is a lower statistical ac
 \label{tab:nh3}
 \end{table}
 In the model for ammonia estimation instead, this error is around 2 with MSE always higher than 20 (Table \ref{tab:nh3}).
-This difference should be given by different number of ground sensor for each pollutant. The sample of particulate matter measurement in fact is larger than the ammonia's one(todo).
-\begin{figure}[htp] 
+This difference should be given by different number of ground sensor for each pollutant. The sample of particulate matter measurement in fact is larger than the ammonia's one (figure \ref{fig:comparison-sensors}).
+\begin{figure}[H] 
     \centering
-    \subfloat[data a]{%
-        \includegraphics[width=0.4\textwidth]{images/pm2}%
-        \label{fig:a}%
+    \subfloat[PM25 as target variable]{%
+        \includegraphics[width=0.5\textwidth]{src/images/pm25_sensors.png}%
+        %
         }%
     \hfill%
-    \subfloat[data b]{%
-        \includegraphics[width=0.4\textwidth]{fig_b}%
-        \label{fig:b}%
+    \subfloat[NH3 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{src/images/nh3_sensors.png}%
+        %
         }%
-    \caption{all the data}
+    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case of study. The legend shows whether the cell has an interpolated value with KNN or not. In addition ground sensor from which interpolation is performed are added}
+    \label{fig:comparison-sensors}
 \end{figure}
 
 We can observe that generally Random Forest model makes more accurate predictions than the Neural Network by Keras. This may caused by the fact that RF algorithm uses ensemble learning method for regression, a technique that joins estimation from multiple models for having more accurate predictions than a single model. 
@@ -137,6 +138,31 @@ R\textsuperscript{2} in each test assumes a positive value (around 50\% for Neur
 \subsection{Comparison with CAMS model}
 The comparison between models of my results and CAMS data shows how values are very far from them. MAE for pm25 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. Values assumed by MSE, since the distance between the results is squared, exceed 40 for PM25 and 170 for NH3 in each different configurations.
 Another proof of difference between the 2 models is the R\textsuperscript{2} value which is assumes a negative value in most of the cases. It proves the presence of a big difference between training and test values. 
+
+\begin{table}[H]
+\begin{tabular}{rrrrrr}
+\hline
+     &   24/03-31/03 &   18/04-25/04 &   17/07-24/07 &   3/09-10/09 &   7/10-14/10 \\
+\hline
+   MAE\_cams     &            8.966 &            7.566 &            1.936 &            3.574 &            3.974 \\
+  MSE\_cams     &          106.414 &           71.818 &            6.213 &           16.81  &           20.988 \\
+   R2\_cams      &           -1.821 &           -7.099 &           -0.727 &           -0.18  &           -1.578 \\
+\hline
+\end{tabular}
+\caption{Random Forest prediction for PM2.5 at 1 km, including zones with mountains.}
+\end{table}
+\begin{table}[H]
+\begin{tabular}{rrrrrr}
+\hline
+     &   24/03-31/03 &   18/04-25/04 &   17/07-24/07 &   3/09-10/09 &   7/10-14/10 \\
+\hline
+  MAE\_cams     &           18.401 &           10.414 &           11.746 &           14.18  &           12.012 \\
+  MSE\_cams     &          368.858 &          147.652 &          323.418 &          456.145 &          188.65  \\
+  R2\_cams      &            0.136 &           -1.511 &           -0.158 &           -0.001 &           -0.06  \\
+\hline
+\end{tabular}
+\caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
+\end{table}
 Obviously the model of Copernicus Atmosphere Monitoring Service provide different results by one obtained by me, since is build very differently. CAMS is built through ensemble median, averaged by eleven European air quality forecasting systems. Therefore, median model should perform better than the individual model products\cite{riccio2007seeking}; 
 Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure TODO in Italy there's only 1 observation in Sardinia for PM25 detection. Nothing was found for Ammonia.
 So, by the larger number of ground observation provided by ARPA in this data collection this model should perform better in this local scale.
