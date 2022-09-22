@@ -124,7 +124,7 @@ In the next lines each variable is provided in tables, by showing its type, name
 \end{longtable}
 \end{center}
 In addition to them, there's also pollutants variables ending with '\_int' (such as 'pm10\_int', 'pm25\_int', 'nh3\_int', etc.). These variables are obtained by interpolating ARPA variables which are not spatially continued. The explanation of how they are interpolated and how I mitigate the problem of having a limited number of observation from ground sensors along the surface is in one of the next \hyperref[subsec:nan]{subsection}.
-\subsubsection{Soil and Vegetation (Table)}
+\subsection{Soil and Vegetation (Table)}
 
 \begin{center}
 \setlength{\arrayrulewidth}{1.5pt}
@@ -320,6 +320,8 @@ Since I assume 2 different resolution and with the possibility to include or not
     \end{tabular}
 \end{table}
 In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
+It can be observed that for each parameter there are different configurations: there are 2 resolutions, 2 climate zones parameter and 5 periods. Thus, for each different target variable, have been run 2x2x5 = 20 different tests both for ammonia and fine particulate (40 in total). 
+Results from different periods for simplicity are grouped and averaged. In total in this work are attached 8 different results. Each results will be in detail pointed in the final Appendix TODO.
 \begin{figure}[H]
     \centering
     \includegraphics[width=.9\textwidth]{images/test_param.png}

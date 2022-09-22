@@ -5,9 +5,8 @@ Data pre-processing (or data preparation) is the process of transforming raw dat
 Indeed, raw data is in most cases incomplete and noisy.\par
 Nowadays, dealing with big amount of information, the probability of incorrect data is higher without a proper data pre-processing.
 Only high-quality data can generate accurate models and predictions. \par
+The view and quality of data is very relevant before running any analysis.
 Hence, it’s crucial to process data with the best possible quality before training them with artificial intelligence, and machine learning predictive models.\par
-
-
 \section{Data Collection}
 Data collection is the process of gathering information in variables of interest for answering relevant questions. \newline
 Relevant data is gathered from their sources and merged in data structures (such as Dataframes). In our work, data come from fixed ground-sensor, satellite-based platform, models and map layers. In this phase are processed (mostly) numerical and categorical data. 
@@ -233,7 +232,7 @@ In the next chapters each step will be described in depth about procedures adapt
 \section{Notebook implemented}
 For processing and analysing data I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
 (\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
-Its essential steps are shown in figure \ref{fig:overview}..
+Its essential steps are shown in figure \ref{fig:overview}.
 
 \subsection{Computation and view of feature selection results}
 In order to manage its configuration and the results obtained, a simple User Interface using ipywidgets package is built.
@@ -253,7 +252,24 @@ and the output:
 \item scale of Y-axis (regular or logarithmic);
 \end{itemize}
 \end{itemize}
-
+A pseudo code of how the notebook works is atteched.
+\begin{verbatim}
+for each configuration in configurations
+    for each period in periods
+        #Data acquisition
+        grid = input(period)
+        grid = buffer_knn(grid)
+        data_cleaning(grid)
+        grid = VarianceThreshold(grid, 0.1)
+        X, Y = get_variables(grid, target_variable)
+        #Feature selection phase
+        results = compute_feature_selection(X, Y)
+    results = borda_count_algorithm(results)
+    #results are stored externally in .csv files
+    export_tocsv(results) 
+    #results exported will have the feature ordered with respect
+    #the score obtained with Borda Count algorithm
+\end{verbatim}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.40]{images/notebook.png}
@@ -270,6 +286,27 @@ It possible to set these parameter before running the model:
     \item NUMBER\_OF\_COVARIATES: It's number of the n features with the highest Borda Count score take as input for the model;
     \item TARGET: It represents the target variable to be predicted by the model;
 \end{itemize}
+\begin{verbatim}
+for each configuration in configurations
+    results = []
+    for each period in periods
+        #Data acquisition
+        grid = input(period)
+        grid = buffer_knn(grid)
+        data_cleaning(grid)
+        X, Y = get_variables(grid, TARGET)
+        X = get_n_columns(NUMBER_OF_COVARIATES)
+        #Modelling in which training and validation is performed using k-fold
+        model = new()
+        model.training(X, Y)
+        res = model.validation(X, Y)
+        results.append(res)
+    
+    #results are stored externally in .csv files
+    export(avg(results1))
+    export(avg(results2))
+ 
+\end{verbatim}
 
 Each one of them imports the feature selected from the previous notebook and export the accuracy evaluation of the k-fold cross validation externally. \par
 The results are subsequently opened and shown with \href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}{this other notebook} through the use of widgets.

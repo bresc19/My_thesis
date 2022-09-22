@@ -6,7 +6,7 @@ In this section the results obtained for each target variable selected are expla
     \item votes received through Borda Count algorithm;
     \item positive or negative correlation assumed in the filter methods;
 \end{itemize}
-Similarity between the 2 test set are visible for many factors that influence both particulate matter and ammonia.
+Similarity between the 2 test sets are visible for many factors that influence both particulate matter and ammonia.
 For instance, DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) received many votes in both cases, since air pollution affect more urban than mountain areas.
 The results show also how particulate matter and ammonia are influenced by meteorological parameters.
 Air temperature ('temp\_2m') increases with global radiation ('rad\_glob\_int'), while pollutants significantly decreased\cite{li2015particulate}. \\
@@ -17,7 +17,7 @@ Under increased humidity conditions, PM and ammonia may be prone to a washout me
 Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants, due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.40]{src/images/tests/correlations_pm25.png}
+    \includegraphics[scale=0.45]{src/images/tests/correlations_pm25.png}
     \caption{Correlation of Pearson index for the period between 24th-21st March and 18th-25th April having PM2.5 as target variable.}
     \label{fig:overview}
 \end{figure}
@@ -108,7 +108,9 @@ This gap become negligible with higher resolution, because ML algorithms accurac
     R2\_cams    &        -2.147 &        -8.102 &        -3.386 &       -0.239 &       -1.158 \\
 \hline
 \end{tabular}
+\begin{comment}
 ps://www.sciencedirect.com/topics/agricultural-and-biological-sciences/agricultural-pollution 
 https://pure.iiasa.ac.at/id/eprint/14769/1/Reduction%20of%20NH3%20emissions%20from%20agriculture%20in%20the%20Hai%20River%20Basin%20in%20China.pdf
 
 https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a
+\end{comment}
