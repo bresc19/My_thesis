@@ -130,7 +130,10 @@ One disadvantage of this approach is the computational costs.\newline
 Their execution for many subsets of variables can become unfeasible. 
 \bigbreak
 \subsubsection{Random Forest Importance}
-Feature importance is a built-in function of the Random Forest algorithm. It's also called as Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problem. The scores are evaluated as attribute through RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
+Feature importance is a built-in function of the Random Forest algorithm. It's also called as Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problem. 
+It's computed with the mean of impurity decrease applied iver all trees.  
+Feature selection made with the impurity reduction of splits, is more and more used for its simplicity and velocity to be computed.
+The scores are evaluated as attribute through RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
 \bigbreak\bigbreak\bigbreak
 \subsection{Embedded Methods}
 Embedded methods instead are characterised by the benefits of both the wrapper and filter methods, by including interactions of features but also having a reasonable computational cost.\par
@@ -230,7 +233,9 @@ In the next chapters each step will be described in depth about procedures adapt
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{images/overview.png}
-    \caption{Overview of the steps made.}
+    \caption{The following diagram give a general explanation of the procedure taken in this work thesis. It starts with the pre processing of the data (collection, cleaning and transformation) and continues with the selection of most meaningful variables (feature selection). \\
+    After that, ML models are implemented and trained with the covariates chosen in the previous step. \\
+    Finally an evaluation of the error metrics based on the validation is performed.}
     \label{fig:overview}
 \end{figure}
 
@@ -316,3 +321,17 @@ for each configuration in configurations
 
 Each one of them imports the feature selected from the previous notebook and export the accuracy evaluation of the k-fold cross validation externally. \par
 The results are subsequently opened and shown with \href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}{this other notebook} through the use of widgets.
+\begin{figure}[H] 
+    \centering
+    \subfloat[PM25 as target variable]{%
+        \includegraphics[width=0.5\textwidth]{src/images/pm25_sensors.png}%
+        %
+        }%
+    \hfill%
+    \subfloat[NH3 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{src/images/nh3_sensors.png}%
+        %
+        }%
+    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case of study. The legend shows whether the cell has an interpolated value with KNN or not. In addition ground sensor from which interpolation is performed are added}
+    \label{fig:comparison-sensors}
+\end{figure}
