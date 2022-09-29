@@ -18,7 +18,7 @@ Another pollutant with a significant number of votes is the aerosol optical dept
     \centering
     \includegraphics[scale=0.45]{src/images/tests/correlations_pm25.png}
     \caption{Correlation of Pearson index for the period between 24th-21st March and 18th-25th April having PM2.5 as target variable.}
-    \label{fig:overview}
+    \label{fig:corr-pearson}
 \end{figure}
 
 \subsection{PM25 as target variable}
@@ -164,7 +164,15 @@ Another proof of difference between the 2 models is the R\textsuperscript{2} val
 \caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
 \end{table}
 Obviously the model of Copernicus Atmosphere Monitoring Service provide different results by one obtained by me, since is build very differently. CAMS is built through ensemble median, averaged by eleven European air quality forecasting systems. Therefore, median model should perform better than the individual model products\cite{riccio2007seeking}; 
-Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure TODO in Italy there's only 1 observation in Sardinia for PM25 detection. Nothing was found for Ammonia.
+Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure \ref{fig:cams} in Italy there's only 1 observation in Sardinia for PM25 detection. Nothing was found for Ammonia.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.2]{src/images/cams_obs.png}
+    \caption{The following map include a set of points layers representing the forecast performance of the station used by the ensemble median model of CAMS. In particular the RMSE of them is shown\cite{camsobs}. 
+}
+    \label{fig:cams}
+\end{figure}
+
 So, by the larger number of ground observation provided by ARPA in this data collection this model should perform better in this local scale.
 \bigbreak
 Based on these results, we can point that Random Forest is more precise than Neural Network model and that the performance are higher for particulate matter than ammonia estimation.
