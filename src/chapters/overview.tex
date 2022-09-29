@@ -198,11 +198,14 @@ Where:
 
 In my work I wasn't focus in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact on the models performance. Indeed, the point of interest is to create a model that performs better in a local scale with respect other global model.
 For doing that I implemented 2 different ML supervised model.
-By litherature we know that interpretability is usually related to a trade-off with accuracy (figure \ref{trade-off}).
+By litherature we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).
 Since highly accurated algorithms are often less interpretable, in order to detect the impact of feature selection on accuracy Neural Network and Rando Forest algorithms are choosen. 
-
-
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.4]{images/interpretability_accuracy_tradeoff.jpg}
+    \caption{The plot represented in this figure wants to highlight how different ML models are related to the trade-off between accuracy and intepretability \cite{morocho2019machine}. More a model is accurate such as Neural Network and Random Forest, more it's less interpretable due to its "black-box" nature.}
+    \label{fig:trade-off}
+\end{figure}
 \subsection{Neural Network with Keras}
 It's one of the deep learning algorithms which is based on the structure of biological neural network, where nodes represent neurons.
 Nodes are connected to each others through the layers. 
@@ -216,12 +219,6 @@ The structure of my Neural Network is formed by 3 layers:
 During the training phase, in which the network "learns", independent variables are used as input and processed through a weighted associations in which at each step produce a results which are compared to the target output. The error computed between them is successively adjusted and update following learning rules. The achievement obtained is a results increasingly similar to the values assumed by the target variable. 
 For implementing it, I use Keras API from TensorFlow library.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{images/trad.png}
-    \caption{Overview of the steps made.}
-    \label{fig:overview}
-\end{figure}
 
 \subsection{Machine Learning with Random Forest}
 Random forests is used in regression problem, by using a structure of decision trees for making predictions. Decision trees answer to sequential questions through the routes tracked by trees.
