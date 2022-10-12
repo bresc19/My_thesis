@@ -255,7 +255,7 @@ Data collected are dated 2021 because are the most recent and, with respect 2020
 In this case of study grid data are chosen by considering the effect of intensive agriculture, with these particular condition:
     \begin{itemize}
         \item In order to have right condition for farming, in the period chosen the terrain shouldn't be frozen (Temperature > 0°C). So I selected data coming from spring, summer and autumn period (discarding winter);
-        \item For better highlighting the effect of intense agriculture with the usage of fertilizer and pesticides, which are the main pollution emission factors, weeks with no rains are selected;
+        \item For better highlighting the effect of intense agriculture with the usage of fertilizer and pesticides, which are the main pollution emission factors, weeks with no precipitations are selected;
 \end{itemize}
 In this way, several grid data are chosen from 5 different weeks:
 \begin{itemize}
@@ -298,7 +298,6 @@ In this way the size of the final sample, as the performance of the feature sele
 \par
 Before the feature selection phase, VarianceThreshold was applied in order to discard variables with variance less than 0.1. 
 \begin{figure}[H] \centering
-\ffigbox[1.25\FBwidth]%
 {\includegraphics[scale=0.45]{images/buffer.png}}
  { \caption{Graphical representation of how buffer values interpolated from PM2.5 sensors provided by ARPA are added through k-nearest neighbour.}}
 \end{figure}

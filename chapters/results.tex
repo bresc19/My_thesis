@@ -19,8 +19,8 @@ Under increased humidity conditions, PM and ammonia may be prone to a washout me
 Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants (more with PM2.5 than ammonia) , due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
 \begin{figure}[H]
 \centering
-\subfloat[pm25\_st as target variable.]{\includegraphics[scale =0.42]{images/tests/pm25pearson_october_0_01_mountains.png}}\\
-\subfloat[nh3\_st as target variable.]{\includegraphics[scale =0.42]{images/tests/nh3_pearson_october_0_01_mountains.png}}
+\subfloat[pm25\_st as target variable.]{\includegraphics[scale =0.45]{images/tests/pm25pearson_october_0_01_mountains.png}}\\
+\subfloat[nh3\_st as target variable.]{\includegraphics[scale =0.45]{images/tests/nh3_pearson_october_0_01_mountains.png}}
 \caption{FS results obtained in the period between 7-14 October with 1km resolution including mountains.}
 \label{fig:pearson_general}
 \end{figure}
@@ -49,8 +49,8 @@ So we can assume that intense agriculture is one of the factor that influence th
 \clearpage
 \begin{figure}[H]
 \centering
-\subfloat[Borda Count algorithm results.]{\includegraphics[scale =0.50]{images/tests/0_01_mountainspm25_st.png}}\\
-\subfloat[Pearson index results in the  24-31 March and 18-25 April periods.]{\includegraphics[scale =0.30]{images/tests/ammonia_effect_on_pm25_001mountains.png}}
+\subfloat[Borda Count algorithm results.]{\includegraphics[scale =0.45]{images/tests/0_01_mountainspm25_st.png}}\\
+\subfloat[Pearson index results in the  24-31 March and 18-25 April periods.]{\includegraphics[scale =0.40]{images/tests/ammonia_effect_on_pm25_001mountains.png}}
 \caption{FS results assuming PM2.5 as target variable with 10 Km resolution including mountains. In the figure (a) it's possible to observe the features ordered in decreasing order with respect to the votes received by Borda Count algorithm. The figure (b) highlights the positive correlation assumed by ammonia variables in the spring period. }
 \label{fig:fs_pm25}
 \end{figure}
@@ -148,12 +148,12 @@ This difference should be given by different number of ground sensor for each po
 \begin{figure}[H] 
     \centering
     \subfloat[PM2.5 as target variable.]{%
-        \includegraphics[width=0.5\textwidth]{src/images/pm25_sensors.png}%
+        \includegraphics[width=0.5\textwidth]{images/pm25_sensors.png}%
         %
         }%
     \hfill%
     \subfloat[NH3 as target variable.]{%
-        \includegraphics[width=0.5\textwidth]{src/images/nh3_sensors.png}%
+        \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
         %
         }%
     \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case of study. The legend shows whether the cell has an interpolated value with KNN or not. In addition ground sensor from which interpolation is performed are added. 
@@ -200,7 +200,7 @@ Obviously the model of Copernicus Atmosphere Monitoring Service provide differen
 Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure \ref{fig:cams} in Italy there's only 1 observation in Sardinia for PM2.5 detection. Nothing was found for Ammonia.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.2]{src/images/cams_obs.png}
+    \includegraphics[scale=0.2]{images/cams_obs.png}
     \caption{The following map include a set of points layers representing the forecast performance of the station used by the ensemble median model of CAMS. In particular the RMSE of them is shown\cite{camsobs}. 
 }
     \label{fig:cams}
