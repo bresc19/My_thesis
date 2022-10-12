@@ -1,4 +1,4 @@
-In this chapter are collected my interpretations of the results obtained in particular by Borda Count algorithm and Pearson index. Interpretation of the results could be shared between the 2 target variable or specific to one of them.
+In this chapter are collected my interpretations of the results obtained, in particular by Borda Count algorithm and Pearson index. Interpretation of the results could be shared between the 2 target variable or specific to one of them.
 \section{Feature Selection Results}
 In this section the results obtained for each target variable selected are explained in relation to the:
 \begin{itemize}
@@ -16,7 +16,7 @@ Air temperature ('temp\_2m' and 'temp\_int') increases with global radiation, wh
 It can be observed also the negative correlation between pollution and air humidity ('air\_hum\_int').
 Under increased humidity conditions, PM and ammonia may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction\cite{biglari2017relationship}.\\
 \end{comment}
-Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants (more with PM25 than ammonia) , due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
+Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants (more with PM2.5 than ammonia) , due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
 \begin{figure}[H]
 \centering
 \subfloat[pm25\_st as target variable.]{\includegraphics[scale =0.42]{images/tests/pm25pearson_october_0_01_mountains.png}}\\
@@ -24,57 +24,59 @@ Another pollutant with a significant number of votes is the aerosol optical dept
 \caption{FS results obtained in the period between 7-14 October with 1km resolution including mountains.}
 \label{fig:pearson_general}
 \end{figure}
-\subsection{PM25 as target variable}
+\subsection{PM2.5 as target variable}
 Fine particulate matter (PM2.5) is one of the most common air pollutant in our environment. 
 It primarily comes from transport vehicle (such as car, truck and bus), industry, burning of fuels and household activities.\\ \par
-During the 5 periods, it's shown that PM25, as the other pollutants, change over the time. Air pollution change accordingly to the type of climate and atmospheric conditions.\\
+During the 5 periods, it's shown that PM2.5, as the other pollutants, change over the time. Air pollution change accordingly to the type of climate and atmospheric conditions.\\
 \begin{comment}
 In the tests is also visible the score obtained by ozone ('o3\_int') which tends to be positively correlated in the period between 18 and 25 April.\\
 This, as mentioned before, is possibly due to their common precursors, such as nitrogen oxides and volatile organic compounds and their simultaneous generation in photochemical reactions. \\
 \end{comment}
-Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. Indeed, for the week between 17 and 24 July a negative correlation between them is found, due to the fact that is inversely related to PM25.\\
-By the bar plots attached in the figure \ref{fig:fs_pm25}, the most correlated variables to PM25 belong mostly to pollutant.
+Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. Indeed, for the week between 17 and 24 July a negative correlation between them is found, due to the fact that is inversely related to PM2.5.\\
+By the bar plots attached in the figure \ref{fig:fs_pm25}, the most correlated variables to PM2.5 belong mostly to pollutant.
 It can be shown by figure \ref{fig:pearson_general} that the entire set of pollutants variables are also positively correlated to it.
-In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always a number votes more than 120. Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
+In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always a number votes more than 120. Strong positive correlation between PM2.5 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
 It's visible a correlation with nitrogen dioxide('no2\_int'), a strong greenhouse gas which is related, as particulate matter, to biomass burning, industrial processes, households and road transport\cite{zellner2000john}\cite{maranzano2022air}.
 From nitrogen dioxide derives also the chemical relation with the other nitrogen oxides ('nox\_int'), such as nitrogen monoxide ('no\_int').
 \\
 Observing the results regarding intense agriculture, it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received as PM10 most votes of all in spring period due to its strong positively correlation. 
+This happens because NH3 can react in the atmosphere to form ammonium salts in the presence of acid species\cite{viatte2021ammonia}.
 We can assume that the main emission source of ammonia is the intense agriculture, since was responsible for the 92\% of the total by EEA country members in 2017\cite{maranzano2022air}.\\
 Indeed, during this periods, application of fertilizer contribute to ammonia and particulate matter composition.
 Significantly more fertilizer is applied in the spring than summer and winter season due to crop cycles\cite{goebes2003ammonia}.
-So we can assume that intense agriculture is one of the factor that influence the pm25 formation, but only in a certain period of the year.\\
+So we can assume that intense agriculture is one of the factor that influence the PM2.5 formation, but only in a certain period of the year.\\
 \pagebreak
 \clearpage
 \begin{figure}[H]
 \centering
-\subfloat[10 Km resolution with mountains]{\includegraphics[scale =0.42]{images/tests/0_1_mountainspm25_st.png}}\\
-\subfloat[1 Km resolution without mountains]{\includegraphics[scale =0.42]{images/tests/0_01_nomountainspm25_st.png}}
-\caption{FS results obtained with PM2.5 as target variable.}
+\subfloat[Borda Count algorithm results.]{\includegraphics[scale =0.50]{images/tests/0_01_mountainspm25_st.png}}\\
+\subfloat[Pearson index results in the  24-31 March and 18-25 April periods.]{\includegraphics[scale =0.30]{images/tests/ammonia_effect_on_pm25_001mountains.png}}
+\caption{FS results assuming PM2.5 as target variable with 10 Km resolution including mountains. In the figure (a) it's possible to observe the features ordered in decreasing order with respect to the votes received by Borda Count algorithm. The figure (b) highlights the positive correlation assumed by ammonia variables in the spring period. }
 \label{fig:fs_pm25}
 \end{figure}
 \subsection{NH3 as target variable}
 Ammonia (NH3) is a reactive and soluble alkaline gas. It's one of the main sources of nitrogen pollution and come from both natural and anthropogenic sources, such as agriculture.
 The process of ammonia evaporation commonly takes place when nitrogen is originated by urea of animal livestock, and fertilize. \\
 In the results obtained along the 5 period, stands out the ammonia provided by CAMS model ('nh3\_cams') which, due to the fact that represents the same pollutant, is strongly correlated. Variables related to atmospheric condition are weighted with scores of the same order of magnitude of the previous test set, since ammonia is dispersed in the environment as particulate matter and other pollutants.\\
-We can observe in figure \ref{fig:fs_nh3} also variable related to pm10 and pm25('pm10\_int', 'pm10\_cams','pm25\_int' and 'pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter (pm25 in particular\cite{zhu2015sources} .\\
+We can observe in figure \ref{fig:fs_nh3} also variable related to pm10 and pm2.5('pm10\_int', 'pm10\_cams','pm25\_int' and 'pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter (pm2.5 in particular\cite{zhu2015sources} .\\
 Correlation of ammonia with respect to intensive agricultural is also feasible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable) and the Normalized Difference Vegetation Index ('ndvi').\\
 Other important weighted features are the ones related to intense farming ('farm\_sheeps', 'farm\_pigs', 'farm\_poultry' and 'farms') which are responsible for ammonia and methane release ('ch4\_s5p' has a meaningful positive correlation with respect to NH3).\\
 Indeed, animal urine and faeces imply the release of respectively ammonia and methane in the atmosphere\cite{saggar2004review}.\\
 It can be viewed also how road infrastructure variables contribute to ammonia. In particular the correlation between them is negative, since ammonia emission from agriculture occurs usually far from urban and traffic areas.\\
 So we can suggest that ammonia in Lombardy should be very related to the use of fertilizer in agriculture areas and animal livestock in farms.
+These effects are more visible in the configuration obtained by excluding the mountains zones, where pollutant effects are less visible. 
 \bigbreak
-So overall, the results obtained in the feature selection demonstrate two things.  
-First, fine particulate should be very correlated to ammonia in the planting period (spring) . Second, ammonia is strictly related to agriculture and farming activity, in line with previous studies.
 \pagebreak
 \clearpage
 \begin{figure}[H]
 \centering
-\subfloat[10 Km resolution with mountains]{\includegraphics[scale =0.42]{images/tests/0_1_mountainsnh3_st.png}}\\
-\subfloat[1 Km resolution without mountains]{\includegraphics[scale =0.42]{images/tests/0_01_nomountainsnh3_st.png}}
-\caption{FS results obtained with Ammonia (NH3) as target variable.}
+\includegraphics[scale =0.50]{images/tests/0_01_nomountainsnh3_st.png}
+\caption{FS results obtained with Ammonia (NH3) as target variable with 1 Km resolution excluding mountains.}
 \label{fig:fs_nh3}
 \end{figure}
+So overall, the results obtained in the feature selection demonstrate two things.  
+First, fine particulate should be very correlated to ammonia in the planting period (spring). Second, ammonia is strictly related to agriculture and farming activity, in line with previous studies.
+
 \section{Data Modelling Results}
 In this section are collected the interpretation of the ML models results, paying attention not only on the results achieved by the ARPA and CAMS models, but also on how feature selection could improve performance results. 
 \subsection{Interpretation of validation results with ARPA sensor}
@@ -82,7 +84,7 @@ Models assure a consistent accuracy.
 Errors obtained in the results by the validation through Particulate Matter decrease in function of the higher resolution.
 Higher resolution, as a matter of fact, implies a larger number of sample for training and so a better accuracy as consequence.
 Instead, in the models for ammonia estimation there are no relevant differences between the 2 resolutions.
-With PM25 as target variable at 10 km resolution there is a lower statistical accuracy than at 1km, with MAE respectively around 1 and 0.5 ug/m\textsuperscript{3}(Table \ref{tab:res1km}). 
+With PM2.5 as target variable at 10 km resolution there is a lower statistical accuracy than at 1km, with MAE respectively around 1 and 0.5 ug/m\textsuperscript{3}(Table \ref{tab:res1km}). 
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
 \toprule
@@ -124,13 +126,28 @@ RMSE\_sensor &        0.798 &        0.472 &        1.385 &       2.261 &       
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
-\label{tab:nh3}
+\label{tab:nh3RF}
 \end{table}
-In the model for ammonia estimation instead, this error is around 2 with MSE always higher than 20 (Table \ref{tab:nh3}).
-This difference should be given by different number of ground sensor for each pollutant. The sample of particulate matter measurement in fact is larger than the ammonia's one (figure \ref{fig:comparison-sensors}).
+\begin{table}[H]
+\begin{tabular}{lrrrrr}
+\toprule
+  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
+\midrule
+ MAE\_sensor &        2.372 &        1.378 &        3.905 &       3.307 &       1.974 \\
+RMSE\_sensor &        3.085 &        1.914 &        4.931 &       4.368 &       2.352 \\
+ MSE\_sensor &       10.518 &        3.907 &       24.668 &      25.564 &       6.533 \\
+  R2\_sensor &        0.975 &        0.937 &        0.906 &       0.948 &       0.947 \\
+\bottomrule
+\end{tabular}
+\caption{Neural Network prediction for NH3 at 1 km, excluding zones with mountains.}
+\label{tab:nh3NN}
+\end{table}
+In the model for ammonia estimation instead, this error is clearly higher(Table \ref{tab:nh3RF}).
+Nevertheless, results are substantially accurate as well. 
+This difference should be given by different number of ground sensor for each pollutant. The sample of particulate matter measurement in fact is larger than the ammonia's one (Figure \ref{fig:comparison-sensors}).
 \begin{figure}[H] 
     \centering
-    \subfloat[PM25 as target variable.]{%
+    \subfloat[PM2.5 as target variable.]{%
         \includegraphics[width=0.5\textwidth]{src/images/pm25_sensors.png}%
         %
         }%
@@ -139,15 +156,17 @@ This difference should be given by different number of ground sensor for each po
         \includegraphics[width=0.5\textwidth]{src/images/nh3_sensors.png}%
         %
         }%
-    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case of study. The legend shows whether the cell has an interpolated value with KNN or not. In addition ground sensor from which interpolation is performed are added}
+    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case of study. The legend shows whether the cell has an interpolated value with KNN or not. In addition ground sensor from which interpolation is performed are added. 
+    The sample number passed from 28 to 173 for PM2.5 as target variable and from 8 to 69 for NH3.}
     \label{fig:comparison-sensors}
 \end{figure}
 
-We can observe that generally Random Forest model makes more accurate predictions than the Neural Network by Keras. This may caused by the fact that RF algorithm uses ensemble learning method for regression, a technique that joins estimation from multiple models for having more accurate predictions than a single model. 
-R\textsuperscript{2} in each test assumes a positive value (around 50\% for Neural Network and around 80\% for RF), meaning that the pollutants take in consideration in this case of study can be explained by the regression models. 
+We can observe that generally Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). This may caused by the fact that RF algorithm uses ensemble learning method for regression, a technique that joins estimation from multiple models for having more accurate predictions than a single model. 
+R\textsuperscript{2} in each test assumes a positive value, meaning that the pollutants take in consideration in this case of study can be explained by the regression models. 
 \subsection{Comparison with CAMS model}
-The comparison between models of my results and CAMS data shows how values are very far from them. MAE for pm25 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. Values assumed by MSE, since the distance between the results is squared, exceed 40 for PM25 and 170 for NH3 in each different configurations.
-Another proof of difference between the 2 models is the R\textsuperscript{2} value which is assumes a negative value in most of the cases. It proves the presence of a big difference between training and test values. 
+The comparison between models of my results and CAMS data shows how values are very far from them. MAE for PM2.5 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. 
+Another difference between the 2 models is the R\textsuperscript{2} value which assumes a negative value in most of the cases. It proves the presence of a big difference between training and test values. 
+
 
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -175,8 +194,10 @@ Another proof of difference between the 2 models is the R\textsuperscript{2} val
 \end{tabular}
 \caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
 \end{table}
+These results are in contrast with the FS results, where the correlation between the ARPA values (target variable) and the CAMS models is one of the strongest.
+From this results we hypothesize that both pm25\_st / nh3\_st and pm25\_cams / nh3\_cams variables shape the same pollution phenomenon having the same behavior, but between them there would be a bias.\\
 Obviously the model of Copernicus Atmosphere Monitoring Service provide different results by one obtained by me, since is build very differently. CAMS is built through ensemble median, averaged by eleven European air quality forecasting systems. Therefore, median model should perform better than the individual model products\cite{riccio2007seeking}; 
-Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure \ref{fig:cams} in Italy there's only 1 observation in Sardinia for PM25 detection. Nothing was found for Ammonia.
+Anyway, through information collected on the Copernicus website, only a limited number of ground observation are detected in the Italy territory. As it can be seen by figure \ref{fig:cams} in Italy there's only 1 observation in Sardinia for PM2.5 detection. Nothing was found for Ammonia.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.2]{src/images/cams_obs.png}
@@ -190,9 +211,15 @@ So, by the larger number of ground observation provided by ARPA in this data col
 Based on these results, we can point that Random Forest is more precise than Neural Network model and that the performance are higher for particulate matter than ammonia estimation.
 Random Forest indeed is one the most preferred also in literature prediction model for its easy configuration.
 \subsection{Importance of the FS}
-Feature selection is meaningful for the pre processing phase, since aims to discard eventually useless variable and to take only the ones really relevant to the target variable. In the results obtained we can detected that selection of variable with FS assume a key role for sample of small size. 
+The underlying tables provide model results respectively in 2 case:
+\begin{itemize}
+    \item the selection of variable is performed by Feature Selection procedure;
+    \item the selection of variable is performed by a random function (for doing this was used the Pandas.sample method);
+\end{itemize}
+It can be observed that feature selection is meaningful for the pre processing phase, since aims to discard eventually useless variable and to take only the ones really relevant to the target variable. In the results obtained we can detected that selection of variable with FS assume a key role for sample of small size. 
 Indeed, in the tests with resolution 10 Km model there's a feasible difference between the data trained by variable from FS and the ones chosen randomly(Table \ref{fig:importance10km}). 
-This gap become negligible with higher resolution (Table \ref{fig:importance1km}), because ML algorithms accuracy increase with sample size(CITATION).
+This gap become negligible with higher resolution (Table \ref{fig:importance1km}).
+This is implied by the fact that more the training size is sufficient, less a feature selection procedure improve the accuracy\cite{chu2012does}.
 
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -215,7 +242,7 @@ RMSE\_sensor &        2.418 &        1.292 &        0.888 &       1.532 &       
   R2\_sensor &        0.771 &        0.746 &        0.591 &       0.756 &       0.845 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM25 with 10 km resolution, including zones with mountains using or not FS.}
+\caption{Random Forest prediction for PM2.5 with 10 km resolution, including zones with mountains using or not FS.}
 \label{fig:importance10km}
 
 \end{table}
@@ -243,7 +270,7 @@ RMSE\_sensor &        0.632 &        0.373 &        0.360 &       0.452 &       
   R2\_sensor &        0.989 &        0.985 &        0.962 &       0.983 &       0.993 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM25 with 1 km resolution, including zones with mountains using using or not FS.}
+\caption{Random Forest prediction for PM2.5 with 1 km resolution, including zones with mountains using using or not FS.}
 \label{fig:importance1km}
 
 \end{table}

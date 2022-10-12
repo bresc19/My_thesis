@@ -1,7 +1,7 @@
 In this chapter I explain each step taken during the pre-processing phase, by illustrating in details each step taken and tool used. \newline
 \par
 My work is focused on the first phase of a data analysis procedure which is the pre-processing.
-Data pre-processing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
+Data pre processing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
 Indeed, raw data is in most cases incomplete and noisy.\par
 Nowadays, dealing with big amount of information, the probability of incorrect data is higher without a proper data pre-processing.
 Only high-quality data can generate accurate models and predictions. \par
@@ -214,8 +214,8 @@ Where:
 
 In my work I wasn't focus in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact on the models performance. Indeed, the point of interest is to create a model that performs better in a local scale with respect other global model.
 For doing that I implemented 2 different ML supervised model.
-By litherature we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).
-Since highly accurated algorithms are often less interpretable, in order to detect the impact of feature selection on accuracy Neural Network and Rando Forest algorithms are choosen. 
+By literature we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).
+Since highly accurate algorithms are often less interpretable, in order to detect the impact of feature selection on accuracy Neural Network and Random Forest algorithms are chosen. 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.4]{images/interpretability_accuracy_tradeoff.jpg}
