@@ -6,23 +6,24 @@ In this section the results obtained for each target variable selected are expla
     \item positive or negative correlation assumed in the filter methods;
     \item confirmation in literature where a given correlation is occurred; 
 \end{itemize}
-Similarity between the tests run for each target variable are visible for many factors that influence both particulate matter and ammonia.
+Similarity between the tests run for each target variable are visible for many factors that influence both particulate matter and ammonia (figure \ref{fig:pearson_general}).
 For instance, DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) received many votes in both cases, since air pollution affect more urban than mountain areas.
 The results show also how particulate matter and ammonia are influenced by meteorological parameters.
+For instance, pollutants are negatively correlated to wind speed ('e\_wind'), since their concentration tends to turn down with it. Wind is a marker for the horizontal transport of air pollutants.\\
+Also the pressure contribute to them ('press'), since causes stable atmospheric condition that make pollutants harder to be disseminated. 
+\begin{comment}
 Air temperature ('temp\_2m' and 'temp\_int') increases with global radiation, while pollutants significantly decreased\cite{li2015particulate} in many test cases. \\
-Also the pressure contribute to them ('press' with a remarkable number of votes between 100 and 125), since causes stable atmospheric condition that make PM harder to be disseminated. 
-Instead, pollutants are negatively correlated to wind speed ('e\_wind'), since their concentration tends to turn down with it. Wind is a marker for the horizontal transport of air pollutants.\\
 It can be observed also the negative correlation between pollution and air humidity ('air\_hum\_int').
 Under increased humidity conditions, PM and ammonia may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction\cite{biglari2017relationship}.\\
-Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants, due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
+\end{comment}
+Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants (more with PM25 than ammonia) , due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
 \begin{figure}[H]
 \centering
-\subfloat[10 Km resolution with mountains]{\includegraphics[scale =0.42]{images/tests/0_1_mountainspm25_st.png}}\\
-\subfloat[1 Km resolution without mountains]{\includegraphics[scale =0.42]{images/tests/0_01_nomountainspm25_st.png}}
-\caption{FS results obtained with PM2.5 as target variable.}
+\subfloat[pm25\_st as target variable.]{\includegraphics[scale =0.42]{images/tests/pm25pearson_october_0_01_mountains.png}}\\
+\subfloat[nh3\_st as target variable.]{\includegraphics[scale =0.42]{images/tests/nh3_pearson_october_0_01_mountains.png}}
+\caption{FS results obtained in the period between 7-14 October with 1km resolution including mountains.}
 \label{fig:pearson_general}
 \end{figure}
-
 \subsection{PM25 as target variable}
 Fine particulate matter (PM2.5) is one of the most common air pollutant in our environment. 
 It primarily comes from transport vehicle (such as car, truck and bus), industry, burning of fuels and household activities.\\ \par
@@ -32,7 +33,9 @@ In the tests is also visible the score obtained by ozone ('o3\_int') which tends
 This, as mentioned before, is possibly due to their common precursors, such as nitrogen oxides and volatile organic compounds and their simultaneous generation in photochemical reactions. \\
 \end{comment}
 Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. Indeed, for the week between 17 and 24 July a negative correlation between them is found, due to the fact that is inversely related to PM25.\\
-By the bar plots attached in the figure \ref{fig:fs_pm25}, the most correlated variables to PM25 belong mostly to pollutant. In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always a number votes more than 120. Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
+By the bar plots attached in the figure \ref{fig:fs_pm25}, the most correlated variables to PM25 belong mostly to pollutant.
+It can be shown by figure \ref{fig:pearson_general} that the entire set of pollutants variables are also positively correlated to it.
+In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always a number votes more than 120. Strong positive correlation between PM25 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
 It's visible a correlation with nitrogen dioxide('no2\_int'), a strong greenhouse gas which is related, as particulate matter, to biomass burning, industrial processes, households and road transport\cite{zellner2000john}\cite{maranzano2022air}.
 From nitrogen dioxide derives also the chemical relation with the other nitrogen oxides ('nox\_int'), such as nitrogen monoxide ('no\_int').
 \\
