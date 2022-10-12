@@ -15,7 +15,11 @@ Relevant data is gathered from their sources and merged in data structures (such
 Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
 This could be done by removing rows or columns. Alternately, it might involve replacing observations with new values. \newline
-
+For doing this, I present this solution in sequence, using methods provided by Pandas library:
+\begin{itemize}
+\item Drop of samples having target variable with NaN value;
+\item Drop of columns (values assumed by each covariates) having at least a NaN value;
+\end{itemize}
 \subsection{Remove of variables with low variance}
 An approach for removing columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean $\mu$ of a given variable X. 
 \begin{equation}
@@ -166,9 +170,12 @@ Metrics chosen for evaluation are:
 \begin{itemize}
     \item MAE (Mean Absolute Error): it's the mean absolute distance for the observations;
     \item MSE (Mean Squared Error): it measure as MAE the distance of errors from the observations but with the difference of squaring the distance. In this way higher errors weigh more;
+    \item RMSE (Root Mean Squared Error): it's computed as the previous term (MSE), with the difference that is applied the square root at the end. RMSE is used because due to the same unit of the target variable.
+    The RMSE is always larger or equal to the MAE; larger is the gap between them, grater will be the variance in the individual errors of the sample.
     \item R2 (Coefficient of determination): it' s a statistical index that represents the percentage whereas the target variable is explained in a regression model;
 \end{itemize} 
 Their formula are these:
+\subsubsection{Mean Absolute Error}
 \begin{equation}
 MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i-\hat{y}_i|
 \end{equation}
@@ -178,6 +185,7 @@ Where:
     \item $\hat{y}$\textsubscript{i} is the i-th samples predicted;
     \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
 \end{itemize}
+\subsubsection{Mean Squared Error}
 \begin{equation}
 MSE = \frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y}_i)^2
 \end{equation}
@@ -187,6 +195,11 @@ Where:
     \item $\hat{y}$\textsubscript{i} is the i-th samples predicted;
     \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
 \end{itemize}
+\subsubsection{Root Mean Squared Error}
+\begin{equation}
+RMSE = \sqrt{MSE}= \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y}_i)^2}
+\end{equation}
+\subsubsection{R\textsuperscript{2} score}
 \begin{equation}
 R^2 = 1 - \frac{RSS}{TSS}    
 \end{equation}
