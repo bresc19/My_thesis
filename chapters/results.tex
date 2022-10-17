@@ -1,4 +1,5 @@
 In this chapter are collected my interpretations of the results obtained, in particular by Borda Count algorithm and Pearson index. Interpretation of the results could be shared between the 2 target variable or specific to one of them.
+
 \section{Feature Selection Results}
 In this section the results obtained for each target variable selected are explained in relation to the:
 \begin{itemize}
@@ -7,16 +8,18 @@ In this section the results obtained for each target variable selected are expla
     \item confirmation in literature where a given correlation is occurred; 
 \end{itemize}
 Similarity between the tests run for each target variable are visible for many factors that influence both particulate matter and ammonia (figure \ref{fig:pearson_general}).
-For instance, DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) received many votes in both cases, since air pollution affect more urban than mountain areas.
-The results show also how particulate matter and ammonia are influenced by meteorological parameters.
+This can be observed by the similarity of the both positive and negative correlation from indexes from filter methods (such as Pearson, figure \ref{fig:pearson_general}). 
+For instance, DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) are correlated in the same way in test of both target variables, since air pollution affect more urban than mountain areas.
+A general condition present in most of the tests run (which are available in the Appendix \ref{chap:appendix}) is the influence with respect to meteorological parameters.
 For instance, pollutants are negatively correlated to wind speed ('e\_wind'), since their concentration tends to turn down with it. Wind is a marker for the horizontal transport of air pollutants.\\
 Also the pressure contribute to them ('press'), since causes stable atmospheric condition that make pollutants harder to be disseminated. 
 \begin{comment}
+ is a moderate correlation with temperature. 
 Air temperature ('temp\_2m' and 'temp\_int') increases with global radiation, while pollutants significantly decreased\cite{li2015particulate} in many test cases. \\
 It can be observed also the negative correlation between pollution and air humidity ('air\_hum\_int').
 Under increased humidity conditions, PM and ammonia may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction\cite{biglari2017relationship}.\\
+For instance, AOD ('aod\_047' and 'aod\_055') has a strong correlation with pollutants (more with PM2.5 than ammonia) , due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
 \end{comment}
-Another pollutant with a significant number of votes is the aerosol optical depth ('aod\_047' and 'aod\_055'). It's evident that AOD has a strong correlation with pollutants (more with PM2.5 than ammonia) , due to the fact that they are suspension of a solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols.
 \begin{figure}[H]
 \centering
 \subfloat[pm25\_st as target variable.]{\includegraphics[scale =0.45]{images/tests/pm25pearson_october_0_01_mountains.png}}\\
