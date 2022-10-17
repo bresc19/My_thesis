@@ -305,7 +305,7 @@ Before the feature selection phase, VarianceThreshold was applied in order to di
 In this phase, I got the list of the most significant variables for each different configuration.
 For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.
 This was computed by averaging the feature selected for each different period with Borda Count another time;
-Since I assume 2 different resolution and with the possibility to include or not the mountain zones, I obtained 4 different configurations: (TODO)
+Since I assume 2 different resolution and with the possibility to include or not the mountain zones, I obtained 4 different configurations: 
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|}
@@ -329,9 +329,27 @@ Results from different periods for simplicity are grouped and averaged. In total
 
 
 \section{Data Modelling}
-After the evaluation of variable selected by each different configuration, models (already explained in the previous chapter) are built and a cross validation for error and accuracy is evaluated. The validation is taken using the test set from test set of the target variable. In addition, a validation with PM25 values assumed by the CAMS models is taken. The validation with CAMS results consists simply in a comparison between the results obtained and the values of the CAMS model.  
-\newline
+In this phase I evaluate models trained by variable selected by FS in order to analyze their interpretability and performance.
+In detail the test run are built and validated using a k-fold (with k = 5) cross validation for mitigating undesirable over-fitting. 
+I perform tests in 2 different ways, explained in the next subsections.
+\subsection{Test for each period with CAMS comparison}
+The validation made on the model was performed with 2 different variables values. They've been chosen:
+\begin{itemize}
+\item values of the target variable (ARPA measurements);
+\item values assumed by the CAMS model;
+\end{itemize}
+Such a procedure was applied both to evaluate performance of the current model and to compare it to the CAMS model.
 In this way, a comparison between results from these 2 different validations is performed, aiming to detect how much the models perform better in this local scale.\par
+This is was applied for each data set obtained by the combinations of 4 configurations, 5 periods and 2 target variables (4x5x2 = 40 different model testes). 
+\subsection{Test for analyse FS impact on performance}
+In order to evaluate how Feature Selection affect positively the accuracy of the model a set of tests are run and configured differently from the previous. 
+Data of different periods were merged together in order to develop the model through a temporal analysis, where the data are used in this way:
+\begin{itemize}
+    \item grid data from March, April and July periods were used from training;
+    \item grid data from September and October were used for validation;
+\end{itemize}
+
+Totally were performed 8 tests, for each configuration and target variable (4 configuration x 2 target variables = 8)
 
 https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/agricultural-pollution 
 https://pure.iiasa.ac.at/id/eprint/14769/1/Reduction%20of%20NH3%20emissions%20from%20agriculture%20in%20the%20Hai%20River%20Basin%20in%20China.pdf
