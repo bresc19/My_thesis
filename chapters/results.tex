@@ -35,19 +35,21 @@ During the 5 periods, it's shown that PM2.5, as the other pollutants, change ove
 In the tests is also visible the score obtained by ozone ('o3\_int') which tends to be positively correlated in the period between 18 and 25 April.\\
 This, as mentioned before, is possibly due to their common precursors, such as nitrogen oxides and volatile organic compounds and their simultaneous generation in photochemical reactions. \\
 \end{comment}
-Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. Indeed, for the week between 17 and 24 July a negative correlation between them is found, due to the fact that is inversely related to PM2.5.\\
-By the bar plots attached in the figure \ref{fig:fs_pm25}, the most correlated variables to PM2.5 belong mostly to pollutant.
-It can be shown by figure \ref{fig:pearson_general} that the entire set of pollutants variables are also positively correlated to it.
-In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always a number votes more than 120. Strong positive correlation between PM2.5 and PM10 is also proved in literature\cite{zhou2016concentrations}. 
+Air pollution analysis can confirm the presence of high quantity in winter and heating season and low in summer months\cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds. Indeed, ozone receive in the results many votes for its negative correlation (the highest in summer period), due to the fact that is inversely related to PM2.5.\\
+By the bar plots attached in the figure \ref{fig:fs_pm25}, it is clear that most of the pollutants have a strong or moderate correlation with PM2.5. 
+It can be shown by figure \ref{fig:pearson_general} that the entire set of pollutants variables are almost all positively correlated to it.
+In particular PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutant. Indeed, 'pm10\_int' and 'pm10\_cams' have always an high number of vote. Strong positive correlation between PM2.5 and PM10 is also proved in literature\cite{zhou2016concentrations}.
+Another variable which received a strong number of votes is the PM2.5 modelled by CAMS ('pm25\_cams'). 
+Both variables in fact measures the same pollution phenomena as the target variables. This finding make us understand how both describe the same pollution phenomena, moving to the same direction. Indeed, correlation coefficient between them is near to 1 in all test executed.
 It's visible a correlation with nitrogen dioxide('no2\_int'), a strong greenhouse gas which is related, as particulate matter, to biomass burning, industrial processes, households and road transport\cite{zellner2000john}\cite{maranzano2022air}.
-From nitrogen dioxide derives also the chemical relation with the other nitrogen oxides ('nox\_int'), such as nitrogen monoxide ('no\_int').
+From nitrogen dioxide derives also the chemical relation with the other nitrogen oxides ('nox\_int'), such as nitrogen monoxide ('no\_int') and carbon monoxide ('co\_int', 'co\_cams, 'co\_s5p'). This could be explain by the fact that they contribute as secondary pollutant to PM2.5 formation \cite{xie2015spatiotemporal}.
 \\
 Observing the results regarding intense agriculture, it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received as PM10 most votes of all in spring period due to its strong positively correlation. 
 This happens because NH3 can react in the atmosphere to form ammonium salts in the presence of acid species\cite{viatte2021ammonia}.
 We can assume that the main emission source of ammonia is the intense agriculture, since was responsible for the 92\% of the total by EEA country members in 2017\cite{maranzano2022air}.\\
 Indeed, during this periods, application of fertilizer contribute to ammonia and particulate matter composition.
 Significantly more fertilizer is applied in the spring than summer and winter season due to crop cycles\cite{goebes2003ammonia}.
-So we can assume that intense agriculture is one of the factor that influence the PM2.5 formation, but only in a certain period of the year.\\
+So we can assume that intense agriculture is one of the factor that influence the PM2.5 formation, with greater contribution in a certain period of the year.\\
 \pagebreak
 \clearpage
 \begin{figure}[H]
@@ -60,20 +62,24 @@ So we can assume that intense agriculture is one of the factor that influence th
 \subsection{NH3 as target variable}
 Ammonia (NH3) is a reactive and soluble alkaline gas. It's one of the main sources of nitrogen pollution and come from both natural and anthropogenic sources, such as agriculture.
 The process of ammonia evaporation commonly takes place when nitrogen is originated by urea of animal livestock, and fertilize. \\
-In the results obtained along the 5 period, stands out the ammonia provided by CAMS model ('nh3\_cams') which, due to the fact that represents the same pollutant, is strongly correlated. Variables related to atmospheric condition are weighted with scores of the same order of magnitude of the previous test set, since ammonia is dispersed in the environment as particulate matter and other pollutants.\\
-We can observe in figure \ref{fig:fs_nh3} also variable related to pm10 and pm2.5('pm10\_int', 'pm10\_cams','pm25\_int' and 'pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter (pm2.5 in particular\cite{zhu2015sources} .\\
-Correlation of ammonia with respect to intensive agricultural is also feasible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable) and the Normalized Difference Vegetation Index ('ndvi').\\
-Other important weighted features are the ones related to intense farming ('farm\_sheeps', 'farm\_pigs', 'farm\_poultry' and 'farms') which are responsible for ammonia and methane release ('ch4\_s5p' has a meaningful positive correlation with respect to NH3).\\
-Indeed, animal urine and faeces imply the release of respectively ammonia and methane in the atmosphere\cite{saggar2004review}.\\
+In the results obtained along the 5 period, stands out the ammonia provided by CAMS model ('nh3\_cams') which, due to the fact that is strongly correlated, represents the same pollutant as well.
+We can observe in figure \ref{fig:fs_nh3} also variable related to PM10 and PM2.5 ('pm10\_int', 'pm10\_cams','pm25\_int' and 'pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter \cite{dai2019concentrations}\cite{zhu2015sources}.\\
+Correlation of ammonia with respect to intensive agricultural should be feasible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable), in particular used for maize cultivation ('siarl9') .\\
+It's observable also the votes received by the variable that models the soil moisture, always with a positive correlation with respect to the target variable. This could be explained by the abundance of ammonia-oxidizing bacteria which increase as the soil moisture \cite{avrahami2007response}.  
+Other important weighted features are the ones related to intense farming ('farms' and 'farm\_pigs') which are responsible for ammonia release thanks to chemical reaction of urea.
+Indeed, animal urine and faeces imply the release of respectively ammonia and methane in the atmosphere\cite{saggar2004review}.
+\begin{comment}
+Indeed, methane ('ch4\_s5p') has a meaningful positive correlation with respect to NH3).\\.\\
 It can be viewed also how road infrastructure variables contribute to ammonia. In particular the correlation between them is negative, since ammonia emission from agriculture occurs usually far from urban and traffic areas.\\
+These effects are more visible in the configuration obtained by excluding the mountains zones, where pollutant effects are less visible.
+\end{comment}
 So we can suggest that ammonia in Lombardy should be very related to the use of fertilizer in agriculture areas and animal livestock in farms.
-These effects are more visible in the configuration obtained by excluding the mountains zones, where pollutant effects are less visible. 
 \bigbreak
 \pagebreak
 \clearpage
 \begin{figure}[H]
 \centering
-\includegraphics[scale =0.50]{images/tests/0_01_nomountainsnh3_st.png}
+\includegraphics[scale =0.50]{images/tests/0_1_nomountainsnh3_st.png}
 \caption{FS results obtained with Ammonia (NH3) as target variable with 1 Km resolution excluding mountains.}
 \label{fig:fs_nh3}
 \end{figure}
