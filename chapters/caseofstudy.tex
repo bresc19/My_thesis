@@ -293,10 +293,34 @@ In our case variable provided by ARPA and ESA ground sensor (with the label that
 \par
 However, no country in the world has yet established a monitoring network with a full satisfying coverage\cite{liu2018improve}. Even in the United States (US), which is characterized by a relatively developed PM2.5 ground monitoring network with 2500 stations has many areas unmonitored\cite{liu2018improve}. \par
 Due to the fact that with data cleaning it results a data set with a very limited number of sample \cite{zhang2018strategy}, I perform previously a k-nearest neighbour classifier\cite{taunk2019brief} for detecting the buffer of cells closed to the location of the ground stations measurement. For increasing the number of observation provided by the limited ARPA stations in Lombardy a k-nearest neighbors algorithm is applied to adding the buffer of values (with k respectively equal to 10 for 0.1° and 30 for 0.01° resolution).  
+I choose for k value reasonable for the performance of the model, in order to have an adequate number of observation for making relevant consideration \ref{fig:knn_chosen}
+
+\begin{figure}[H] 
+    \centering
+    \subfloat[1]{%
+        \includegraphics[width=0.5\textwidth]{images/pm25_sensors.png}%
+        %
+        }%
+    \hfill%
+    \subfloat[NH3 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
+        %
+        }%
+    \caption{}
+    \label{fig:comparison-sensors}
+\end{figure}
+
+
 Then, these cells are set with values computed using a Radial Basis function interpolation\cite{wright2003radial} which are separately stored in variables with name that ends with '\_int'. The given procedure available on GitHub \newline
 In this way the size of the final sample, as the performance of the feature selection, would increase.
 \par
-Before the feature selection phase, VarianceThreshold was applied in order to discard variables with variance less than 0.1. 
+Before the feature selection phase, nearZeroVar was applied in order to discard variables with low variance.
+As suggested by this study\cite{kuhn2008building} , I discard variables which has: 
+\begin{itemize}
+    \item the percentage of unique values larger or equal to 20\%;
+    \item the ratio of the most prevalent to the second most prevalent value is greater or equal to 20;
+\end{itemize} 
+
 \begin{figure}[H] \centering
 {\includegraphics[scale=0.45]{images/buffer.png}}
  { \caption{Graphical representation of how buffer values interpolated from PM2.5 sensors provided by ARPA are added through k-nearest neighbour.}}

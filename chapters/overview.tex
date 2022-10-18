@@ -26,8 +26,14 @@ An approach for removing columns is to consider the variance of each column vari
   Var(X) = E[(X-\mu)^2]
 \end{equation}
 The variance can be used as a filter for identifying columns to be removed from a given data set. 
-Using a feature with low-variance only adds complexity and noisy to the feature selection and the predictive.\newline
-In order to do that, I performed VarianceThreshold method from the scikit-learn library. In this way, features under a certain variance threshold value should be meaningless and consequently discarded by its dataset. 
+Using a feature with low-variance only adds complexity to the feature selection and the predictive.\newline
+In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the caret (short for Classification And REgression Training) package in R.
+This method finds covariates that have one unique value (i.e. with zero variance) or covariates that have both of the following requirements:
+\begin{itemize}
+\item they have very few unique values relative to the number of samples (represented by the percentage of unique values);
+\item the ratio of the frequency of the most common value to the frequency of the second most common value is large;
+\end{itemize}
+After this detection, features with low variance should be meaningless and consequently discarded. 
 \section{Data Transformation}
 Data need to be scaled. As a matter of fact, each feature in our data has varying degrees of magnitude, range, and units. This is an issue for machine learning algorithms because of highly sensitive to these features. 
 Having input variables with different units (e.g. ug/m\textsuperscript{3}, °C, hours or mol/m\textsuperscript{2}) implies data at different scales. This could raise the difficulty of the problem being modelled. \newline
@@ -65,9 +71,9 @@ Feature Selection is the core part of this study. It's the process of reducing t
 Data collected, even if have been cleaned and transformed, are anyway characterized by big amount of variables which are redundant.
 Discarding irrelevant data is essential before applying Machine Learning model in order to:
 \begin{itemize}
-\item \textbf{Reduce Overfitting}: less opportunity to make decisions based on noise;
-\item \textbf{Improve Accuracy}: less misleading data means that modelling accuracy improves. Predictions can be greatly distorted by redundant attributes;
-\item \textbf{Reduce Training Time}: With less data an algorithm will train faster;
+\item Reduce Overfitting: less opportunity to make decisions based on noise;
+\item Improve Accuracy: less misleading data means that modelling accuracy improves. Predictions can be greatly distorted by redundant attributes;
+\item Reduce Training Time: With less data an algorithm will train faster;
 \end{itemize}
 In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as output. \newline
 Due to the fact that there isn’t a best feature selection technique, many different methods are performed, each one that gives different correlation results.\par
@@ -239,7 +245,8 @@ For implementing it, I use Keras API from TensorFlow library.
 \subsection{Machine Learning with Random Forest}
 Random forests is used in regression problem, by using a structure of decision trees for making predictions. Decision trees answer to sequential questions through the routes tracked by trees.
 Algorithm consists in building a certain number of random decision trees from the a bootstrap sample of the original data set (this phase is called bootstrap sampling). Then, the prediction of a certain sample is performed by following each decision trees. In a regression problem the final decision will be an averaged value from the ones obtained by each tree (phase of aggregation).
-For implementing it, I use RandomForestRegressor class from sklearn library, configured with 300 random trees.
+For implementing it, I use RandomForestRegressor class from sklearn library. 
+
 \bigbreak
 In the next chapters each step will be described in depth about procedures adapted in the case of study and the results obtained.
 
