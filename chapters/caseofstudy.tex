@@ -297,28 +297,30 @@ I choose for k value reasonable for the performance of the model, in order to ha
 
 \begin{figure}[H] 
     \centering
-    \subfloat[1]{%
-        \includegraphics[width=0.5\textwidth]{images/pm25_sensors.png}%
+    \subfloat[10 km resolution including mountains.]{%
+        \includegraphics[width=0.55\textwidth]{images/0_1_knn.png}%
         %
         }%
     \hfill%
-    \subfloat[NH3 as target variable.]{%
-        \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
+    \subfloat[1 km resolution including mountains.]{%
+        \includegraphics[width=0.55\textwidth]{images/0_01_knn.png}%
         %
         }%
-    \caption{}
-    \label{fig:comparison-sensors}
+    \caption{In the following plots are highlighted the performance in terms of MAE, RMSE, MSE and R\textsuperscript{2} of the Random Forest model in function of the K chosen by KNN applied in the data cleaning. As it can be seen, the performance of model depends strictly on the number of observation used. In order to have an adequate number of observation I choose K equal to 10 and 30 respectively for the 10 km and 1  km resolution. }
+    \label{fig:knn_chosen}
 \end{figure}
 
 
-Then, these cells are set with values computed using a Radial Basis function interpolation\cite{wright2003radial} which are separately stored in variables with name that ends with '\_int'. The given procedure available on GitHub \newline
+Then, these cells are set with values computed using a Radial Basis function \cite{wright2003radial} which are separately stored in variables with name that ends with '\_int'. RBF was performed using a linear interpolation by a colleague.
+The given procedure and validation results are available on GitHub at this page
+\href{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}{page}
 In this way the size of the final sample, as the performance of the feature selection, would increase.
 \par
 Before the feature selection phase, nearZeroVar was applied in order to discard variables with low variance.
 As suggested by this study\cite{kuhn2008building} , I discard variables which has: 
 \begin{itemize}
-    \item the percentage of unique values larger or equal to 20\%;
-    \item the ratio of the most prevalent to the second most prevalent value is greater or equal to 20;
+    \item the percentage of unique values greater than 20\%;
+    \item the ratio of the most prevalent over the second most prevalent value is greater than 20;
 \end{itemize} 
 
 \begin{figure}[H] \centering
@@ -343,7 +345,7 @@ Since I assume 2 different resolution and with the possibility to include or not
 \end{table}
 In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
 It can be observed that for each parameter there are different configurations: there are 2 resolutions, 2 climate zones parameter and 5 periods. Thus, for each different target variable, have been run 2x2x5 = 20 different tests both for ammonia and fine particulate (40 in total). 
-Results from different periods for simplicity are grouped and averaged. In total in this work are attached 8 different results. Each results will be in detail pointed in the final Appendix TODO.
+Results from different periods for simplicity are grouped and averaged. In total in this work are attached 8 different results. Each results will be in detail pointed in the final Appendix \ref{chap:appendix}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=.9\textwidth]{images/test_param.png}
