@@ -224,25 +224,28 @@ The underlying tables provide model results respectively in 2 case:
     \item the selection of variable is performed by a random function (for doing this was used the Pandas.sample method);
 \end{itemize}
 It can be observed that feature selection is meaningful for the pre-processing phase, since aims at discarding eventually useless variables and to take only the ones really relevant to the target variable. In the results obtained we can detected that selection of variable with FS assume a key role for sample of small size. 
-Indeed, in the tests with resolution 10 Km model there is a feasible difference between the data trained by variable from FS and the ones chosen randomly(Table \ref{fig:importance10km}). 
+Indeed, in the tests with resolution 10 Km model there is a feasible difference between the data trained by variable from FS and the ones chosen randomly (Table \ref{fig:importance10km}). 
 This gap becomes negligible with higher resolution (Table \ref{fig:importance1km}).
 This is implied by the fact that more the training size is sufficient, less a feature selection procedure improve the accuracy\cite{chu2012does}.
 \newline
 In conclusion, the difference between the results of this test and the ones run for each period shows also the presence of overfitting in my models. Indeed, results obtained with temporal hold-out validation (in particular for  R\textsuperscript{2}) shows how the RF model can't make accurate predictions about new data (which comes from a different period).  
 
-
-
 \begin{table}[H]
-\subfloat[10 km resolution.]{\begin{tabular}{lrr}
+\centering
+\subfloat[10 km resolution.]
+{\begin{tabular}{lrr}
 \toprule
-  &  With FS & Without FS \\
+ &  With FS & Without FS \\
   \midrule
  MAE\_sensor &        2.107  &        2.827 \\
 RMSE\_sensor &        2.627 &        3.383  \\
  MSE\_sensor &        6.900  &        11.445 \\
   R2\_sensor &        0.138  &         -0.431\\
-\end{tabular}}
-\subfloat[1 km resolution.]{\begin{tabular}{lrr}
+\end{tabular}
+\label{fig:importance10km}}
+\\
+\subfloat[1 km resolution.]
+{\begin{tabular}{lrr}
 \toprule
 & With FS &  Without FS\\
 \midrule
@@ -250,9 +253,9 @@ RMSE\_sensor &        2.627 &        3.383  \\
 RMSE\_sensor &        3.125  &        3.618\\
  MSE\_sensor &        9.766 &        13.088  \\
   R2\_sensor &        -0.186 &        -0.59 \\
+ \label{fig:importance1km}
 \end{tabular}}
 \caption{Random Forest prediction for PM2.5, including zones with mountains using or not FS.}
-\label{fig:importance10km}
 \end{table}
 
 
