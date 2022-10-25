@@ -230,58 +230,29 @@ This is implied by the fact that more the training size is sufficient, less a fe
 \newline
 In conclusion, the difference between the results of this test and the ones run for each period shows also the presence of overfitting in my models. Indeed, results obtained with temporal hold-out validation (in particular for  R\textsuperscript{2}) shows how the RF model can't make accurate predictions about new data (which comes from a different period).  
 
+
+
 \begin{table}[H]
-\begin{tabular}{lrrrrr}
+\subfloat[10 km resolution.]{\begin{tabular}{lrr}
 \toprule
- With FS &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
- MAE\_sensor &        1.217 &        0.967 &        0.593 &       0.910 &       0.761 \\
-RMSE\_sensor &        1.769 &        1.235 &        0.797 &       1.233 &       1.034 \\
- MSE\_sensor &        3.218 &        1.532 &        0.636 &       1.593 &       1.107 \\
-  R2\_sensor &        0.883 &        0.778 &        0.681 &       0.852 &       0.851 \\
-\bottomrule
-\end{tabular}
-\begin{tabular}{lrrrrr}
+  &  With FS & Without FS \\
+  \midrule
+ MAE\_sensor &        2.107  &        2.827 \\
+RMSE\_sensor &        2.627 &        3.383  \\
+ MSE\_sensor &        6.900  &        11.445 \\
+  R2\_sensor &        0.138  &         -0.431\\
+\end{tabular}}
+\subfloat[1 km resolution.]{\begin{tabular}{lrr}
 \toprule
-Without FS  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
+& With FS &  Without FS\\
 \midrule
- MAE\_sensor &        1.811 &        1.023 &        0.686 &       1.120 &       0.866 \\
-RMSE\_sensor &        2.418 &        1.292 &        0.888 &       1.532 &       1.080 \\
- MSE\_sensor &        6.400 &        1.816 &        0.805 &       2.818 &       1.213 \\
-  R2\_sensor &        0.771 &        0.746 &        0.591 &       0.756 &       0.845 \\
-\bottomrule
-\end{tabular}
-\caption{Random Forest prediction for PM2.5 with 10 km resolution, including zones with mountains using or not FS.}
+ MAE\_sensor &        2.577 &        2.726 \\
+RMSE\_sensor &        3.125  &        3.618\\
+ MSE\_sensor &        9.766 &        13.088  \\
+  R2\_sensor &        -0.186 &        -0.59 \\
+\end{tabular}}
+\caption{Random Forest prediction for PM2.5, including zones with mountains using or not FS.}
 \label{fig:importance10km}
-
-\end{table}
-
-
-
-\begin{table}[H]
-\begin{tabular}{lrrrrr}
-\toprule
-With FS &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
- MAE\_sensor &        0.313 &        0.218 &        0.154 &       0.209 &       0.140 \\
-RMSE\_sensor &        0.637 &        0.388 &        0.270 &       0.369 &       0.242 \\
- MSE\_sensor &        0.436 &        0.152 &        0.073 &       0.142 &       0.060 \\
-  R2\_sensor &        0.988 &        0.983 &        0.980 &       0.990 &       0.993 \\
-\bottomrule
-\end{tabular}
-\begin{tabular}{lrrrrr}
-\toprule
-Without FS &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
- MAE\_sensor &        0.320 &        0.224 &        0.202 &       0.234 &       0.143 \\
-RMSE\_sensor &        0.632 &        0.373 &        0.360 &       0.452 &       0.239 \\
- MSE\_sensor &        0.424 &        0.140 &        0.134 &       0.244 &       0.058 \\
-  R2\_sensor &        0.989 &        0.985 &        0.962 &       0.983 &       0.993 \\
-\bottomrule
-\end{tabular}
-\caption{Random Forest prediction for PM2.5 with 1 km resolution, including zones with mountains using or not FS.}
-\label{fig:importance1km}
-
 \end{table}
 
 

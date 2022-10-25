@@ -378,7 +378,10 @@ Data of different periods were merged together in order to develop the model thr
 \end{itemize}
 In this way, model performance should be evaluated by means of external data, which comes from other period.\\
 However, before running this, I have to deal with collinearity problem, which can cause bias in the accuracy estimation. In order to mitigate this, I perform a feature cluster, grouping collinear variables between them. I consider a variable to be collinear to another if and only if the Pearson correlation index is higher than or equal to 0.8, as a study suggests \cite{shrestha2020detecting}. After that I transform each cluster of variables using the first PCA (Principal Component Analysis)  component. In this way, I solve collinearity in the independent variables, without particularly losing features interpretability.
-Behind is attached the groups of collinear variables and the new covariates used in the Feature Selection, with a 10 km resolution and including mountain zones.
+Behind is attached the groups of collinear variables and the new covariates used in the Feature Selection for PM2.5 as target variable, with 10km and 1km resolutions and including mountain zones.
+I group and illustrate collinear variables in clusters with the help of a script available at this underline{\href{https://www.kaggle.com/code/nassehkhodaie/fixing-multicollinearity-by-feature-clustering/data?select=collinearity_finder_treater_py.py} link}.
+Below are shown the group of variables averaged with PCA.
+\subsubsection{Resolution = 10 km}
 \begin{verbatim}
 **********
 cluster_0
@@ -425,26 +428,48 @@ New features: ['dsf5', 'dsf13', 'soil7', 'soil_text3', 'soil_text4', 'farm_pigs'
        'cluster_3_pc0', 'cluster_4_pc0', 'cluster_5_pc0', 'cluster_6_pc0',
        'cluster_7_pc0', 'cluster_8_pc0']
 \end{verbatim}
-I group and show (Figure ) collinear variables in clusters with the help of a script available at this underline{\href{https://www.kaggle.com/code/nassehkhodaie/fixing-multicollinearity-by-feature-clustering/data?select=collinearity_finder_treater_py.py} link}.
-Below are shown the group of variables avergaed with PCA.
-\begin{figure}
-
-\centering
-\subfloat[A]{\includegraphics[width=3cm]{example-image-a}}\hfil
-\subfloat[B]{\includegraphics[width=3cm]{example-image-b}}\hfil 
-\subfloat[C]{\includegraphics[width=3cm]{example-image-c}} 
-
-\subfloat[D]{\includegraphics[width=3cm]{example-image-a}}\hfil   
-\subfloat[E]{\includegraphics[width=3cm]{example-image-b}}\hfil
-\subfloat[F]{\includegraphics[width=3cm]{example-image-c}}
-\caption{Many figures}\label{figure}
-\end{figure}
-
-
-
-
-
+\subsubsection{Resolution = 1 km}
+\begin{verbatim}
+**********
+cluster_0
+feature name = 'h_mean', 'slope_mean'
+number of PC needed = 1
+explained variance by PC_0 = 0.9343247371259237
+**********
+cluster_1
+feature name = 'uvai', 'o3_s5p'
+number of PC needed = 1
+explained variance by PC_0 = 0.9502248817971359
+**********
+cluster_2
+feature name = 'nmvocs_cams', 'no_cams', 'no2_cams', 'pm10_int', 'co_cams', 'pm10_cams', 'pm25_cams'
+number of PC needed = 1
+explained variance by PC_0 = 0.7356224143251505
+**********
+cluster_3
+feature name = 'no2_int', 'nox_int'
+number of PC needed = 1
+explained variance by PC_0 = 0.9760779670033077
+**********
+cluster_4
+feature name = 'o3_cams', 'o3_int'
+number of PC needed = 1
+explained variance by PC_0 = 0.9678067765212931
+**********
+cluster_5
+feature name = 'temp_int', 'temp_2m'
+number of PC needed = 1
+explained variance by PC_0 = 0.9726802610839925
+New features:  ['aspect_major', 'pop', 'dsf2', 'dsf11', 'dsf12', 'soil_text3',
+       'soil_text4', 'soil_text9', 'sec_road', 'ndvi', 'prec', 'press',
+       'n_wind', 'e_wind', 'soil_moist', 'aod_047', 'co_s5p', 'nh3_cams',
+       'dust_cams', 'so2_cams', 'co_int', 'nh3_int', 'so2_int', 'air_hum_int',
+       'rad_glob_int', 'wind_speed_int', 'cluster_0_pc0', 'cluster_1_pc0',
+       'cluster_2_pc0', 'cluster_3_pc0', 'cluster_4_pc0', 'cluster_5_pc0']
+\end{verbatim}
+\begin{comment}
 https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/agricultural-pollution 
 https://pure.iiasa.ac.at/id/eprint/14769/1/Reduction%20of%20NH3%20emissions%20from%20agriculture%20in%20the%20Hai%20River%20Basin%20in%20China.pdf
 
 https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a
+\end{comment}
