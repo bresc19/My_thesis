@@ -41,6 +41,10 @@ Hence, a common scale is needed through normalization or standardization to impr
 Many ML and regression algorithms perform better when the numerical input and output variables are scaled to a common standard range. \newline
 For instance, it's proved that neural networks trained with scaled data performs better in terms of MSE \cite{shanker1996effect}.
 In this step, two type of transformation have been done:
+\begin{itemize}
+    \item Standardization on input data;
+    \item Normalization on output data;
+\end{itemize}
 \subsection{Standardization}
 The most common data transformation is to centre and scale the each variable values. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean.\cite{kuhn2013applied}
 Standardization consists in rescaling data following a Gaussian distribution of values with mean equal to 0 and standard deviation equal to 1:
