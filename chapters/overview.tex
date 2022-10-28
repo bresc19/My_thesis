@@ -178,9 +178,9 @@ After the modelling step, an evaluation of the performance predictions is perfor
 K-Fold cross-validation consist in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random sample.
 Metrics chosen for evaluation are:
 \begin{itemize}
-    \item MAE (Mean Absolute Error): it's the mean absolute distance for the observations;
-    \item MSE (Mean Squared Error): it measure as MAE the distance of errors from the observations but with the difference of squaring the distance. In this way higher errors weigh more;
-    \item RMSE (Root Mean Squared Error): it's computed as the previous term (MSE), with the difference that is applied the square root at the end. RMSE is used because due to the same unit of the target variable.
+    \item \acrshort{mae} (Mean Absolute Error): it's the mean absolute distance for the observations;
+    \item \acrshort{mse} (Mean Squared Error): it measure as MAE the distance of errors from the observations but with the difference of squaring the distance. In this way higher errors weigh more;
+    \item \acrshort{rmse} (Root Mean Squared Error): it's computed as the previous term (MSE), with the difference that is applied the square root at the end. RMSE is used because due to the same unit of the target variable.
     The RMSE is always larger or equal to the MAE; larger is the gap between them, grater will be the variance in the individual errors of the sample.
     \item R2 (Coefficient of determination): it is a statistical index that represents the percentage whereas the target variable is explained in a regression model;
 \end{itemize} 
@@ -277,7 +277,7 @@ In this interface there are 2 sections:
 \item Options: in this box is possible to configure the feature selection input:
 \begin{itemize}
 \item target variable. The usable variables are those coming from ARPA ground sensors;
-\item value of the Variance Threshold for discarding meaningless variable before FS (optional);
+\item apply (otional) low variance filter for discarding meaningless variable before FS;
 \end{itemize}
 and the output:
 \begin{itemize}

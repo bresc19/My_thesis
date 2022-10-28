@@ -1,7 +1,7 @@
 
 \documentclass{Configuration_Files/PoliMi3i_thesis}
 \usepackage{lscape}
-
+\usepackage[acronym,nomain,nonumberlist]{glossaries}
 \usepackage{parskip} % For paragraph layout
 \usepackage{setspace} % For using single or double spacing
 \usepackage{emptypage} % To insert empty pages
@@ -76,13 +76,12 @@
 \usepackage{notoccite}
 \usepackage{chemist}
 \usepackage{afterpage}
-
 \usepackage{pdfpages} % To include a pdf file
 \usepackage{afterpage}
 \usepackage{lipsum} % DUMMY PACKAGE
 \usepackage{fancyhdr} % For the headers
 \fancyhf{}
-
+\makeglossaries
 % Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
 \input{Configuration_Files/config}
 
@@ -101,7 +100,7 @@
 %----------------------------------------------------------------------------
 %	BEGIN OF YOUR DOCUMENT
 %----------------------------------------------------------------------------
-
+\input{chapters/acronyms.tex}
 \begin{document}
 
 \fancypagestyle{plain}{%
@@ -118,7 +117,7 @@
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
 
 \puttitle{
-	title=Feature Selection for Explainable Machine Learning Models, % Title of the thesis
+	title=Feature Selection for Interpretable Machine Learning Models, % Title of the thesis
 	name=Matteo Bresciani, % Author Name and Surname
 	course=Geoinformatics Engineering - Ingegneria Geoinformatica, % Study Programme (in Italian)
 	ID  = 944639,  % Student ID number (numero di matricola)
@@ -138,7 +137,7 @@
 \input{chapters/abstract.tex}
 \\
 \\
-\textbf{Keywords:} here, the keywords, of your thesis % Keywords
+\textbf{Keywords:} Feature selection, Machine Learning, Interpretability % Keywords
 
 % ABSTRACT IN ITALIAN
 \chapter*{Abstract in lingua italiana}
@@ -173,7 +172,7 @@ Qui va l'Abstract in lingua italiana della tesi seguito dalla lista di parole ch
 \input{chapters/overview} 
 
 \chapter{Case of Study and Data Modelling }
- \label{chap:case}
+\label{chap:case}
 \input{chapters/caseofstudy.tex}
 
 \chapter{Results and Interpretations }
@@ -202,24 +201,14 @@ Qui va l'Abstract in lingua italiana della tesi seguito dalla lista di parole ch
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 \appendix
 \input{chapters/tests.tex}
-
 % LIST OF FIGURES
 \listoffigures
 
 % LIST OF TABLES
-\listoftables
 
-% LIST OF SYMBOLS
-% Write out the List of Symbols in this page
-\chapter*{List of Symbols} % You have to include a chapter for your list of symbols (
-\begin{table}[H]
-    \centering
-    \begin{tabular}{lll}
-        \textbf{Variable} & \textbf{Description} & \textbf{SI unit} \\\hline\\[-9px]
-        $\bm{u}$ & solid displacement & m \\[2px]
-        $\bm{u}_f$ & fluid displacement & m \\[2px]
-    \end{tabular}
-\end{table}
+\listoftables
+\printglossary[toctitle=Acronyms]
+
 
 % ACKNOWLEDGEMENTS
 \chapter*{Acknowledgements}
