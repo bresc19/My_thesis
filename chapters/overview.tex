@@ -9,16 +9,17 @@ The view and quality of data is very relevant before running any analysis.
 Therefore, it is crucial to process data with the best possible quality before training them with artificial intelligence and machine learning predictive models.\par
 \section{Data Collection}
 Data collection is the process of collecting information on variables of interest to answer relevant questions. \newline
-Relevant data are collected from their sources and merged in data structures (such as Dataframes). In our work, data come from fixed ground-sensor, satellite-based platform, models and map layers. In this phase are processed (mostly) numerical and categorical data. 
+Relevant data are collected from their sources and merged in data structures (such as Dataframes). 
+To do that I was helped by python libraries such as Pandas, Geopandas and Numpy.
 \section{Data Cleaning}
 \label{sec:Data cleaning}
 Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
 This could be done by removing rows or columns. Alternately, it might involve replacing the observations with new values. \newline
-For doing this, I present this solution in sequence, using methods provided by Pandas library:
+For doing this, I present this solution in sequence, using methods provided by Pandas library (Pandas.dropna):
 \begin{itemize}
-\item Drop of samples having target variable with NaN value;
-\item Drop of columns (values assumed by each covariates) having at least a NaN value;
+\item Drop of samples having target variable with NaN value (dropna(axis = 0));
+\item Drop of columns (values assumed by each covariates) having at least a NaN value(dropna(axis = 1));
 \end{itemize}
 \subsection{Remove of variables with low variance}
 An approach to remove columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean $\mu$ of a given variable X. 
@@ -27,7 +28,7 @@ An approach to remove columns is to consider the variance of each column variabl
 \end{equation}
 The variance can be used as a filter for identifying columns to be removed from a given data set. 
 Using a feature with low-variance only adds complexity to the feature selection and the predictive.\newline
-In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the caret (short for Classification And REgression Training) package in R.
+In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the \gls{care} package in R.
 This method finds covariates that have one unique value (i.e. with zero variance) or covariates that have both of the following requirements:
 \begin{itemize}
 \item they have very few unique values relative to the number of samples (represented by the percentage of unique values);
@@ -46,7 +47,7 @@ In this step, two type of transformation have been done:
     \item Normalization on output data;
 \end{itemize}
 \subsection{Standardization}
-The most common data transformation is to centre and scale the each variable values. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean.\cite{kuhn2013applied}
+The most common data transformation is to centre and scale the each variable values. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean\cite{kuhn2013applied}.
 Standardization consists in rescaling data following a Gaussian distribution of values with mean equal to 0 and standard deviation equal to 1:
 \begin{equation}
   Z = \frac{X-\mu}{\sigma}
@@ -81,7 +82,7 @@ Discarding irrelevant data is essential before applying the machine learning mod
 \end{itemize}
 In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as output. \newline
 Due to the fact that there is no best feature selection technique, many different methods are performed, each of which gives different correlation results.\par
-In the following subsection, each implemented FS method is described in detail, classified into three main categories\cite{stanczyk2015feature}, as we can find in the literature:
+In the following subsection, each implemented FS method is described in detail, classified into three main categories, as we can find in the literature\cite{stanczyk2015feature}.
 \subsection{Filter Methods}
 Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.\newline
 These select features from the without machine learning algorithm. In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables\cite{saeys2007review}. \newline
@@ -100,7 +101,16 @@ The Pearson index between and independent variable X and a target variable Y is 
 
 \begin{equation}
   \rho_{x,y} = \frac{Cov(X,Y)}{\sigma_x\sigma_y}
-\end{equation}
+ \end{equation}
+
+  Where:
+  \begin{itemize}
+      \item Cov(X,Y) is the covariance between X and Y;
+      \item $\sigma_x$ and $\sigma_y$ are the standard deviations of x and y;
+  \end{itemize}
+  
+
+
 
 \subsubsection{Kendall Tau}
 Kendall Tau index is used to measure monotonic relationship as test statistic to determine whether two variables are statistically dependent. \newline
@@ -136,7 +146,15 @@ Finally, as I did for Pearson and Kendall coefficient, I take in consideration o
 
 \subsubsection{Fisher Score}
 This method returns the score of the variables based on the fisher’s score in descending order. \newline
-Its algorithm is implemented using the SelectKBest method from the scikit-learn library (sklearn.feature\_selection).
+Its algorithm is implemented using the SelectKBest method from the scikit-learn library (sklearn.feature\_selection).\newline
+\begin{equation}
+F = \frac{\sigma_x^2}{\sigma_y^2}
+\end{equation}
+Where:
+\begin{itemize}
+\item F is the Fisher's scores obtained between the independent (X) e dependent variable (Y);
+    \item $\sigma_x^2 and\sigma_y^2$ are the variances of X and Y;
+\end{itemize}
 \pagebreak
 \subsection{Wrapper Methods}
 Wrapper methods, as the name suggests, wrap a machine learning model, with different subsets of input features. In this way, the subsets are evaluated following the best model performance.
@@ -147,7 +165,7 @@ Their execution for many subsets of variables can become unfeasible.
 Feature importance is a built-in function of the Random Forest algorithm. It's also called as Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problem. 
 It's computed with the mean of impurity decrease applied iver all trees.  
 Feature selection made with the impurity reduction of splits is increasingly used for its simplicity and velocity to be computed.
-The scores are evaluated as attribute through RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
+The scores are evaluated as attribute (feature\_importances\_) of RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
 \bigbreak\bigbreak\bigbreak
 \subsection{Embedded Methods}
 Embedded methods are instead characterized by the benefits of both the wrapper and filter methods, by including interactions of features, but also have a reasonable computational cost.\par
@@ -158,6 +176,7 @@ It consists in looking for the best subset of features by starting with all feat
 This is computed using RFE of scikit-learn library (sklearn.feature\_selection).
 To obtain a score for each variable, I consider whether it is selected or not a value (with support\_ attribute).
 If the attribute is selected will be equal to 1, otherwise to 0.
+The number of selected variables, as default option of the method, is half the total number of covariates. (TODO)
 \pagebreak
 \subsection{Borda Count: averaging FS results}
 One of the most important challenges in this study is the lack of a universal feature selection method that produces results that are common with all the FS techniques. Choosing a feature selection method from a vast range of choices can be challenging. \newline
