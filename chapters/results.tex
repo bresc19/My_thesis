@@ -97,10 +97,10 @@ With PM2.5 as target variable at 10 km resolution there is a lower statistical a
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
- MAE\_sensor &        1.350 &        1.132 &        0.606 &       0.908 &       0.834 \\
-RMSE\_sensor &        1.798 &        1.448 &        0.818 &       1.226 &       1.113 \\
- MSE\_sensor &        3.254 &        2.131 &        0.709 &       1.536 &       1.267 \\
-  R2\_sensor &        0.888 &        0.737 &        0.709 &       0.855 &       0.782 \\
+  MAE\_sensor &        1.448 &        1.093 &        0.646 &       0.898 &       0.841 \\
+RMSE\_sensor &        1.940 &        1.362 &        0.868 &       1.165 &       1.080 \\
+ MSE\_sensor &        3.772 &        1.874 &        0.776 &       1.376 &       1.197 \\
+  R2\_sensor &        0.872 &        0.766 &        0.683 &       0.870 &       0.793 \\
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for PM2.5 at 10 km, excluding zones with mountains.}
@@ -110,10 +110,10 @@ RMSE\_sensor &        1.798 &        1.448 &        0.818 &       1.226 &       
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
- MAE\_sensor &        0.313 &        0.218 &        0.154 &       0.209 &       0.140 \\
-RMSE\_sensor &        0.637 &        0.388 &        0.270 &       0.369 &       0.242 \\
- MSE\_sensor &        0.436 &        0.152 &        0.073 &       0.142 &       0.060 \\
-  R2\_sensor &        0.988 &        0.983 &        0.980 &       0.990 &       0.993 \\
+  MAE\_sensor &        0.251 &        0.186 &        0.147 &       0.172 &       0.132 \\
+RMSE\_sensor &        0.503 &        0.361 &        0.255 &       0.285 &       0.240 \\
+ MSE\_sensor &        0.283 &        0.138 &        0.066 &       0.084 &       0.059 \\
+  R2\_sensor &        0.992 &        0.985 &        0.981 &       0.994 &       0.993 \\
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for PM2.5 at 1 km, including zones with mountains.}
@@ -125,11 +125,10 @@ RMSE\_sensor &        0.637 &        0.388 &        0.270 &       0.369 &       
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
- MAE\_sensor &        0.426 &        0.245 &        0.641 &       0.944 &       0.339 \\
-RMSE\_sensor &        0.798 &        0.472 &        1.385 &       2.261 &       0.656 \\
- MSE\_sensor &        0.756 &        0.394 &        2.058 &       5.846 &       0.525 \\
-  R2\_sensor &        0.998 &        0.993 &        0.992 &       0.987 &       0.996 \\
-
+ MAE\_sensor &        0.483 &        0.280 &        0.526 &       0.939 &       0.386 \\
+RMSE\_sensor &        0.993 &        0.558 &        1.184 &       2.316 &       0.860 \\
+ MSE\_sensor &        1.199 &        0.430 &        1.556 &       6.147 &       1.121 \\
+  R2\_sensor &        0.997 &        0.992 &        0.994 &       0.987 &       0.990 \\
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
@@ -140,10 +139,10 @@ RMSE\_sensor &        0.798 &        0.472 &        1.385 &       2.261 &       
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
- MAE\_sensor &        2.372 &        1.378 &        3.905 &       3.307 &       1.974 \\
-RMSE\_sensor &        3.085 &        1.914 &        4.931 &       4.368 &       2.352 \\
- MSE\_sensor &       10.518 &        3.907 &       24.668 &      25.564 &       6.533 \\
-  R2\_sensor &        0.975 &        0.937 &        0.906 &       0.948 &       0.947 \\
+ MAE\_sensor &        1.904 &        2.287 &        3.126 &       2.743 &       3.146 \\
+RMSE\_sensor &        2.570 &        3.341 &        4.205 &       3.841 &       4.465 \\
+ MSE\_sensor &        6.867 &       11.579 &       18.068 &      16.405 &      21.579 \\
+  R2\_sensor &        0.984 &        0.800 &        0.927 &       0.965 &       0.852 \\
 \bottomrule
 \end{tabular}
 \caption{Neural Network prediction for NH3 at 1 km, excluding zones with mountains.}
@@ -168,10 +167,11 @@ This difference should be given by a different number of ground sensors for each
     \label{fig:comparison-sensors}
 \end{figure}
 
-We can observe that generally Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). This may be due to the fact that the RF algorithm uses the ensemble learning method for regression, a technique that joins estimation from multiple models to have more accurate predictions than a single model. 
+We can observe that generally the Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). 
+This may be due to the fact that the RF algorithm uses the ensemble learning method for regression, a technique that joins estimation from multiple models to have more accurate predictions than a single model. 
 R\textsuperscript{2} in each test assumes a positive value, meaning that the pollutants take in consideration in this case of study can be explained by the regression models. 
 \subsection{Comparison with CAMS model}
-The comparison between models of my results and CAMS data shows how values are very far from them. MAE for PM2.5 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. 
+The comparison between the models of my results and CAMS data shows how values are very far from them. MAE for PM2.5 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. 
 Another difference between the two models is the R\textsuperscript{2} value which assumes a negative value in most cases. It proves the presence of a big difference between training and test values. 
 
 
@@ -180,10 +180,10 @@ Another difference between the two models is the R\textsuperscript{2} value whic
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
-   MAE\_cams &        8.966 &        7.566 &        1.936 &       3.574 &       3.974 \\
-  RMSE\_cams &       10.310 &        8.472 &        2.487 &       4.099 &       4.580 \\
-   MSE\_cams &      106.414 &       71.818 &        6.213 &      16.810 &      20.988 \\
-    R2\_cams &       -1.821 &       -7.099 &       -0.727 &      -0.180 &      -1.578 \\
+  MAE\_cams &        7.800 &        6.556 &        2.110 &       3.060 &       3.478 \\
+  RMSE\_cams &        9.262 &        7.571 &        2.745 &       3.623 &       4.059 \\
+   MSE\_cams &       86.279 &       57.593 &        7.548 &      13.266 &      16.591 \\
+    R2\_cams &       -2.147 &       -7.492 &       -2.846 &      -0.258 &      -1.096 \\
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for PM2.5 at 1 km, including zones with mountains.}
@@ -213,7 +213,7 @@ Anyway, through information collected on the Copernicus website, only a limited 
     \label{fig:cams}
 \end{figure}
 
-So, by the larger number of ground observations provided by ARPA in this data collection, this model should perform better in this local scale.
+So, by the validation results and the larger number of ground observations provided by ARPA in this data collection, this model should perform better in this local scale.
 \bigbreak
 Based on these results, we can point out that Random Forest is more precise than the  Neural Network model and that the performance is higher for particulate matter than ammonia estimation.
 Random Forest indeed is one the most preferred also in literature prediction model for its easy configuration.
