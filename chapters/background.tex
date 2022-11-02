@@ -1,22 +1,22 @@
-In this chapter I'm going to contextualize the state of the art of my research work. 
-Besides, I'll give explanation about the target to reach and the solution applied.\par
-In our times a lots of businesses use Big Data for analysing and providing actionable knowledge.
-Big Data is defined as large data sets collected from difference sources such as applications, social networks and websites.
+In this chapter, I'm going to contextualize the state of the art of my research work. 
+Besides, I'll explain about the target to reach and the solution applied.\par
+In our times lots of businesses use Big Data for analysing and providing actionable knowledge.
+Big Data is defined as large data sets collected from different sources such as applications, social networks and websites.
 For this, we are seeing nowadays a rapid growth of them, which causes a rise of redundancy and corrupted data.
 The next consequence will be an accuracy reduction if models are built from them.
-Data must be pre-processed before training, in order to reduce overfitting and improve accuracy of the final model.\newline
+Data must be pre-processed before training, to reduce overfitting and improve the accuracy of the final model.\newline
 Another aspect to take into consideration is that a \acrshort{ml} model trained with so many features it would be a black box, in which a lack of interpretability could not be able to explain the decisions taken by the \gls{aii}.
-So it's needed to care about interpretability in order to discard eventually confounding variables  which can suggest there is a correlation when in fact there is not, even if the model's accuracy is extremely high.
-For example, a new paper by Alex DeGrave et al.\cite{degrave2021ai} shows that Deep Learning model trained with improper data was taking shortcuts in COVID-19 detection on radiographs due to the position of certain markers rather than on the actual radiograph.
-Another common example of this is the confounding correlation between the number of shark attacks and the ice-cream sales shown in Figure \ref{fig:shark}.\newline
+So it's needed to care about interpretability to discard eventually confounding variables which can suggest there is a correlation when in fact there is not, even if the model's accuracy is extremely high.
+For example, a new paper by Alex DeGrave et al.\cite{degrave2021ai} shows that a Deep Learning model trained with improper data was taking shortcuts in COVID-19 detection on radiographs due to the position of certain markers rather than on the actual radiograph.
+Another common example of this is the confounding correlation between the number of shark attacks and the ice cream sales shown in Figure \ref{fig:shark}.\newline
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{images/confounding.png}
-    \caption{The following picture\cite{shark-icecream} highlight how there's no a direct relationship between shark attack and ice-cream sales. Instead, they're both caused by a third factor (High temperature)\cite{siegel2019ice}.}
+    \caption{The following picture\cite{shark-icecream} highlight how there's no direct relationship between shark attack and ice-cream sales. Instead, they're both caused by a third factor (High temperature)\cite{siegel2019ice}.}
     \label{fig:shark}
 \end{figure}
 Therefore, the key to increase interpretability of a given model is to wonder if given factor should drive the final decision.\par
-In this context, in which the black-box nature of \acrshort{ml} algorithms raises ethical and judicial concerns inducing lack of trust\cite{9141213}, \gls{xai} aims to create a model fully interpretable.
+In this context, in which the black-box nature of \acrshort{ml} algorithms raises ethical and judicial concerns inducing a lack of trust\cite{9141213}, \gls{xai} aims to create a model fully interpretable.
 Before the advent of XAI, the scientific community was focused on the predictive power of algorithms rather than the understanding behind these predictions.
 This need for reliable high performing models led to XAI, a field focused on the interpretation of how AI systems take decisions.
 This issue of interpretability and clarity is becoming increasingly significant nowadays. 
@@ -32,11 +32,11 @@ It is desirable to both reduce the computational cost of modelling and, in some 
     \label{fig:AI_XAI}
 \end{figure}
 \bigbreak
-Inside the D-DUST project this step aims to provided a weighted score of each environmental variable with respect to the pollutants emitted by intense agricultural through regression predictive modeling. Then, scores will be interpret with findings in literature in order to confirm them.\newline
+Inside the D-DUST project, this step aims to provide a weighted score of each environmental variable concerning the pollutants emitted by intense agriculture through regression predictive modelling. Then, scores will be interpreted with findings in literature to confirm them.\newline
 \par
-Due to the fact there is no best feature selection techniques, I performed and combined different supervised methods. 
+Due to the fact that there is no best feature selection techniques, I performed and combined different supervised methods. 
 \bigbreak
-According to the above, my work comes on this scenario, having the aim to preprocess geospatial data in order to highlight the most weighted input variable that affect the pollutants related to intense agriculture and farming.\par
-In the next chapter the FS procedure will be described in detail.
+According to the above, my work comes on this scenario, having the aim to preprocess geospatial data in order to highlight the most weighted input variables that affect the pollutants related to intense agriculture and farming.\par
+In the next chapter, the FS procedure will be described in detail.
 
 
