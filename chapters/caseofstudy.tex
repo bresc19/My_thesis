@@ -10,7 +10,7 @@ Therefore, the variables are categorized in 4 different labels:
 \item GIS (time-invariant layers): These time-invariant layers are considered to be changeless in the time range considered. Differently from the other types which need constant monitoring, these variables are updated yearly with a lower frequency than the others;
 \end{itemize}
 The data chosen are open source and are regularly available.
-In this phase, data have been collected (not by me but by other colleagues of the D-DUST project in this \underline{ \href{https://docs.google.com/spreadsheets/d/1-5pwMSc1QlFyC8iIaA-l1fWhWtpqVio2/edit\#gid=91313358} link}) in grids from different sources and provided in geopackages. 
+In this phase, data have been collected (not by me but by other colleagues of the D-DUST project in this repository\footnote{ \url{https://docs.google.com/spreadsheets/d/1-5pwMSc1QlFyC8iIaA-l1fWhWtpqVio2/edit\#gid=91313358}}) in grids from different sources and provided in geopackages. 
 \subsection{Source types}
 In order to better distinguish the characteristics of the data sources, the selected variables are labelled with four different types of sources:
 \begin{itemize}
@@ -19,7 +19,7 @@ In order to better distinguish the characteristics of the data sources, the sele
 Each ground monitoring station which provides meteorological and air quality data belongs mainly to: 
 \begin{itemize}
     \item ARPA (Agenzia Regionale per la Prevenzione dell'Ambiente);
-    \item ESA Air Quality Platform (low-cost sensor)\cite{esasensor}TODO;
+    \item ESA Air Quality Platform (low-cost sensor) \cite{esasensor}TODO;
 \end{itemize}  
 \item Model: data are estimated through a model built using satellite and meteorological and air quality data as input, such as European data provided by \acrshort{cams} (Copernicus Atmosphere Monitoring Service);
 \item Map layer: this data are time-invariant and are related to Lombardy morphology such as density of roads, population or land use; 
@@ -28,7 +28,7 @@ Each ground monitoring station which provides meteorological and air quality dat
 \bigbreak
 
 In the next lines, each variable is provided in tables, by showing its type, name and description:
-
+\pagebreak
 \subsubsection{Meteo Variable (Table)}
 \begin{center}
 \setlength{\arrayrulewidth}{1.5pt}
@@ -40,12 +40,12 @@ In the next lines, each variable is provided in tables, by showing its type, nam
 \multirow{3}{4em}{Temperature} & Model  & \underline{temp\_2m} & Mean air temperature at 2 m above the land surface.\par & K & ERA5-Land hourly data.\\ 
 & Ground \newline Sensor  & \underline{temp\_lcs} &  Mean air temperature ground measurement - Low Cost Sensor ESA monitoring stations.\par & °C & ESA Air Quality Platform.\\ 
 & Ground \newline Sensor  & \underline{temp\_st} &  Mean temperature - ARPA monitoring stations.\par & °C & ARPA \newline Lombardia.\\ \hline
-\pagebreak
-\hline
+
 \multirow{4}{4em}{Wind} & Model  & \underline{e\_wind} & Mean eastward wind component 10 m above the land surface.\par & m/s & ERA5-Land hourly data.\\ 
 & Ground \newline Sensor  & \underline{n\_wind} &  Mean northward wind component 10 m above the land surface.\par & m/s & ERA5-Land hourly data.\\
 & Ground \newline Sensor  & \underline{wind\_speed\_st} &  Mean wind speed on ground  - ARPA monitoring stations. \par& m/s& ARPA \newline Lombardia.\\ \hline
-
+\pagebreak
+\hline
 \multirow{2}{4em}{Precipitation} & Model  & \underline{prec} & Mean accumulated liquid and frozen water, including rain and snow, that falls to the Earth's surface. It is the sum of large-scale precipitation. \par & mm & ERA5-Land hourly data.\\ 
 & Ground \newline Sensor  & \underline{prec\_st} &  Mean precipitation in each cell in the time range - ARPA monitor stations. \par & mm & ARPA \newline Lombardia.\\ \hline
 
@@ -76,7 +76,8 @@ In the next lines, each variable is provided in tables, by showing its type, nam
 \multirow{3}{4em}{AOD} & Satellite \newline Sensor  & \underline{aod\_055} & Mean Aerosol Optical Depth at 550nm.\par & - & MODIS Terra+Aqua.\\ 
 & Satellite \newline Sensor  & \underline{aod\_047} &  Mean Aerosol Optical Depth at 470nm.\par & - & MODIS Terra+Aqua.\\ 
 & Satellite \newline Sensor & \underline{uvai} &  Mean UV Aerosol Index. A positive index highlights the presence of UV absorbing aerosol (such as smoke/dust). \par & - & Sentinel-5P\\ \hline
-
+\pagebreak
+\hline
 \multirow{3}{4em}{PM10} & Model  & \underline{pm10\_cams} & Mean PM10 concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & ug/m\textsuperscript{3} & CAMS Model.\\ 
 & Ground \newline Sensor  & \underline{pm10\_lcs} &  Mean PM10 concentration ground measurement - Low Cost Sensor ESA monitoring stations.\par & not\newline defined & ESA Air Quality Platform.\\ 
 & Ground \newline Sensor & \underline{pm10\_st} &  Mean PM10 concentration ground measurement - ARPA monitoring stations. \par & ug/m\textsuperscript{3} & ARPA \newline Lombardia\\ \hline
@@ -141,7 +142,8 @@ In addition to them, there are also pollutants variables ending with '\_int' (su
 & Satellite \newline Sensor  & \underline{ndvi} &  Mean NDVI cell value over 16 days period.\par & - & USGS Earth Data.\\ 
 & Satellite \newline Sensor  & \underline{siarl} &  Majority class for agricultural use provided by SIARL Catalog for Lombardy Region. \par & cat & SIARL Lombardia 2019.\\
 \hline
-
+\pagebreak
+\hline
 \multirow{5}{4em}{Soil} & Model  & \underline{soil\_moist} & Mean volume of water in soil layer 1 (0 - 7 cm) of the ECMWF Integrated Forecasting System. The surface is at 0 cm. The volumetric soil water is associated with the soil texture (or classification), soil depth, and the underlying groundwater level.\par & m\textsuperscript{3}/m\textsuperscript{3} & ERA5 Land Hourly Data.\\ 
 & Map Layer  & \underline{soilX} &  Fraction of area for each cell containing the soil type obtained from OpenLandMap soil texture classification.\par & \% & OpenLandMap Soil Texture Class (USDA System).\\ 
 & Map Layer  & \underline{soil\_textX} &  Mean NDVI cell value over 16 days period. \par & \% & Basi informative dei suoli - Geoportale Lombardia.\\ 
@@ -172,13 +174,11 @@ In addition to them, there are also pollutants variables ending with '\_int' (su
 \multirow{2}{4em}{Land use and cover} & Map Layer  & \underline{dsfX} & Land use fraction for each cell containing the classification provided by DUSAF Catalog (Lombardy Region). & \% (fraction for each cell) & DUSAF Lombardia 2018.\\ \hline
 Map Layer  & \underline{dusaf} & Cover & Land Use majority class for each cell provided by DUSAF Catalog (Lombardy Region). & cat  & \acrshort{dusaf} Lombardia 2018.\\
 \hline
-
+\pagebreak
+\hline
 \multirow{3}{4em}{Terrain} & Map Layer  & \underline{h\_mean} & DTM average elevation for each pixel. & m & Geoportale Lombardia 2019.\\ 
 & Map Layer  & \underline{aspect\_major} & Aspect derived from DTM. Majority pixel aspect. & Degree North & Geoportale Lombardia 2019.\\ 
 & Map Layer  & \underline{slope\_mean} & Average slope derived from DTM. & Degree North & Geoportale Lombardia 2019.\\ 
-
-\hline
-\pagebreak
 \hline
 \multirow{6}{4em}{Road Infrastructures} & Map Layer  & \underline{int\_prim} & Density of intersection nodes between primary roads for each cell (including highways). & int\textsubscript{s}/km\textsuperscript{2} & Geoportale Lombardia 2019.\\ 
 & Map Layer  & \underline{int\_prim\_sec} & Density of intersection nodes between primary and secondary roads for each cell. & int\textsubscript{s}/km\textsuperscript{2} & Geoportale Lombardia 2019.\\ 
@@ -202,7 +202,8 @@ Map Layer  & \underline{dusaf} & Cover & Land Use majority class for each cell p
 \pagebreak
 
 \subsubsection{Categorical Variables (table)}
-Categorical data are identified with names or labels given to them as value. Even if are represented by numbers, they don't have the same mathematical meaning as a numerical value. This type of data is discarded during the pre-processing phase, since feature selection is done exclusively on numerical input and output values. 
+Categorical data are identified with names or labels given to them as value. Even if are represented by numbers, they don't have the same mathematical meaning as a numerical value. 
+This type of data is discarded during the pre-processing phase, since feature selection is done exclusively on numerical input and output values. \\
 In the following table is explained the semantics of the values assumed.
 \bigbreak
 \begin{center} 
@@ -234,7 +235,6 @@ In the following table is explained the semantics of the values assumed.
 
 \end{longtable}
 \end{center}
-\pagebreak
 
 In order to examine the behaviour of each variable in a data set over time, several grid data are collected, each one with a different resolution, period and configuration.
 \subsection{Spatial resolution}
@@ -249,8 +249,8 @@ Data are scaled and fit in each spatial resolution grid in order to better analy
 
 \par
 \subsection{Period}  
-Data collected are dated 2021 because they are the most recent and, with respect to 2020, those that are not particularly affected by emission reduction caused by lockdown for the COVID-19 pandemic\cite{bontempi2022analysis}. 
-
+Data collected are dated 2021 because they are the most recent and, with respect to 2020, those that are not particularly affected by emission reduction caused by lockdown for the COVID-19 pandemic \cite{bontempi2022analysis}. 
+\pagebreak
 In this case of study, grid data are chosen by considering the effect of intensive agriculture, with these particular conditions:
     \begin{itemize}
         \item To have the right conditions for farming, in the period chosen the terrain shouldn't be frozen (Temperature > 0°C). So I selected data coming from the spring, summer and autumn periods (discarding winter);
@@ -267,23 +267,19 @@ In this way, several grid data are chosen from 5 different weeks:
 
 \subsection{Target Variables}
 In this study, the chosen target variables represent the pollution phenomena correlated to agriculture intensively, such as PM25 and ammonia emissions. We choose these targets because they are the most relevant sources of pollution produced by them.\newline
-One of the objectives of this step is to detect the main pollutant factors that contribute further to the training of PM25 or NH3 emissions.
-PM25 and ammonia (NH3) provided by ARPA sensors are the ones chosen as target variables('pm25\_st' and 'nh3\_st').
-I choose measurements from ground sensor because they are direct observation, more precise to support in this case of study local air quality monitoring. 
-ARPA air quality monitoring stations, which are operating 24 hours a day 365 days a year, are periodically checked and subject to maintenance, to ensure proper functioning and reliability.
-
+One of the objectives of this step is to detect the main pollutant factors that contribute further to the training of PM25 or NH3 emissions.\\
+PM25 and ammonia (NH3) provided by ARPA sensors are the ones chosen as target variables('pm25\_st' and 'nh3\_st').\\
+I choose measurements from ground sensor because they are direct observation, more precise to support in this case of study local air quality monitoring. \\
+ARPA air quality monitoring stations, which are operating 24 hours a day 365 days a year, are periodically checked and subject to maintenance, to ensure proper functioning and reliability.\par
 Data covariates are divided between input (X) and output variables (Y). X represents all the variables collected in the previous part, except for the pollutant to be analyzed and modelled (such as PM25 or Ammonia) which is assigned to the Y variable.
 \subsection{Mountains}
-Another important parameter configuration used is to filter or not the cell covered by mountains or not (climate zone = 1/2/3 of Alpes and Prealpes). In this way, the test run can take in consideration or not only urban and land areas, which are more affected by air pollution phenomena.
-
-
-
-
+Another important parameter configuration used is to filter or not the cell covered by mountains or not (climate zone = 1/2/3 of Alpes and Prealpes). \\ 
+In this way, the test run can take in consideration or not only urban and land areas, which are more affected by air pollution phenomena.
 \section{Data Cleaning of NaN and low-variance values }
 \label{subsec:nan}
-In my work, I consider as target variable PM25 and Ammonia coming from ground sensor measurement.
+In my work, I consider as target variable PM25 and Ammonia coming from ground sensor measurement.\\
 Air quality monitoring is usually carried out through ground sensors networks, which represent the primary air quality data source by governance. \newline
-In the grids processed there is the problem that a given value provided by measurement tools could be NaN. 
+In the grids processed there is the problem that a given value provided by measurement tools could be NaN. \\
 It's feasible since:
 \begin{itemize}
 \item A sensor could have no measurement for a given time epoch;
@@ -291,10 +287,14 @@ It's feasible since:
 \end{itemize}
 In our case, the variable provided by ARPA and \acrshort{esa} ground sensor (with the label that ends with '\_st' and '\_lcs' respectively) has many NaN cells.
 \par
-However, no country in the world has yet established a monitoring network with a fully satisfying coverage\cite{liu2018improve}. Even the United States (US), which is characterized by a relatively developed PM2.5 ground monitoring network with 2500 stations has many areas unmonitored\cite{liu2018improve}. \par
-Due to the fact that with data cleaning results in a data set with a very limited number of samples \cite{zhang2018strategy}, I previously performed a classifier k nearest neighbor\cite{taunk2019brief} to detect the buffer of cells close to the location of the ground station measurement. To increase the number of observations provided by the limited ARPA stations in Lombardy, a k-nearest neighbors algorithm is applied to add the buffer of values (with k, respectively, equal to 10 for 0.1° and 30 for 0.01° resolution).  
+However, no country in the world has yet established a monitoring network with a fully satisfying coverage \cite{liu2018improve}. Even the United States (US), which is characterized by a relatively developed PM2.5 ground monitoring network with 2500 stations has many areas unmonitored \cite{liu2018improve}. \par
+Due to the fact that with data cleaning results in a data set with a very limited number of samples \cite{zhang2018strategy}, I previously performed a classifier k nearest neighbor  \cite{taunk2019brief} to detect the buffer of cells close to the location of the ground station measurement.\\
+To increase the number of observations provided by the limited ARPA stations in Lombardy, a k-nearest neighbors algorithm is applied to add the buffer of values (with k, respectively, equal to 10 for 0.1° and 30 for 0.01° resolution). \\ 
 I choose a reasonable k value for the performance of the model, in order to have an adequate number of observations to make relevant considerations (figure \ref{fig:knn_chosen}).
+
+\pagebreak
 Here are attached the results of the growth of the sample size, for each target variable and resolution:
+\begin{multicols}{2}
 \begin{verbatim}
 ****************************
 target_variable: 'pm25_st'
@@ -307,6 +307,7 @@ resolution = 0.01° (1 km)
 old size: 34
 new size: 963 
 ****************************
+****************************
 target_variable: 'nh3_st'
 resolution = 0.1° (10 km)
 old size: 8
@@ -318,6 +319,7 @@ old size: 8
 new size: 240 
 ****************************
 \end{verbatim}
+\end{multicols}
 \begin{figure}[H] 
     \centering
     \subfloat[10 km resolution including mountains.]{%
@@ -329,19 +331,18 @@ new size: 240
         \includegraphics[width=0.55\textwidth]{images/0_01_knn.png}%
         %
         }%
-    \caption{In the following plots are highlighted the performance in terms of MAE, RMSE, MSE and R\textsuperscript{2} of the Random Forest model in function of the K chosen by \acrshort{knn} applied in the data cleaning. As it can be seen, the performance of the model depends strictly on the number of observations used. In order to have an adequate number of observations I choose K equal to 10 and 30 respectively for the 10 km and 1 km resolution. Tests are run considering PM2.5 as target variable.}
+    \caption{In the following plots are highlighted the performance in terms of MAE, RMSE, MSE and R\textsuperscript{2} of the Random Forest model in function of the K chosen by \acrshort{knn} applied in the data cleaning.\\
+    As it can be seen, the performance of the model depends strictly on the number of observations used. In order to have an adequate number of observations I choose K equal to 10 and 30 respectively for the 10 km and 1 km resolution. \\
+    These are run considering PM2.5 as target variable.}
     \label{fig:knn_chosen}
 \end{figure}
-
-
-Then, these cells are set with values computed using a \gls{rbf} \cite{wright2003radial} which are separately stored in variables with the name that ends with '\_int'. RBF was performed using a linear interpolation by a colleague.
-In this step outliers were managed through removing the ones that had the absolute value of z score greater than or equal to 4.
-The given procedure and validation results are available on GitHub at this
-\href{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}{page}.
+Then, these cells are set with values computed using a \gls{rbf}  \cite{wright2003radial} which are separately stored in variables with the name that ends with '\_int'. RBF was performed using a linear interpolation by a colleague.\\
+In this step outliers were managed through removing the ones that had the absolute value of z score greater than or equal to 4.\\
+The given procedure and validation results are available on GitHub at this page\footnote{\url{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}}.
 In this way, the size of the final sample, as well as the performance of the feature selection, would increase.
 \par
 Before the feature selection phase, nearZeroVar was applied in order to discard variables with low variance.
-As suggested by this study\cite{kuhn2008building} , I discard variables which has: 
+As suggested by this study \cite{kuhn2008building} , I discard variables which has: 
 \begin{itemize}
     \item the percentage of unique values greater than 20\%;
     \item the ratio of the most prevalent over the second most prevalent value is greater than 20;
@@ -351,10 +352,11 @@ As suggested by this study\cite{kuhn2008building} , I discard variables which ha
 {\includegraphics[scale=0.45]{images/buffer.png}}
  { \caption{Graphical representation of how buffer values interpolated from PM2.5 sensors provided by ARPA are added through k-nearest neighbour.}}
 \end{figure}
+\pagebreak
 \section{Feature Selection}
-In this phase, I got the list of the most significant variables for each different configuration.
-For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.
-This was computed by averaging the feature selected for each different period with Borda Count another time;
+In this phase, I got the list of the most significant variables for each different configuration.\\
+For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.\\
+This was computed by averaging the feature selected for each different period with Borda Count another time.\\
 Since I assume 2 different resolutions and with the possibility to include or not the mountain zones, I obtained 4 different configurations: 
 \begin{table}[H]
     \centering
@@ -367,8 +369,8 @@ Since I assume 2 different resolutions and with the possibility to include or no
  
     \end{tabular}
 \end{table}
-In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
-It can be observed that for each parameter there are different configurations: there are 2 resolutions, 2 climate zones parameters and 5 periods. Therefore, for each different target variable, 2x2x5 = 20 different tests were run for both ammonia and fine particulate (40 in total). 
+In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.\\
+It can be observed that for each parameter there are different configurations: there are 2 resolutions, 2 climate zones parameters and 5 periods. Therefore, for each different target variable, 2x2x5 = 20 different tests were run for both ammonia and fine particulate (40 in total). \\
 The results of different periods are grouped and averaged for simplicity. In total in this work are attached 8 different results. Each result will be in detail pointed out in the final Appendix \ref{chap:appendix}.
 \begin{figure}[H]
     \centering
@@ -376,11 +378,10 @@ The results of different periods are grouped and averaged for simplicity. In tot
     \caption{Parameter taken in consideration for tests execution.}
     \label{fig:test_params}
 \end{figure}
-
-
+\bigbreak
 \section{Data Modelling}
-In this phase, I evaluate models trained by the variable selected by \acrshort{fs} in order to analyze their interpretability and performance.
-In detail, the tests run are built and validated using a cross-validation k-fold (with k = 5) to mitigate undesirable overfitting. 
+In this phase, I evaluate models trained by the variable selected by \acrshort{fs} in order to analyze their interpretability and performance.\\
+In detail, the tests run are built and validated using a cross-validation k-fold (with k = 5) to mitigate undesirable overfitting. \\
 I perform tests in 2 different ways, explained in the next subsections.
 \subsection{Test for each period with CAMS comparison}
 The validation made on the model was performed with 2 different variable values. They have been chosen:
@@ -388,22 +389,24 @@ The validation made on the model was performed with 2 different variable values.
 \item values of the target variable (ARPA measurements);
 \item values assumed by the CAMS model;
 \end{itemize}
-Such a procedure was applied both to evaluate the performance of the current model and to compare it to the CAMS model.
-In this way, a comparison between results from these 2 different validations is performed, aiming to detect how much the models perform better in this local scale.\par
-This is was applied for each data set obtained by the combinations of 4 configurations, 5 periods and 2 target variables (4x5x2 = 40 different model testes)
-\par. 
+Such a procedure was applied both to evaluate the performance of the current model and to compare it to the CAMS model.\\
+In this way, a comparison between results from these 2 different validations is performed, aiming to detect how much the models perform better in this local scale.\\
+This is was applied for each data set obtained by the combinations of 4 configurations, 5 periods and 2 target variables (4x5x2 = 40 different model testes). 
 \subsection{Test for analysing FS impact on performance}
-In order to evaluate how Feature Selection effectively improves the accuracy of the model, a set of tests are run and configured differently from the previous. 
+In order to evaluate how Feature Selection effectively improves the accuracy of the model, a set of tests are run and configured differently from the previous.\\ 
 Data from different periods were merged in order to develop the model through a temporal hold-out validation, where the data are used in this way:
 \begin{itemize}
     \item grid data from March, April and July, September periods were used from training;
     \item grid data from October period was used for validation;
 \end{itemize}
 In this way, model performance should be evaluated by means of external data, which comes from another period.\\
-However, before running this, I have to deal with the collinearity problem, which can cause bias in the accuracy estimation. In order to mitigate this, I perform a feature cluster, grouping collinear variables between them. I consider a variable to be collinear to another if and only if the Pearson correlation index is greater than or equal to 0.8, as a study suggests \cite{shrestha2020detecting}. After that, I transform each cluster of variables using the first \gls{pca} component. In this way, I solve collinearity in the independent variables, without particularly losing the features interpretability.
+However, before running this, I have to deal with the collinearity problem, which can cause bias in the accuracy estimation.\\ In order to mitigate this, I perform a feature cluster, grouping collinear variables between them. I consider a variable to be collinear to another if and only if the Pearson correlation index is greater than or equal to 0.8, as a study suggests \cite{shrestha2020detecting}. \\
+After that, I transform each cluster of variables using the first \gls{pca} component. In this way, I solve collinearity in the independent variables, without particularly losing the features interpretability.\\
 Behind them are attached the groups of collinear variables and the new covariates used in the Feature Selection for PM2.5 as the target variable, with 10km and 1km resolutions and including mountain zones.
-I group and illustrate collinear variables in clusters with the help of a script available at this underline{\href{https://www.kaggle.com/code/nassehkhodaie/fixing-multicollinearity-by-feature-clustering/data?select=collinearity_finder_treater_py.py} link}.
-The group of variables averaged with PCA is shown below.
+I group and illustrate collinear variables in clusters with the help of a script available at this link\footnote{\url{https://www.kaggle.com/code/nassehkhodaie/fixing-multicollinearity-by-feature-clustering/data?select=collinearity_finder_treater_py.py}}.
+The group of variables averaged with PCA is shown in the next page.
+
+\pagebreak
 \subsubsection{Resolution = 10 km}
 \begin{verbatim}
 **********

@@ -1,25 +1,25 @@
-In this chapter, I explain each step taken during the pre-processing phase, by illustrating in detail each step taken and tool used. \newline
+In this chapter, I explain each step taken during the pre-processing phase, by illustrating in detail each step taken and tool used.
 \par
 My work is focused on the first phase of a data analysis procedure which is the pre-processing.
 Data preprocessing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
-Indeed, raw data is in most cases incomplete and noisy.\par
+Indeed, raw data is in most cases incomplete and noisy.\\
 Today, dealing with a large amount of information, the probability of incorrect data is higher without proper data pre-processing.
-Only high-quality data can generate accurate models and predictions. \par
-The view and quality of data are very relevant before running any analysis.
-Therefore, it is crucial to process data with the best possible quality before training them with artificial intelligence and machine learning predictive models.\par
+Only high-quality data can generate accurate models and predictions. \\
+The view and quality of data are very relevant before running any analysis.\\
+Therefore, it is crucial to process data with the best possible quality before training them with artificial intelligence and machine learning predictive models.\\
 \section{Data Collection}
 Data collection is the process of collecting information on variables of interest to answer relevant questions. \newline
-Relevant data are collected from their sources and merged in data structures (such as Dataframes). 
+Relevant data are collected from their sources and merged in data structures (such as Dataframes). \\
 To do that I was helped by python libraries such as Pandas, Geopandas and Numpy.
 \section{Data Cleaning}
 \label{sec:Data cleaning}
 Data has to be prepared in accordance with the supervised feature selection.
-Data cleaning aims to fix problems or errors in messy data. There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
+Data cleaning aims to fix problems or errors in messy data.\\ There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
 This could be done by removing rows or columns. Alternatively, it might involve replacing the observations with new values. \newline
 For doing this, I present this solution in sequence, using methods provided by Pandas library (Pandas.dropna):
 \begin{itemize}
-\item Drop of samples having target variable with NaN value (dropna(axis = 0));
-\item Drop of columns (values assumed by each covariate) having at least a NaN value(dropna(axis = 1));
+\item Drop of samples having target variable with NaN value (using dropna(axis = 0));
+\item Drop of columns (values assumed by each covariate) having at least a NaN value(using dropna(axis = 1));
 \end{itemize}
 \subsection{Remove variables with low variance}
 An approach to remove columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean $\mu$ of a given variable X. 
@@ -28,7 +28,7 @@ An approach to remove columns is to consider the variance of each column variabl
 \end{equation}
 The variance can be used as a filter for identifying columns to be removed from a given data set. 
 Using a feature with low variance only adds complexity to the feature selection and the prediction.\newline
-In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the \gls{care} package in R.
+In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the \gls{care} package in R.\\
 This method finds covariates that have one unique value (i.e. with zero variance) or covariates that have both of the following requirements:
 \begin{itemize}
 \item they have very few unique values relative to the number of samples (represented by the percentage of unique values);
@@ -36,18 +36,18 @@ This method finds covariates that have one unique value (i.e. with zero variance
 \end{itemize}
 After this detection, features with low variance should be meaningless and consequently discarded. 
 \section{Data Transformation}
-Data need to be scaled. As a matter of fact, each feature in our data has varying degrees of magnitude, range, and units. This is an issue for machine learning algorithms because they are highly sensitive to these features. 
+Data need to be scaled. As a matter of fact, each feature in our data has varying degrees of magnitude, range, and units. \\This is an issue for machine learning algorithms because they are highly sensitive to these features.\\ 
 Having input variables with different units (e.g. ug/m\textsuperscript{3}, °C, hours or mol/m\textsuperscript{2}) implies data at different scales. This could raise the difficulty of the problem being modelled. \newline
 Hence, a common scale is needed through normalization or standardization to improve data quality.\newline
 Many ML and regression algorithms perform better when the numerical input and output variables are scaled to a common standard range. \newline
-For instance, it's proved that neural networks trained with scaled data perform better in terms of MSE \cite{shanker1996effect}.
+For instance, it's proved that neural networks trained with scaled data perform better in terms of MSE  \cite{shanker1996effect}.\\
 In this step, two types of transformation have been done:
 \begin{itemize}
     \item Standardization on input data;
     \item Normalization on output data;
 \end{itemize}
 \subsection{Standardization}
-The most common data transformation is to centre and scale each variable value. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean\cite{kuhn2013applied}.
+The most common data transformation is to centre and scale each variable value. In order to do that, the average value is removed from all the values. As a result of centring, the predictor will have a zero mean \cite{kuhn2013applied}.\\
 Standardization consists of rescaling data following a Gaussian distribution of values with a mean equal to 0 and a standard deviation equal to 1:
 \begin{equation}
   Z = \frac{X-\mu}{\sigma}
@@ -72,8 +72,8 @@ Data Normalization is the process of a different method for adjusting data at di
 Output normalization is an essential step for the comparison of different outputs since data ranges vary for each method used.\newline
 This was performed in my notebooks from the scikit-learn library (sklearn.preprocessing) using the MinMaxScaler method.
 \section{Feature Selection}
-Feature Selection is the core part of this study. It's the process of reducing the number of input variables when developing a predictive model by basing it on a target (or output) variable. 
-Data collected, even if have been cleaned and transformed, are anyway characterized by big amount of redundant variables.
+Feature Selection is the core part of this study. It's the process of reducing the number of input variables when developing a predictive model by basing it on a target (or output) variable. \\
+Data collected, even if have been cleaned and transformed, are anyway characterized by big amount of redundant variables.\\
 Discarding irrelevant data is essential before applying the machine learning model in order to:
 \begin{itemize}
 \item Reduce Overfitting: less opportunity to make decisions based on noise;
@@ -82,11 +82,11 @@ Discarding irrelevant data is essential before applying the machine learning mod
 \end{itemize}
 In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as the output. \newline
 Due to the fact that there is no best feature selection technique, many different methods are performed, each of which gives different correlation results.\par
-In the following subsection, each implemented FS method is described in detail, classified into three main categories, as we can find in the literature\cite{stanczyk2015feature}.
+In the following subsection, each implemented FS method is described in detail, classified into three main categories, as we can find in the literature \cite{stanczyk2015feature}.
 \subsection{Filter Methods}
 Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.\newline
-These select features from the without machine learning algorithm. In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables\cite{saeys2007review}. \newline
-These methods evaluate each feature individually without considering the interaction between them. Therefore, they do not fit well if the data has high multicollinearity\cite{daoud2017multicollinearity}.
+These select features from the without machine learning algorithm. In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables \cite{saeys2007review}. \newline
+These methods evaluate each feature individually without considering the interaction between them. Therefore, they do not fit well if the data has high multicollinearity \cite{daoud2017multicollinearity}.
 
 \subsubsection{Pearson coefficient}
 The Pearson coefficient is one of the most widely used indices for measuring linear correlation in statistics. It ranges between -1 and 1, where:
@@ -155,46 +155,42 @@ Where:
 \item F is the Fisher's scores obtained between the independent (X) e dependent variable (Y);
     \item $\sigma_x^2 and\sigma_y^2$ are the variances of X and Y;
 \end{itemize}
-\pagebreak
+\bigbreak
 \subsection{Wrapper Methods}
 Wrapper methods, as the name suggests, wrap a machine learning model, with different subsets of input features. In this way, the subsets are evaluated following the best model performance.
 One disadvantage of this approach is the computational costs.\newline
 Their execution for many subsets of variables can become unfeasible. 
-\bigbreak
 \subsubsection{Random Forest Importance}
-Feature importance is a built-in function of the Random Forest algorithm. It's also called Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problems. 
-It's computed with the mean of impurity decrease applied iver all trees.  
-Feature selection made with the impurity reduction of splits is increasingly used for its simplicity and velocity to be computed.
+Feature importance is a built-in function of the Random Forest algorithm. It's also called Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problems. \\
+It's computed with the mean of impurity decrease applied iver all trees. \\ 
+Feature selection made with the impurity reduction of splits is increasingly used for its simplicity and velocity to be computed.\\
 The scores are evaluated as attributes (feature\_importances\_) of RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
-\bigbreak\bigbreak\bigbreak
+\bigbreak
 \subsection{Embedded Methods}
-Embedded methods are instead characterized by the benefits of both the wrapper and filter methods, by including interactions of features, but also have a reasonable computational cost.\par
-\bigskip
+Embedded methods are instead characterized by the benefits of both the wrapper and filter methods, by including interactions of features, but also have a reasonable computational cost.
 \subsubsection{Recursive Feature Elimination}
 \gls{rfe} is a wrapper feature selection algorithm that also works with filter-based feature selection internally.\newline
 It consists in looking for the best subset of features by starting with all features and removing some of them until the desired number remains.\newline
-This is computed using \acrshort{rfe} of scikit-learn library (sklearn.feature\_selection).
-To obtain a score for each variable, I consider whether it is selected or not a value (with support\_ attribute).
-If the attribute is selected will be equal to 1, otherwise to 0.
+This is computed using \acrshort{rfe} of scikit-learn library (sklearn.feature\_selection).\\
+To obtain a score for each variable, I consider whether it is selected or not a value (with support\_ attribute).\\
+If the attribute is selected will be equal to 1, otherwise to 0.\\
 The number of selected variables, as the default option of the method, is half the total number of covariates.
 \pagebreak
 \subsection{Borda Count: averaging FS results}
 One of the most important challenges in this study is the lack of a universal feature selection method that produces results that are common with all the FS techniques. Choosing a feature selection method from a vast range of choices can be challenging. \newline
-So it needs an ensemble technique that aims to make it more robust across various algorithms. In this work, we adopt the ensemble approach described in this study\cite{sarkar2014robust}, using the Borda Count algorithm. Initially, Borda Count was a voting system method named for Jean-Charles de Borda\cite{borda1784memoire}.\newline
-Borda Count is used as a rank-based combination technique used to evaluate an average score for each feature. In this method, assuming that each score evaluated by each FS method are sorted in descending order, points are assigned to candidates (variables) based on their ranking; 1 point for the last choice (the most meaningless by its score), 2 points for second-to-last, and so on. Finally, the points for all the ballots are summed up and the candidates with the highest total of points are the winners (the features with the largest points are the most significant).
-\par
-
-
+So it needs an ensemble technique that aims to make it more robust across various algorithms. In this work, we adopt the ensemble approach described in this study \cite{sarkar2014robust}, using the Borda Count algorithm. Initially, Borda Count was a voting system method named for Jean-Charles de Borda \cite{borda1784memoire}.\newline
+Borda Count is used as a rank-based combination technique used to evaluate an average score for each feature. \\In this method, assuming that each score evaluated by each FS method are sorted in descending order, points are assigned to candidates (variables) based on their ranking; 1 point for the last choice (the most meaningless by its score), 2 points for second-to-last, and so on. \\Finally, the points for all the ballots are summed up and the candidates with the highest total of points are the winners (the features with the largest points are the most significant).
+\bigskip
 \section{Model prediction}
-Prediction is a type of analysis that uses techniques and tools to build predictive models and predict outcomes. 
+Prediction is a type of analysis that uses techniques and tools to build predictive models and predict outcomes. \\
 In my work, predictive analysis is performed to make prediction on the target with data processed in the first phase as input.\newline
-Model predictions are implemented through regression analysis, used to estimate the relationships between a dependent variable and one or more independent variables.\par
+Model predictions are implemented through regression analysis, used to estimate the relationships between a dependent variable and one or more independent variables.\\
 In particular, I used supervised techniques based on Machine Learning where the model built is fit with the training data set and its performance evaluated through the test set. 
-\par
+\\
 At this point variables with the highest number of votes can be used as input in ML models and taken into consideration as the most meaningful factor affecting the target variable.
 \par
 After the modelling step, an evaluation of the performance predictions is performed in terms of error and accuracy using k-fold cross-validation.\newline
-K-Fold cross-validation s in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random samples.
+K-Fold cross-validation s in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random samples.\\
 Metrics chosen for evaluation are:
 \begin{itemize}
     \item \acrshort{mae} (Mean Absolute Error): it's the mean absolute distance for the observations;
@@ -214,6 +210,7 @@ Where:
     \item $\hat{y}$\textsubscript{i} is the i-th samples predicted;
     \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
 \end{itemize}
+\pagebreak
 \subsubsection{Mean Squared Error}
 \begin{equation}
 MSE = \frac{1}{N}\sum_{i=1}^{N}(y_i-\hat{y}_i)^2
@@ -240,20 +237,20 @@ Where:
     \item $y$\textsubscript{i} is the i-th sample of the test set used for validation;
     \item $\bar{y}$ it's mean value of the test set;
 \end{itemize}
-
-In my work, I wasn't focused in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact the ' performance. 
-For doing that I implemented 2 different ML supervised models.
-By literature, we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).
+\bigbreak\bigbreak
+In my work, I wasn't focused in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact the models' performance. \\
+For doing that I implemented 2 different ML supervised models.\\
+By literature, we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).\par
 Since highly accurate algorithms are often less interpretable, in order to detect the impact of feature selection on accuracy Neural Network and Random Forest algorithms are chosen. 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.4]{images/interpretability_accuracy_tradeoff.jpg}
-    \caption{The plot represented in this figure wants to highlight how different ML models are related to the trade-off between accuracy and intepretability \cite{morocho2019machine}.The more a model is accurate such as Neural Network and Random Forest, the more it's less interpretable due to its "black-box" nature.}
+    \caption{The plot represented in this figure wants to highlight how different ML models are related to the trade-off between accuracy and intepretability  \cite{morocho2019machine}.The more a model is accurate such as Neural Network and Random Forest, the more it's less interpretable due to its "black-box" nature.}
     \label{fig:trade-off}
 \end{figure}
 \subsection{Neural Network with Keras}
 It's one of the deep learning algorithms which is based on the structure of the neural networks, where nodes represent neurons.
-Nodes are connected to each other through the layers. 
+Nodes are connected to each other through the layers. \\
 In this way, every neuron of a layer is connected to neurons in the next layer.
 The structure of my Neural Network is formed by 3 layers:
 \begin{itemize}
@@ -261,17 +258,15 @@ The structure of my Neural Network is formed by 3 layers:
     \item Output layer: It contains the result of the problem. 
     \item Hidden layer: It's actually responsible for the performance and complexity of neural networks. It's placed between the output and input layers;
 \end{itemize}
-During the training phase, in which the network "learns", independent variables are used as input and processed through weighted associations in which at each step produce results that are compared to the target output. The error computed between them is successively adjusted and updated following the learning rules. The achievement obtained is a result increasingly similar to the values assumed by the target variable. 
+During the training phase, in which the network "learns", independent variables are used as input and processed through weighted associations in which at each step produce results that are compared to the target output.\\ The error computed between them is successively adjusted and updated following the learning rules. The achievement obtained is a result increasingly similar to the values assumed by the target variable.\\ 
 For implementing it, I use Keras API from TensorFlow library.
 
 
 \subsection{Machine Learning with Random Forest}
-Random forests are used in regression problems, using a decision tree structure to make predictions. Decision trees answer sequential questions through the routes tracked by trees.
-The algorithm consists in building a certain number of random decision trees from the bootstrap sample of the original data set (this phase is called bootstrap sampling). Then, the prediction of a certain sample is performed by following each decision tree. In a regression problem, the final decision will be an averaged value from the ones obtained by each tree (phase of aggregation).
+Random forests are used in regression problems, using a decision tree structure to make predictions. Decision trees answer sequential questions through the routes tracked by trees.\\
+The algorithm consists in building a certain number of random decision trees from the bootstrap sample of the original data set (this phase is called bootstrap sampling). Then, the prediction of a certain sample is performed by following each decision tree. \\In a regression problem, the final decision will be an averaged value from the ones obtained by each tree (phase of aggregation).\\
 To implement it, I use RandomForestRegressor class from sklearn library. 
 
-\bigbreak
-In the next chapters, each step will be described in detail about the procedures adapted for the study case and the results obtained.
 
 \begin{figure}[H]
     \centering
@@ -284,12 +279,11 @@ In the next chapters, each step will be described in detail about the procedures
 
 
 \section{Notebook implemented}
-For processing and analyzing data, I implemented tools collected in Python Notebooks, each one available in the D-DUST repository:
-(\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}).\newline
+For processing and analyzing data, I implemented tools collected in Python Notebooks, each one available in the D-DUST repository\footnote{\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}}.\newline
 Its essential steps are shown in figure \ref{fig:overview}.
 
 \subsection{Computation and view of feature selection results}
-In order to manage its configuration and the results obtained, a simple user interface is built using the ipywidgets package.
+In order to manage its configuration and the results obtained, a notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/fs_results.ipynb}} with a simple user interface is built using the ipywidgets package.
 In this interface there are 2 sections:
 \begin{itemize}
 \item Feature Selection scores: they are graphically shown using multiple barplots, one for each data set previously selected. Barplot are implemented with the use of Plotly library; 
@@ -306,7 +300,7 @@ and the output:
 \item scale of Y-axis (regular or logarithmic);
 \end{itemize}
 \end{itemize}
-A pseudo-code of how the notebook works are attached.
+A pseudo-code of how the notebook works is attached in the next page.\pagebreak
 \begin{verbatim}
 for each configuration in configurations
     for each period in periods
@@ -326,14 +320,15 @@ for each configuration in configurations
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.40]{images/notebook.png}
-    \caption{Overview of the notebook implemented for FS procedure.}
+    \caption{Overview of the notebook implemented for FS procedure.In the notebook, there are also cells which aim to export FS results.}
     \label{fig:notebook}
 \end{figure}
+\pagebreak
 
-In the notebook, there are also cells which aim to export FS results.
 
 \subsection{Computation and view of ML models results}
-For build, I use two different notebooks for the evaluation of the Neural Network (\href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/Keras_prediction_model.ipynb}{link}) and the Random Forest model (\href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/RandomForest_prediction_model.ipynb}{link}). 
+For build, I use two different notebooks for the evaluation of the Neural Network (link\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/Keras_prediction_model.ipynb}}) and the Random Forest model
+the Neural Network (link\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/RandomForest_prediction_model.ipynb}}). 
 It is possible to set these parameters before running the model:
 \begin{itemize}
     \item NUMBER\_OF\_COVARIATES: It's the number of the n features with the highest Borda Count score taken as input for the model;
@@ -362,7 +357,8 @@ for each configuration in configurations
 \end{verbatim}
 
 Each of them imports the feature selected from the previous notebook and exports the accuracy evaluation of the k-fold cross-validation externally. \par
-The results are subsequently opened and shown with \href{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}{this other notebook} through the use of widgets (figure \ref{fig:view}.
+The results are subsequently opened and shown with
+this other notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}} through the use of widgets (figure \ref{fig:view}).
 \begin{figure}[H] 
     \centering
     \subfloat[Drop-down widgets.]{%
@@ -374,11 +370,13 @@ The results are subsequently opened and shown with \href{https://github.com/open
         \includegraphics[width=0.5\textwidth]{images/table.png}%
         %
         }%
-    \caption{In these images is illustrated how the notebook view for viewing the validation results works. It is sufficient to select the target variable, resolution and configuration desired and with an interactive option provided by ipywidgets library the results are provided through a table.}
+    \caption{In these images is illustrated how the notebook view for viewing the validation results works. \\
+    It is sufficient to select the target variable, resolution and configuration desired and with an interactive option provided by ipywidgets library the results are provided through a table.}
     \label{fig:view}
 \end{figure}
 
-An overview of the order in which the different notebooks are used in my work thesis is illustrated in Figure \ref{fig:notebooks}.
+An overview of the order in which the different notebooks are used in my work thesis is illustrated in Figure \ref{fig:notebooks}.\par
+In the next chapters, each step will be described in detail about the procedures adapted for the study case and the results obtained.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.40]{images/overview _notebooks.png}
