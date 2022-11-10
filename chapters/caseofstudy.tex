@@ -256,7 +256,7 @@ In this case of study, grid data are chosen by considering the effect of intensi
         \item To have the right conditions for farming, in the period chosen the terrain shouldn't be frozen (Temperature > 0°C). So I selected data coming from the spring, summer and autumn periods (discarding winter);
         \item For better highlighting the effect of intense agriculture with the usage of fertilizer and pesticides, which are the main pollution emission factors, weeks with no precipitations are selected;
 \end{itemize}
-In this way, several grid data are chosen from 5 different weeks:
+In this way, several grid data are chosen from 5 different weeks over the year:
 \begin{itemize}
     \item 24 March - 31 March 2021;
     \item 18 April - 25 April 2021;
@@ -356,7 +356,7 @@ As suggested by this study \cite{kuhn2008building} , I discard variables which h
 \section{Feature Selection}
 In this phase, I got the list of the most significant variables for each different configuration.\\
 For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.\\
-This was computed by averaging the feature selected for each different period with Borda Count another time.\\
+This was computed by averaging the feature selected for each different period with Borda Count another time (figure \ref{fig:overview_configuration)}).\\
 Since I assume 2 different resolutions and with the possibility to include or not the mountain zones, I obtained 4 different configurations: 
 \begin{table}[H]
     \centering
@@ -369,7 +369,15 @@ Since I assume 2 different resolutions and with the possibility to include or no
  
     \end{tabular}
 \end{table}
-In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/overview_results_configuration.png}
+    \caption{Parameter taken in consideration for tests execution.}
+    \label{fig:test_params}
+\end{figure}
+
+
+In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
 It can be observed that for each parameter there are different configurations: there are 2 resolutions, 2 climate zones parameters and 5 periods. Therefore, for each different target variable, 2x2x5 = 20 different tests were run for both ammonia and fine particulate (40 in total). \\
 The results of different periods are grouped and averaged for simplicity. In total in this work are attached 8 different results. Each result will be in detail pointed out in the final Appendix \ref{chap:appendix}.
 \begin{figure}[H]
