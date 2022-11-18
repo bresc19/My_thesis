@@ -1,12 +1,12 @@
 In this chapter, I explain each step taken during the pre-processing phase, by illustrating in detail each step taken and tool used.
-\par
 My work is focused on the first phase of a data analysis procedure which is the pre-processing.
 Data preprocessing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
 Indeed, raw data is in most cases incomplete and noisy.\\
 Today, dealing with a large amount of information, the probability of incorrect data is higher without proper data pre-processing.
 Only high-quality data can generate accurate models and predictions. \\
 The view and quality of data are very relevant before running any analysis.\\
-Therefore, it is crucial to process data with the best possible quality before training them with artificial intelligence and machine learning predictive models.\\
+Therefore, it is crucial to process data with the best possible quality before training them with artificial intelligence and machine learning predictive models.\par
+
 \section{Data Collection}
 Data collection is the process of collecting information on variables of interest to answer relevant questions. \newline
 Relevant data are collected from their sources and merged in data structures (such as Dataframes). \\
@@ -82,10 +82,14 @@ Discarding irrelevant data is essential before applying the machine learning mod
 \end{itemize}
 In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as the output. \newline
 Due to the fact that there is no best feature selection technique, many different methods are performed, each of which gives different correlation results.\par
-In the following subsection, each implemented FS method is described in detail, classified into three main categories, as we can find in the literature \cite{stanczyk2015feature}.
+Inside the D-DUST project, this step helps to select of the most important features for the next step of modeling using Machine Learning and geostatistical models. \\
+Feature selection allows to determine which variables are most correlated with the selected target variable, such as PM2.5 and ammonia in the context of this project. 
+The removal of unrelated and uninfluential variables brings benefits to subsequent modeling.
+\par
+In the following subsections, each implemented FS method is described in detail, classified into three main categories, as we can find in the literature \cite{stanczyk2015feature}.
 \subsection{Filter Methods}
 Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.\newline
-These select features from the without machine learning algorithm. In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables \cite{saeys2007review}. \newline
+These select features without the use of a machine learning algorithm. In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables \cite{saeys2007review}. \newline
 These methods evaluate each feature individually without considering the interaction between them. Therefore, they do not fit well if the data has high multicollinearity \cite{daoud2017multicollinearity}.
 
 \subsubsection{Pearson coefficient}
@@ -153,7 +157,7 @@ F = \frac{\sigma_x^2}{\sigma_y^2}
 Where:
 \begin{itemize}
 \item F is the Fisher's scores obtained between the independent (X) e dependent variable (Y);
-    \item $\sigma_x^2 and\sigma_y^2$ are the variances of X and Y;
+    \item $\sigma_x^2$ and $\sigma_y^2$ are the variances of X and Y;
 \end{itemize}
 \bigbreak
 \subsection{Wrapper Methods}
@@ -162,7 +166,7 @@ One disadvantage of this approach is the computational costs.\newline
 Their execution for many subsets of variables can become unfeasible. 
 \subsubsection{Random Forest Importance}
 Feature importance is a built-in function of the Random Forest algorithm. It's also called Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problems. \\
-It's computed with the mean of impurity decrease applied iver all trees. \\ 
+It's computed with the mean of impurity decrease applied over all trees. \\ 
 Feature selection made with the impurity reduction of splits is increasingly used for its simplicity and velocity to be computed.\\
 The scores are evaluated as attributes (feature\_importances\_) of RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
 \bigbreak
@@ -190,7 +194,7 @@ In particular, I used supervised techniques based on Machine Learning where the 
 At this point variables with the highest number of votes can be used as input in ML models and taken into consideration as the most meaningful factor affecting the target variable.
 \par
 After the modelling step, an evaluation of the performance predictions is performed in terms of error and accuracy using k-fold cross-validation.\newline
-K-Fold cross-validation s in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random samples.\\
+K-Fold cross-validation consists in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random samples.\\
 Metrics chosen for evaluation are:
 \begin{itemize}
     \item \acrshort{mae} (Mean Absolute Error): it's the mean absolute distance for the observations;

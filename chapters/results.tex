@@ -93,7 +93,7 @@ Models assure consistent accuracy.
 The errors obtained in the results by the validation through particle matter decrease as a function of the higher resolution.\\
 Higher resolution implies a larger number of samples for training and so a better accuracy as consequence.\\
 Instead, in the models for ammonia estimation, there are no relevant differences between the 2 resolutions.
-With PM2.5 as the target variable at 10 km resolution, there is a lower statistical accuracy than at 1km, with MAE respectively around 1 and 0.5 ug/m\textsuperscript{3}(Table \ref{tab:res1km}). 
+With PM2.5 as the target variable at 10 km resolution, there is a lower statistical accuracy than at 1km, with MAE respectively around 1 and 0.2 ug/m\textsuperscript{3}(Tables \ref{tab:res1km}  and \ref{tab:res1km}). 
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
 \toprule
@@ -106,6 +106,7 @@ RMSE\_sensor &        1.940 &        1.362 &        0.868 &       1.165 &       
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for PM2.5 at 10 km, excluding zones with mountains.}
+\label{tab:res10km}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -150,7 +151,7 @@ RMSE\_sensor &        2.570 &        3.341 &        4.205 &       3.841 &       
 \caption{Neural Network prediction for NH3 at 1 km, excluding zones with mountains.}
 \label{tab:nh3NN}
 \end{table}
-In the model for the estimation of ammonia, instead, this error is clearly higher(Table \ref{tab:nh3RF}).
+In the model for the estimation of ammonia, instead, this error is clearly higher (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}).
 Nevertheless, the results are substantially accurate as well. \\
 This difference should be given by a different number of ground sensors for each pollutant. The sample for the measurement of particulate matter is larger than the one for ammonia (Figure \ref{fig:comparison-sensors}).
 \begin{figure}[H] 
@@ -205,8 +206,8 @@ Another difference between the two models is the R\textsuperscript{2} value whic
 \end{table}
 These results are in contrast with the FS results, where the correlation between the ARPA values (target variable) and the CAMS models is one of the strongest.
 From this results, we hypothesize that both pm25\_st / nh3\_st and pm25\_cams / nh3\_cams variables describe the same pollution phenomenon having the same behaviour, but between them, there would be a bias.\\
-Obviously, the model of Copernicus Atmosphere Monitoring Service provides different results than the one obtained by me, since is built very differently. CAMS is built through an ensemble median, averaged by eleven European air quality forecasting systems. Therefore, the median model should perform better than the individual model products \cite{riccio2007seeking}; 
-Anyway, through information collected on the Copernicus website, only a limited number of ground observations are detected in the Italian territory. As can be seen in figure \ref{fig:cams} in Italy there is only 1 observation in Sardinia for PM2.5 detection.\\
+Obviously, the model of Copernicus Atmosphere Monitoring Service provides different results than the one obtained by me, since is built very differently. CAMS is built through an ensemble median, averaged by eleven European air quality forecasting systems. Therefore, the median model should perform better than the individual model products \cite{riccio2007seeking}.
+Anyway, through information collected on the Copernicus website, only a limited number of ground observations are detected in the Italian territory. As can be seen in figure \ref{fig:cams} in Italy there is only 2 observations in Lombardy for PM2.5 detection.\\
 Nothing was found for Ammonia.
 \begin{figure}[H]
     \centering
