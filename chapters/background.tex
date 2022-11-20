@@ -29,24 +29,26 @@ In this context, in which the black-box nature of \acrshort{ml} algorithms raise
 Before the advent of XAI, the scientific community was focused on the predictive power of algorithms rather than the understanding behind these predictions.\\
 This need for reliable high performing models led to XAI, a field focused on the interpretation of how AI systems take decisions.
 This issue of interpretability and clarity is becoming increasingly significant nowadays. \\
-This is consistent with what could be found by searching in Google Trends, where the trend of 'Explainable Artificial Intelligence' grew up in the last 3 years, while the curve of 'AI' seems to have reached a saturation state (Figure \ref{fig:AI_XAI}).\\
-
-In this work, the focus is on model interpretability instead of explainability, even if in literature there are references that describe them in the same way.
+This is consistent with what could be seen in the figures \ref{fig:AI_XAI}.
+The following figures show that publications with the words \gls{dl} and Explainable AI increased between 2010 and 2020. 
+In addition, the trend of Explainable AI grew up in the last 3 years, while the curve of DL seems to have reached a saturation state.\\
+In this work, the focus is on model interpretability instead of explainability, even if in literature there are references that describe them in the same way.\\
 Interpretable Artificial Intelligence (or Interpretable Machine Learning) helps to understand how \acrshort{ml} algorithms make prediction, with the use of feature selection methods to clarify the model decision.\par
 Feature selection can provide relevant explanations by quantifying the influence of each independent variable with a score.\\
 To do that, before developing a predictive model, feature selection is a necessary step to reduce the number of input variables. \newline
 Nowadays, with the large volume and variety in Big Data, FS is increasingly becoming an essential preprocessing step in machine learning algorithms \cite{kamolov2021feature}.\\
 It is desirable to both reduce the computational cost of modelling and, in some cases, to improve the performance of the model.\newline
 \begin{figure}[H]
-    \includegraphics[scale=0.50]{images/AI_XAI.png}
-    \caption{This plot is provided by Google Trends in which are shown the scores obtained by 'Artificial Intelligence' and 'Explainable Artificial Intelligence' trends in the period between 2011 and 2022. In this work, the focus is on model interpretability instead of explainability, even if in literature there are references that reported them in the same way.}
+\centering
+    \includegraphics[scale=0.30]{images/DL-XAI.jpg}
+    \caption{Plot of the interest progression of DL and XAI provided by Google Trend in the period between 2010 and 2020 \cite{angelov2021explainable}.}
     \label{fig:AI_XAI}
 \end{figure}
 \bigbreak
 This step aims to provide a weighted score of each environmental variable concerning the pollutants emitted by intense agriculture through regression predictive modelling. Then, scores will be interpreted with findings in literature to confirm them.
-Due to the fact that there is no best feature selection techniques, I performed and combined different supervised methods. 
-\\
+Due to the fact that there is no best feature selection techniques, I performed and combined different supervised methods. \\
 Then, the most weighted input variables that affect the pollutants related to intense agriculture and farming will be usefeull inside the D-DUST project to monitor and predict with data science techniques, such as the combination of Machine Learning and geostatistical models.
 \par
 According to the above, my work comes on this scenario.
 In the next chapter, the FS procedure will be described in detail.
+\\

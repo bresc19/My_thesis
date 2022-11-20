@@ -1,25 +1,25 @@
-In this chapter, I explain each step taken during the pre-processing phase, by illustrating in detail each step taken and tool used.
+In this chapter, I illustrate the overview of the pre-processing phase, by explaining in detail each step taken and tool used.
 My work is focused on the first phase of a data analysis procedure which is the pre-processing.
 Data preprocessing (or data preparation) is the process of transforming raw data into a suitable format for modelling. 
 Indeed, raw data is in most cases incomplete and noisy.\\
 Today, dealing with a large amount of information, the probability of incorrect data is higher without proper data pre-processing.
 Only high-quality data can generate accurate models and predictions. \\
 The view and quality of data are very relevant before running any analysis.\\
-Therefore, it is crucial to process data with the best possible quality before training them with artificial intelligence and machine learning predictive models.\par
+Therefore, it is crucial to process data with the best possible quality before using them as training samples with artificial intelligence and machine learning predictive models.\par
 
 \section{Data Collection}
 Data collection is the process of collecting information on variables of interest to answer relevant questions. \newline
 Relevant data are collected from their sources and merged in data structures (such as Dataframes). \\
-To do that I was helped by python libraries such as Pandas, Geopandas and Numpy.
+To do that I was helped by python libraries such as Pandas \cite{pandas}, Geopandas \cite{geopandas} and NumPy \cite{numpy}.
 \section{Data Cleaning}
 \label{sec:Data cleaning}
 Data has to be prepared in accordance with the supervised feature selection.
 Data cleaning aims to fix problems or errors in messy data.\\ There are many reasons data may have incorrect values, such as being corrupted, duplicated or invalid. \newline
-This could be done by removing rows or columns. Alternatively, it might involve replacing the observations with new values. \newline
+Data cleaning can be done by removing rows or columns. Alternatively, it might involve replacing the observations with new values. \newline
 For doing this, I present this solution in sequence, using methods provided by Pandas library (Pandas.dropna):
 \begin{itemize}
-\item Drop of samples having target variable with NaN value (using dropna(axis = 0));
-\item Drop of columns (values assumed by each covariate) having at least a NaN value(using dropna(axis = 1));
+\item Drop of samples having target variable with NaN value;
+\item Drop of columns (values assumed by each covariate) having at least a NaN value;
 \end{itemize}
 \subsection{Remove variables with low variance}
 An approach to remove columns is to consider the variance of each column variable. The variance is a statistic representing the expected value of the squared deviation from the mean $\mu$ of a given variable X. 
@@ -40,7 +40,7 @@ Data need to be scaled. As a matter of fact, each feature in our data has varyin
 Having input variables with different units (e.g. ug/m\textsuperscript{3}, °C, hours or mol/m\textsuperscript{2}) implies data at different scales. This could raise the difficulty of the problem being modelled. \newline
 Hence, a common scale is needed through normalization or standardization to improve data quality.\newline
 Many ML and regression algorithms perform better when the numerical input and output variables are scaled to a common standard range. \newline
-For instance, it's proved that neural networks trained with scaled data perform better in terms of MSE  \cite{shanker1996effect}.\\
+For instance, it's proved that neural networks trained with scaled data perform better in terms of \gls{mse}  \cite{shanker1996effect}.\\
 In this step, two types of transformation have been done:
 \begin{itemize}
     \item Standardization on input data;
@@ -56,7 +56,7 @@ Standardization consists of rescaling data following a Gaussian distribution of 
 \mu = \frac{(\sum_{n=1}^{N} X_i)}{N}
 \end{equation}
 \begin{equation}
-\sigma = \sqrt{\frac{(\sum_{n=1}^{N} X_i-\mu)}{N-1}}
+\sigma = \sqrt{\frac{\sum_{n=1}^{N} (X_i-\mu)^{2}}{N-1}}
 \end{equation}
 Where:
 \begin{itemize}
@@ -68,7 +68,7 @@ Where:
 Every term was computed using the Scipy library (scipy.stats). 
 \bigbreak
 \subsection{Normalization}
-Data Normalization is the process of a different method for adjusting data at different scales. Data a scaled in a range between 0 and 1 and was performed only for the feature selection methods output.
+Data Normalization is the process of a different method for adjusting data at different scales. Data are scaled in a range between 0 and 1 and was performed only for the feature selection methods output.
 Output normalization is an essential step for the comparison of different outputs since data ranges vary for each method used.\newline
 This was performed in my notebooks from the scikit-learn library (sklearn.preprocessing) using the MinMaxScaler method.
 \section{Feature Selection}
@@ -89,9 +89,10 @@ The removal of unrelated and uninfluential variables brings benefits to subseque
 In the following subsections, each implemented FS method is described in detail, classified into three main categories, as we can find in the literature \cite{stanczyk2015feature}.
 \subsection{Filter Methods}
 Filter-based feature selection methods adopt statistical measures to evaluate the correlation/dependence between input variables.\newline
-These select features without the use of a machine learning algorithm. In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables \cite{saeys2007review}. \newline
-These methods evaluate each feature individually without considering the interaction between them. Therefore, they do not fit well if the data has high multicollinearity \cite{daoud2017multicollinearity}.
-
+In terms of computation, they are very fast and very suitable to remove duplicated, correlated, redundant variables \cite{saeys2007review}. \newline
+These methods evaluate each feature individually without considering the interaction between them. Therefore, they do not fit well if the data has high multicollinearity \cite{daoud2017multicollinearity}.\\
+Multicollinearity is a phenomenon that occurs if a group of independent variables are statistically correlated between them. 
+This correlation issue could represent a problem during regression since they should be independent. 
 \subsubsection{Pearson coefficient}
 The Pearson coefficient is one of the most widely used indices for measuring linear correlation in statistics. It ranges between -1 and 1, where:
 \begin{itemize}
@@ -132,9 +133,26 @@ Given a sample X and Y with n as sample size, the tau index is computed by the f
 \end{equation}
 where:
 \begin{itemize}
-\item n\textsubscript{c} = \# of concordant value (concordant value: value are ordered in the same way);
-\item n\textsubscript{d} = \# of discordant value (discordant value: value are ordered differently);
+\item n\textsubscript{c} = \# of concordant pairs (concordant pairs: the pairs are ordered in the same way);
+\item n\textsubscript{d} = \# of discordant pairs (discordant pairs: the pairs are ordered differently);
 \end{itemize}
+In order to better explain how n\textsubscript{c} and n\textsubscript{d} are computed I show the following example. \par
+Suppose that 2 professors provide (variables labelled as X and Y) a mark to each student (sample). 
+Then, for each student i(x\textsubscript{i}, y\textsubscript{i}) I:
+\begin{itemize}
+    \item sum 1 to n\textsubscript{c} if its pairs of votes (x, y) are concordant to an other student j ((x\textsubscript{i} > x\textsubscript{i} and y\textsubscript{i} > yj) or (x\textsubscript{i} < x\textsubscript{i} and y\textsubscript{i} < y\textsubscript{i}));
+    \item sum 1 to n\textsubscript{d} if its pairs of votes (x, y) are discordant to an other j-student (x\textsubscript{i} > x\textsubscript{i} and y\textsubscript{i} < y\textsubscript{i}) or (x\textsubscript{i} < x\textsubscript{i} and y\textsubscript{i} > y\textsubscript{i});
+    \item neither if x\textsubscript{i} = x\textsubscript{j} or y\textsubscript{i} = y\textsubscript{j};
+\end{itemize} 
+In the figure, in the third and fourth columns are counted each concordant or discordant pair compared to the students below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.21]{images/k}
+    \caption{The following table highlights how n\textsubscript{c} and n\textsubscript{d} are obtained to compute the Kendall Tau coefficient.}
+    \label{fig:kendall}
+\end{figure}
+
 \subsubsection{Spearman Rho}
 Spearman’s index is very similar to Kendall’s. As the previous filter methods, it ranges between -1 and 1, and it's considered less robust than Kendall's.
 It is computed as follows:
