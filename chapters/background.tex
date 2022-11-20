@@ -3,16 +3,25 @@ Besides, I'll explain about the target to reach and the solution applied.\par
 In our times lots of businesses use Big Data for analysing and providing actionable knowledge.\\
 Big Data is defined as large data sets collected from different sources such as applications, social networks and websites.\\
 For this, we are seeing nowadays a rapid growth of them, which causes a rise of redundancy and corrupted data.\\
-The next consequence will be an accuracy reduction if models are built from them.\\
-Data must be pre-processed before training, to reduce overfitting and improve the accuracy of the final model.\par
-Another aspect to take into consideration is that a \acrshort{ml} model trained with so many features it would be a black box, in which a lack of interpretability could not be able to explain the decisions taken by the \gls{aii}.\\
+The next consequence would be an accuracy reduction if models are built from them.\\
+Data should be pre-processed with Feature Selection before training, to reduce overfitting and improve the accuracy.\par
+Several application domains have been reported in the literature in which FS helps to solve these issues, in particular for classification tasks.
+The following article \cite{forman2003extensive} has reported how FS in text mining problems contribute to discarding words with only a limited occurrence and the ones that are too recurrent (such as prepositions or articles) using filter methods.\\
+Another domain is image processing. For example, this study shows us how wrapper methods are used to select the best subset of extracted features to improve accuracy in breast density classification \cite{muvstra2012breast}.\\
+Also in bioinformatics field is used, since could help to identify the most discriminant genes in the classification of distinguishing between healthy and tumour tissues \cite{dessi2013comparative}.\\
+Feature Selection is also used before a prediction process because it helps to increase performance to get rid of irrelevant or redundant variables \cite{bagherzadeh2016tutorial}.\\  
+For instance, FS was also employed in the environmental field to predict and monitor air pollution \cite{ul2022improving}, which is also one of the goals of D-DUST. \\
+The contribution of FS will be afterwards considered during the development of ML models by D-DUST.\\
+Feature Selection does not help only to make better model performance, but also to have a better comprehension of the data that are used by ML models during training.\\ 
+Indeed, an aspect taken into consideration in this work is that a \acrshort{ml} model trained with so many features would be a black box, in which a lack of interpretability could not be able to explain the decisions taken by the \gls{aii} algorithms.\\
 So it's needed to care about interpretability to discard eventually confounding variables which can suggest there is a correlation when in fact there is not, even if the model's accuracy is extremely high.\\
 For example, a new paper by Alex DeGrave et al. \cite{degrave2021ai} shows that a Deep Learning model trained with improper data was taking shortcuts in COVID-19 detection on radiographs due to the position of certain markers rather than on the actual radiograph.
-Another common example of this is the confounding correlation between the number of shark attacks and the ice cream sales shown in Figure \ref{fig:shark}.\newline
+Another common example of this is the confounding correlation between the number of shark attacks and the ice cream sales. 
+The following picture (Figure \ref{fig:shark}) \cite{shark-icecream} highlights how there's no direct relationship between shark attack and ice-cream sales. Instead, they're both caused by a third factor (High temperature) \cite{siegel2019ice}.\newline
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{images/confounding.png}
-    \caption{The following picture \cite{shark-icecream} highlight how there's no direct relationship between shark attack and ice-cream sales. Instead, they're both caused by a third factor (High temperature) \cite{siegel2019ice}.}
+    \caption{Representation of the relationship between shark attack and ice-cream sales.}
     \label{fig:shark}
 \end{figure}
 Therefore, the key to increase interpretability of a given model is to wonder if given factor should drive the final decision.\par
@@ -21,6 +30,7 @@ Before the advent of XAI, the scientific community was focused on the predictive
 This need for reliable high performing models led to XAI, a field focused on the interpretation of how AI systems take decisions.
 This issue of interpretability and clarity is becoming increasingly significant nowadays. \\
 This is consistent with what could be found by searching in Google Trends, where the trend of 'Explainable Artificial Intelligence' grew up in the last 3 years, while the curve of 'AI' seems to have reached a saturation state (Figure \ref{fig:AI_XAI}).\\
+
 In this work, the focus is on model interpretability instead of explainability, even if in literature there are references that describe them in the same way.
 Interpretable Artificial Intelligence (or Interpretable Machine Learning) helps to understand how \acrshort{ml} algorithms make prediction, with the use of feature selection methods to clarify the model decision.\par
 Feature selection can provide relevant explanations by quantifying the influence of each independent variable with a score.\\
@@ -36,7 +46,7 @@ It is desirable to both reduce the computational cost of modelling and, in some 
 This step aims to provide a weighted score of each environmental variable concerning the pollutants emitted by intense agriculture through regression predictive modelling. Then, scores will be interpreted with findings in literature to confirm them.
 Due to the fact that there is no best feature selection techniques, I performed and combined different supervised methods. 
 \\
-Then, my work on feature selection wants to contribute to one of final step of the D-DUST project, which is the support to monitoring and modelling with data science techniques, such as the combination of machine-learning and geostatistical models.
+Then, the most weighted input variables that affect the pollutants related to intense agriculture and farming will be usefeull inside the D-DUST project to monitor and predict with data science techniques, such as the combination of Machine Learning and geostatistical models.
 \par
-According to the above, my work comes on this scenario, having the aim to preprocess geospatial data in order to highlight the most weighted input variables that affect the pollutants related to intense agriculture and farming.\par
+According to the above, my work comes on this scenario.
 In the next chapter, the FS procedure will be described in detail.
