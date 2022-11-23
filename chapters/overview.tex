@@ -53,10 +53,10 @@ Standardization consists of rescaling data following a Gaussian distribution of 
   Z = \frac{X-\mu}{\sigma}
 \end{equation}
 \begin{equation}
-\mu = \frac{(\sum_{n=1}^{N} X_i)}{N}
+\mu = \frac{(\sum_{i=1}^{N} X_i)}{N}
 \end{equation}
 \begin{equation}
-\sigma = \sqrt{\frac{\sum_{n=1}^{N} (X_i-\mu)^{2}}{N-1}}
+\sigma = \sqrt{\frac{\sum_{i=1}^{N} (X_i-\mu)^{2}}{N-1}}
 \end{equation}
 Where:
 \begin{itemize}
@@ -80,7 +80,7 @@ Discarding irrelevant data is essential before applying the machine learning mod
 \item Improve Accuracy: less misleading data means that modelling accuracy improves. Predictions can be greatly distorted by redundant attributes;
 \item Reduce Training Time: With fewer data, an algorithm will train faster;
 \end{itemize}
-In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with respect to a target variable as the output. \newline
+In this step, which will be explained in detail in the next chapters, the reduced input variables are the ones that are meaningless with reference to a target variable as the output. \newline
 Due to the fact that there is no best feature selection technique, many different methods are performed, each of which gives different correlation results.\par
 Inside the D-DUST project, this step helps to select of the most important features for the next step of modeling using Machine Learning and geostatistical models. \\
 Feature selection allows to determine which variables are most correlated with the selected target variable, such as PM2.5 and ammonia in the context of this project. 
@@ -137,21 +137,48 @@ where:
 \item n\textsubscript{d} = \# of discordant pairs (discordant pairs: the pairs are ordered differently);
 \end{itemize}
 In order to better explain how n\textsubscript{c} and n\textsubscript{d} are computed I show the following example. \par
-Suppose that 2 professors provide (variables labelled as X and Y) a mark to each student (sample). 
+Suppose that 2 professors provide (variables labelled as X and Y) a mark to each student (sample) and I want to compute the Kendall Tau correlation between the 2 samples. 
 Then, for each student i(x\textsubscript{i}, y\textsubscript{i}) I:
 \begin{itemize}
     \item sum 1 to n\textsubscript{c} if its pairs of votes (x, y) are concordant to an other student j ((x\textsubscript{i} > x\textsubscript{i} and y\textsubscript{i} > yj) or (x\textsubscript{i} < x\textsubscript{i} and y\textsubscript{i} < y\textsubscript{i}));
     \item sum 1 to n\textsubscript{d} if its pairs of votes (x, y) are discordant to an other j-student (x\textsubscript{i} > x\textsubscript{i} and y\textsubscript{i} < y\textsubscript{i}) or (x\textsubscript{i} < x\textsubscript{i} and y\textsubscript{i} > y\textsubscript{i});
     \item neither if x\textsubscript{i} = x\textsubscript{j} or y\textsubscript{i} = y\textsubscript{j};
 \end{itemize} 
-In the figure, in the third and fourth columns are counted each concordant or discordant pair compared to the students below.
+In the table \ref{tab:kendall}, in the third and fourth columns are counted each concordant or discordant pair compared to the students below and summed up to obtain n\textsubscript{c} and n\textsubscript{d}.
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c| c| c| c |c|} 
+\hline
+ \textbf{Student} & \textbf{Professor 1 (X)} & \textbf{Professor 2 (Y)} & \textbf{Concordant} & \textbf{Discordant}\\ 
+ \hline
+ \textbf{A} & 18 & 18 & 6 &0 \\ 
+ \hline
+ \textbf{B} & 19 & 19 & 5 &0\\
+ \hline
+ \textbf{C} & 20 & 25 & 3 &1\\
+ \hline
+ \textbf{D} & 25 & 20 & 3 &0\\
+ \hline
+ \textbf{E} & 28 & 27 & 1 &1\\ 
+ \hline
+  \textbf{F} & 29 & 26 & 1& 0 \\  
+ \hline
+  \textbf{G} & 30 & 30 & 0& 0 \\ 
+  \hline
+ \hline
+    &  &  & \textbf{n\textsubscript{c}} & \textbf{n\textsubscript{d}}\\ 
+ \hline
+     &  & & 19 & 2\\  
+ \hline
+\end{tabular}
+\end{center}
+\caption{The following table highlights how n\textsubscript{c} and n\textsubscript{d} are obtained to compute the Kendall Tau coefficient.}
+\label{tab:kendall}
+\end{table}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.21]{images/k}
-    \caption{The following table highlights how n\textsubscript{c} and n\textsubscript{d} are obtained to compute the Kendall Tau coefficient.}
-    \label{fig:kendall}
-\end{figure}
+
+
+
 
 \subsubsection{Spearman Rho}
 Spearman’s index is very similar to Kendall’s. As the previous filter methods, it ranges between -1 and 1, and it's considered less robust than Kendall's.
@@ -164,10 +191,10 @@ It is computed as follows:
 \item n: size of the sample;
 \end{itemize}
 
-Finally, as I did for Pearson and Kendall coefficients, I take into consideration only its absolute value to weigh the correlation for each variable in the Feature Selection.
+Finally, as I did for Pearson and Kendall coefficients, I take into consideration only its absolute value to weight the correlation for each variable in the Feature Selection.
 
 \subsubsection{Fisher Score}
-This method returns the score of the variables based on the fisher’s score in descending order. \newline
+This method returns the score of the variables based on the Fisher’s score in descending order. \newline
 Its algorithm is implemented using the SelectKBest method from the scikit-learn library (sklearn.feature\_selection).\newline
 \begin{equation}
 F = \frac{\sigma_x^2}{\sigma_y^2}
@@ -184,9 +211,9 @@ One disadvantage of this approach is the computational costs.\newline
 Their execution for many subsets of variables can become unfeasible. 
 \subsubsection{Random Forest Importance}
 Feature importance is a built-in function of the Random Forest algorithm. It's also called Gini importance (or mean decrease impurity) and is commonly used as the splitting criterion in decision trees problems. \\
-It's computed with the mean of impurity decrease applied over all trees. \\ 
+It is computed with the mean of impurity decrease applied over all trees. \\ 
 Feature selection made with the impurity reduction of splits is increasingly used for its simplicity and velocity to be computed.\\
-The scores are evaluated as attributes (feature\_importances\_) of RandomForestRegressor of the scikit-learn library (sklearn.ensemble).
+The scores are evaluated as attributes (called feature\_importances\_) of RandomForestRegressor of the scikit-learn library \cite{sklearn} (sklearn.ensemble).
 \bigbreak
 \subsection{Embedded Methods}
 Embedded methods are instead characterized by the benefits of both the wrapper and filter methods, by including interactions of features, but also have a reasonable computational cost.
@@ -194,8 +221,8 @@ Embedded methods are instead characterized by the benefits of both the wrapper a
 \gls{rfe} is a wrapper feature selection algorithm that also works with filter-based feature selection internally.\newline
 It consists in looking for the best subset of features by starting with all features and removing some of them until the desired number remains.\newline
 This is computed using \acrshort{rfe} of scikit-learn library (sklearn.feature\_selection).\\
-To obtain a score for each variable, I consider whether it is selected or not a value (with support\_ attribute).\\
-If the attribute is selected will be equal to 1, otherwise to 0.\\
+To obtain a score for each variable, I consider whether it is selected or not a value.\\
+If the variable is selected its score will be equal to 1, otherwise to 0. The score is set inside the attribute called support\_ attribute.\\
 The number of selected variables, as the default option of the method, is half the total number of covariates.
 \pagebreak
 \subsection{Borda Count: averaging FS results}
@@ -215,8 +242,8 @@ After the modelling step, an evaluation of the performance predictions is perfor
 K-Fold cross-validation consists in dividing a data set into k multiple training and validations sets (folds), to improve model results against the random selection of only one training and validation set. Indeed, errors and accuracy evaluation are averaged along the k different random samples.\\
 Metrics chosen for evaluation are:
 \begin{itemize}
-    \item \acrshort{mae} (Mean Absolute Error): it's the mean absolute distance for the observations;
-    \item \acrshort{mse} (Mean Squared Error): it measures as MAE the distance of errors from the observations but with the difference of squaring the distance. In this way higher errors weigh more;
+    \item \acrshort{mae} (Mean Absolute Error): it is the mean absolute distance for the observations;
+    \item \acrshort{mse} (Mean Squared Error): it measures as MAE the distance of errors from the observations but with the difference of squaring the distance. In this way higher errors weight more;
     \item \acrshort{rmse} (Root Mean Squared Error): it's computed as the previous term (MSE), with the difference that the square root is applied at the end. RMSE is used because due to the same unit of the target variable.
     The RMSE is always larger or equal to the MAE; the larger is the gap between them, the grater will be the variance in the individual errors of the sample.
     \item R\textsuperscript{2} (Coefficient of determination): it is a statistical index that represents the percentage whereas the target variable is explained in a regression model;
@@ -224,7 +251,7 @@ Metrics chosen for evaluation are:
 Their formulas are the following:
 \subsubsection{Mean Absolute Error}
 \begin{equation}
-MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i-\hat{y}_i|
+MAE = \frac{1}{N}\sum_{i=1}^{n}|y_i-\hat{y}_i|
 \end{equation}
 Where:
 \begin{itemize}
@@ -262,16 +289,18 @@ Where:
 \bigbreak\bigbreak
 In my work, I wasn't focused in detail on the configuration for an optimal ML model. The aim of this phase is only to give an approximate evaluation of how the features selected impact the models' performance. \\
 For doing that I implemented 2 different ML supervised models.\\
-By literature, we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).\par
-Since highly accurate algorithms are often less interpretable, in order to detect the impact of feature selection on accuracy Neural Network and Random Forest algorithms are chosen. 
+By literature \cite{morocho2019machine}, we know that interpretability is usually related to a trade-off with accuracy (figure \ref{fig:trade-off}).\par
+The more a model is accurate such as Neural Network and Random Forest, the more it's less interpretable due to its "black-box" nature. 
+For this reason, I choose Neural Network and Random Forest algorithms in order to in this phase.
+
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1.4]{images/interpretability_accuracy_tradeoff.jpg}
-    \caption{The plot represented in this figure wants to highlight how different ML models are related to the trade-off between accuracy and intepretability  \cite{morocho2019machine}.The more a model is accurate such as Neural Network and Random Forest, the more it's less interpretable due to its "black-box" nature.}
+    \caption{The plot represented the trade-off between accuracy and intepretability of most common model \cite{morocho2019machine}.}
     \label{fig:trade-off}
 \end{figure}
 \subsection{Neural Network with Keras}
-It's one of the deep learning algorithms which is based on the structure of the neural networks, where nodes represent neurons.
+It is one of the deep learning algorithms which is based on the structure of the \gls{nn}, where nodes represent neurons.
 Nodes are connected to each other through the layers. \\
 In this way, every neuron of a layer is connected to neurons in the next layer.
 The structure of my Neural Network is formed by 3 layers:
@@ -280,38 +309,37 @@ The structure of my Neural Network is formed by 3 layers:
     \item Output layer: It contains the result of the problem. 
     \item Hidden layer: It's actually responsible for the performance and complexity of neural networks. It's placed between the output and input layers;
 \end{itemize}
-During the training phase, in which the network "learns", independent variables are used as input and processed through weighted associations in which at each step produce results that are compared to the target output.\\ The error computed between them is successively adjusted and updated following the learning rules. The achievement obtained is a result increasingly similar to the values assumed by the target variable.\\ 
-For implementing it, I use Keras API from TensorFlow library.
+During the training phase, in which the network "learns", independent variables are used as input and processed through weighted associations in which at each step the produced results are compared to the target output.\\ The difference computed between them is successively adjusted and updated following the learning rules. The achievement obtained is a result increasingly similar to the values assumed by the target variable.\\ 
+For implementing it, I use Keras API from TensorFlow library \cite{tensorflow}.
 
 
 \subsection{Machine Learning with Random Forest}
 Random forests are used in regression problems, using a decision tree structure to make predictions. Decision trees answer sequential questions through the routes tracked by trees.\\
 The algorithm consists in building a certain number of random decision trees from the bootstrap sample of the original data set (this phase is called bootstrap sampling). Then, the prediction of a certain sample is performed by following each decision tree. \\In a regression problem, the final decision will be an averaged value from the ones obtained by each tree (phase of aggregation).\\
-To implement it, I use RandomForestRegressor class from sklearn library. 
+To implement it, I used RandomForestRegressor class from sklearn library. 
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.21]{images/overview.png}
-    \caption{The following diagram gives a general explanation of the procedure taken in this thesis. It starts with the pre-processing of the data (collection, cleaning and transformation) and continues with the selection of the most meaningful variables (feature selection). \\
-    After that, ML models are implemented and trained with the covariates chosen in the previous step. \\
-    Finally, an evaluation of the error metrics based on the validation is performed.}
+    \caption{Overview of the steps made in my work.}
     \label{fig:overview}
 \end{figure}
 
-
+The diagram in figure \ref{fig:overview} gives a general explanation of the procedure taken in this thesis. It starts with the pre-processing of the data (collection, cleaning and transformation) and continues with the selection of the most meaningful variables (feature selection). \\
+After that, ML models are implemented and trained with the covariates chosen in the previous step. \\
+Finally, an evaluation of the error metrics based on the validation is performed.
 \section{Notebook implemented}
 For processing and analyzing data, I implemented tools collected in Python Notebooks, each one available in the D-DUST repository\footnote{\url{https://github.com/opengeolab/D-DUST/tree/thesis_MB}}.\newline
-Its essential steps are shown in figure \ref{fig:overview}.
 
 \subsection{Computation and view of feature selection results}
-In order to manage its configuration and the results obtained, a notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/fs_results.ipynb}} with a simple user interface is built using the ipywidgets package.
+In order to manage its configuration and the results obtained, a notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/fs_results.ipynb}} with a simple user interface using the ipywidgets package was developed.
 In this interface there are 2 sections:
 \begin{itemize}
 \item Feature Selection scores: they are graphically shown using multiple barplots, one for each data set previously selected. Barplot are implemented with the use of Plotly library; 
-\item Options: in this box is possible to configure the feature selection input:
+\item Options: in this box it is possible to configure the feature selection input:
 \begin{itemize}
-\item target variable. The usable variables are those coming from ARPA ground sensors;
+\item target variable. in our case the usable variables are those coming from ARPA ground sensors;
 \item apply (optional) low variance filter for discarding meaningless variable before FS;
 \end{itemize}
 and the output:
@@ -349,12 +377,11 @@ for each configuration in configurations
 
 
 \subsection{Computation and view of ML models results}
-For build, I use two different notebooks for the evaluation of the Neural Network (link\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/Keras_prediction_model.ipynb}}) and the Random Forest model
-the Neural Network (link\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/RandomForest_prediction_model.ipynb}}). 
+In order to build prediction model, I use two different notebooks for the evaluation of the Neural Network\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/Keras_prediction_model.ipynb}} and the Random Forest \footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/RandomForest_prediction_model.ipynb}} models. 
 It is possible to set these parameters before running the model:
 \begin{itemize}
-    \item NUMBER\_OF\_COVARIATES: It's the number of the n features with the highest Borda Count score taken as input for the model;
-    \item TARGET: It represents the target variable to be predicted by the model;
+    \item NUMBER\_OF\_COVARIATES: it is the number of the n features with the highest Borda Count score taken as input for the model;
+    \item TARGET: it represents the target variable to be predicted by the model;
 \end{itemize}
 \begin{verbatim}
 for each configuration in configurations
@@ -380,7 +407,7 @@ for each configuration in configurations
 
 Each of them imports the feature selected from the previous notebook and exports the accuracy evaluation of the k-fold cross-validation externally. \par
 The results are subsequently opened and shown with
-this other notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}} through the use of widgets (figure \ref{fig:view}).
+this other notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thesis_MB/notebooks/model.ipynb}} through the use of widgets (figure \ref{fig:view}), by simply  selecting the target variable, resolution and configuration desired.
 \begin{figure}[H] 
     \centering
     \subfloat[Drop-down widgets.]{%
@@ -392,18 +419,19 @@ this other notebook\footnote{\url{https://github.com/opengeolab/D-DUST/blob/thes
         \includegraphics[width=0.5\textwidth]{images/table.png}%
         %
         }%
-    \caption{In these images is illustrated how the notebook view for viewing the validation results works. \\
-    It is sufficient to select the target variable, resolution and configuration desired and with an interactive option provided by ipywidgets library the results are provided through a table.}
+    \caption{In these images is illustrated how the results are viewed in the notebook (model.ipynb).}
     \label{fig:view}
 \end{figure}
 
-An overview of the order in which the different notebooks are used in my work thesis is illustrated in Figure \ref{fig:notebooks}.\par
+An overview of the order in which the different notebooks are used in my work thesis is illustrated in figure \ref{fig:notebooks}.
+The first notebook used is fs\_results.ipynb which is used to preprocess the data and evaluate the FS results. \\
+After that, the notebooks called Keras\_prediction\_model.ipynb and RandomForest\_prediction\_model.ipynb are used to implement ML models which are trained with the covariates chosen in the previous step. \\
+Finally, the results of the error metrics based on the validation are provided by model.ipynb notebook. 
+\par
 In the next chapters, each step will be described in detail about the procedures adapted for the study case and the results obtained.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.40]{images/overview _notebooks.png}
-    \caption{The following diagram gives a general explanation of the sequence of the notebooks which are used. It starts with fs\_results.ipynb which aims to collect, clean, transform and select the most meaningful variables through the Feature Selection). \\
-    After that, Keras\_prediction\_model.ipynb and RandomForest\_prediction\_model.ipynb are used to implement ML models which are trained with the covariates chosen in the previous step. \\
-    Finally, the results of the error metrics based on the validation are provided by model.ipynb. }
+    \caption{Overview of the order in which the notebooks are used in my work.}
     \label{fig:notebooks}
 \end{figure}
