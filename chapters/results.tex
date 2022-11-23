@@ -47,12 +47,12 @@ Both variables, in fact, measure the same pollution phenomena as the target vari
 It's visible a correlation with nitrogen dioxide('no2\_int'), a strong greenhouse gas which is related, as particulate matter, to biomass burning, industrial processes, households and road transport \cite{zellner2000john} \cite{maranzano2022air}.\\
 From nitrogen dioxide derives also the chemical relation with the other nitrogen oxides ('nox\_int'), such as nitrogen monoxide ('no\_int') and carbon monoxide ('co\_int', 'co\_cams, 'co\_s5p'). This could be explained by the fact that they contribute as a secondary pollutant to PM2.5 formation \cite{xie2015spatiotemporal}.
 \par
-Observing the results regarding intense agriculture, it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received, as PM10, most votes of all in the spring period due to its strong positive correlation. \\
+Observing the results regarding intensive farming activities , it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received, as PM10, most votes of all in the spring period due to its strong positive correlation. \\
 This happens because NH3 can react in the atmosphere to form ammonium salts in the presence of acid species \cite{viatte2021ammonia}.\\
-We can assume that the main source of ammonia emission is intense agriculture since it was responsible for 92\% of the total by EEA country members in 2017 \cite{maranzano2022air}.\\
+We can assume that the main source of ammonia emission is intensive farming activities  since it was responsible for 92\% of the total by EEA country members in 2017 \cite{maranzano2022air}.\\
 Indeed, during these periods, the application of fertilizer contributes to ammonia and particulate matter.\\
 Significantly more fertilizer is applied in the spring than in the summer and winter seasons due to crop cycles \cite{goebes2003ammonia}.\\
-Therefore, we can assume that intense agriculture is one of the factors that influence the formation of PM2.5, with the greatest contribution during a certain period of the year.
+Therefore, we can assume that intensive farming activities  is one of the factors that influence the formation of PM2.5, with the greatest contribution during a certain period of the year.
 \begin{figure}[H]
 \centering
 \subfloat[Borda Count algorithm results.]{\includegraphics[scale =0.45]{images/tests/0_01_mountainspm25_st.png}\label{fig:a}}\\
@@ -165,14 +165,14 @@ This difference should be given by a different number of ground sensors for each
         \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
         %
         }%
-    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case of study. \\
+    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case study. \\
     The legend shows whether the cell has an interpolated value with KNN or not. In addition, ground sensors from which interpolation is performed are added.\\ 
     The sample number passed from 28 to 173 for PM2.5 as target variable and from 8 to 69 for NH3.}
     \label{fig:comparison-sensors}
 \end{figure}
 We can observe that generally, the Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). \\
 This may be since RF algorithm uses the ensemble learning method for regression, a technique that joins estimation from multiple models to have more accurate predictions than a single model.\\ 
-R\textsuperscript{2} in each test assumes a positive value, meaning that the pollutants taken into consideration in this case of study can be explained by the regression models. 
+R\textsuperscript{2} in each test assumes a positive value, meaning that the pollutants taken into consideration in this case study can be explained by the regression models. 
 
 \pagebreak
 \subsection{Comparison with CAMS model}
@@ -222,11 +222,8 @@ So, by the validation results and the larger number of ground observations provi
 Based on these results, we can point out that Random Forest is more precise than the  Neural Network model and that the performance is higher for particulate matter than ammonia estimation.\\
 Random Forest indeed is one of the most preferred also in the literature prediction models for its easy configuration.
 \subsection{Importance of the FS}
-The underlying tables provide model results respectively in 2 cases:
-\begin{itemize}
-    \item the selection of variable is performed by Feature Selection procedure;
-    \item the selection of variable is performed by a random function (for doing this was used the Pandas.sample method);
-\end{itemize}
+The underlying tables provide model results if FS is before applied or not.
+
 It can be observed that feature selection is meaningful for the pre-processing phase since aims at discarding eventually useless variables and taking only the ones really relevant to the target variable. \\
 In the results obtained, we can detect that selection of variable with FS assume a key role for a sample of small size.\\ 
 Indeed, in the tests with a resolution 10 Km model, there is a feasible difference between the data trained by variable from FS and the ones chosen randomly (Table \ref{fig:importance10km}). \\
@@ -242,10 +239,11 @@ In conclusion, the difference between the results of this test and the ones run 
 \toprule
  &  With FS & Without FS \\
   \midrule
- MAE\_sensor &        2.076  &        2.735 \\
-RMSE\_sensor &        2.579 &        3.285  \\
- MSE\_sensor &        6.650  &        10.794 \\
-  R2\_sensor &        0.168  &         -0.349\\
+ MAE\_sensor &        2.123  &        2.061 \\
+RMSE\_sensor &        2.645 &        2.567 \\
+ MSE\_sensor &        6.997  &       6.592 \\
+  R2\_sensor &        0.130  &         0.176\\
+   Training time: & 2.402 s& 3.637 s\\
 \end{tabular}
 \label{fig:importance10km}}
 \\
@@ -254,10 +252,11 @@ RMSE\_sensor &        2.579 &        3.285  \\
 \toprule
 & With FS &  Without FS\\
 \midrule
- MAE\_sensor &        2.634 &        2.992 \\
-RMSE\_sensor &        3.170  &        3.832\\
- MSE\_sensor &        10.046 &        14.687  \\
-  R2\_sensor &        -0.220 &        -0.784 \\
+ MAE\_sensor &        2.677 &        2.660 \\
+RMSE\_sensor &        3.230  &        3.252\\
+ MSE\_sensor &        10.434 &        10.575  \\
+  R2\_sensor &        -0.268 &        -0.285 \\
+   Training time & 17.298 s & 24.338 s\\
  \label{fig:importance1km}
 \end{tabular}}
 \caption{Random Forest prediction for PM2.5, including zones with mountains using or not FS.}
