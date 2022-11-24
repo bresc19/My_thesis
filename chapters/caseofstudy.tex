@@ -278,36 +278,28 @@ I chose these measurements because are significant primary pollutants from inten
 ARPA air quality monitoring stations, which are operating 24 hours a day 365 days a year, are periodically checked and subject to maintenance, to ensure proper functioning and reliability.\par
 Data covariates are divided between input (X) and output variables (Y). X represents all the variables collected in the previous part, except for the pollutant to be analyzed and modelled (such as PM25 or Ammonia), which is assigned to the Y variable.
 \subsection{Mountains}
+\label{sub:mountains}
 Another important parameter configuration used is to filter or not the cell covered by mountains or not (climate zone = 1/2/3 of Alpes and Prealpes). \\ 
 In this way, I run an extra test for each resolution in which I include only the grid cells that belongs to urban and land areas.
 I choose also this different configuration since a focus of the D-DUST project is on the Po Valley, an important area related to agriculture.
 Since I assume 2 different resolutions and with the possibility to include or not the mountain zones, I obtained 4 different configurations: 
 \par
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|}
-    \hline
-        10km resolution (0.1°) with all clim\_zone (zone pedoclimatiche)  \\ \hline
-        10km resolution (0.1°) without Alpes and Prealpes (clim\_zone > 3) \\ \hline
-        1km resolution (0.01°) with all clim\_zone (zone pedoclimatiche)   \\ \hline
-        1km resolution (0.01°) without Alpes and Prealpes (clim\_zone > 3)  \\ \hline
-    \end{tabular}
-\end{table}
-Their spatial representation is shown in figure \ref{fig:configuration}
-
+\begin{itemize}
+    \item 10km resolution (0.1°) with all clim\_zone (zone pedoclimatiche);
+    \item 10km resolution (0.1°) without Alpes and Prealpes (clim\_zone > 3);
+    \item 1km resolution (0.01°) with all clim\_zone (zone pedoclimatiche);
+    \item 1km resolution (0.01°) without Alpes and Prealpes (clim\_zone > 3);
+\end{itemize}
+Their spatial representation is shown in the figure \ref{fig:configuration}.
 \begin{figure}[H] 
 \centering
-\includegraphics[scale=0.35]{images/configurations.png}
+\includegraphics[scale=0.3]{images/configurations.png}
   \caption{Spatial representation of each different test configuration with and without the filter for mountain zones.}
  \label{fig:configuration}
 \end{figure}
 \section{Data Cleaning of NaN and low-variance values }
 \label{subsec:nan}
 In my work, I considered as target variable the PM25 and Ammonia measured by ARPA ground sensors.\\
-\begin{comment}
-Air quality monitoring is usually carried out through ground sensors networks, which represent the primary air quality data source by governance.
-\end{comment}
-\newline
 In the processed grids there is the problem that a given value provided by measurement tools could be NaN. \\
 This is caused by the fact that each ground sensor observation, when it is collected in a grid, is assigned to a cell by its location. \\
 For this, many cells are not assigned by any ground sensor observations during this step.
@@ -391,98 +383,100 @@ This choice in the article is made because of the presence of a very frequent va
 
 \pagebreak
 \section{Feature Selection}
-In this phase, I got the list of the most significant variables for each different configuration.\\
-For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.\\
-This was computed by averaging the feature selected for each different period with Borda Count another time (figure \ref{fig:overview_configuration}).\\
-\bigbreak
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=.9\textwidth]{images/overview_results_configuration.png}
-    \caption{The following diagram aims to visualize how the results for each different configuration are provided. First of all,  the final FS results for each period are computed. Then, these are averaged through the Borda Count algorithm again.}
-    \label{fig:overview_configuration}
-\end{figure}
-
-
-In the \ref{fig:test_params} is shown a summary of the parameter of each test execution.
-It can be observed that for each parameter there are different configurations: there are 2 resolutions, 2 climate zones parameters and 5 periods. Therefore, for each different target variable, 2x2x5 = 20 different tests were run for both ammonia and fine particulate (40 in total). \\
-The results of different periods are grouped and averaged for simplicity. In total in this work are attached 8 different results. Each result will be in detail pointed out in the final Appendix \ref{chap:appendix}.
+In this phase, I computed the FS in tests with different parametrization.
+It can be observed that there are 2 resolutions, 5 periods. In addition, test are also executed with and without the mountain zones. Therefore, for each different target variable, (2x5) + (2x5) = 20 different tests were run for both ammonia and fine particulate (40 in total). \\
+The \ref{fig:test_params} provide an overview of the different parameter that can be chose in each test executed in function the period, resolution, target variable and climate zones choosen.
+At the end the set of FS results of different periods in each configuration are averaged through Borda Count again. An overview of how the results for each different configuration are provided is shown in the figure \ref{fig:overview_configuration}.
+Thus, in total in this work are provided the results for each configuration (4) and target variable (2).
+In total in this work are attached 8 (4x2) different results. Each result will be in detail pointed out in the chapter \ref{chap:res} and in the final Appendix \ref{chap:appendix}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=.9\textwidth]{images/test_param.png}
     \caption{Parameter taken in consideration for tests execution.}
     \label{fig:test_params}
 \end{figure}
-\bigbreak
+\pagebreak
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/overview_results_configuration.png}
+    \caption{The following diagram aims to visualize how the results for each different configuration are computed with FS.}
+    \label{fig:overview_configuration}
+\end{figure}
+
+\pagebreak
 \section{Data Modelling}
 \label{sec:modelling}
-In this phase, I evaluate models trained by the variable selected by \acrshort{fs} in order to analyze their interpretability and performance.\\
-In detail, the tests run are built and validated using a k-fold cross-validation (k=5) which is one of the most used procedure for evaluation of model performance.
-I performed a 5-fold since brings better performances from some studies in litherature  \cite{anguita2005k} \cite{jung2020evaluation}.
+In this phase, I evaluate models trained by the variable selected by \acrshort{fs} in order to analyze their performance.\\
+In detail, the tests run are built and validated using a k-fold cross-validation (k=5) which is one of the most used procedure for evaluation of model performance.\\
+I used a 5-fold since brings better performances from some studies in litherature  \cite{anguita2005k} \cite{jung2020evaluation}.
 I perform tests in 2 different ways, explained in the next subsections.
-\subsection{Test for each period with CAMS comparison}
-The validation made on the model was performed with 2 different variable values. They have been chosen:
-\begin{itemize}
-\item values of the target variable (ARPA measurements);
-\item values assumed by the CAMS model;
-\end{itemize}
-Such a procedure was applied both to evaluate the performance of the current model and to compare it to the CAMS model.\\
+\subsection{Test for different grid}
+The validation in each model was made with the values of the target variable (ARPA measurements);
+This is was applied for each grid data set obtained by the combinations of 4 configurations, 5 periods and 2 target variables (4x5x2 = 40 different model testes). 
+In addition, an other validation was performed with values assumed by the CAMS model.
+Such a procedure was applied both to compare the performance ofthe CAMS model to the current one.\\
 In this way, a comparison between results from these 2 different validations is performed, aiming to detect how much the models perform better in this local scale.\\
-This is was applied for each data set obtained by the combinations of 4 configurations, 5 periods and 2 target variables (4x5x2 = 40 different model testes). 
+This additional results are shown in the appendix \ref{chap:appendix}. 
+
 \subsection{Test for analysing FS impact on performance}
-In order to evaluate how Feature Selection effectively improves the accuracy of the model, a set of tests are run and configured differently from the previous.\\ 
+In order to evaluate how Feature Selection effectively improves the accuracy and of the model, a set of tests are run and configured differently from the previous.\\ 
 Data from different periods were merged in order to develop the model through a temporal hold-out validation, where the data are used in this way:
 \begin{itemize}
     \item grid data from March, April and July, September periods were used from training;
     \item grid data from October period was used for validation;
 \end{itemize}
 In this way, model performance should be evaluated by means of external data, which comes from another period.\\
-However, before running this, I have to deal with the collinearity problem, which can cause bias in the accuracy estimation.\\ In order to mitigate this, I perform a feature cluster, grouping collinear variables between them. I consider a variable to be collinear to another if and only if the Pearson correlation index is greater than or equal to 0.8, as a study suggests \cite{shrestha2020detecting}. \\
-After that, I transform each cluster of variables using the first \gls{pca} component (called 'PC\_0' component below). In this way, I solve collinearity in the independent variables, without particularly losing the features interpretability.\\
-Behind them are attached the groups of collinear variables and the new covariates used in the Feature Selection for PM2.5 as the target variable, with 10km and 1km resolutions and including mountain zones.
-I group and illustrate collinear variables in clusters with the help of a script available at this link\footnote{\url{https://www.kaggle.com/code/nassehkhodaie/fixing-multicollinearity-by-feature-clustering/data?select=collinearity_finder_treater_py.py}}.
-The group of variables averaged with PCA is shown in the next page.
-
-\pagebreak
+However, before running this, I have to deal with the multicollinearity problem, which can cause bias in the accuracy estimation.\\ 
+In the covariates used by both FS and models, there would be variables which could be statistically correlated to others. 
+The interdependence of variables would cause instable estimation, so I tried to solve this issue in these tests.\\ 
+In order to mitigate this, I performed a feature cluster, grouping collinear variables between them. I considered a variable to be collinear to another if and only if the Pearson correlation index is greater than or equal to 0.8, as a study suggests \cite{shrestha2020detecting}. \\
+After that, I transformed each cluster of variables using the first \gls{pca} component (called 'PC\_0' component below). In this way, I solved collinearity in the independent variables, without particularly losing the features interpretability.\\
+The groups of variables averaged with PCA are shown in the figure \ref{pca01} and \ref{pca001}, where are indicated the groups of collinear variable with the total variance that each PCA component explains. \\
+At the end of the figures are proveded the new covariates used by the Feature Selection and by RF models, for 10 km and 1 km resolutions, including mountain zones and considering PM2.5 as target variable.
+I grouped and illustrated collinear variables in clusters with the help of a python script\footnote{\url{https://www.kaggle.com/code/nassehkhodaie/fixing-multicollinearity-by-feature-clustering/data?select=collinearity_finder_treater_py.py}}.
 \subsubsection{Resolution = 10 km}
+\begin{figure}[H]
 \begin{verbatim}
 **********
 cluster_0
-feature name = 'dsf2', 'dsf3', 'press'
+variable name = 'dsf2', 'dsf3', 'press'
 explained variance by PC_0 = 0.89
 **********
 cluster_1
-feature name = 'dsf14', 'dsf11', 'pop', 'sec_road', 'int_sec', 'dsf12'
+variable name = 'dsf14', 'dsf11', 'pop', 'sec_road', 'int_sec', 'dsf12'
 explained variance by PC_0 = 0.83
 **********
 cluster_2
-feature name = 'prim_road', 'int_prim_sec'
+variable name = 'prim_road', 'int_prim_sec'
 explained variance by PC_0 = 0.90
 **********
 cluster_3
-feature name = 'nh3_cams', 'siarl9', 'farms'
+variable name = 'nh3_cams', 'siarl9', 'farms'
 explained variance by PC_0 = 0.88
 **********
 cluster_4
-feature name = 'o3_s5p', 'uvai'
+variable name = 'o3_s5p', 'uvai'
 explained variance by PC_0 = 0.94
 **********
 cluster_5
-feature name = 'nmvocs_cams', 'pm10_int', 'pm10_cams', 'no2_cams', 'no_cams', 'pm25_cams', 'co_cams'
+variable name = 'nmvocs_cams', 'pm10_int', 'pm10_cams',    
+                'no2_cams', 'no_cams', 'pm25_cams', 'co_cams'
 explained variance by PC_0 = 0.75
 **********
 cluster_6
-feature name = 'no2_int', 'nox_int'
+variable name = 'no2_int', 'nox_int'
 explained variance by PC_0 = 0.98
 **********
 cluster_7
-feature name = 'o3_cams', 'o3_int'
+variable name = 'o3_cams', 'o3_int'
 explained variance by PC_0 = 0.97
 **********
 cluster_8
-feature name = 'temp_int', 'temp_2m'
+variable name = 'temp_int', 'temp_2m'
 explained variance by PC_0 = 0.98
 
-New features: ['dsf5', 'dsf13', 'soil7', 'soil_text3', 'soil_text4', 'farm_pigs',
+New variables: ['dsf5', 'dsf13', 'soil7', 'soil_text3', 'soil_text4', 'farm_pigs',
        'farm_poultry', 'farm_sheep', 'ndvi', 'prec', 'n_wind', 'e_wind',
        'soil_moist', 'aod_047', 'co_s5p', 'dust_cams', 'so2_cams', 'co_int',
        'nh3_int', 'so2_int', 'air_hum_int', 'prec_int', 'rad_glob_int',
@@ -490,43 +484,52 @@ New features: ['dsf5', 'dsf13', 'soil7', 'soil_text3', 'soil_text4', 'farm_pigs'
        'cluster_3_pc0', 'cluster_4_pc0', 'cluster_5_pc0', 'cluster_6_pc0',
        'cluster_7_pc0', 'cluster_8_pc0']
 \end{verbatim}
+\caption{New features obtained with PCA with 10 km resolution.}
+\label{pca01}
+\end{figure}
 \pagebreak
 \subsubsection{Resolution = 1 km}
+
+\begin{figure}[H]
 \begin{verbatim}
 **********
 cluster_0
-feature name = 'h_mean', 'slope_mean'
-number of PC needed = 1
+variable name = 'h_mean', 'slope_mean'
+
 explained variance by PC_0 = 0.9343247371259237
 **********
 cluster_1
-feature name = 'uvai', 'o3_s5p'
-number of PC needed = 1
+variable name = 'uvai', 'o3_s5p'
+
 explained variance by PC_0 = 0.9502248817971359
 **********
 cluster_2
-feature name = 'nmvocs_cams', 'no_cams', 'no2_cams', 'pm10_int', 'co_cams', 'pm10_cams', 'pm25_cams'
-number of PC needed = 1
+variable name = 'nmvocs_cams', 'no_cams', 'no2_cams',
+                'pm10_int', 'co_cams', 'pm10_cams', 'pm25_cams'
+
 explained variance by PC_0 = 0.7356224143251505
 **********
 cluster_3
-feature name = 'no2_int', 'nox_int'
-number of PC needed = 1
+variable name = 'no2_int', 'nox_int'
+
 explained variance by PC_0 = 0.9760779670033077
 **********
 cluster_4
-feature name = 'o3_cams', 'o3_int'
-number of PC needed = 1
+variable name = 'o3_cams', 'o3_int'
+
 explained variance by PC_0 = 0.9678067765212931
 **********
 cluster_5
-feature name = 'temp_int', 'temp_2m'
-number of PC needed = 1
+variable name = 'temp_int', 'temp_2m'
+
 explained variance by PC_0 = 0.9726802610839925
-New features:  ['aspect_major', 'pop', 'dsf2', 'dsf11', 'dsf12', 'soil_text3',
+New variables:  ['aspect_major', 'pop', 'dsf2', 'dsf11', 'dsf12', 'soil_text3',
        'soil_text4', 'soil_text9', 'sec_road', 'ndvi', 'prec', 'press',
        'n_wind', 'e_wind', 'soil_moist', 'aod_047', 'co_s5p', 'nh3_cams',
        'dust_cams', 'so2_cams', 'co_int', 'nh3_int', 'so2_int', 'air_hum_int',
        'rad_glob_int', 'wind_speed_int', 'cluster_0_pc0', 'cluster_1_pc0',
        'cluster_2_pc0', 'cluster_3_pc0', 'cluster_4_pc0', 'cluster_5_pc0']
 \end{verbatim}
+\caption{New features obtained with PCA with 1 km resolution.}
+\label{pca001}
+\end{figure}
