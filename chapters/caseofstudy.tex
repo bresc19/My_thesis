@@ -279,8 +279,20 @@ ARPA air quality monitoring stations, which are operating 24 hours a day 365 day
 Data covariates are divided between input (X) and output variables (Y). X represents all the variables collected in the previous part, except for the pollutant to be analyzed and modelled (such as PM25 or Ammonia), which is assigned to the Y variable.
 \subsection{Mountains}
 Another important parameter configuration used is to filter or not the cell covered by mountains or not (climate zone = 1/2/3 of Alpes and Prealpes). \\ 
-In this way, the test run can take in consideration or not only urban and land areas, which are more affected by air pollution phenomena.\\
+In this way, I run an extra test for each resolution in which I include only the grid cells that belongs to urban and land areas.
 I choose also this different configuration since a focus of the D-DUST project is on the Po Valley, an important area related to agriculture.
+Since I assume 2 different resolutions and with the possibility to include or not the mountain zones, I obtained 4 different configurations: 
+\par
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|}
+    \hline
+        10km resolution (0.1°) with all clim\_zone (zone pedoclimatiche)  \\ \hline
+        10km resolution (0.1°) without Alpes and Prealpes (clim\_zone > 3) \\ \hline
+        1km resolution (0.01°) with all clim\_zone (zone pedoclimatiche)   \\ \hline
+        1km resolution (0.01°) without Alpes and Prealpes (clim\_zone > 3)  \\ \hline
+    \end{tabular}
+\end{table}
 \section{Data Cleaning of NaN and low-variance values }
 \label{subsec:nan}
 In my work, I considered as target variable the PM25 and Ammonia measured by ARPA ground sensors.\\
@@ -374,18 +386,6 @@ This choice in the article is made because of the presence of a very frequent va
 In this phase, I got the list of the most significant variables for each different configuration.\\
 For doing that, after the features are selected for each period, an average of them is performed using again Borda Count algorithm. What is obtained is a general set of variables for each different configuration.\\
 This was computed by averaging the feature selected for each different period with Borda Count another time (figure \ref{fig:overview_configuration}).\\
-Since I assume 2 different resolutions and with the possibility to include or not the mountain zones, I obtained 4 different configurations: 
-\par
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|}
-    \hline
-        10km resolution (0.1°) with all clim\_zone (zone pedoclimatiche)  \\ \hline
-        10km resolution (0.1°) without Alpes and Prealpes (clim\_zone > 3) \\ \hline
-        1km resolution (0.01°) with all clim\_zone (zone pedoclimatiche)   \\ \hline
-        1km resolution (0.01°) without Alpes and Prealpes (clim\_zone > 3)  \\ \hline
-    \end{tabular}
-\end{table}
 \bigbreak
 \begin{figure}[H]
     \centering
