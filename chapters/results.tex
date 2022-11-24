@@ -1,4 +1,4 @@
-In this chapter are collected my interpretations of the results obtained in the Feature Selection and the models' performance.
+In this chapter are collected interpretations of the results obtained in the Feature Selection and the models' performance. All other tests not included in this chapter are available in the appendix \ref{chap:appendix}.
 \\
 \section{Feature Selection Results}
 In this section the results obtained for each target variable selected are explained in relation to the:
@@ -7,20 +7,9 @@ In this section the results obtained for each target variable selected are expla
     \item positive or negative correlation assumed in the filter methods;
     \item confirmation in literature where a given correlation occurred; 
 \end{itemize}
-Similarities between the tests run for each target variable are visible for many factors that influence both particulate matter and ammonia (figure \ref{fig:pearson_general}).\\
-This can be observed by the similarity of both positive and negative correlation from indexes from filter methods (such as Pearson, figure \ref{fig:pearson_general}). \\
-DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) are correlated in the same way in the test of both target variables, since air pollution affects more urban than mountain areas.\\
-A general condition present in most of the tests run (which are available in the Appendix \ref{chap:appendix}) is the influence with respect to meteorological parameters.\\
-Pollutants are also negatively correlated to wind speed ('e\_wind'), since their concentration tends to turn down with it.\\ The wind is a marker for the horizontal transport of air pollutants. Pressure also contributes to them ('press'), since it causes stable atmospheric conditions that make pollutants harder to be disseminated. \par
-In addition, the findings didn't find consistent differences if Alpes and Prealpes zones are included or not.\\
-The only slight diversity found is about the pollutant, soil, and vegetation variables, which tend to be generally higher if mountains are excluded.
-
-\begin{comment}
- is a moderate correlation with temperature. 
-Air temperature ('temp\_2m' and 'temp\_int') increases with global radiation, while pollutants significantly decreased \cite{li2015particulate} in many test cases. The negative correlation between pollution and air humidity can also be observed (air\_hum\_int).
-Under increased humidity conditions, PM and ammonia may be prone to a washout mechanism due to moisture in the air, causing a particulate reduction \cite{biglari2017relationship}.\\
-For instance, AOD ('aod\_047' and 'aod\_055') has a strong correlation with pollutants (more with PM2.5 than ammonia) , since they are suspensions of solid or liquid particles in the air. AOD in fact measure the atmospheric aerosols
-\end{comment}
+Similarities between the tests run for each target variable are visible for many factors that influence both particulate matter and ammonia.\\
+This can be observed by the similarity of both positive and negative correlation from indexes from filter methods. \\
+In the figure \ref{fig:pearson_general} are shown the results of the Pearson index, a filter method used during the FS. 
 \begin{figure}[H]
 \centering
 \subfloat[pm25\_st as target variable.]{\includegraphics[scale =0.45]{images/tests/pm25pearson_october_0_01_mountains.png}}\\
@@ -28,14 +17,40 @@ For instance, AOD ('aod\_047' and 'aod\_055') has a strong correlation with poll
 \caption{Pearson index results obtained in the period between 7-14 October with 1km resolution including mountains.}
 \label{fig:pearson_general}
 \end{figure}
+The two bar plots attached aims to compare the scores obtained in the same period by the 2 target variables chosen in my tests in the October period.
+One similarity between them is the influence of meteorological and morphological parameters.
+By figure it appears that DTM average elevation and slope ('h\_mean' and 'slope\_mean' respectively) are correlated in the same way in the test of both target variables, since air pollution affects more urban than mountain areas.\\
+Pollutants are negatively correlated to wind speed ('e\_wind'), since their concentration tends to turn down with it.\\ 
+Indeed, the wind is a marker for the horizontal transport of air pollutants. Pressure also contributes to them ('press'), since it causes stable atmospheric conditions that make pollutants harder to be disseminated.
+\par
+In the test run the findings didn't  consistent differences if Alpes and Prealpes zones are included or not.\\
+The only slight diversity found is about the votes obtained by pollutant and vegetation variables, which tend to be generally higher if mountain zones are excluded.
 \subsection{PM2.5 as target variable}
 Fine particulate matter (PM2.5) is one of the most common air pollutants in our environment. 
 It comes primarily from transport vehicles (such as cars, trucks and buses), industry, burning of fuels and household activities. \\
 During the 5 periods, it has been shown that PM2.5, as the other pollutants, changes over time. Air pollution changes accordingly to the type of climate and atmospheric conditions.\\
-\begin{comment}
-In the tests is also visible the score obtained by ozone ('o3\_int') tends to be positively correlated in the period between 18 and 25 April.\\
-This, as mentioned before, is possibly due to their common precursors, such as nitrogen oxides and volatile organic compounds and their simultaneous generation in photochemical reactions. \\
-\end{comment}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+ Statistic &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
+\midrule
+  Mean  &        30.217  &         18.203  &         12.974 &       15.450 &       14.878 \\
+Median  &        27.938 &        17.938 &        13.063 &       14.75 &       15.281 \\
+ Standard deviation &        3.772 &        3.462 &        1.831 &       4.000 &       3.166 \\
+  Min value &        20.0  &        11.875 &        9.5 &        8.625 &       9.0 \\
+  Max value &        42.0 &        25.714 &        17.375 &        27.875 &       19.625 \\
+\bottomrule
+\end{tabular}
+\caption{Summmary statistics (measured in $\mu$g/m\textsuperscript{3}) of the PM2.5 provided by ARPA with 10 km resolution.}
+\label{tab:statspm25}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.21]{images/overview.png}
+    \caption{Overview of the steps made in my work.}
+    \label{fig:graphstatspm2.5}
+\end{figure}
 Air pollution analysis can confirm the presence of a high amount in the winter and heating season and a low quantity in the summer months \cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to a combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds.\\
 Indeed, ozone receives in the results many votes for its negative correlation (the highest in summer period), because is inversely related to PM2.5.\\
 By the bar plots attached in the figure \ref{fig:fs_pm25}, it is clear that most of the pollutants have a strong or moderate correlation with PM2.5. \\
@@ -69,11 +84,7 @@ Correlation of ammonia with respect to intensive agriculture should be feasible 
 It's observable also the votes received by the variable that models the soil moisture, always with a positive correlation with respect to the target variable. This could be explained by the abundance of ammonia-oxidizing bacteria that increase with soil moisture \cite{avrahami2007response}.  \\
 Other important weighted features are the ones related to intense farming ('farms' and 'farm\_pigs') which are responsible for ammonia release thanks to the chemical reaction of urea.\\
 In fact, animal urine and faeces imply the release of ammonia and methane in the atmosphere, respectively \cite{saggar2004review}.
-\begin{comment}
-Indeed, methane ('ch4\_s5p') has a meaningful positive correlation with respect to NH3).\\.\\
-It can be viewed also how road infrastructure variables contribute to ammonia. In particular, the correlation between them is negative since ammonia emission from agriculture occurs usually far from urban and traffic areas.\\
-These effects are more visible in the configuration obtained by excluding the mountain zones, where pollutant effects are less visible.
-\end{comment}
+
 So we can suggest that ammonia in Lombardy should be very related to the use of fertilizer in agricultural areas and animal livestock in farms.
 \bigbreak
 \pagebreak
