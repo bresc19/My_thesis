@@ -28,7 +28,7 @@ An approach to remove columns is to consider the variance of each column variabl
 \end{equation}
 The variance can be used as a filter for identifying columns to be removed from a given data set. 
 Using a feature with low variance only adds complexity to the feature selection and the prediction.\newline
-In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the \gls{care} package in R.\\
+In order to do that, I performed a method called nearZeroVar (Near zero variance), a method from the \gls{caret} \cite{caret} package in R.\\
 This method finds covariates that have one unique value (i.e. with zero variance) or covariates that have both of the following requirements:
 \begin{itemize}
 \item they have very few unique values relative to the number of samples (represented by the percentage of unique values);

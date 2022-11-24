@@ -273,7 +273,7 @@ In this way, several grid data were chosen from 5 different weeks over the year:
 In this case study, the chosen target variables represent the pollution phenomena correlated to intensive farming activities , such as PM25 and ammonia emissions. \\
 One of the objectives of this step is to detect the main pollutant factors that contribute further to the training of PM25 or NH3 emissions.\\
 PM25 and ammonia (NH3) provided by ARPA sensors are the ones chosen as target variables('pm25\_st' and 'nh3\_st').\\
-I chose these measurements are significant primary pollutants from intensive farming \cite{aneja2008farming}. Moreover, air quality monitoring is traditionally measured thourgh measurament provided by fixed ground-sensor.
+I chose these measurements because are significant primary pollutants from intensive farming \cite{aneja2008farming}. Moreover, air quality monitoring is traditionally measured by fixed ground-sensor.
 \\
 ARPA air quality monitoring stations, which are operating 24 hours a day 365 days a year, are periodically checked and subject to maintenance, to ensure proper functioning and reliability.\par
 Data covariates are divided between input (X) and output variables (Y). X represents all the variables collected in the previous part, except for the pollutant to be analyzed and modelled (such as PM25 or Ammonia), which is assigned to the Y variable.
@@ -299,16 +299,13 @@ So it turns out that variables provided by ARPA and \acrshort{esa} ground sensor
  \label{fig:knn-interpolated}
 \end{figure}
 However, no country in the world has yet established a monitoring network with a fully satisfying coverage \cite{liu2018improve}. Even the United States (US), which is characterized by a relatively developed PM2.5 ground monitoring network with 2500 stations has many areas unmonitored \cite{liu2018improve}. \par
-Due to the fact that with the use of data cleaning it results a data set with a number of samples too limited to be used fot FS or any models.  
-I adopted an approach in order to increase its size with interpolation.
-This approach was not accurately justified because is used only to increase the size of cells with ground sensor measuraments
-
+Due to the fact that with the use of data cleaning it results a data set with a number of samples too limited to be used fot FS or any models.
+By seeing figure \ref{fig:cells}, there are respectevely only 34 and 8 observations if we considered PM2.5 and Ammonia as target variable.
+In order to mitigate this, I adopted an approach in order to increase its size with interpolation.
+This approach was not accurately justified because is used only to increase the size of cells with ground sensor measuraments for making applicable the FS procedure.
 I previously performed a classifier k nearest neighbor  \cite{taunk2019brief} to detect the buffer of cells close to the location of the ground station measurement.\\
 To increase the number of observations provided by the limited ARPA stations in Lombardy, a k-nearest neighbors algorithm is applied to add the buffer of values (with k, respectively, equal to 10 for 0.1° and 30 for 0.01° resolution). \\ 
-I choose a reasonable k value for the performance of the model, in order to have an adequate number of observations to make relevant considerations (figure \ref{fig:knn_chosen}).
 
-\pagebreak
-Here are attached the results of the growth of the sample size, for each target variable and resolution:
 \begin{figure}
 \begin{multicols}{2}
 \begin{verbatim}
@@ -336,7 +333,8 @@ new size: 240
 ****************************
 \end{verbatim}
 \end{multicols}
-\caption{ddd}
+\caption{In this figure the results of the increment of the number of cells is shown for each different target variable and resolution.}
+\label{fig:cells}
 \end{figure}
 
 \begin{figure}[H] 
@@ -350,22 +348,26 @@ new size: 240
         \includegraphics[width=0.55\textwidth]{images/0_01_knn.png}%
         %
         }%
-    \caption{In the following plots are highlighted the performance in terms of MAE, RMSE, MSE and R\textsuperscript{2} of the Random Forest model in function of the K chosen by \acrshort{knn} applied in the data cleaning.\\
-    As it can be seen, the performance of the model depends strictly on the number of observations used. In order to have an adequate number of observations I choose K equal to 10 and 30 respectively for the 10 km and 1 km resolution. \\
-    These are run considering PM2.5 as target variable.}
+    \caption{Performance in terms of MAE, RMSE, MSE and R\textsuperscript{2} of the Random Forest model with PM2.5 as target variable in function of the K chosen by \acrshort{knn} applied in the data cleaning.}
     \label{fig:knn_chosen}
 \end{figure}
-Then, these cells are set with values computed using a \gls{rbf}  \cite{wright2003radial} which are separately stored in variables with the name that ends with '\_int'. RBF was performed using a linear interpolation by a colleague.\\
-The given procedure and validation results are available on GitHub at this page\footnote{\url{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}}.
-In this way, the size of the final sample, as well as the performance of the feature selection, would increase.
+Then, these cells are set with values computed using a \gls{rbf} \cite{wright2003radial} which are separately stored in variables with the name that ends with '\_int'. RBF was performed using a linear interpolation.\\
+The given procedure and validation results are available on GitHub\footnote{\url{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}}.
+The reason of the choice of k is to find a value which could have been a trade-off between dimension of k and both the accuracy and processing time that allows us to apply FS.
+Accuracy could be seen in the figure \ref{fig:knn_chosen} where the error metrics of the Random Forest model (described in the next section \ref{sec:modelling}) are shown in function of the k choosen.
+Instead, in the figure ssss is shown the processing time taken to run this procedure for each different resolution in function of the k choosen. 
+TODO
 \par
-Before the feature selection phase, nearZeroVar was applied in order to discard variables with low variance.
-As suggested by this study \cite{kuhn2008building} , I discard variables which has: 
+Before the feature selection phase I remove variable with low variance.
+A feature with low variance is characterized by having observations very close to the mean value and thus almost constant.
+Features with constant values should be discarded because of its low variability.
+In this study \cite{kuhn2008building}, this was performed with a method called  nearZeroVar from \gls{caret}, a package in R.
+As suggested by this study, I discarded variables which has the following parameters: 
 \begin{itemize}
     \item the percentage of unique values greater than 20\%;
-    \item the ratio of the most prevalent over the second most prevalent value is greater than 20;
+    \item the ratio of the most prevalent over the second most prevalent value greater than 20;
 \end{itemize} 
-
+This choice in the article is made because of the presence of a very frequent value. In this case study instead, there are many variables related to the fractional land use (such as siarlX and dsfX) which assign 0 to most of the cells. TODO
 
 \pagebreak
 \section{Feature Selection}
@@ -404,8 +406,10 @@ The results of different periods are grouped and averaged for simplicity. In tot
 \end{figure}
 \bigbreak
 \section{Data Modelling}
+\label{sec:modelling}
 In this phase, I evaluate models trained by the variable selected by \acrshort{fs} in order to analyze their interpretability and performance.\\
-In detail, the tests run are built and validated using a cross-validation k-fold (with k = 5) to mitigate undesirable overfitting. \\
+In detail, the tests run are built and validated using a k-fold cross-validation (k=5) which is one of the most used procedure for evaluation of model performance.
+I performed a 5-fold since brings better performances from some studies in litherature  \cite{anguita2005k} \cite{jung2020evaluation}.
 I perform tests in 2 different ways, explained in the next subsections.
 \subsection{Test for each period with CAMS comparison}
 The validation made on the model was performed with 2 different variable values. They have been chosen:
