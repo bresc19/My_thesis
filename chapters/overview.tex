@@ -223,7 +223,7 @@ It consists in looking for the best subset of features by starting with all feat
 This is computed using \acrshort{rfe} of scikit-learn library (sklearn.feature\_selection).\\
 To obtain a score for each variable, I consider whether it is selected or not a value.\\
 If the variable is selected its score will be equal to 1, otherwise to 0. The score is set inside the attribute called support\_ attribute.\\
-The number of selected variables, as the default option of the method, is half the total number of covariates.
+The choice of the number of selected variables, as the default option of the method, which is half the total number of covariates, is justified in litherature to increase the information density \cite{escanilla2018recursive}.
 \pagebreak
 \subsection{Borda Count: averaging FS results}
 One of the most important challenges in this study is the lack of a universal feature selection method that produces results that are common with all the FS techniques. Choosing a feature selection method from a vast range of choices can be challenging. \newline
