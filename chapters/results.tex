@@ -29,6 +29,7 @@ The only slight diversity found is about the votes obtained by pollutant and veg
 Fine particulate matter (PM2.5) is one of the most common air pollutants in our environment. 
 It comes primarily from transport vehicles (such as cars, trucks and buses), industry, burning of fuels and household activities. \\
 During the 5 periods, it has been shown that PM2.5, as the other pollutants, changes over time. Air pollution changes accordingly to the type of climate and atmospheric conditions.\\
+Below are atteched the table \ref{tab:statspm25} and the figure \ref{fig:graphstatspm2.5} that show PM2.5 variation in the 5 periods chosen in this case study.
 \begin{table}[H]
 \centering
 \begin{tabular}{lrrrrr}
@@ -51,18 +52,21 @@ Median  &        27.938 &        17.938 &        13.063 &       14.75 &       15
     \caption{Graphical representation of PM2.5 variation over the 5 periods, in relation of its mean, median and standard deviation (measured in $\mu$g/m\textsuperscript{3}).}
     \label{fig:graphstatspm2.5}
 \end{figure}
+In this subsection I comment the results obtained by FS of the figure \ref{fig:a}.
 Air pollution analysis can confirm the presence of a high amount in the winter and heating season and a low quantity in the summer months \cite{cichowicz2017dispersion}. This is not applied to the ozone ('o3\_int' and 'o3\_cams'), which should be, on the contrary, higher during summer due to a combination of heat and sunlight which reacts with nitrogen oxides (NOx) and volatile organic compounds.\\
 Indeed, ozone receives in the results many votes for its negative correlation (the highest in summer period), because is inversely related to PM2.5.\\
 By the bar plots attached in the figure \ref{fig:fs_pm25}, it is clear that most of the pollutants have a strong or moderate correlation with PM2.5. \\
-It can be shown in figure \ref{fig:pearson_general} that the entire set of pollutants variables is almost all positively correlated to it.\par
-In particular, PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutants. Indeed, 'pm10\_int' and 'pm10\_cams' have always a high number of votes. 
+In particular, PM10 provided by ARPA and CAMS, in the various test executed is one of the most correlated pollutants. Indeed, 'pm10\_int' and 'pm10\_cams' have always a high number of votes.
 A strong positive correlation between PM2.5 and PM10 is also demonstrated in the literature \cite{zhou2016concentrations}.
 Another variable which received a strong number of votes is the PM2.5 modelled by CAMS ('pm25\_cams'). \\
-Both variables, in fact, measure the same pollution phenomena as the target variables. This finding makes us understand how both describe the same pollution phenomena, moving in the same direction. Indeed, the correlation coefficient between them is close to 1 in all tests executed.\\
-It's visible a correlation with nitrogen dioxide('no2\_int'), a strong greenhouse gas which is related, as particulate matter, to biomass burning, industrial processes, households and road transport \cite{zellner2000john} \cite{maranzano2022air}.\\
-From nitrogen dioxide derives also the chemical relation with the other nitrogen oxides ('nox\_int'), such as nitrogen monoxide ('no\_int') and carbon monoxide ('co\_int', 'co\_cams, 'co\_s5p'). This could be explained by the fact that they contribute as a secondary pollutant to PM2.5 formation \cite{xie2015spatiotemporal}.
+Both variables, in fact, measure the same pollution phenomena.
+This finding makes us understand how both variables are correlated even if measuraments were performed in 2 different way. PM2.5 from ARPA consists in measurament provided by fixed-ground sensor.\\
+Instead, the PM2.5 from CAMS is provided by a global monitoring model, resulting from an ensemble median analysis of other models.
+Indeed, the correlation coefficient between them is close to 1 in all tests executed.\\
+It is visible a correlation with nitrogen dioxide('no2\_int'), a strong greenhouse gas which is related, as particulate matter, to biomass burning, industrial processes, households and road transport \cite{zellner2000john} \cite{maranzano2022air}.\\
+There is also clear correlation with nitrogen oxides ('nox\_int'), nitrogen monoxide ('no\_int') and carbon monoxide ('co\_int', 'co\_cams, 'co\_s5p'). This could be explained by the fact that this pollutants contribute as a secondary pollutant to PM2.5 formation \cite{xie2015spatiotemporal}.
 \par
-Observing the results regarding intensive farming activities , it's evident that ammonia ('nh3\_int' and 'nh3\_cams') received, as PM10, most votes of all in the spring period due to its strong positive correlation. \\
+Observing the results regarding intensive farming activities , it is evident that ammonia ('nh3\_int' and 'nh3\_cams') received, as PM10, most votes of all in the spring period due to its strong positive correlation (it can be observed in the figure \ref{fig:b}). \\
 This happens because NH3 can react in the atmosphere to form ammonium salts in the presence of acid species \cite{viatte2021ammonia}.\\
 We can assume that the main source of ammonia emission is intensive farming activities  since it was responsible for 92\% of the total by EEA country members in 2017 \cite{maranzano2022air}.\\
 Indeed, during these periods, the application of fertilizer contributes to ammonia and particulate matter.\\
@@ -72,7 +76,7 @@ Therefore, we can assume that intensive farming activities  is one of the factor
 \centering
 \subfloat[Borda Count algorithm results.]{\includegraphics[scale =0.45]{images/tests/0_01_mountainspm25_st.png}\label{fig:a}}\\
 \subfloat[Pearson index results in the  24-31 March and 18-25 April periods.]{\includegraphics[scale =0.40]{images/tests/ammonia_effect_on_pm25_001mountains.png}\label{fig:b}}
-\caption{FS results assuming PM2.5 as target variable with 10 Km resolution including mountains. In figure \ref{fig:a} it is possible to observe the features ordered in decreasing order concerning the votes received by Borda-Count algorithm. Figure \ref{fig:b} highlights the positive correlation assumed by ammonia variables in the spring period. }
+\caption{Results obtained assuming PM2.5 as target variable with 10 Km resolution including mountains.}
 \label{fig:fs_pm25}
 \end{figure}
 \subsection{NH3 as target variable}
@@ -80,11 +84,10 @@ Ammonia (NH3) is a reactive and soluble alkaline gas. It is one of the main sour
 The process of ammonia evaporation commonly takes place when nitrogen is originated by the urea of animal livestock, and fertilize. \\
 In the results obtained along the five periods, the ammonia provided by the CAMS model ('nh3\_cams') stands out, because it is strongly correlated, and represents the same pollutant as well.
 We can observe in figure \ref{fig:fs_nh3} also variable related to PM10 and PM2.5 ('pm10\_int', 'pm10\_cams', 'pm25\_int' and 'pm25\_cams'), because ammonia contribute for the formation of secondary particulate matter \cite{dai2019concentrations} \cite{zhu2015sources}.\\
-Correlation of ammonia with respect to intensive agriculture should be feasible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable), in particular used for maize cultivation ('siarl9') .\\
-It's observable also the votes received by the variable that models the soil moisture, always with a positive correlation with respect to the target variable. This could be explained by the abundance of ammonia-oxidizing bacteria that increase with soil moisture \cite{avrahami2007response}.  \\
+Correlation of ammonia in relation to intensive agriculture should be visible by the high positive correlation with agricultural areas (modelled by 'dsf2' variable), in particular used for maize cultivation ('siarl9') .\\
+It is observable also the votes received by the variable that models the soil moisture, always with a positive correlation in relation to the target variable. This could be explained by the abundance of ammonia-oxidizing bacteria that increase with soil moisture \cite{avrahami2007response}.  \\
 Other important weighted features are the ones related to intense farming ('farms' and 'farm\_pigs') which are responsible for ammonia release thanks to the chemical reaction of urea.\\
 In fact, animal urine and faeces imply the release of ammonia and methane in the atmosphere, respectively \cite{saggar2004review}.
-
 So we can suggest that ammonia in Lombardy should be very related to the use of fertilizer in agricultural areas and animal livestock in farms.
 \bigbreak
 \pagebreak
@@ -98,22 +101,26 @@ So we can suggest that ammonia in Lombardy should be very related to the use of 
 So overall, the results obtained in feature selection demonstrate two things.\\
 First, fine particulate should be very correlated with ammonia in the manuring period (spring). Second, ammonia is strictly related to agriculture and farming activity, in accordance with previous studies.\pagebreak
 \section{Data Modelling Results}
-This section collected the interpretation of the ML models results, paying attention not only to the results achieved by the ARPA and CAMS models but also to how feature selection could improve performance results. 
+\label{sec:modelling2}
+This section collected the interpretation of the ML models results, paying attention to the results achieved by the models. 
 \subsection{Interpretation of validation results with ARPA sensor}
-Models assure consistent accuracy.
-The errors obtained in the results by the validation through particle matter decrease as a function of the higher resolution.\\
+The errors obtained in the results by the validation through particle matter decrease with higher resolution.\\
 Higher resolution implies a larger number of samples for training and so a better accuracy as consequence.\\
-Instead, in the models for ammonia estimation, there are no relevant differences between the 2 resolutions.
-With PM2.5 as the target variable at 10 km resolution, there is a lower statistical accuracy than at 1km, with MAE respectively around 1 and 0.2 ug/m\textsuperscript{3}(Tables \ref{tab:res1km}  and \ref{tab:res1km}). 
+With the PM2.5 target variable at 10 km resolution, there is a lower statistical accuracy than at 1km.
+With 10 km resolution MAE reaches a maximum value of 1.448 ug/m\textsuperscript{3} (Tables \ref{tab:res10km}), while for 1 km resolution it does not exceed 0.347 ug/m\textsuperscript{3} (Tables \ref{tab:res1km})
+\par 
+With ammonia as target variable the error are higher.
+In relation to the results obtained by RF at 1 km with PM2.5 as target variables, the ones of ammonia has a MAE that has a maximum value of 0.939 ug/m\textsuperscript{3} in the September period (table \ref{tab:nh3RF})
+
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
-  MAE\_sensor &        1.448 &        1.093 &        0.646 &       0.898 &       0.841 \\
-RMSE\_sensor &        1.940 &        1.362 &        0.868 &       1.165 &       1.080 \\
- MSE\_sensor &        3.772 &        1.874 &        0.776 &       1.376 &       1.197 \\
-  R2\_sensor &        0.872 &        0.766 &        0.683 &       0.870 &       0.793 \\
+  MAE\_sensor ($\mu$g/m\textsuperscript{3}) &        1.448 &        1.093 &        0.646 &       0.898 &       0.841 \\
+RMSE\_sensor ($\mu$g/m\textsuperscript{3}) &        1.940 &        1.362 &        0.868 &       1.165 &       1.080 \\
+ MSE\_sensor ($\mu$g\textsuperscript{2}/m\textsuperscript{6}) &        3.772 &        1.874 &        0.776 &       1.376 &       1.197 \\
+  R2\_sensor  &        0.872 &        0.766 &        0.683 &       0.870 &       0.793 \\
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for PM2.5 at 10 km, excluding zones with mountains.}
@@ -124,13 +131,13 @@ RMSE\_sensor &        1.940 &        1.362 &        0.868 &       1.165 &       
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
-  MAE\_sensor &        0.251 &        0.186 &        0.147 &       0.172 &       0.132 \\
-RMSE\_sensor &        0.503 &        0.361 &        0.255 &       0.285 &       0.240 \\
- MSE\_sensor &        0.283 &        0.138 &        0.066 &       0.084 &       0.059 \\
-  R2\_sensor &        0.992 &        0.985 &        0.981 &       0.994 &       0.993 \\
+  MAE\_sensor ($\mu$g/m\textsuperscript{3}) &        0.347 &        0.234 &        0.156 &       0.199 &       0.146 \\
+RMSE\_sensor ($\mu$g/m\textsuperscript{3}) &        0.624 &        0.392 &        0.261 &       0.327 &       0.232 \\
+ MSE\_sensor ($\mu$g\textsuperscript{2}/m\textsuperscript{6}) &        0.411 &        0.158 &        0.069 &       0.113 &       0.054 \\
+  R2\_sensor  &        0.990 &        0.985 &        0.982 &       0.993 &       0.991 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM2.5 at 1 km, including zones with mountains.}
+\caption{Random Forest prediction for PM2.5 at 1 km, excluding zones with mountains.}
 \label{tab:res1km}
 \end{table}
 
@@ -139,10 +146,10 @@ RMSE\_sensor &        0.503 &        0.361 &        0.255 &       0.285 &       
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
- MAE\_sensor &        0.483 &        0.280 &        0.526 &       0.939 &       0.386 \\
-RMSE\_sensor &        0.993 &        0.558 &        1.184 &       2.316 &       0.860 \\
- MSE\_sensor &        1.199 &        0.430 &        1.556 &       6.147 &       1.121 \\
-  R2\_sensor &        0.997 &        0.992 &        0.994 &       0.987 &       0.990 \\
+ MAE\_sensor ($\mu$g/m\textsuperscript{3}) &        0.483 &        0.280 &        0.526 &       0.939 &       0.386 \\
+RMSE\_sensor ($\mu$g/m\textsuperscript{3}) &        0.993 &        0.558 &        1.184 &       2.316 &       0.860 \\
+ MSE\_sensor ($\mu$g\textsuperscript{2}/m\textsuperscript{6}) &        1.199 &        0.430 &        1.556 &       6.147 &       1.121 \\
+  R2\_sensor  &        0.997 &        0.992 &        0.994 &       0.987 &       0.990 \\
 \bottomrule
 \end{tabular}
 \caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
@@ -153,18 +160,18 @@ RMSE\_sensor &        0.993 &        0.558 &        1.184 &       2.316 &       
 \toprule
   &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
 \midrule
- MAE\_sensor &        1.904 &        2.287 &        3.126 &       2.743 &       3.146 \\
-RMSE\_sensor &        2.570 &        3.341 &        4.205 &       3.841 &       4.465 \\
- MSE\_sensor &        6.867 &       11.579 &       18.068 &      16.405 &      21.579 \\
+ MAE\_sensor ($\mu$g/m\textsuperscript{3})&        1.904 &        2.287 &        3.126 &       2.743 &       3.146 \\
+RMSE\_sensor ($\mu$g/m\textsuperscript{3}) &        2.570 &        3.341 &        4.205 &       3.841 &       4.465 \\
+ MSE\_sensor ($\mu$g\textsuperscript{2}/m\textsuperscript{6}) &        6.867 &       11.579 &       18.068 &      16.405 &      21.579 \\
   R2\_sensor &        0.984 &        0.800 &        0.927 &       0.965 &       0.852 \\
 \bottomrule
 \end{tabular}
 \caption{Neural Network prediction for NH3 at 1 km, excluding zones with mountains.}
 \label{tab:nh3NN}
 \end{table}
-In the model for the estimation of ammonia, instead, this error is clearly higher (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}).
-Nevertheless, the results are substantially accurate as well. \\
-This difference should be given by a different number of ground sensors for each pollutant. The sample for the measurement of particulate matter is larger than the one for ammonia (Figure \ref{fig:comparison-sensors}).
+This difference should be given by a different number of ground sensor measuraments of each pollutant. The size of samples of particulate matter is larger than the one for ammonia.
+In the figure \ref{fig:comparison-sensors} are shown the observations at 10km resolution of each different target variable used in this case study. \\
+The legend shows whether the cell has an added value by KNN or not. By these images we can observe how the number of samples passed from 28 to 173 for PM2.5 as target variable and from 8 to 69 for NH3.
 \begin{figure}[H] 
     \centering
     \subfloat[PM2.5 as target variable.]{%
@@ -176,71 +183,21 @@ This difference should be given by a different number of ground sensors for each
         \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
         %
         }%
-    \caption{In these images are shown the observations at 10km resolution of each different target variable used in this case study. \\
-    The legend shows whether the cell has an interpolated value with KNN or not. In addition, ground sensors from which interpolation is performed are added.\\ 
-    The sample number passed from 28 to 173 for PM2.5 as target variable and from 8 to 69 for NH3.}
+    \caption{In these images }
     \label{fig:comparison-sensors}
 \end{figure}
-We can observe that generally, the Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). \\
+We can observe also that generally, the Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). \\
 This may be since RF algorithm uses the ensemble learning method for regression, a technique that joins estimation from multiple models to have more accurate predictions than a single model.\\ 
 R\textsuperscript{2} in each test assumes a positive value, meaning that the pollutants taken into consideration in this case study can be explained by the regression models. 
-
 \pagebreak
-\subsection{Comparison with CAMS model}
-The comparison between the models of my results and CAMS data shows how values are very far from them. MAE for PM2.5 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. \\
-Another difference between the two models is the R\textsuperscript{2} value which assumes a negative value in most cases. It proves the presence of a big difference between training and test values. 
-\begin{table}[H]
-\begin{tabular}{lrrrrr}
-\toprule
-  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
-  MAE\_cams &        7.800 &        6.556 &        2.110 &       3.060 &       3.478 \\
-  RMSE\_cams &        9.262 &        7.571 &        2.745 &       3.623 &       4.059 \\
-   MSE\_cams &       86.279 &       57.593 &        7.548 &      13.266 &      16.591 \\
-    R2\_cams &       -2.147 &       -7.492 &       -2.846 &      -0.258 &      -1.096 \\
-\bottomrule
-\end{tabular}
-\caption{Random Forest prediction for PM2.5 at 1 km, including zones with mountains.}
-\end{table}
-\begin{table}[H]
-\begin{tabular}{lrrrrr}
-\toprule
-  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
-   MAE\_cams &       18.401 &       10.414 &       11.746 &      14.180 &      12.012 \\
-  RMSE\_cams &       19.196 &       12.126 &       17.744 &      21.241 &      13.697 \\
-   MSE\_cams &      368.858 &      147.652 &      323.418 &     456.145 &     188.650 \\
-    R2\_cams &        0.136 &       -1.511 &       -0.158 &      -0.001 &      -0.060 \\
-\bottomrule
-\end{tabular}
-\caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
-\end{table}
-These results are in contrast with the FS results, where the correlation between the ARPA values (target variable) and the CAMS models is one of the strongest.
-From this results, we hypothesize that both pm25\_st / nh3\_st and pm25\_cams / nh3\_cams variables describe the same pollution phenomenon having the same behaviour, but between them, there would be a bias.\\
-Obviously, the model of Copernicus Atmosphere Monitoring Service provides different results than the one obtained by me, since is built very differently. CAMS is built through an ensemble median, averaged by eleven European air quality forecasting systems. Therefore, the median model should perform better than the individual model products \cite{riccio2007seeking}.
-Anyway, through information collected on the Copernicus website, only a limited number of ground observations are detected in the Italian territory. As can be seen in figure \ref{fig:cams} in Italy there is only 2 observations in Lombardy for PM2.5 detection.\\
-Nothing was found for Ammonia.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{images/cams_obs.png}
-    \caption{The following map includes a set of points layers representing the forecast performance of the station used by the ensemble median model of CAMS. In particular, the RMSE of them is shown \cite{camsobs}. 
-}
-    \label{fig:cams}
-\end{figure}
 
-So, by the validation results and the larger number of ground observations provided by ARPA in this data collection, we hypothesize that this model should perform better on this local scale.
-\par
-Based on these results, we can point out that Random Forest is more precise than the  Neural Network model and that the performance is higher for particulate matter than ammonia estimation.\\
-Random Forest indeed is one of the most preferred also in the literature prediction models for its easy configuration.
 \subsection{Importance of the FS}
 The underlying tables provide model results if FS is before applied or not.
 
 It can be observed that feature selection is meaningful for the pre-processing phase since aims at discarding eventually useless variables and taking only the ones really relevant to the target variable. \\
-In the results obtained, we can detect that selection of variable with FS assume a key role for a sample of small size.\\ 
-Indeed, in the tests with a resolution 10 Km model, there is a feasible difference between the data trained by variable from FS and the ones chosen randomly (Table \ref{fig:importance10km}). \\
-This gap decreases with higher resolution (Table \ref{fig:importance1km}).
-This is implied by the fact that the more the training size is sufficient, the less a feature selection procedure improves the accuracy \cite{chu2012does}.
-\par
+In the results obtained, we can detect that selection of variable with FS assume a key role for reducing the training time.\\ 
+Instead, there is no visible difference in terms of accuracy in the results obtained in both resolutions (Tables \ref{fig:importance10km} and \ref{fig:importance1km}).\\
+These findings suggest that if a reduction of the input variables is applyied the training will be faster without compromising its accuracy.
 In conclusion, the difference between the results of this test and the ones run for each period show also the presence of overfitting in my models. Indeed, results obtained with temporal hold-out validation (in particular for  R\textsuperscript{2}) shows how the \acrshort{rf} model can't make accurate predictions about new data (which comes from a different period).  
 
 \begin{table}[H]
@@ -250,11 +207,11 @@ In conclusion, the difference between the results of this test and the ones run 
 \toprule
  &  With FS & Without FS \\
   \midrule
- MAE\_sensor &        2.123  &        2.061 \\
-RMSE\_sensor &        2.645 &        2.567 \\
- MSE\_sensor &        6.997  &       6.592 \\
-  R2\_sensor &        0.130  &         0.176\\
-   Training time: & 2.402 s& 3.637 s\\
+ MAE\_sensor ($\mu$g/m\textsuperscript{3}) &        2.123  &        2.061 \\
+RMSE\_sensor ($\mu$g/m\textsuperscript{3}) &        2.645 &        2.567 \\
+ MSE\_sensor ($\mu$g\textsuperscript{2}/m\textsuperscript{6}) &        6.997  &       6.592 \\
+  R2\_sensor  &        0.130  &         0.176\\
+   Training time (s) & 2.402 & 3.637 \\
 \end{tabular}
 \label{fig:importance10km}}
 \\
@@ -263,11 +220,11 @@ RMSE\_sensor &        2.645 &        2.567 \\
 \toprule
 & With FS &  Without FS\\
 \midrule
- MAE\_sensor &        2.677 &        2.660 \\
-RMSE\_sensor &        3.230  &        3.252\\
- MSE\_sensor &        10.434 &        10.575  \\
+ MAE\_sensor ($\mu$g/m\textsuperscript{3})&        2.677 &        2.660 \\
+RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        3.230  &        3.252\\
+ MSE\_sensor ($\mu$g\textsuperscript{2}/m\textsuperscript{6})&        10.434 &        10.575  \\
   R2\_sensor &        -0.268 &        -0.285 \\
-   Training time & 17.298 s & 24.338 s\\
+   Training time (s) & 17.298 & 24.338 \\
  \label{fig:importance1km}
 \end{tabular}}
 \caption{Random Forest prediction for PM2.5, including zones with mountains using or not FS.}
