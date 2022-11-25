@@ -37,7 +37,7 @@ In the next lines, each variable is provided in tables, by showing its type, nam
 \begin{center}
 \setlength{\arrayrulewidth}{1.5pt}
 
-\begin{longtable}{ |p{2.3cm}|p{1.8cm}|p{2.3cm}|p{4cm}|p{1cm}|p{2.3cm}| } 
+\begin{longtable}{ |p{2.1cm}|p{1.4cm}|p{2.7cm}|p{4cm}|p{1cm}|p{2.3cm}| } 
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
@@ -71,7 +71,7 @@ In the next lines, each variable is provided in tables, by showing its type, nam
 
 \begin{center}
 \setlength{\arrayrulewidth}{1.5pt}
-\begin{longtable}{ |p{1.5cm}|p{1.5cm}|p{2.3cm}|p{4cm}|p{2cm}|p{2.3cm}| } 
+\begin{longtable}{ |p{1.6cm}|p{1.5cm}|p{2.3cm}|p{4cm}|p{2cm}|p{2.3cm}| } 
 \hline
 \textbf{Physical variable} & \textbf{Source type}  & \textbf{Variable name}  & \textbf{Description}  & \textbf{Unit}  & \textbf{Source}\\ 
 \hline
@@ -119,8 +119,8 @@ $\mu$g/m\textsuperscript{3} & CAMS Model.\\
 & Ground \newline Sensor & \underline{co\_lcs} &  Mean CO concentration ground measurement - Low Cost Sensor ESA monitoring stations. \par & $\mu$g/m\textsuperscript{3} & ESA Air Quality Platform.\\ \hline
 
 \multirow{3}{4em}{O\textsubscript{3}} & Model  & \underline{o3\_cams} & Mean O\textsubscript{3} concentration at 0m level provided by CAMS  (Ensemble Median - Analysis).\par & $\mu$g/m\textsuperscript{3} & CAMS Model.\\ 
-& Satellite \newline Sensor  & \underline{03\_s5p} &  Mean O\textsubscript{3} total atmospheric column.\par  & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
-& Ground \newline Sensor & \underline{03\_st} &  Mean O\textsubscript{3} concentration ground measurement - ARPA monitoring stations.  \par& $\mu$g/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
+& Satellite \newline Sensor  & \underline{o3\_s5p} &  Mean O\textsubscript{3} total atmospheric column.\par  & mol/m\textsuperscript{2} & Sentinel-5P.\\ 
+& Ground \newline Sensor & \underline{o3\_st} &  Mean O\textsubscript{3} concentration ground measurement - ARPA monitoring stations.  \par& $\mu$g/m\textsuperscript{3} & ARPA \newline Lombardia.\\ 
  \hline
  
  \multirow{1}{4em}{CH\textsubscript{2}O}& Satellite \newline Sensor  & \underline{ch20\_s5p} &  Mean Formaldehyde tropospheric column number density. \par & mol/m\textsuperscript{2} & Sentinel-5P.\\ \hline
@@ -314,7 +314,6 @@ However, no country in the world has yet established a monitoring network with a
 Due to the fact that with the use of data cleaning it results a data set with a number of samples too limited to be used fot FS or any models.
 By seeing figure \ref{fig:cells}, there are respectevely only 34 and 8 observations if we considered PM2.5 and Ammonia as target variable.
 In order to mitigate this, I adopted an approach in order to increase its size with interpolation.
-This approach was not accurately justified because is used only to increase the size of cells with ground sensor measuraments for making applicable the FS procedure.
 I previously performed a classifier k nearest neighbor  \cite{taunk2019brief} to detect the buffer of cells close to the location of the ground station measurement.\\
 To increase the number of observations provided by the limited ARPA stations in Lombardy, a k-nearest neighbors algorithm is applied to add the buffer of values (with k, respectively, equal to 10 for 0.1° and 30 for 0.01° resolution). \\ 
 
@@ -363,14 +362,53 @@ new size: 240
     \caption{Performance in terms of MAE, RMSE, MSE and R\textsuperscript{2} of the Random Forest model with PM2.5 as target variable in function of the K chosen by \acrshort{knn} applied in the data cleaning.}
     \label{fig:knn_chosen}
 \end{figure}
+
+
+\begin{figure}[H] 
+    \centering
+    \subfloat[PM2.5 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{images/pm25_sensors.png}%
+        %
+        }%
+    \hfill%
+    \subfloat[NH3 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
+        %
+        }%
+    \caption{These images show the spatial representation of the cells of the grid data obtained with the use of KNN with 10 km resolution.}
+    \label{fig:comparison-sensors1}
+\end{figure}
+\begin{figure}[H] 
+    \centering
+    \subfloat[PM2.5 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{images/pm25_sensors_1km.png}%
+        %
+        }%
+    \hfill%
+    \subfloat[NH3 as target variable.]{%
+        \includegraphics[width=0.5\textwidth]{images/nh3_sensors_1km.png}%
+        %
+        }%
+    \caption{These images show the spatial representation of the cells of the grid data obtained with the use of KNN with 1 km resolution.}
+    \label{fig:comparison-sensors2}
+\end{figure}
+
+
+
+
 Then, these cells are set with values computed using a \gls{rbf} \cite{wright2003radial} which are separately stored in variables with the name that ends with '\_int'. RBF was performed using a linear interpolation.\\
 The given procedure is available on GitHub\footnote{\url{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}}.
-The reason of the choice of k is to find a value which could have been a trade-off between dimension of k and both the accuracy and processing time that allows us to apply FS.
-Accuracy could be seen in the figure \ref{fig:knn_chosen} where the error metrics of the Random Forest model (described in the next section \ref{sec:modelling}) are shown in function of the k choosen.
-The choi
-Instead, in the figure ssss is shown the processing time taken to run this procedure for each different resolution in function of the k choosen. 
-TODO
-\par
+This approach was not accurately justified because is used only to increase the size of cells with ground sensor measuraments for making applicable the FS procedure.
+The k chosen used to increase the number of cells with a value is given by a trade-off between dimension of k and both the accuracy and processing time that allows us to apply FS.
+Accuracy could be seen in the figure \ref{fig:knn_chosen} where the error metrics of the Random Forest model (described in the next section \ref{sec:modelling}) are in function of the k choosen.
+Therefore, for 10 km resolution I used a K value that allow me to increase partially the number of cells for FS and the model, without increment particularly the performance. 
+In the figure TODO is shown the processing time taken to run this method for resolution at 1 km in function of the k choosen.
+For 1 km resolution I chose a k values which allows me to have  an minimal increment in relation to the space covered by each cell. Indeed, using a K proportional the time spent for running the algorthms to the tends to be too high.    
+In addition, the values of k for each resolution chosen bring 2 different spatial extensions that could be seen in figure hhh.
+
+
+
+
 Before the feature selection phase I remove variable with low variance.
 A feature with low variance is characterized by having observations very close to the mean value and thus almost constant.
 Features with constant values should be discarded because of its low variability.

@@ -170,7 +170,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3}) &        2.570 &        3.341 &      
 \label{tab:nh3NN}
 \end{table}
 This difference should be given by a different number of ground sensor measuraments of each pollutant. The size of samples of particulate matter is larger than the one for ammonia.
-In the figure \ref{fig:comparison-sensors} are shown the observations at 10km resolution of each different target variable used in this case study. \\
+In the figure \ref{fig:comparison-sensors} are shown the observations at 10km resolution of each different target variable used in this case study. The number of observations used (green cells) depends strictly on the number of ground sensor measurements . \\
 The legend shows whether the cell has an added value by KNN or not. By these images we can observe how the number of samples passed from 28 to 173 for PM2.5 as target variable and from 8 to 69 for NH3.
 \begin{figure}[H] 
     \centering
@@ -183,7 +183,7 @@ The legend shows whether the cell has an added value by KNN or not. By these ima
         \includegraphics[width=0.5\textwidth]{images/nh3_sensors.png}%
         %
         }%
-    \caption{In these images }
+    \caption{These images show the spatial representation of the cells of the grid data obtained with the use of KNN with 10 km resolution.}
     \label{fig:comparison-sensors}
 \end{figure}
 We can observe also that generally, the Random Forest model makes more accurate predictions than the Neural Network by Keras (Tables \ref{tab:nh3RF} and \ref{tab:nh3NN}). \\
