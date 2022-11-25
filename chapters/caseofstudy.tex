@@ -364,9 +364,10 @@ new size: 240
     \label{fig:knn_chosen}
 \end{figure}
 Then, these cells are set with values computed using a \gls{rbf} \cite{wright2003radial} which are separately stored in variables with the name that ends with '\_int'. RBF was performed using a linear interpolation.\\
-The given procedure and validation results are available on GitHub\footnote{\url{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}}.
+The given procedure is available on GitHub\footnote{\url{https://github.com/gisgeolab/D-DUST/blob/WP2/Ground\%20Sensor\%20Variables\%20Request\%20.ipynb}}.
 The reason of the choice of k is to find a value which could have been a trade-off between dimension of k and both the accuracy and processing time that allows us to apply FS.
 Accuracy could be seen in the figure \ref{fig:knn_chosen} where the error metrics of the Random Forest model (described in the next section \ref{sec:modelling}) are shown in function of the k choosen.
+The choi
 Instead, in the figure ssss is shown the processing time taken to run this procedure for each different resolution in function of the k choosen. 
 TODO
 \par
@@ -379,7 +380,7 @@ As suggested by this study, I discarded variables which has the following parame
     \item the percentage of unique values greater than 20\%;
     \item the ratio of the most prevalent over the second most prevalent value greater than 20;
 \end{itemize} 
-This choice in the article is made because of the presence of a very frequent value. In this case study instead, there are many variables related to the fractional land use (such as siarlX and dsfX) which assign 0 to most of the cells. TODO
+This choice in the article is made because of the presence of a very frequent value. It was applied in this case study due to the presence of many variables related to the fractional land use (such as siarlX and dsfX) which assign 0 to most of the cells. 
 
 \pagebreak
 \section{Feature Selection}
