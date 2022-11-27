@@ -17,7 +17,7 @@ Feature Selection is also used before a prediction process because it helps to i
 For instance, FS was also employed in the environmental field to predict and monitor air pollution \cite{ul2022improving}, which is also one of the goals of D-DUST. 
 \par
 D-DUST aims to predict primary pollutants from intensive farming.\\ 
-In order to contribute to this, I performed FS on variables from different kinds of data resources are used.
+To contribute to this, I performed FS on variables from different kinds of data resources used.
 The physical and chemical variables chosen are the ones that, according to the scientific literature review, are most associated with the formation of primary and secondary atmospheric PM. 
 Data include satellite observations (as Sentinel-5P) that can provide high spatial and temporal resolution of air pollutants variables. \\
 One purpose of D-DUST is also to combine satellite-based information with ground sensor observation and air quality/atmospheric models. Indeed, satellite observations can give us useful information, especially in rural areas where ground sensors are limited thanks to their granularity.\\
@@ -32,14 +32,14 @@ Indeed, an aspect taken into consideration in this work is also that a \acrshort
 So it's needed to care about interpretability to discard eventually confounding variables which can suggest there is a correlation when in fact there is not, even if the model's accuracy is extremely high.\\
 For example, a new paper by Alex DeGrave et al. \cite{degrave2021ai} shows that a Deep Learning model trained with improper data was taking shortcuts in COVID-19 detection on radiographs due to the position of certain markers rather than on the actual radiograph.
 Another common example of this is the confounding correlation between the number of shark attacks and ice cream sales. 
-The following picture (Figure \ref{fig:shark}) \cite{shark-icecream} highlights how there's no direct relationship between shark attacks and ice-cream sales. Instead, they're both caused by a third factor (High temperature).\newline
+The following picture (Figure \ref{fig:shark}) \cite{shark-icecream} highlights how there's no direct relationship between shark attacks and ice cream sales. Instead, they're both caused by a third factor (High temperature).\newline
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.25]{images/confounding.png}
     \caption{Representation of the relationship between shark attack and ice-cream sales.}
     \label{fig:shark}
 \end{figure}
-Therefore, the key to increase the interpretability of a given model is to wonder if a given factor should drive the final decision.\par
+Therefore, the key to increasing the interpretability of a given model is to wonder if a given factor should drive the final decision.\par
 In this context, in which the black-box nature of \acrshort{ml} algorithms raises ethical and judicial concerns inducing a lack of trust \cite{9141213}, \gls{xai} aims to create a fully interpretable model.\\
 Before the advent of XAI, the scientific community was focused on the predictive power of algorithms rather than the understanding behind these predictions.\\
 This need for reliable high-performing models led to XAI, a field focused on the interpretation of how AI systems take decisions.
@@ -54,13 +54,13 @@ In addition, the trend of Explainable AI grew up in the last 3 years, while the 
     \label{fig:AI_XAI}
 \end{figure}
 In this work, the focus is on model interpretability instead of explainability, even if in literature there are references that describe them in the same way.\\
-Interpretable Artificial Intelligence (or Interpretable Machine Learning) helps to understand how \acrshort{ml} algorithms make prediction, with the use of feature selection methods to clarify the model decision.
+Interpretable Artificial Intelligence (or Interpretable Machine Learning) helps to understand how \acrshort{ml} algorithms make predictions, with the use of feature selection methods to clarify the model decision.
 \par
-Feature selection can provide relevant explanations by quantifying the influence of each independent variable with a score.\\
+Feature selection can provide relevant explanations by quantifying the influence of each input variable on the model's output with a score.\\
 The contribution of FS will be afterwards considered during the development of ML models by D-DUST.\\
 This step aims to provide a weighted score of each environmental variable considering the pollutants emitted by intensive farming activities as target variables (e.g PM2.5 and Ammonia). \\
 In this work, scores will be interpreted with findings in the literature to confirm them.\\
-Due to the fact that there is no best feature selection technique, I performed and combined different supervised methods. \\
+Because there is no best feature selection technique, I performed and combined different supervised methods. \\
 Then, the most weighted input variables will be used as predictors inside the D-DUST project to monitor primary pollutants from intensive farming with data science techniques, such as ML models.\\
 In my work, after the reduction of the variables was made by FS, I also built 2 ML models to predict target variables related to intensive farming activities such as PM2.5 and ammonia.
 \bigbreak

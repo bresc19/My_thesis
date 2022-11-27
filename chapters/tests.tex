@@ -1,57 +1,3 @@
-\chapter{Appendix: comparison with CAMS model  }
-\label{chap:appendixCAMS}
-The comparison between the models of my results and CAMS data shows how values are very far from them. MAE for PM2.5 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. \\
-Another difference between the two models is the R\textsuperscript{2} value which assumes a negative value in most cases. It proves the presence of a big difference between training and test values. 
-\begin{table}[H]
-\begin{tabular}{lrrrrr}
-\toprule
-  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
-  MAE\_cams ($\mu$g/m\textsuperscript{3})&        7.800 &        6.556 &        2.110 &       3.060 &       3.478 \\
-  RMSE\_cams ($\mu$g/m\textsuperscript{3})&        9.262 &        7.571 &        2.745 &       3.623 &       4.059 \\
-   MSE\_cams ($\mu$g\textsuperscript{2}/m\textsuperscript{6})&       86.279 &       57.593 &        7.548 &      13.266 &      16.591 \\
-    R2\_cams &       -2.147 &       -7.492 &       -2.846 &      -0.258 &      -1.096 \\
-\bottomrule
-\end{tabular}
-\caption{Random Forest prediction for PM2.5 at 1 km, including zones with mountains.}
-\label{tab:cams1}
-\end{table}
-\begin{table}[H]
-\begin{tabular}{lrrrrr}
-\toprule
-  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
-\midrule
-   MAE\_cams ($\mu$g/m\textsuperscript{3})&       18.401 &       10.414 &       11.746 &      14.180 &      12.012 \\
-  RMSE\_cams ($\mu$g/m\textsuperscript{3})&       19.196 &       12.126 &       17.744 &      21.241 &      13.697 \\
-   MSE\_cams ($\mu$g\textsuperscript{2}/m\textsuperscript{6})&      368.858 &      147.652 &      323.418 &     456.145 &     188.650 \\
-    R2\_cams &        0.136 &       -1.511 &       -0.158 &      -0.001 &      -0.060 \\
-\bottomrule
-\end{tabular}
-\caption{Random Forest prediction for NH3 at 1 km, excluding zones with mountains.}
-\label{tab:cams2}
-\end{table}
-These results are in contrast with the FS results, where the correlation between the ARPA values (target variable) and the CAMS models is one of the strongest.
-From these results and the ones obtained by FS in the , we hypothesize that both pm25\_st / nh3\_st and pm25\_cams / nh3\_cams variables measure the same pollution phenomenon (figure \ref{fig:a}), but between them there would be a bias in the samples obtained (tables \ref{tab:cams1} and \ref{tab:cams2}).\\
-Obviously, the model of Copernicus Atmosphere Monitoring Service provides different results than the one obtained by me, since is built very differently. CAMS is built through an ensemble median, averaged by eleven European air quality forecasting systems. Therefore, the median model should perform better than the individual model products \cite{riccio2007seeking}.
-Anyway, through information collected on the Copernicus website, only a limited number of ground observations are detected in the Italian territory. 
-The map in in figure \ref{fig:cams} includes a set of points layers representing the forecast performance of the station used by the ensemble median model of CAMS.
-It can be seen that in Italy there is only 2 observations in Lombardy for PM2.5 detection.\\
-Nothing was found for Ammonia.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.25]{images/cams_obs.png}
-    \caption{Forecast performance at station and country level for the RMSE ($\mu$g/m\textsuperscript{3}) of the PM2.5 of CAMS \cite{camsobs} in 2021. 
-}
-    \label{fig:cams}
-\end{figure}
-
-So, by the validation results and the larger number of ground observations provided by ARPA in this data collection, we hypothesize that this model should perform better on this local scale.
-\par
-Based on these results, we can point out that Random Forest is more accurate than the  Neural Network model and that the performance is higher for particulate matter than ammonia estimation.\\
-\begin{comment}
-Random Forest indeed is one of the most preferred also in the literature prediction models for its easy configuration.
-\end{comment}
-
 \chapter{Appendix: Results}
 \label{chap:appendix}
 In this appendix are collected all results of
@@ -64,8 +10,8 @@ In this appendix are collected all results of
     \end{itemize} 
     In particular, errors computed are related to:
     \begin{itemize}
-        \item the validation with ARPA values (labeled with '\_sensor');
-        \item the validation with CAMS values (labeled with '\-cams');
+        \item the validation with ARPA values (labelled with '\_sensor');
+        \item the validation with CAMS values (labelled with '\-cams');
     \end{itemize}
 \end{itemize}
 \section{Feature Selection results}
@@ -162,7 +108,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        1.768 &        1.133 &       
     R2\_cams &       -2.147 &       -7.492 &       -2.846 &      -0.258 &      -1.096 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM2.5 with 10 km resolution, including zones with mountains.}
+\caption{Random Forest statistics for PM2.5 with 10 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -180,7 +126,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        1.940 &        1.362 &       
 \bottomrule
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM2.5 with 10 km resolution, excluding zones with mountains.}
+\caption{Random Forest statistics for PM2.5 with 10 km resolution, excluding zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -197,7 +143,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        0.503 &        0.361 &       
     R2\_cams &       -1.821 &       -7.099 &       -0.727 &      -0.180 &      -1.578 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM2.5 with 1 km resolution, including zones with mountains.}
+\caption{Random Forest statistics for PM2.5 with 1 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -214,7 +160,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        0.624 &        0.392 &       
     R2\_cams &       -1.682 &       -7.131 &        0.004 &      -0.187 &      -2.674 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for PM2.5 with 1 km resolution, excluding zones with mountains.}
+\caption{Random Forest statistics for PM2.5 with 1 km resolution, excluding zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -231,7 +177,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        5.827 &        2.809 &       
     R2\_cams &       -0.462 &       -2.048 &        0.013 &       0.139 &      -1.066 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for NH3 with 10 km resolution, including zones with mountains.}
+\caption{Random Forest statistics for NH3 with 10 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -248,7 +194,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        5.365 &        2.496 &       
     R2\_cams &       -0.022 &       -2.954 &       -0.236 &       0.062 &      -0.547 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for NH3 with 10 km resolution, excluding zones with mountains.}
+\caption{Random Forest statistics for NH3 with 10 km resolution, excluding zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -265,7 +211,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        0.954 &        0.327 &       
     R2\_cams &        0.227 &       -1.134 &       -0.044 &       0.124 &      -0.030 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for NH3 with 1 km resolution, including zones with mountains.}
+\caption{Random Forest statistics for NH3 with 1 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -282,7 +228,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        0.993 &        0.558 &       
     R2\_cams &        0.136 &       -1.511 &       -0.158 &      -0.001 &      -0.060 \\
 \bottomrule
 \end{tabular}
-\caption{Random Forest prediction for NH3 with 1 km resolution, excluding zones with mountains.}
+\caption{Random Forest statistics for NH3 with 1 km resolution, excluding zones with mountains.}
 \end{table}
 \subsection{Neural Network by Keras}
 \begin{table}[H]
@@ -300,7 +246,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        2.643 &        2.008 &       
     R2\_cams &       -2.147 &       -8.102 &       -3.386 &      -0.239 &      -1.158 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for PM2.5 with 10 km resolution, including zones with mountains.}
+\caption{Neural Network statistics for PM2.5 with 10 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -317,7 +263,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        2.257 &        1.955 &       
     R2\_cams &       -2.281 &       -8.213 &       -0.193 &      -0.561 &      -2.351 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for PM2.5 with 10 km resolution, excluding zones with mountains.}
+\caption{Neural Network statistics for PM2.5 with 10 km resolution, excluding zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -334,7 +280,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        1.997 &        1.340 &       
     R2\_cams &       -1.840 &       -6.979 &       -0.735 &      -0.157 &      -1.585 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for PM2.5 with 1 km resolution, including zones with mountains.}
+\caption{Neural Network statistics for PM2.5 with 1 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -351,7 +297,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        1.995 &        1.174 &       
     R2\_cams &       -1.627 &       -7.082 &       -0.006 &      -0.181 &      -2.616 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for PM2.5 with 1 km resolution, excluding zones with mountains.}
+\caption{Neural Network statistics for PM2.5 with 1 km resolution, excluding zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -368,7 +314,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        6.896 &        3.283 &       
     R2\_cams &        0.680 &        0.217 &        0.212 &       0.546 &       0.822 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for NH3 with 10 km resolution, including zones with mountains.}
+\caption{Neural Network statistics for NH3 with 10 km resolution, including zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -385,7 +331,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        5.405 &        2.988 &       
     R2\_cams &        0.710 &       -0.106 &       -0.034 &       0.425 &       0.591 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for NH3 with 10 km resolution, excluding zones with mountains.}
+\caption{Neural Network statistics for NH3 with 10 km resolution, excluding zones with mountains.}
 \end{table}
 \begin{table}[H]
 \begin{tabular}{lrrrrr}
@@ -402,7 +348,7 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        3.953 &        3.010 &       
     R2\_cams &        0.736 &        0.456 &        0.180 &       0.445 &       0.695 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for NH3 with 1 km resolution, including zones with mountains.}
+\caption{Neural Network statistics for NH3 with 1 km resolution, including zones with mountains.}
 \end{table}
 
 
@@ -421,15 +367,59 @@ RMSE\_sensor ($\mu$g/m\textsuperscript{3})&        2.570 &        3.341 &       
     R2\_cams &        0.692 &        0.254 &        0.058 &       0.342 &       0.631 \\
 \bottomrule
 \end{tabular}
-\caption{Neural Network prediction for NH3 with 1 km resolution, excluding zones with mountains.}
+\caption{Neural Network statistics for NH3 with 1 km resolution, excluding zones with mountains.}
 \end{table}
 
+\chapter{Appendix: comparison with CAMS model  }
+\label{chap:appendixCAMS}
+The comparison between the models of my results and CAMS data shows how values are very far from them. MAE for PM2.5 values is around 5 while for ammonia around 10 ug/m\textsuperscript{3}. \\
+Another difference between the two models is the R\textsuperscript{2} value which assumes a negative value in most cases. It proves the presence of a big difference between training and test values. 
+\begin{table}[H]
+\begin{tabular}{lrrrrr}
+\toprule
+  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
+\midrule
+  MAE\_cams ($\mu$g/m\textsuperscript{3})&        7.800 &        6.556 &        2.110 &       3.060 &       3.478 \\
+  RMSE\_cams ($\mu$g/m\textsuperscript{3})&        9.262 &        7.571 &        2.745 &       3.623 &       4.059 \\
+   MSE\_cams ($\mu$g\textsuperscript{2}/m\textsuperscript{6})&       86.279 &       57.593 &        7.548 &      13.266 &      16.591 \\
+    R2\_cams &       -2.147 &       -7.492 &       -2.846 &      -0.258 &      -1.096 \\
+\bottomrule
+\end{tabular}
+\caption{Random Forest statistics for PM2.5 at 1 km, including zones with mountains.}
+\label{tab:cams1}
+\end{table}
+\begin{table}[H]
+\begin{tabular}{lrrrrr}
+\toprule
+  &  24/03-31/03 &  18/04-25/04 &  17/07-24/07 &  3/09-10/09 &  7/10-14/10 \\
+\midrule
+   MAE\_cams ($\mu$g/m\textsuperscript{3})&       18.401 &       10.414 &       11.746 &      14.180 &      12.012 \\
+  RMSE\_cams ($\mu$g/m\textsuperscript{3})&       19.196 &       12.126 &       17.744 &      21.241 &      13.697 \\
+   MSE\_cams ($\mu$g\textsuperscript{2}/m\textsuperscript{6})&      368.858 &      147.652 &      323.418 &     456.145 &     188.650 \\
+    R2\_cams &        0.136 &       -1.511 &       -0.158 &      -0.001 &      -0.060 \\
+\bottomrule
+\end{tabular}
+\caption{Random Forest statistics for NH3 at 1 km, excluding zones with mountains.}
+\label{tab:cams2}
+\end{table}
+These results are in contrast with the FS results, where the correlation between the ARPA values (target variable) and the CAMS models is one of the strongest.
+From these results and the ones obtained by FS in the, we hypothesize that both pm25\_st / nh3\_st and pm25\_cams / nh3\_cams variables measure the same pollution phenomenon (figure \ref{fig:a}), but between them, there would be a bias in the samples obtained (tables \ref{tab:cams1} and \ref{tab:cams2}).\\
+The model of Copernicus Atmosphere Monitoring Service provides different results than the one obtained by me since is built very differently. CAMS is built through an ensemble median, averaged by eleven European air quality forecasting systems. Therefore, the median model should perform better than the individual model products \cite{riccio2007seeking}.
+Anyway, through information collected on the Copernicus website, only a limited number of ground observations are detected in the Italian territory. 
+The map in figure \ref{fig:cams} includes a set of points layers representing the forecast performance of the station used by the ensemble median model of CAMS.
+It can be seen that in Italy there are only 2 observations in Lombardy for PM2.5 detection.\\
+Nothing was found for Ammonia.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{images/cams_obs.png}
+    \caption{Forecast performance at station and country level for the RMSE ($\mu$g/m\textsuperscript{3}) of the PM2.5 of CAMS \cite{camsobs} in 2021. 
+}
+    \label{fig:cams}
+\end{figure}
 
-
-
-
-
-
-
-
-
+So, by the validation results and the larger number of ground observations provided by ARPA in this data collection, we hypothesize that this model should perform better on this local scale.
+\par
+Based on these results, we can point out that Random Forest is more accurate than the  Neural Network model and that the performance is higher for particulate matter than ammonia estimation.\\
+\begin{comment}
+Random Forest indeed is one of the most preferred also in the literature statistics models for its easy configuration.
+\end{comment}
